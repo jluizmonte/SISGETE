@@ -15,7 +15,7 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
      * grava responsavelFicha
      *
      * @param pResponsavelFichaModel return int
-     * @return 
+     * @return
      */
     public int salvarresponsavelFichaDAO(ResponsavelFichaModel pResponsavelFichaModel) {
         try {
@@ -23,12 +23,10 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
             return this.insertSQL(
                     "INSERT INTO tbl_responsavel_ficha ("
                     + "pk_id_responsavel_ficha,"
-                    + "nome,"
-                    + "sobrenome"
+                    + "nome"
                     + ") VALUES ("
                     + "'" + pResponsavelFichaModel.getIdResponsavelFicha() + "',"
-                    + "'" + pResponsavelFichaModel.getNome() + "',"
-                    + "'" + pResponsavelFichaModel.getSobrenome() + "'"
+                    + "'" + pResponsavelFichaModel.getNome() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -43,20 +41,14 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
      * recupera responsavelFicha
      *
      * @param pIdResponsavelFichaModel return ResponsavelFichaModel
-     * @return 
+     * @return
      */
     public ResponsavelFichaModel getresponsavelFichaDAO(int pIdResponsavelFichaModel) {
         ResponsavelFichaModel modelresponsavelFicha = new ResponsavelFichaModel();
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT "
-                    + "pk_id_responsavel_ficha,"
-                    + "nome,"
-                    + "sobrenome"
-                    + " FROM"
-                    + " tbl_responsavel_ficha"
-                    + " WHERE"
+                    "SELECT * FROM tbl_responsavel_ficha"
                     + " pk_id_responsavel_ficha = '" + pIdResponsavelFichaModel + "'"
                     + ";"
             );
@@ -64,7 +56,6 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
             while (this.getResultSet().next()) {
                 modelresponsavelFicha.setIdResponsavelFicha(this.getResultSet().getInt(1));
                 modelresponsavelFicha.setNome(this.getResultSet().getString(2));
-                modelresponsavelFicha.setSobrenome(this.getResultSet().getString(3));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,7 +67,8 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
 
     /**
      * recupera uma lista de responsavelFicha return ArrayList
-     * @return 
+     *
+     * @return
      */
     public ArrayList<ResponsavelFichaModel> getListaresponsavelFichaDAO() {
         ArrayList<ResponsavelFichaModel> listamodelresponsavelFicha = new ArrayList();
@@ -86,8 +78,7 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
             this.executarSQL(
                     "SELECT "
                     + "pk_id_responsavel_ficha,"
-                    + "nome,"
-                    + "sobrenome"
+                    + "nome"
                     + " FROM"
                     + " tbl_responsavel_ficha"
                     + ";"
@@ -97,7 +88,6 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
                 modelresponsavelFicha = new ResponsavelFichaModel();
                 modelresponsavelFicha.setIdResponsavelFicha(this.getResultSet().getInt(1));
                 modelresponsavelFicha.setNome(this.getResultSet().getString(2));
-                modelresponsavelFicha.setSobrenome(this.getResultSet().getString(3));
                 listamodelresponsavelFicha.add(modelresponsavelFicha);
             }
         } catch (SQLException e) {
@@ -112,7 +102,7 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
      * atualiza responsavelFicha
      *
      * @param pResponsavelFichaModel return boolean
-     * @return 
+     * @return
      */
     public boolean atualizarresponsavelFichaDAO(ResponsavelFichaModel pResponsavelFichaModel) {
         try {
@@ -120,8 +110,7 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_responsavel_ficha SET "
                     + "pk_id_responsavel_ficha = '" + pResponsavelFichaModel.getIdResponsavelFicha() + "',"
-                    + "nome = '" + pResponsavelFichaModel.getNome() + "',"
-                    + "sobrenome = '" + pResponsavelFichaModel.getSobrenome() + "'"
+                    + "nome = '" + pResponsavelFichaModel.getNome() + "'"
                     + " WHERE "
                     + "pk_id_responsavel_ficha = '" + pResponsavelFichaModel.getIdResponsavelFicha() + "'"
                     + ";"
@@ -138,7 +127,7 @@ public class ResponsavelFichaDAO extends SisgeteConnectionMySql {
      * exclui responsavelFicha
      *
      * @param pIdResponsavelFichaModel return boolean
-     * @return 
+     * @return
      */
     public boolean excluirresponsavelFichaDAO(int pIdResponsavelFichaModel) {
         try {

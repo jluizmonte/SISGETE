@@ -18,7 +18,7 @@ public class QuadroPsicofisicoController {
      * @param pQuadroPsicofisicoModel return int
      */
     public int salvarquadroPsicofisicoController(QuadroPsicofisicoModel pQuadroPsicofisicoModel) {
-        return this.quadroPsicofisicoDAO.salvarquadroPsicofisicoDAO(pQuadroPsicofisicoModel);
+        return this.quadroPsicofisicoDAO.salvarQuadroPsicofisicoDAO(pQuadroPsicofisicoModel);
     }
 
     /**
@@ -27,7 +27,7 @@ public class QuadroPsicofisicoController {
      * @param pIdQuadroPsicofisico return QuadroPsicofisicoModel
      */
     public QuadroPsicofisicoModel getquadroPsicofisicoController(int pIdQuadroPsicofisico) {
-        return this.quadroPsicofisicoDAO.getquadroPsicofisicoDAO(pIdQuadroPsicofisico);
+        return this.quadroPsicofisicoDAO.getQuadroPsicofisicoDAO(pIdQuadroPsicofisico);
     }
 
     /**
@@ -36,7 +36,7 @@ public class QuadroPsicofisicoController {
      * @param pIdQuadroPsicofisico return ArrayList
      */
     public ArrayList<QuadroPsicofisicoModel> getListaquadroPsicofisicoController() {
-        return this.quadroPsicofisicoDAO.getListaquadroPsicofisicoDAO();
+        return this.quadroPsicofisicoDAO.getListaQuadroPsicofisicoDAO();
     }
 
     /**
@@ -45,7 +45,7 @@ public class QuadroPsicofisicoController {
      * @param pQuadroPsicofisicoModel return boolean
      */
     public boolean atualizarquadroPsicofisicoController(QuadroPsicofisicoModel pQuadroPsicofisicoModel) {
-        return this.quadroPsicofisicoDAO.atualizarquadroPsicofisicoDAO(pQuadroPsicofisicoModel);
+        return this.quadroPsicofisicoDAO.atualizarQuadroPsicofisicoDAO(pQuadroPsicofisicoModel);
     }
 
     /**
@@ -54,6 +54,6 @@ public class QuadroPsicofisicoController {
      * @param pIdQuadroPsicofisico return boolean
      */
     public boolean excluirquadroPsicofisicoController(int pIdQuadroPsicofisico) {
-        return this.quadroPsicofisicoDAO.excluirquadroPsicofisicoDAO(pIdQuadroPsicofisico);
+        return this.quadroPsicofisicoDAO.excluirQuadroPsicofisicoDAO(pIdQuadroPsicofisico);
     }
 }

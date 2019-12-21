@@ -25,6 +25,7 @@ public class PacienteController {
      * recupera paciente
      *
      * @param pIdPaciente return PacienteModel
+     * @return 
      */
     public PacienteModel getpacienteController(int pIdPaciente) {
         return this.pacienteDAO.getpacienteDAO(pIdPaciente);

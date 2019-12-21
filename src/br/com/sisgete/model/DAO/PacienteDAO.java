@@ -15,7 +15,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
      * grava paciente
      *
      * @param pPacienteModel return int
-     * @return 
+     * @return
      */
     public int salvarpacienteDAO(PacienteModel pPacienteModel) {
         try {
@@ -37,7 +37,6 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "fonte_conhecimento_espirita,"
                     + "objetivo_tratamento,"
                     + "nome,"
-                    + "sobrenome,"
                     + "setor,"
                     + "telefone,"
                     + "email"
@@ -57,7 +56,6 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "'" + pPacienteModel.getFonteConhecimentoEspirita() + "',"
                     + "'" + pPacienteModel.getObjetivoTratamento() + "',"
                     + "'" + pPacienteModel.getNome() + "',"
-                    + "'" + pPacienteModel.getSobrenome() + "',"
                     + "'" + pPacienteModel.getSetor() + "',"
                     + "'" + pPacienteModel.getTelefone() + "',"
                     + "'" + pPacienteModel.getEmail() + "'"
@@ -75,7 +73,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
      * recupera paciente
      *
      * @param pIdPaciente return PacienteModel
-     * @return 
+     * @return
      */
     public PacienteModel getpacienteDAO(int pIdPaciente) {
         PacienteModel modelpaciente = new PacienteModel();
@@ -98,7 +96,6 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "fonte_conhecimento_espirita,"
                     + "objetivo_tratamento,"
                     + "nome,"
-                    + "sobrenome,"
                     + "setor,"
                     + "telefone,"
                     + "email"
@@ -125,10 +122,9 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                 modelpaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(13));
                 modelpaciente.setObjetivoTratamento(this.getResultSet().getString(14));
                 modelpaciente.setNome(this.getResultSet().getString(15));
-                modelpaciente.setSobrenome(this.getResultSet().getString(16));
-                modelpaciente.setSetor(this.getResultSet().getString(17));
-                modelpaciente.setTelefone(this.getResultSet().getString(18));
-                modelpaciente.setEmail(this.getResultSet().getString(19));
+                modelpaciente.setSetor(this.getResultSet().getString(16));
+                modelpaciente.setTelefone(this.getResultSet().getString(17));
+                modelpaciente.setEmail(this.getResultSet().getString(18));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -140,7 +136,8 @@ public class PacienteDAO extends SisgeteConnectionMySql {
 
     /**
      * recupera uma lista de paciente return ArrayList
-     * @return 
+     *
+     * @return
      */
     public ArrayList<PacienteModel> getListapacienteDAO() {
         ArrayList<PacienteModel> listamodelpaciente = new ArrayList();
@@ -164,7 +161,6 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "fonte_conhecimento_espirita,"
                     + "objetivo_tratamento,"
                     + "nome,"
-                    + "sobrenome,"
                     + "setor,"
                     + "telefone,"
                     + "email"
@@ -190,10 +186,9 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                 modelpaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(13));
                 modelpaciente.setObjetivoTratamento(this.getResultSet().getString(14));
                 modelpaciente.setNome(this.getResultSet().getString(15));
-                modelpaciente.setSobrenome(this.getResultSet().getString(16));
-                modelpaciente.setSetor(this.getResultSet().getString(17));
-                modelpaciente.setTelefone(this.getResultSet().getString(18));
-                modelpaciente.setEmail(this.getResultSet().getString(19));
+                modelpaciente.setSetor(this.getResultSet().getString(16));
+                modelpaciente.setTelefone(this.getResultSet().getString(17));
+                modelpaciente.setEmail(this.getResultSet().getString(18));
                 listamodelpaciente.add(modelpaciente);
             }
         } catch (SQLException e) {
@@ -208,7 +203,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
      * atualiza paciente
      *
      * @param pPacienteModel return boolean
-     * @return 
+     * @return
      */
     public boolean atualizarpacienteDAO(PacienteModel pPacienteModel) {
         try {
@@ -230,7 +225,6 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "fonte_conhecimento_espirita = '" + pPacienteModel.getFonteConhecimentoEspirita() + "',"
                     + "objetivo_tratamento = '" + pPacienteModel.getObjetivoTratamento() + "',"
                     + "nome = '" + pPacienteModel.getNome() + "',"
-                    + "sobrenome = '" + pPacienteModel.getSobrenome() + "',"
                     + "setor = '" + pPacienteModel.getSetor() + "',"
                     + "telefone = '" + pPacienteModel.getTelefone() + "',"
                     + "email = '" + pPacienteModel.getEmail() + "'"
@@ -250,7 +244,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
      * exclui paciente
      *
      * @param pIdPaciente return boolean
-     * @return 
+     * @return
      */
     public boolean excluirpacienteDAO(int pIdPaciente) {
         try {

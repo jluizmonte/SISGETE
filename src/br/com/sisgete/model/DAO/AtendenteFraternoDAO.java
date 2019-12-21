@@ -23,12 +23,10 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
             return this.insertSQL(
                     "INSERT INTO tbl_atendimento_fraterno ("
                     + "pk_id_atendente_fraterno,"
-                    + "nome,"
-                    + "sobrenome"
+                    + "nome"
                     + ") VALUES ("
                     + "'" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "',"
                     + "'" + pAtendenteFraternoModel.getNome() + "',"
-                    + "'" + pAtendenteFraternoModel.getSobrenome() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -64,7 +62,6 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
             while (this.getResultSet().next()) {
                 modelatendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
                 modelatendenteFraterno.setNome(this.getResultSet().getString(2));
-                modelatendenteFraterno.setSobrenome(this.getResultSet().getString(3));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -98,7 +95,6 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
                 modelatendenteFraterno = new AtendenteFraternoModel();
                 modelatendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
                 modelatendenteFraterno.setNome(this.getResultSet().getString(2));
-                modelatendenteFraterno.setSobrenome(this.getResultSet().getString(3));
                 listamodelatendenteFraterno.add(modelatendenteFraterno);
             }
         } catch (SQLException e) {
@@ -121,8 +117,7 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_atendimento_fraterno SET "
                     + "pk_id_atendente_fraterno = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "',"
-                    + "nome = '" + pAtendenteFraternoModel.getNome() + "',"
-                    + "sobrenome = '" + pAtendenteFraternoModel.getSobrenome() + "'"
+                    + "nome = '" + pAtendenteFraternoModel.getNome() + "'"
                     + " WHERE "
                     + "pk_id_atendente_fraterno = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "'"
                     + ";"

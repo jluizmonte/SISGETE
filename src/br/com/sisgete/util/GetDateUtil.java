@@ -27,7 +27,7 @@ public class GetDateUtil {
      */
     public String getDateNow() {
         String date = "";
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yy HH:mm:ss");
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         LocalDateTime timepoint = LocalDateTime.now();
         date = (timepoint.format(fmt));
         return date;
@@ -66,7 +66,15 @@ public class GetDateUtil {
      */
     public String getDateTime() {
         String date = "";
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yy");
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDateTime timepoint = LocalDateTime.now();
+        date = (timepoint.format(fmt));
+        return date;
+    }
+
+    public String getYear() {
+        String date = "";
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy");
         LocalDateTime timepoint = LocalDateTime.now();
         date = (timepoint.format(fmt));
         return date;
@@ -79,7 +87,7 @@ public class GetDateUtil {
      */
     public String getDateTimeMonth() {
         String date = "";
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yy");
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime timepoint = LocalDateTime.now().plusMonths(1);
         date = (timepoint.format(fmt));
         return date;

@@ -8,7 +8,6 @@ public class ResponsavelFichaModel {
 
     private int idResponsavelFicha;
     private String nome;
-    private String sobrenome;
 
     /**
      * Construtor
@@ -52,26 +51,9 @@ public class ResponsavelFichaModel {
         return this.nome;
     }
 
-    /**
-     * seta o valor de sobrenome
-     *
-     * @param pSobrenome
-     */
-    public void setSobrenome(String pSobrenome) {
-        this.sobrenome = pSobrenome;
-    }
-
-    /**
-     * return sobrenome
-     *
-     * @return
-     */
-    public String getSobrenome() {
-        return this.sobrenome;
-    }
-
     @Override
     public String toString() {
-        return "ModelresponsavelFicha {" + "::idResponsavelFicha = " + this.idResponsavelFicha + "::nome = " + this.nome + "::sobrenome = " + this.sobrenome + "}";
+        return "ResponsavelFichaModel{" + "idResponsavelFicha=" + idResponsavelFicha + ", nome=" + nome + '}';
     }
+
 }

@@ -21,7 +21,6 @@ public class PacienteModel {
     private String fonteConhecimentoEspirita;
     private String objetivoTratamento;
     private String nome;
-    private String sobrenome;
     private String setor;
     private String telefone;
     private String email;
@@ -303,24 +302,6 @@ public class PacienteModel {
     }
 
     /**
-     * seta o valor de sobrenome
-     *
-     * @param pSobrenome
-     */
-    public void setSobrenome(String pSobrenome) {
-        this.sobrenome = pSobrenome;
-    }
-
-    /**
-     * return sobrenome
-     *
-     * @return
-     */
-    public String getSobrenome() {
-        return this.sobrenome;
-    }
-
-    /**
      * seta o valor de setor
      *
      * @param pSetor
@@ -376,6 +357,7 @@ public class PacienteModel {
 
     @Override
     public String toString() {
-        return "Modelpaciente {" + "::idPaciente = " + this.idPaciente + "::pacienteReincidente = " + this.pacienteReincidente + "::dataNascimento = " + this.dataNascimento + "::statusTratamento = " + this.statusTratamento + "::modoDesobsessao = " + this.modoDesobsessao + "::acompanhamentoPaciente = " + this.acompanhamentoPaciente + "::rua = " + this.rua + "::numCasa = " + this.numCasa + "::bairro = " + this.bairro + "::cidade = " + this.cidade + "::idade = " + this.idade + "::conhecimentoEspiritaPrevio = " + this.conhecimentoEspiritaPrevio + "::fonteConhecimentoEspirita = " + this.fonteConhecimentoEspirita + "::objetivoTratamento = " + this.objetivoTratamento + "::nome = " + this.nome + "::sobrenome = " + this.sobrenome + "::setor = " + this.setor + "::telefone = " + this.telefone + "::email = " + this.email + "}";
+        return "PacienteModel{" + "idPaciente=" + idPaciente + ", pacienteReincidente=" + pacienteReincidente + ", dataNascimento=" + dataNascimento + ", statusTratamento=" + statusTratamento + ", modoDesobsessao=" + modoDesobsessao + ", acompanhamentoPaciente=" + acompanhamentoPaciente + ", rua=" + rua + ", numCasa=" + numCasa + ", bairro=" + bairro + ", cidade=" + cidade + ", idade=" + idade + ", conhecimentoEspiritaPrevio=" + conhecimentoEspiritaPrevio + ", fonteConhecimentoEspirita=" + fonteConhecimentoEspirita + ", objetivoTratamento=" + objetivoTratamento + ", nome=" + nome + ", setor=" + setor + ", telefone=" + telefone + ", email=" + email + '}';
     }
+
 }

@@ -12,12 +12,12 @@ import java.util.ArrayList;
 public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
 
     /**
-     * grava quadroPsicofisico
+     * grava QuadroPsicofisico
      *
      * @param pQuadroPsicofisicoModel return int
-     * @return 
+     * @return
      */
-    public int salvarquadroPsicofisicoDAO(QuadroPsicofisicoModel pQuadroPsicofisicoModel) {
+    public int salvarQuadroPsicofisicoDAO(QuadroPsicofisicoModel pQuadroPsicofisicoModel) {
         try {
             this.conectar();
             return this.insertSQL(
@@ -26,29 +26,19 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
                     + "fk_atendente,"
                     + "fk_paciente,"
                     + "observacoes,"
-                    + "data_atendimento,"
                     + "sintomas,"
                     + "intensidade_sintomas,"
-                    + "tipo_tratamento,"
-                    + "periodo_tratamento,"
-                    + "observacoes_tratamento,"
-                    + "tipo_medicamento,"
-                    + "periodo_medicamento,"
-                    + "observacoes_medicamento"
+                    + "uso_medicamento_tratamento,"
+                    + "tipo_medicamento_tratamento,"
+                    + "periodo_medicamento_tratamento,"
+                    + "tratamento_observacoes"
                     + ") VALUES ("
                     + "'" + pQuadroPsicofisicoModel.getIdQuadroPsicofisico() + "',"
                     + "'" + pQuadroPsicofisicoModel.getAtendente() + "',"
                     + "'" + pQuadroPsicofisicoModel.getPaciente() + "',"
                     + "'" + pQuadroPsicofisicoModel.getObservacoes() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getDataAtendimento() + "',"
                     + "'" + pQuadroPsicofisicoModel.getSintomas() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getIntensidadeSintomas() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getTipoTratamento() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getPeriodoTratamento() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getObservacoesTratamento() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getTipoMedicamento() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getPeriodoMedicamento() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getObservacoesMedicamento() + "'"
+                    + "'" + pQuadroPsicofisicoModel.getIntensidadeSintomas() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -60,13 +50,13 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
     }
 
     /**
-     * recupera quadroPsicofisico
+     * recupera QuadroPsicofisico
      *
      * @param pIdQuadroPsicofisico return QuadroPsicofisicoModel
-     * @return 
+     * @return
      */
-    public QuadroPsicofisicoModel getquadroPsicofisicoDAO(int pIdQuadroPsicofisico) {
-        QuadroPsicofisicoModel modelquadroPsicofisico = new QuadroPsicofisicoModel();
+    public QuadroPsicofisicoModel getQuadroPsicofisicoDAO(int pIdQuadroPsicofisico) {
+        QuadroPsicofisicoModel modelQuadroPsicofisico = new QuadroPsicofisicoModel();
         try {
             this.conectar();
             this.executarSQL(
@@ -75,15 +65,12 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
                     + "fk_atendente,"
                     + "fk_paciente,"
                     + "observacoes,"
-                    + "data_atendimento,"
                     + "sintomas,"
                     + "intensidade_sintomas,"
-                    + "tipo_tratamento,"
-                    + "periodo_tratamento,"
-                    + "observacoes_tratamento,"
-                    + "tipo_medicamento,"
-                    + "periodo_medicamento,"
-                    + "observacoes_medicamento"
+                    + "uso_medicamento_tratamento,"
+                    + "tipo_medicamento_tratamento,"
+                    + "periodo_medicamento_tratamento,"
+                    + "tratamento_observacoes"
                     + " FROM"
                     + " tbl_quadro_psicofisico"
                     + " WHERE"
@@ -92,35 +79,30 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
             );
 
             while (this.getResultSet().next()) {
-                modelquadroPsicofisico.setIdQuadroPsicofisico(this.getResultSet().getInt(1));
-                modelquadroPsicofisico.setAtendente(this.getResultSet().getInt(2));
-                modelquadroPsicofisico.setPaciente(this.getResultSet().getInt(3));
-                modelquadroPsicofisico.setObservacoes(this.getResultSet().getString(4));
-                modelquadroPsicofisico.setDataAtendimento(this.getResultSet().getString(5));
-                modelquadroPsicofisico.setSintomas(this.getResultSet().getString(6));
-                modelquadroPsicofisico.setIntensidadeSintomas(this.getResultSet().getString(7));
-                modelquadroPsicofisico.setTipoTratamento(this.getResultSet().getString(8));
-                modelquadroPsicofisico.setPeriodoTratamento(this.getResultSet().getString(9));
-                modelquadroPsicofisico.setObservacoesTratamento(this.getResultSet().getString(10));
-                modelquadroPsicofisico.setTipoMedicamento(this.getResultSet().getString(11));
-                modelquadroPsicofisico.setPeriodoMedicamento(this.getResultSet().getString(12));
-                modelquadroPsicofisico.setObservacoesMedicamento(this.getResultSet().getString(13));
+                modelQuadroPsicofisico.setIdQuadroPsicofisico(this.getResultSet().getInt(1));
+                modelQuadroPsicofisico.setAtendente(this.getResultSet().getInt(2));
+                modelQuadroPsicofisico.setPaciente(this.getResultSet().getInt(3));
+                modelQuadroPsicofisico.setObservacoes(this.getResultSet().getString(4));
+                modelQuadroPsicofisico.setSintomas(this.getResultSet().getString(5));
+                modelQuadroPsicofisico.setIntensidadeSintomas(this.getResultSet().getString(6));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             this.fecharConexao();
         }
-        return modelquadroPsicofisico;
+        return modelQuadroPsicofisico;
     }
 
     /**
-     * recupera uma lista de quadroPsicofisico return ArrayList
-     * @return 
+     * recupera uma lista de QuadroPsicofisico return ArrayList
+     *
+     * @return
      */
-    public ArrayList<QuadroPsicofisicoModel> getListaquadroPsicofisicoDAO() {
-        ArrayList<QuadroPsicofisicoModel> listamodelquadroPsicofisico = new ArrayList();
-        QuadroPsicofisicoModel modelquadroPsicofisico = new QuadroPsicofisicoModel();
+    public ArrayList<QuadroPsicofisicoModel> getListaQuadroPsicofisicoDAO() {
+        ArrayList<QuadroPsicofisicoModel> listamodelQuadroPsicofisico = new ArrayList();
+        QuadroPsicofisicoModel modelQuadroPsicofisico = new QuadroPsicofisicoModel();
         try {
             this.conectar();
             this.executarSQL(
@@ -129,52 +111,43 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
                     + "fk_atendente,"
                     + "fk_paciente,"
                     + "observacoes,"
-                    + "data_atendimento,"
                     + "sintomas,"
                     + "intensidade_sintomas,"
-                    + "tipo_tratamento,"
-                    + "periodo_tratamento,"
-                    + "observacoes_tratamento,"
-                    + "tipo_medicamento,"
-                    + "periodo_medicamento,"
-                    + "observacoes_medicamento"
+                    + "uso_medicamento_tratamento,"
+                    + "tipo_medicamento_tratamento,"
+                    + "periodo_medicamento_tratamento,"
+                    + "tratamento_observacoes"
                     + " FROM"
                     + " tbl_quadro_psicofisico"
                     + ";"
             );
 
             while (this.getResultSet().next()) {
-                modelquadroPsicofisico = new QuadroPsicofisicoModel();
-                modelquadroPsicofisico.setIdQuadroPsicofisico(this.getResultSet().getInt(1));
-                modelquadroPsicofisico.setAtendente(this.getResultSet().getInt(2));
-                modelquadroPsicofisico.setPaciente(this.getResultSet().getInt(3));
-                modelquadroPsicofisico.setObservacoes(this.getResultSet().getString(4));
-                modelquadroPsicofisico.setDataAtendimento(this.getResultSet().getString(5));
-                modelquadroPsicofisico.setSintomas(this.getResultSet().getString(6));
-                modelquadroPsicofisico.setIntensidadeSintomas(this.getResultSet().getString(7));
-                modelquadroPsicofisico.setTipoTratamento(this.getResultSet().getString(8));
-                modelquadroPsicofisico.setPeriodoTratamento(this.getResultSet().getString(9));
-                modelquadroPsicofisico.setObservacoesTratamento(this.getResultSet().getString(10));
-                modelquadroPsicofisico.setTipoMedicamento(this.getResultSet().getString(11));
-                modelquadroPsicofisico.setPeriodoMedicamento(this.getResultSet().getString(12));
-                modelquadroPsicofisico.setObservacoesMedicamento(this.getResultSet().getString(13));
-                listamodelquadroPsicofisico.add(modelquadroPsicofisico);
+                modelQuadroPsicofisico = new QuadroPsicofisicoModel();
+                modelQuadroPsicofisico.setIdQuadroPsicofisico(this.getResultSet().getInt(1));
+                modelQuadroPsicofisico.setAtendente(this.getResultSet().getInt(2));
+                modelQuadroPsicofisico.setPaciente(this.getResultSet().getInt(3));
+                modelQuadroPsicofisico.setObservacoes(this.getResultSet().getString(4));
+                modelQuadroPsicofisico.setSintomas(this.getResultSet().getString(5));
+                modelQuadroPsicofisico.setIntensidadeSintomas(this.getResultSet().getString(6));
+
+                listamodelQuadroPsicofisico.add(modelQuadroPsicofisico);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             this.fecharConexao();
         }
-        return listamodelquadroPsicofisico;
+        return listamodelQuadroPsicofisico;
     }
 
     /**
-     * atualiza quadroPsicofisico
+     * atualiza QuadroPsicofisico
      *
      * @param pQuadroPsicofisicoModel return boolean
-     * @return 
+     * @return
      */
-    public boolean atualizarquadroPsicofisicoDAO(QuadroPsicofisicoModel pQuadroPsicofisicoModel) {
+    public boolean atualizarQuadroPsicofisicoDAO(QuadroPsicofisicoModel pQuadroPsicofisicoModel) {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
@@ -183,15 +156,8 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
                     + "fk_atendente = '" + pQuadroPsicofisicoModel.getAtendente() + "',"
                     + "fk_paciente = '" + pQuadroPsicofisicoModel.getPaciente() + "',"
                     + "observacoes = '" + pQuadroPsicofisicoModel.getObservacoes() + "',"
-                    + "data_atendimento = '" + pQuadroPsicofisicoModel.getDataAtendimento() + "',"
                     + "sintomas = '" + pQuadroPsicofisicoModel.getSintomas() + "',"
-                    + "intensidade_sintomas = '" + pQuadroPsicofisicoModel.getIntensidadeSintomas() + "',"
-                    + "tipo_tratamento = '" + pQuadroPsicofisicoModel.getTipoTratamento() + "',"
-                    + "periodo_tratamento = '" + pQuadroPsicofisicoModel.getPeriodoTratamento() + "',"
-                    + "observacoes_tratamento = '" + pQuadroPsicofisicoModel.getObservacoesTratamento() + "',"
-                    + "tipo_medicamento = '" + pQuadroPsicofisicoModel.getTipoMedicamento() + "',"
-                    + "periodo_medicamento = '" + pQuadroPsicofisicoModel.getPeriodoMedicamento() + "',"
-                    + "observacoes_medicamento = '" + pQuadroPsicofisicoModel.getObservacoesMedicamento() + "'"
+                    + "intensidade_sintomas = '" + pQuadroPsicofisicoModel.getIntensidadeSintomas() + "'"
                     + " WHERE "
                     + "pk_id_quadro_psicofisico = '" + pQuadroPsicofisicoModel.getIdQuadroPsicofisico() + "'"
                     + ";"
@@ -205,12 +171,12 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
     }
 
     /**
-     * exclui quadroPsicofisico
+     * exclui QuadroPsicofisico
      *
      * @param pIdQuadroPsicofisico return boolean
-     * @return 
+     * @return
      */
-    public boolean excluirquadroPsicofisicoDAO(int pIdQuadroPsicofisico) {
+    public boolean excluirQuadroPsicofisicoDAO(int pIdQuadroPsicofisico) {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
