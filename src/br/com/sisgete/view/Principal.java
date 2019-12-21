@@ -384,37 +384,37 @@ public class Principal extends javax.swing.JFrame {
 
         jtfDataNascimento.setCurrentView(new datechooser.view.appearance.AppearancesList("Grey",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(255, 0, 0),
                     false,
@@ -429,7 +429,6 @@ public class Principal extends javax.swing.JFrame {
 jtfDataNascimento.setCalendarPreferredSize(new java.awt.Dimension(256, 184));
 jtfDataNascimento.setNothingAllowed(false);
 jtfDataNascimento.setFormat(2);
-jtfDataNascimento.setWeekStyle(datechooser.view.WeekDaysStyle.SHORT);
 try {
     jtfDataNascimento.setDefaultPeriods(new datechooser.model.multiple.PeriodSet(new datechooser.model.multiple.Period(new java.util.GregorianCalendar(2019, 11, 1),
         new java.util.GregorianCalendar(2019, 11, 1))));
@@ -551,9 +550,10 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                         .addComponent(jtfNumImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel13))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel15))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jbAvancarPnl1)
             .addContainerGap())
@@ -1725,14 +1725,9 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     private void date() {
         String texto;
         texto = jtfDataNascimento.getText();
-
-        System.out.println(texto.substring(6, 10));
-
         int anoAniversario = Integer.parseInt(texto.substring(6, 10));
         int anoAtual = Integer.parseInt(getDateUtil.getYear());
         int idade = anoAtual - anoAniversario;
-        System.out.println(idade);
-
         jlIdade.setText(String.valueOf(idade));
     }
 
