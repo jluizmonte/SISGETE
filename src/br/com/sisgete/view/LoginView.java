@@ -323,7 +323,7 @@ public class LoginView extends javax.swing.JDialog {
             if (atendenteFraternoController.getValidarAtendimentoController(atendenteFraternoModel)) {
                 atendenteFraternoModel = atendenteFraternoController.getAtendenteFraternoController(jtfUsuario.getText());
                 setSessionUser();
-                new PrincipalView().setVisible(true);
+                new AtendimentoFraternoView().setVisible(true);
                 this.dispose();
             } else {
                 LoginView.lblInfo.setText("LOGIN OU SENHAS INVÁLIDOS");

@@ -15,7 +15,7 @@ import rojerusan.RSPanelsSlider;
  *
  * @author RojeruSan
  */
-public class PrincipalView extends javax.swing.JFrame {
+public class AtendimentoFraternoView extends javax.swing.JFrame {
 
     GetDateUtil getDateUtil = new GetDateUtil();
     QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
@@ -30,7 +30,7 @@ public class PrincipalView extends javax.swing.JFrame {
     /**
      * Creates new form Principal
      */
-    public PrincipalView() {
+    public AtendimentoFraternoView() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.setResizable(false);
@@ -2335,11 +2335,11 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AtendimentoFraternoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new PrincipalView().setVisible(true);
+            new AtendimentoFraternoView().setVisible(true);
         });
     }
 
