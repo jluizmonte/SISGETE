@@ -8,6 +8,8 @@ public class AtendenteFraternoModel {
 
     private int idAtendenteFraterno;
     private String nome;
+    private String senha;
+    private String usuario;
 
     /**
      * Construtor
@@ -15,45 +17,41 @@ public class AtendenteFraternoModel {
     public AtendenteFraternoModel() {
     }
 
-    /**
-     * seta o valor de idAtendenteFraterno
-     *
-     * @param pIdAtendenteFraterno
-     */
-    public void setIdAtendenteFraterno(int pIdAtendenteFraterno) {
-        this.idAtendenteFraterno = pIdAtendenteFraterno;
-    }
-
-    /**
-     * return pk_idAtendenteFraterno
-     *
-     * @return
-     */
-    public int getIdAtendenteFraterno() {
-        return this.idAtendenteFraterno;
-    }
-
-    /**
-     * seta o valor de nome
-     *
-     * @param pNome
-     */
-    public void setNome(String pNome) {
-        this.nome = pNome;
-    }
-
-    /**
-     * return nome
-     *
-     * @return
-     */
-    public String getNome() {
-        return this.nome;
-    }
-
     @Override
     public String toString() {
-        return "AtendenteFraternoModel{" + "idAtendenteFraterno=" + idAtendenteFraterno + ", nome=" + nome + '}';
+        return "AtendenteFraternoModel{" + "idAtendenteFraterno=" + idAtendenteFraterno + ", nome=" + nome + ", senha=" + senha + ", usuario=" + usuario + '}';
+    }
+
+    public int getIdAtendenteFraterno() {
+        return idAtendenteFraterno;
+    }
+
+    public void setIdAtendenteFraterno(int idAtendenteFraterno) {
+        this.idAtendenteFraterno = idAtendenteFraterno;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
 }

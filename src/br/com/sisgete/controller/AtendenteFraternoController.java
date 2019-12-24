@@ -10,50 +10,62 @@ import java.util.ArrayList;
  */
 public class AtendenteFraternoController {
 
-    private AtendenteFraternoDAO atendenteFraternoDAO = new AtendenteFraternoDAO();
+    AtendenteFraternoDAO atendenteFraternoDAO = new AtendenteFraternoDAO();
 
     /**
      * grava atendenteFraterno
      *
      * @param pAtendenteFraternoModel return int
+     * @return
      */
     public int salvaratendenteFraternoController(AtendenteFraternoModel pAtendenteFraternoModel) {
-        return this.atendenteFraternoDAO.salvaratendenteFraternoDAO(pAtendenteFraternoModel);
+        return this.atendenteFraternoDAO.salvarAtendenteFraternoDAO(pAtendenteFraternoModel);
     }
 
     /**
      * recupera atendenteFraterno
      *
-     * @param pIdAtendenteFraterno return AtendenteFraternoModel
+     * @param pIdAtendenteFraterno retur
+     * @return n AtendenteFraternoModel
      */
-    public AtendenteFraternoModel getatendenteFraternoController(int pIdAtendenteFraterno) {
-        return this.atendenteFraternoDAO.getatendenteFraternoDAO(pIdAtendenteFraterno);
+    public AtendenteFraternoModel getAtendenteFraternoController(int pIdAtendenteFraterno) {
+        return this.atendenteFraternoDAO.getAtendenteFraternoDAO(pIdAtendenteFraterno);
+    }
+
+    public AtendenteFraternoModel getAtendenteFraternoController(String pAtendente) {
+        return this.atendenteFraternoDAO.getAtendenteFraternoDAO(pAtendente);
     }
 
     /**
      * recupera uma lista deatendenteFraterno
      *
-     * @param pIdAtendenteFraterno return ArrayList
+     * @return
      */
     public ArrayList<AtendenteFraternoModel> getListaatendenteFraternoController() {
-        return this.atendenteFraternoDAO.getListaatendenteFraternoDAO();
+        return this.atendenteFraternoDAO.getListaAtendenteFraternoDAO();
     }
 
     /**
      * atualiza atendenteFraterno
      *
      * @param pAtendenteFraternoModel return boolean
+     * @return
      */
     public boolean atualizaratendenteFraternoController(AtendenteFraternoModel pAtendenteFraternoModel) {
-        return this.atendenteFraternoDAO.atualizaratendenteFraternoDAO(pAtendenteFraternoModel);
+        return this.atendenteFraternoDAO.atualizarAtendenteFraternoDAO(pAtendenteFraternoModel);
     }
 
     /**
      * exclui atendenteFraterno
      *
      * @param pIdAtendenteFraterno return boolean
+     * @return
      */
     public boolean excluiratendenteFraternoController(int pIdAtendenteFraterno) {
-        return this.atendenteFraternoDAO.excluiratendenteFraternoDAO(pIdAtendenteFraterno);
+        return this.atendenteFraternoDAO.excluirAtendenteFraternoDAO(pIdAtendenteFraterno);
+    }
+
+    public boolean getValidarAtendimentoController(AtendenteFraternoModel atendenteFraternoModel) {
+        return this.atendenteFraternoDAO.getValidarAtendenteDAO(atendenteFraternoModel);
     }
 }

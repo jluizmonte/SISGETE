@@ -12,21 +12,25 @@ import java.util.ArrayList;
 public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
 
     /**
-     * grava atendenteFraterno
+     * grava AtendenteFraterno
      *
      * @param pAtendenteFraternoModel return int
      * @return
      */
-    public int salvaratendenteFraternoDAO(AtendenteFraternoModel pAtendenteFraternoModel) {
+    public int salvarAtendenteFraternoDAO(AtendenteFraternoModel pAtendenteFraternoModel) {
         try {
             this.conectar();
             return this.insertSQL(
-                    "INSERT INTO tbl_atendimento_fraterno ("
-                    + "pk_id_atendente_fraterno,"
-                    + "nome"
+                    "INSERT INTO ttbl_atendente_fraterno ("
+                    + "pk_id_atendente,"
+                    + "nome,"
+                    + "usuario,"
+                    + "senha"
                     + ") VALUES ("
                     + "'" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "',"
                     + "'" + pAtendenteFraternoModel.getNome() + "',"
+                    + "'" + pAtendenteFraternoModel.getUsuario() + "',"
+                    + "'" + pAtendenteFraternoModel.getSenha() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -38,88 +42,132 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
     }
 
     /**
-     * recupera atendenteFraterno
+     * recupera AtendenteFraterno
      *
-     * @param pIdAtendenteFraterno return AtendenteFraternoModel
+     * @param pIdAtendente return AtendenteFraternoModel
      * @return
      */
-    public AtendenteFraternoModel getatendenteFraternoDAO(int pIdAtendenteFraterno) {
-        AtendenteFraternoModel modelatendenteFraterno = new AtendenteFraternoModel();
+    public AtendenteFraternoModel getAtendenteFraternoDAO(int pIdAtendente) {
+        AtendenteFraternoModel modelAtendenteFraterno = new AtendenteFraternoModel();
         try {
             this.conectar();
             this.executarSQL(
                     "SELECT "
-                    + "pk_id_atendente_fraterno,"
+                    + "pk_id_atendente,"
                     + "nome,"
-                    + "sobrenome"
+                    + "usuario,"
+                    + "senha"
                     + " FROM"
-                    + " tbl_atendimento_fraterno"
+                    + " tbl_atendente_fraterno"
                     + " WHERE"
-                    + " pk_id_atendente_fraterno = '" + pIdAtendenteFraterno + "'"
+                    + " pk_id_atendente = '" + pIdAtendente + "'"
                     + ";"
             );
 
             while (this.getResultSet().next()) {
-                modelatendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
-                modelatendenteFraterno.setNome(this.getResultSet().getString(2));
+                modelAtendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
+                modelAtendenteFraterno.setNome(this.getResultSet().getString(2));
+                modelAtendenteFraterno.setUsuario(this.getResultSet().getString(3));
+                modelAtendenteFraterno.setSenha(this.getResultSet().getString(4));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             this.fecharConexao();
         }
-        return modelatendenteFraterno;
+        return modelAtendenteFraterno;
     }
 
     /**
-     * recupera uma lista de atendenteFraterno return ArrayList
      *
+     * @param pAtendente
      * @return
      */
-    public ArrayList<AtendenteFraternoModel> getListaatendenteFraternoDAO() {
-        ArrayList<AtendenteFraternoModel> listamodelatendenteFraterno = new ArrayList();
-        AtendenteFraternoModel modelatendenteFraterno = new AtendenteFraternoModel();
+    public AtendenteFraternoModel getAtendenteFraternoDAO(String pAtendente) {
+        AtendenteFraternoModel modelAtendenteFraterno = new AtendenteFraternoModel();
         try {
             this.conectar();
             this.executarSQL(
                     "SELECT "
-                    + "pk_id_atendente_fraterno,"
+                    + "pk_id_atendente,"
                     + "nome,"
-                    + "sobrenome"
+                    + "usuario,"
+                    + "senha"
                     + " FROM"
-                    + " tbl_atendimento_fraterno"
+                    + " tbl_atendente_fraterno"
+                    + " WHERE"
+                    + " usuario = '" + pAtendente + "'"
                     + ";"
             );
 
             while (this.getResultSet().next()) {
-                modelatendenteFraterno = new AtendenteFraternoModel();
-                modelatendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
-                modelatendenteFraterno.setNome(this.getResultSet().getString(2));
-                listamodelatendenteFraterno.add(modelatendenteFraterno);
+                modelAtendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
+                modelAtendenteFraterno.setNome(this.getResultSet().getString(2));
+                modelAtendenteFraterno.setUsuario(this.getResultSet().getString(3));
+                modelAtendenteFraterno.setSenha(this.getResultSet().getString(4));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             this.fecharConexao();
         }
-        return listamodelatendenteFraterno;
+        return modelAtendenteFraterno;
     }
 
     /**
-     * atualiza atendenteFraterno
+     * recupera uma lista de AtendenteFraterno return ArrayList
+     *
+     * @return
+     */
+    public ArrayList<AtendenteFraternoModel> getListaAtendenteFraternoDAO() {
+        ArrayList<AtendenteFraternoModel> listamodelAtendenteFraterno = new ArrayList();
+        AtendenteFraternoModel modelAtendenteFraterno = new AtendenteFraternoModel();
+        try {
+            this.conectar();
+            this.executarSQL(
+                    "SELECT "
+                    + "pk_id_atendente,"
+                    + "nome,"
+                    + "usuario,"
+                    + "senha"
+                    + " FROM"
+                    + " tbl_atendente_fraterno"
+                    + ";"
+            );
+
+            while (this.getResultSet().next()) {
+                modelAtendenteFraterno = new AtendenteFraternoModel();
+                modelAtendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
+                modelAtendenteFraterno.setNome(this.getResultSet().getString(2));
+                modelAtendenteFraterno.setUsuario(this.getResultSet().getString(3));
+                modelAtendenteFraterno.setSenha(this.getResultSet().getString(4));
+                listamodelAtendenteFraterno.add(modelAtendenteFraterno);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.fecharConexao();
+        }
+        return listamodelAtendenteFraterno;
+    }
+
+    /**
+     * atualiza AtendenteFraterno
      *
      * @param pAtendenteFraternoModel return boolean
      * @return
      */
-    public boolean atualizaratendenteFraternoDAO(AtendenteFraternoModel pAtendenteFraternoModel) {
+    public boolean atualizarAtendenteFraternoDAO(AtendenteFraternoModel pAtendenteFraternoModel) {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                    "UPDATE tbl_atendimento_fraterno SET "
-                    + "pk_id_atendente_fraterno = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "',"
-                    + "nome = '" + pAtendenteFraternoModel.getNome() + "'"
+                    "UPDATE tbl_atendente_fraterno SET "
+                    + "pk_id_atendente = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "',"
+                    + "nome = '" + pAtendenteFraternoModel.getNome() + "',"
+                    + "usuario = '" + pAtendenteFraternoModel.getUsuario() + "',"
+                    + "senha = '" + pAtendenteFraternoModel.getSenha() + "'"
                     + " WHERE "
-                    + "pk_id_atendente_fraterno = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "'"
+                    + "pk_id_atendente = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -131,18 +179,18 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
     }
 
     /**
-     * exclui atendenteFraterno
+     * exclui AtendenteFraterno
      *
-     * @param pIdAtendenteFraterno return boolean
+     * @param pIdAtendente return boolean
      * @return
      */
-    public boolean excluiratendenteFraternoDAO(int pIdAtendenteFraterno) {
+    public boolean excluirAtendenteFraternoDAO(int pIdAtendente) {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                    "DELETE FROM tbl_atendimento_fraterno "
+                    "DELETE FROM tbl_atendente_fraterno "
                     + " WHERE "
-                    + "pk_id_atendente_fraterno = '" + pIdAtendenteFraterno + "'"
+                    + "pk_id_atendente = '" + pIdAtendente + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -152,4 +200,29 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
             this.fecharConexao();
         }
     }
+
+    /**
+     * Validar login e senha do usuário
+     *
+     * @param pAtendenteFraterno
+     * @return
+     */
+    public boolean getValidarAtendenteDAO(AtendenteFraternoModel pAtendenteFraterno) {
+        try {
+            this.conectar();
+            this.executarSQL("SELECT *" + " FROM" + " tbl_atendente_fraterno" + " WHERE" + " usuario = '"
+                    + pAtendenteFraterno.getUsuario() + "' AND senha = '" + pAtendenteFraterno.getSenha() + "'" + ";");
+
+            if (getResultSet().next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            return false;
+        } finally {
+            this.fecharConexao();
+        }
+    }
+
 }
