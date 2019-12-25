@@ -1,10 +1,14 @@
 package br.com.sisgete.view;
 
+import br.com.sisgete.controller.AtendenteFraternoController;
 import br.com.sisgete.controller.MedicamentoTratamento1Controller;
 import br.com.sisgete.controller.MedicamentoTratamento2Controller;
+import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.controller.QuadroPsicofisicoController;
+import br.com.sisgete.model.AtendenteFraternoModel;
 import br.com.sisgete.model.MedicamentoTratamento1Model;
 import br.com.sisgete.model.MedicamentoTratamento2Model;
+import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.model.SessaoAtendenteModel;
 import br.com.sisgete.util.GetDateUtil;
@@ -18,14 +22,21 @@ import rojerusan.RSPanelsSlider;
 public class AtendimentoFraternoView extends javax.swing.JFrame {
 
     GetDateUtil getDateUtil = new GetDateUtil();
+
     QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
     QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
     MedicamentoTratamento1Controller medicamentoTratamento1Controller = new MedicamentoTratamento1Controller();
     MedicamentoTratamento2Controller medicamentoTratamento2Controller = new MedicamentoTratamento2Controller();
     MedicamentoTratamento1Model medicamentoTratamento1Model = new MedicamentoTratamento1Model();
     MedicamentoTratamento2Model medicamentoTratamento2Model = new MedicamentoTratamento2Model();
+    PacienteModel pacienteModel = new PacienteModel();
+    PacienteController pacienteController = new PacienteController();
+    AtendenteFraternoModel atendenteFraternoModel = new AtendenteFraternoModel();
+    AtendenteFraternoController atendenteFraternoController = new AtendenteFraternoController();
+
     String tipoRemedios, tipoDengue, tipoHepatite, tipoHipertensao, tipoDiabetes, tipoParacetamol, tipoAlcool, tipoFumo, tipoAlergias, tipoHernia, tipoDoencaEstomago, tipoDoencaOssos, tipoDoencaPulmoes, tipoDoencaAutoimune, tipoCancer, tipoFeridas;
     String obsRemedios, obsDengue, obsHepatite, obsHipertensao, obsDiabetes, obsParacetamol, obsAlcool, obsFumo, obsAlergias, obsHernia, obsDoencaEstomago, obsDoencaOssos, obsDoencaPulmoes, obsDoencaAutoimune, obsCancer, obsFeridas;
+    String conhecimentoPrevio, modoDesobsessao, tratamentoFecma;
 
     /**
      * Creates new form Principal
@@ -443,37 +454,37 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
 
         jtfDataNascimento.setCurrentView(new datechooser.view.appearance.AppearancesList("Grey",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(255, 0, 0),
                     false,
@@ -524,13 +535,6 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel9)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                             .addComponent(jLabel4)
@@ -540,16 +544,23 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                             .addComponent(jLabel12)
                             .addGap(23, 23, 23))
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jtfNumImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel14)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtfRua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(7, 7, 7)))))
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jtfNumImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtfRua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
             .addContainerGap())
     );
     jPanel3Layout.setVerticalGroup(
@@ -582,15 +593,13 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(18, 18, 18)
-                    .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, Short.MAX_VALUE))
+                    .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(18, 18, 18)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jtfNumImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel13)
-                        .addComponent(jLabel14))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel14))))
             .addGap(12, 12, 12)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1011,7 +1020,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     jPanel5Layout.setVerticalGroup(
         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel5Layout.createSequentialGroup()
-            .addGap(23, 23, 23)
+            .addGap(43, 43, 43)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel22)
                 .addComponent(jcbQuadroVultos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1085,7 +1094,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                 .addComponent(jcbQuadroDormencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jbAvancarPsicofisico)
                 .addComponent(jbLimparSelecoes))
@@ -1856,15 +1865,35 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcTratamentoSim.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jcTratamentoSim.setText("Sim");
+    jcTratamentoSim.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jcTratamentoSimActionPerformed(evt);
+        }
+    });
 
     jcTratamentoNao.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jcTratamentoNao.setText("Não");
+    jcTratamentoNao.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jcTratamentoNaoActionPerformed(evt);
+        }
+    });
 
     jcConhecimentoEspiritaSim.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jcConhecimentoEspiritaSim.setText("Sim");
+    jcConhecimentoEspiritaSim.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jcConhecimentoEspiritaSimActionPerformed(evt);
+        }
+    });
 
     jcConhecimentoEspiritaNao.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jcConhecimentoEspiritaNao.setText("Não");
+    jcConhecimentoEspiritaNao.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jcConhecimentoEspiritaNaoActionPerformed(evt);
+        }
+    });
 
     jtfFonte.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
     jtfFonte.setForeground(new java.awt.Color(0, 112, 192));
@@ -2127,22 +2156,12 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     private void jbAvancarPsicofisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAvancarPsicofisicoActionPerformed
         if (!this.jbAvancarPsicofisico.isSelected()) {
-            /*    this.jbInformacoes.setSelected(false);
-            this.jbSintomas.setSelected(false);
-            this.jbTratamentos.setSelected(true);
-            this.jbOutrasInfo.setSelected(false);
-             */
             rSPanelsSlider1.slidPanel(20, pnl3, RSPanelsSlider.direct.Right);
         }
     }//GEN-LAST:event_jbAvancarPsicofisicoActionPerformed
 
     private void jbAvancarPnl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAvancarPnl1ActionPerformed
         if (!this.jbAvancarPnl1.isSelected()) {
-            /*    this.jbInformacoes.setSelected(false);
-            this.jbSintomas.setSelected(false);
-            this.jbTratamentos.setSelected(true);
-            this.jbOutrasInfo.setSelected(false);
-             */
             rSPanelsSlider1.slidPanel(20, pnl2, RSPanelsSlider.direct.Right);
         }
         date();
@@ -2150,11 +2169,6 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     private void jbHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHomeActionPerformed
         if (!this.jbHome.isSelected()) {
-            /*    this.jbInformacoes.setSelected(false);
-            this.jbSintomas.setSelected(false);
-            this.jbTratamentos.setSelected(true);
-            this.jbOutrasInfo.setSelected(false);
-             */
             rSPanelsSlider1.slidPanel(20, pnl1, RSPanelsSlider.direct.Right);
         }
     }//GEN-LAST:event_jbHomeActionPerformed
@@ -2323,6 +2337,38 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         }
     }//GEN-LAST:event_jbInfoPacienteActionPerformed
 
+    private void jcTratamentoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcTratamentoSimActionPerformed
+        if (this.jcTratamentoSim.isSelected()) {
+            tratamentoFecma = "Sim";
+            jcTratamentoNao.setSelected(false);
+        } else {
+            jcTratamentoNao.setSelected(true);
+        }
+   }//GEN-LAST:event_jcTratamentoSimActionPerformed
+
+    private void jcTratamentoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcTratamentoNaoActionPerformed
+        if (this.jcTratamentoNao.isSelected()) {
+            tratamentoFecma = "Não";
+            jcTratamentoSim.setEnabled(false);
+        }
+    }//GEN-LAST:event_jcTratamentoNaoActionPerformed
+
+    private void jcConhecimentoEspiritaSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcConhecimentoEspiritaSimActionPerformed
+        if (this.jcConhecimentoEspiritaSim.isSelected()) {
+            conhecimentoPrevio = "Sim";
+            jcConhecimentoEspiritaNao.setEnabled(false);
+            jtfFonte.setEnabled(true);
+        }
+    }//GEN-LAST:event_jcConhecimentoEspiritaSimActionPerformed
+
+    private void jcConhecimentoEspiritaNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcConhecimentoEspiritaNaoActionPerformed
+        if (this.jcConhecimentoEspiritaNao.isSelected()) {
+            conhecimentoPrevio = "Não";
+            jcConhecimentoEspiritaSim.setEnabled(false);
+            jtfFonte.setEnabled(false);
+        }
+    }//GEN-LAST:event_jcConhecimentoEspiritaNaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2388,7 +2434,11 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         jcbQuadroZumbidos.setSelectedItem("SELECIONE");
     }
 
-    private void obterDadosDoencas() {
+    private void obterDadosTratamentoMedicamento() {
+
+        pacienteModel.setBairro(jtfBairro.getText());
+        pacienteModel.setCidade(jcbCidade.getSelectedItem().toString());
+        pacienteModel.setConhecimentoEspiritaPrevio(conhecimentoPrevio);
 
         medicamentoTratamento1Model.setAlcool(jcbAlcool.getSelectedItem().toString());
         medicamentoTratamento1Model.setAlcoolObs(obsDengue);
@@ -2450,7 +2500,6 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         medicamentoTratamento2Model.setHerniaObs(obsHernia);
         medicamentoTratamento2Model.setHerniaPeriodo(jtfPeriodoHernia.getText());
         medicamentoTratamento2Model.setHerniaTipo(tipoHernia);
-        //                                                       ###                                       //
 
     }
 
