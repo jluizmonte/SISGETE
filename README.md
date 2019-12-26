@@ -10,9 +10,9 @@ Desenvolvedor:  `José Luiz` <br/>
 Levantamento dos requisitos iniciais para o desenvolvimento do sistema</br>
 
 ### FASE 2 `CONCLUÍDA`:
-Criação do Modelo Entidade Relacionamento (MER);</br>
-Criação do Diagrama Entidade Relacionamento (DER);</br>
-Criação do projeto lógico físico do banco de dados;</br>
+[x]Criação do Modelo Entidade Relacionamento (MER);</br>
+[x]Criação do Diagrama Entidade Relacionamento (DER);</br>
+[x]Criação do projeto lógico físico do banco de dados;</br>
 
 ### FASE 3 `EM ANDAMENTO`:
 Inicio do desenvolvimento do projeto utilizando   [![JAVA](https://github.com/gobuffalo/tags/workflows/Tests/badge.svg)](https://github.com/gobuffalo/tags/actions)
