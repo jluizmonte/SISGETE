@@ -15,4 +15,5 @@ Criação do Diagrama Entidade Relacionamento (DER);</br>
 Criação do projeto lógico físico do banco de dados;</br>
 
 ### FASE 3 `EM ANDAMENTO`:
-Inicio do desenvolvimento do projeto utilizando  [![JAVA]]
+Inicio do desenvolvimento do projeto utilizando   [![JAVA](https://github.com/gobuffalo/tags/workflows/Tests/badge.svg)](https://github.com/gobuffalo/tags/actions)
+
