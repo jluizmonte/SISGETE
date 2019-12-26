@@ -34,6 +34,7 @@ public class SplashView extends javax.swing.JFrame {
         rSLabelVerticalI1 = new rojerusan.RSLabelVerticalI();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SISGETE - FECMA");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
