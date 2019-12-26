@@ -7,7 +7,7 @@ Desenvolvedor:  `José Luiz` <br/>
 ## FASES DO SISTEMA:
 
 ### FASE 1 `CONCLUÍDA`:
-Levantamento dos requisitos iniciais para o desenvolvimento do sistema</br>
+- [x] Levantamento dos requisitos iniciais para o desenvolvimento do sistema</br>
 
 ### FASE 2 `CONCLUÍDA`:
 - [x] Criação do Modelo Entidade Relacionamento (MER);</br>
@@ -15,5 +15,7 @@ Levantamento dos requisitos iniciais para o desenvolvimento do sistema</br>
 - [x] Criação do projeto lógico físico do banco de dados;</br>
 
 ### FASE 3 `EM ANDAMENTO`:
-Inicio do desenvolvimento do projeto utilizando   [![JAVA](https://github.com/gobuffalo/tags/workflows/Tests/badge.svg)](https://github.com/gobuffalo/tags/actions)
+- [x] Escolha da IDE e linguagem de programação `NETBEANS` e `JAVA`</br>
+- [] Criação das janelas referente ao primeiro acesso ao sistema `Splash` e `Login`;</br>
+- [] Criação da janela referente ao cadastro e consulta de pacientes;</br>
 
