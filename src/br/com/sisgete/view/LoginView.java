@@ -75,7 +75,7 @@ public class LoginView extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(0, 112, 192));
 
         rSLabelVerticalI1.setForeground(new java.awt.Color(255, 255, 255));
-        rSLabelVerticalI1.setText("SISGETE FECMA - 2019");
+        rSLabelVerticalI1.setText("SISGETE FECMA ");
         rSLabelVerticalI1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

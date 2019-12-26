@@ -35,9 +35,11 @@ public class SplashView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISGETE - FECMA");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        rSPanelImage1.setBackground(new java.awt.Color(255, 255, 255));
         rSPanelImage1.setImagen(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/others/document.jpg"))); // NOI18N
 
         rSProgressCircleAnimated1.setString("");
@@ -82,7 +84,7 @@ public class SplashView extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 112, 192));
 
         rSLabelVerticalI1.setForeground(new java.awt.Color(255, 255, 255));
-        rSLabelVerticalI1.setText("SISGETE FECMA - 2019");
+        rSLabelVerticalI1.setText("SISGETE FECMA ");
         rSLabelVerticalI1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -97,7 +99,7 @@ public class SplashView extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(184, Short.MAX_VALUE)
+                .addContainerGap(225, Short.MAX_VALUE)
                 .addComponent(rSLabelVerticalI1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
