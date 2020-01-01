@@ -2,14 +2,13 @@ package br.com.sisgete.view;
 
 import br.com.sisgete.controller.AtendenteFraternoController;
 import br.com.sisgete.controller.MedicamentoTratamentoController;
-import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.controller.QuadroPsicofisicoController;
 import br.com.sisgete.model.AtendenteFraternoModel;
 import br.com.sisgete.model.MedicamentoTratamentoModel;
-import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.model.SessaoAtendenteModel;
 import br.com.sisgete.util.GetDateUtil;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import rojerusan.RSPanelsSlider;
 
@@ -25,8 +24,6 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
     QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
     MedicamentoTratamentoController medicamentoTratamentoController = new MedicamentoTratamentoController();
     MedicamentoTratamentoModel medicamentoTratamentoModel = new MedicamentoTratamentoModel();
-    PacienteModel pacienteModel = new PacienteModel();
-    PacienteController pacienteController = new PacienteController();
     AtendenteFraternoModel atendenteFraternoModel = new AtendenteFraternoModel();
     AtendenteFraternoController atendenteFraternoController = new AtendenteFraternoController();
 
@@ -38,6 +35,8 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public AtendimentoFraternoView() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
+        this.setLocation(400, 100);
         initComponents();
         this.setLocationRelativeTo(this);
         this.setResizable(false);
@@ -2432,10 +2431,9 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     }
 
     private void obterDadosTratamentoMedicamento() {
-        pacienteModel.setBairro(jtfBairro.getText());
-        pacienteModel.setCidade(jcbCidade.getSelectedItem().toString());
-        pacienteModel.setConhecimentoEspiritaPrevio(conhecimentoPrevio);
-
+        medicamentoTratamentoModel.setBairro(jtfBairro.getText());
+        medicamentoTratamentoModel.setCidade(jcbCidade.getSelectedItem().toString());
+        medicamentoTratamentoModel.setConhecimentoEspiritaPrevio(conhecimentoPrevio);
         medicamentoTratamentoModel.setAlcool(jcbAlcool.getSelectedItem().toString());
         medicamentoTratamentoModel.setAlcoolObs(obsDengue);
         medicamentoTratamentoModel.setAlcoolPeriodo(jtfPeriodoAlcool.getText());
