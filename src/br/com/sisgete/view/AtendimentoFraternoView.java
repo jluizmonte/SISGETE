@@ -252,8 +252,6 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
         jLabel51 = new javax.swing.JLabel();
         jlData = new javax.swing.JLabel();
         jlAtendente = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jcbSetor = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
@@ -402,10 +400,10 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel9.setText("Email.:");
 
-        jtfNome.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        jtfNome.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jtfNome.setForeground(new java.awt.Color(0, 112, 192));
 
-        jtfEmail.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        jtfEmail.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jtfEmail.setForeground(new java.awt.Color(0, 112, 192));
 
         jtfTelefone.setForeground(new java.awt.Color(0, 112, 192));
@@ -414,7 +412,7 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jtfTelefone.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        jtfTelefone.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
 
         jlIdade.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jlIdade.setForeground(new java.awt.Color(0, 112, 192));
@@ -424,20 +422,20 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 112, 192));
         jLabel12.setText("Anos");
 
-        jtfRua.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        jtfRua.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jtfRua.setForeground(new java.awt.Color(0, 112, 192));
         jtfRua.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
-        jtfNumImovel.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        jtfNumImovel.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jtfNumImovel.setForeground(new java.awt.Color(0, 112, 192));
 
-        jtfBairro.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        jtfBairro.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jtfBairro.setForeground(new java.awt.Color(0, 112, 192));
 
         jLabel10.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel10.setText("Endereço.:");
 
-        jcbCidade.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
+        jcbCidade.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jcbCidade.setForeground(new java.awt.Color(0, 112, 192));
         jcbCidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abreu e Lima", "Afogados da Ingazeira", "Afrânio", "Agrestina", "Água Preta", "Águas Belas", "Alagoinha", "Aliança", "Altinho", "Amaraji", "Angelim", "Araçoiaba", "Araripina", "Arcoverde", "Barra de Guabiraba", "Barreiros", "Belém de Maria", "Belém do São Francisco", "Belo Jardim", "Betânia", "Bezerros", "Bodocó", "Bom Conselho", "Bom Jardim", "Bonito", "Brejão", "Brejinho", "Brejo da Madre de Deus", "Buenos Aires", "Buíque", "Cabo de Santo Agostinho", "Cabrobó", "Cachoeirinha", "Caetés", "Calçado", "Calumbi", "Camaragibe", "Camocim de São Félix", "Camutanga", "Canhotinho", "Capoeiras", "Carnaíba", "Carnaubeira da Penha", "Carpina", "Caruaru", "Casinhas", "Catende", "Cedro", "Chã de Alegria", "Chã Grande", "Condado", "Correntes", "Cortês", "Cumaru", "Cupira", "Custódia", "Dormentes", "Escada", "Exu", "Feira Nova", "Fernando de Noronha", "Ferreiros", "Flores", "Floresta", "Frei Miguelinho", "Gameleira", "Garanhuns", "Glória do Goitá", "Goiana", "Granito", "Gravatá", "Iati", "Ibimirim", "Ibirajuba", "Igarassu", "Iguaraci", "Ilha de Itamaracá", "Inajá", "Ingazeira", "Ipojuca", "Ipubi", "Itacuruba", "Itaíba", "Itambé", "Itapetim", "Itapissuma", "Itaquitinga", "Jaboatão dos Guararapes", "Jaqueira", "Jataúba", "Jatobá", "João Alfredo", "Joaquim Nabuco", "Jucati", "Jupi", "Jurema", "Lagoa do Carro", "Lagoa do Itaenga", "Lagoa do Ouro", "Lagoa dos Gatos", "Lagoa Grande", "Lajedo", "Limoeiro", "Macaparana", "Machados", "Manarí", "Maraial", "Mirandiba", "Moreilândia", "Moreno", "Nazaré da Mata", "Olinda", "Orobó", "Orocó", "Ouricuri", "Palmares", "Palmeirina", "Panelas", "Paranatama", "Parnamirim", "Passira", "Paudalho", "Paulista", "Pedra", "Pesqueira", "Petrolândia", "Petrolina", "Poção", "Pombos", "Primavera", "Quipapá", "Quixaba", "Recife", "Riacho das Almas", "Ribeirão", "Rio Formoso", "Sairé", "Salgadinho", "Salgueiro", "Saloá", "Sanharó", "Santa Cruz da Baixa Verde", "Santa Cruz do Capibaribe", "Santa Cruz", "Santa Filomena", "Santa Maria da Boa Vista", "Santa Maria do Cambucá", "Santa Terezinha", "São Benedito do Sul", "São Bento do Una", "São Caitano", "São João", "São Joaquim do Monte", "São José da Coroa Grande", "São José do Belmonte", "São José do Egito", "São Lourenço da Mata", "São Vicente Férrer", "Serra Talhada", "Serrita", "Sertânia", "Sirinhaém", "Solidão", "Surubim", "Tabira", "Tacaimbó", "Tacaratu", "Tamandaré", "Taquaritinga do Norte", "Terezinha", "Terra Nova", "Timbaúba", "Toritama", "Tracunhaém", "Trindade", "Triunfo", "Tupanatinga", "Tuparetama", "Venturosa", "Verdejante", "Vertente do Lério", "Vertentes", "Vicência", "Vitória de Santo Antão", "Xexéu" }));
 
@@ -452,37 +450,37 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
 
         jtfDataNascimento.setCurrentView(new datechooser.view.appearance.AppearancesList("Grey",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Dialog", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(51, 51, 51),
                     new java.awt.Color(255, 0, 0),
                     false,
@@ -525,42 +523,42 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                     .addComponent(jtfNome))
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel8)
                         .addComponent(jLabel3)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel13)
-                        .addComponent(jLabel14))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10))
+                    .addGap(69, 69, 69)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jtfTelefone)
-                                .addComponent(jtfDataNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
+                            .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(54, 54, 54)
-                                    .addComponent(jlIdade)
-                                    .addGap(43, 43, 43)
-                                    .addComponent(jLabel12)
-                                    .addGap(23, 23, 23))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtfRua)))
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(jLabel8)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jtfDataNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                    .addComponent(jLabel4)
+                    .addGap(54, 54, 54)
+                    .addComponent(jlIdade)
+                    .addGap(43, 43, 43)
+                    .addComponent(jLabel12))
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel13)
+                        .addComponent(jLabel14))
+                    .addGap(70, 70, 70)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jtfNumImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel15)
-                                        .addGap(5, 5, 5)
-                                        .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jtfRua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jtfNumImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel15)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jcbCidade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
             .addContainerGap())
     );
     jPanel3Layout.setVerticalGroup(
@@ -570,7 +568,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel1))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGap(18, 18, 18)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jtfDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -579,7 +577,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                     .addComponent(jLabel4)
                     .addComponent(jlIdade)
                     .addComponent(jLabel12)))
-            .addGap(18, 18, 18)
+            .addGap(32, 32, 32)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel3)
                 .addComponent(jtfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -591,17 +589,17 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                 .addComponent(jLabel10)
                 .addComponent(jtfRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel13)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfNumImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15))
-                .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-            .addGap(31, 31, 31)
+                    .addComponent(jLabel15)
+                    .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(18, 18, 18)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel14)
                 .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(64, 64, 64))
+            .addGap(70, 70, 70))
     );
 
     jLabel11.setFont(new java.awt.Font("DejaVu Sans", 1, 16)); // NOI18N
@@ -697,7 +695,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addComponent(jbAvancarPnl1)
-            .addContainerGap(50, Short.MAX_VALUE))
+            .addContainerGap(34, Short.MAX_VALUE))
     );
 
     rSPanelsSlider1.add(pnl1, "card2");
@@ -1091,7 +1089,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                 .addComponent(jcbQuadroDormencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jbAvancarPsicofisico)
                 .addComponent(jbLimparSelecoes))
@@ -1152,6 +1150,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jlDoencaAutoimune.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jlDoencaAutoimune.setText("Doenças auto-imune*");
+    jlDoencaAutoimune.setToolTipText("ex. Lúpus, Viltigo");
 
     jlDoencaOssos.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jlDoencaOssos.setText("Doença nos ossos*");
@@ -1807,7 +1806,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jbAvancarPnl3)
-            .addContainerGap(32, Short.MAX_VALUE))
+            .addContainerGap(44, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout pnl3Layout = new javax.swing.GroupLayout(pnl3);
@@ -1916,13 +1915,6 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     jlAtendente.setForeground(new java.awt.Color(0, 112, 192));
     jlAtendente.setText("$Atendente");
 
-    jLabel53.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jLabel53.setText("Setor");
-
-    jcbSetor.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
-    jcbSetor.setForeground(new java.awt.Color(0, 112, 192));
-    jcbSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A1", "A2", "B1", "B2" }));
-
     javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
     jPanel6.setLayout(jPanel6Layout);
     jPanel6Layout.setHorizontalGroup(
@@ -1954,12 +1946,8 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                         .addGroup(jPanel6Layout.createSequentialGroup()
                             .addComponent(jLabel49)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jlAtendente)
-                            .addGap(194, 194, 194)
-                            .addComponent(jLabel53)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jcbSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 245, Short.MAX_VALUE))
+                            .addComponent(jlAtendente)))
+                    .addGap(0, 442, Short.MAX_VALUE))
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addComponent(jLabel50)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2006,9 +1994,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
             .addGap(18, 18, 18)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel49)
-                .addComponent(jlAtendente)
-                .addComponent(jLabel53)
-                .addComponent(jcbSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jlAtendente))
             .addGap(18, 18, 18)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel50)
@@ -2137,7 +2123,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addComponent(jbFinalizarAtendimento)
-            .addContainerGap(16, Short.MAX_VALUE))
+            .addContainerGap(39, Short.MAX_VALUE))
     );
 
     rSPanelsSlider1.add(pnl4, "card5");
@@ -2554,12 +2540,30 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
         if (medicamentoTratamentoController.salvarMedicamentoTratamentoController(medicamentoTratamentoModel) > 0) {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+            limparCampos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
+    private void limparCampos() {
+        jtfBairro.setText("");
+        jtfEmail.setText("");
+        jtfFonte.setText("");
+        jtfNome.setText("");
+        jtfNumImovel.setText("");
+        jtfObjetivoTratamento.setText("");
+        jtfRua.setText("");
+        jtfTelefone.setText("");
+        jcConhecimentoEspiritaNao.setSelected(false);
+        jcConhecimentoEspiritaSim.setSelected(false);
+        jcDesobsessaoNao.setSelected(false);
+        jcDesobsessaoSim.setSelected(false);
+        jcTratamentoNao.setSelected(false);
+        jcTratamentoSim.setSelected(false);
+        limparSelecao();
 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2609,7 +2613,6 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
@@ -2731,7 +2734,6 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     private javax.swing.JComboBox<String> jcbQuadroVultos;
     private javax.swing.JComboBox<String> jcbQuadroZumbidos;
     private javax.swing.JComboBox<String> jcbRemedioControlado;
-    private javax.swing.JComboBox<String> jcbSetor;
     private javax.swing.JLabel jlAlcool;
     private javax.swing.JLabel jlAlergia;
     private javax.swing.JLabel jlAtendente;
