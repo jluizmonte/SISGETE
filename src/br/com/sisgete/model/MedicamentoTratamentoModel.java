@@ -7,7 +7,7 @@ package br.com.sisgete.model;
 public class MedicamentoTratamentoModel {
 
     private int idMedicamentoTratamento;
-    private int idPaciente;
+    private String acompanhamentoPaciente;
     private String alcool;
     private String alcoolObs;
     private String alcoolPeriodo;
@@ -16,10 +16,14 @@ public class MedicamentoTratamentoModel {
     private String alergiasObs;
     private String alergiasPeriodo;
     private String alergiasTipo;
+    private String bairro;
     private String cancer;
     private String cancerObs;
     private String cancerPeriodo;
     private String cancerTipo;
+    private String cidade;
+    private String conhecimentoEspiritaPrevio;
+    private String dataNascimento;
     private String dengue;
     private String dengueObs;
     private String denguePeriodo;
@@ -44,10 +48,12 @@ public class MedicamentoTratamentoModel {
     private String doencaPulmoesObs;
     private String doencaPulmoesPeriodo;
     private String doencaPulmoesTipo;
+    private String email;
     private String feridasTumores;
     private String feridasTumoresObs;
     private String feridasTumoresPeriodo;
     private String feridasTumoresTipo;
+    private String fonteConhecimentoEspirita;
     private String fumo;
     private String fumoObs;
     private String fumoPeriodo;
@@ -64,14 +70,24 @@ public class MedicamentoTratamentoModel {
     private String hipertensaoObs;
     private String hipertensaoPeriodo;
     private String hipertensaoTipo;
+    private String modoDesobsessao;
+    private String nome;
+    private String objetivoTratamento;
+    private String pacienteReincidente;
     private String remedio;
     private String remedioObs;
     private String remedioPeriodo;
     private String remedioTipo;
+    private String rua;
+    private String setor;
+    private String statusTratamento;
+    private String telefone;
     private String usoParacetamol;
     private String usoParacetamolObs;
     private String usoParacetamolPeriodo;
     private String usoParacetamolTipo;
+    private int idade;
+    private int numCasa;
 
     public int getIdMedicamentoTratamento() {
         return idMedicamentoTratamento;
@@ -81,12 +97,12 @@ public class MedicamentoTratamentoModel {
         this.idMedicamentoTratamento = idMedicamentoTratamento;
     }
 
-    public int getIdPaciente() {
-        return idPaciente;
+    public String getAcompanhamentoPaciente() {
+        return acompanhamentoPaciente;
     }
 
-    public void setIdPaciente(int idPaciente) {
-        this.idPaciente = idPaciente;
+    public void setAcompanhamentoPaciente(String acompanhamentoPaciente) {
+        this.acompanhamentoPaciente = acompanhamentoPaciente;
     }
 
     public String getAlcool() {
@@ -153,6 +169,14 @@ public class MedicamentoTratamentoModel {
         this.alergiasTipo = alergiasTipo;
     }
 
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
     public String getCancer() {
         return cancer;
     }
@@ -183,6 +207,30 @@ public class MedicamentoTratamentoModel {
 
     public void setCancerTipo(String cancerTipo) {
         this.cancerTipo = cancerTipo;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getConhecimentoEspiritaPrevio() {
+        return conhecimentoEspiritaPrevio;
+    }
+
+    public void setConhecimentoEspiritaPrevio(String conhecimentoEspiritaPrevio) {
+        this.conhecimentoEspiritaPrevio = conhecimentoEspiritaPrevio;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getDengue() {
@@ -377,6 +425,14 @@ public class MedicamentoTratamentoModel {
         this.doencaPulmoesTipo = doencaPulmoesTipo;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getFeridasTumores() {
         return feridasTumores;
     }
@@ -407,6 +463,14 @@ public class MedicamentoTratamentoModel {
 
     public void setFeridasTumoresTipo(String feridasTumoresTipo) {
         this.feridasTumoresTipo = feridasTumoresTipo;
+    }
+
+    public String getFonteConhecimentoEspirita() {
+        return fonteConhecimentoEspirita;
+    }
+
+    public void setFonteConhecimentoEspirita(String fonteConhecimentoEspirita) {
+        this.fonteConhecimentoEspirita = fonteConhecimentoEspirita;
     }
 
     public String getFumo() {
@@ -537,6 +601,38 @@ public class MedicamentoTratamentoModel {
         this.hipertensaoTipo = hipertensaoTipo;
     }
 
+    public String getModoDesobsessao() {
+        return modoDesobsessao;
+    }
+
+    public void setModoDesobsessao(String modoDesobsessao) {
+        this.modoDesobsessao = modoDesobsessao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getObjetivoTratamento() {
+        return objetivoTratamento;
+    }
+
+    public void setObjetivoTratamento(String objetivoTratamento) {
+        this.objetivoTratamento = objetivoTratamento;
+    }
+
+    public String getPacienteReincidente() {
+        return pacienteReincidente;
+    }
+
+    public void setPacienteReincidente(String pacienteReincidente) {
+        this.pacienteReincidente = pacienteReincidente;
+    }
+
     public String getRemedio() {
         return remedio;
     }
@@ -567,6 +663,38 @@ public class MedicamentoTratamentoModel {
 
     public void setRemedioTipo(String remedioTipo) {
         this.remedioTipo = remedioTipo;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getSetor() {
+        return setor;
+    }
+
+    public void setSetor(String setor) {
+        this.setor = setor;
+    }
+
+    public String getStatusTratamento() {
+        return statusTratamento;
+    }
+
+    public void setStatusTratamento(String statusTratamento) {
+        this.statusTratamento = statusTratamento;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getUsoParacetamol() {
@@ -601,9 +729,25 @@ public class MedicamentoTratamentoModel {
         this.usoParacetamolTipo = usoParacetamolTipo;
     }
 
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public int getNumCasa() {
+        return numCasa;
+    }
+
+    public void setNumCasa(int numCasa) {
+        this.numCasa = numCasa;
+    }
+
     @Override
     public String toString() {
-        return "MedicamentoTratamento{" + "idMedicamentoTratamento=" + idMedicamentoTratamento + ", idPaciente=" + idPaciente + ", alcool=" + alcool + ", alcoolObs=" + alcoolObs + ", alcoolPeriodo=" + alcoolPeriodo + ", alcoolTipo=" + alcoolTipo + ", alergias=" + alergias + ", alergiasObs=" + alergiasObs + ", alergiasPeriodo=" + alergiasPeriodo + ", alergiasTipo=" + alergiasTipo + ", cancer=" + cancer + ", cancerObs=" + cancerObs + ", cancerPeriodo=" + cancerPeriodo + ", cancerTipo=" + cancerTipo + ", dengue=" + dengue + ", dengueObs=" + dengueObs + ", denguePeriodo=" + denguePeriodo + ", dengueTipo=" + dengueTipo + ", diabetes=" + diabetes + ", diabetesObs=" + diabetesObs + ", diabetesPeriodo=" + diabetesPeriodo + ", diabetesTipo=" + diabetesTipo + ", doencaAutoimune=" + doencaAutoimune + ", doencaAutoimuneObs=" + doencaAutoimuneObs + ", doencaAutoimunePeriodo=" + doencaAutoimunePeriodo + ", doencaAutoimuneTipo=" + doencaAutoimuneTipo + ", doencaEstomago=" + doencaEstomago + ", doencaEstomagoObs=" + doencaEstomagoObs + ", doencaEstomagoPeriodo=" + doencaEstomagoPeriodo + ", doencaEstomagoTipo=" + doencaEstomagoTipo + ", doencaOssos=" + doencaOssos + ", doencaOssosObs=" + doencaOssosObs + ", doencaOssosPeriodo=" + doencaOssosPeriodo + ", doencaOssosTipo=" + doencaOssosTipo + ", doencaPulmoes=" + doencaPulmoes + ", doencaPulmoesObs=" + doencaPulmoesObs + ", doencaPulmoesPeriodo=" + doencaPulmoesPeriodo + ", doencaPulmoesTipo=" + doencaPulmoesTipo + ", feridasTumores=" + feridasTumores + ", feridasTumoresObs=" + feridasTumoresObs + ", feridasTumoresPeriodo=" + feridasTumoresPeriodo + ", feridasTumoresTipo=" + feridasTumoresTipo + ", fumo=" + fumo + ", fumoObs=" + fumoObs + ", fumoPeriodo=" + fumoPeriodo + ", fumoTipo=" + fumoTipo + ", hepatite=" + hepatite + ", hepatiteObs=" + hepatiteObs + ", hepatitePeriodo=" + hepatitePeriodo + ", hepatiteTipo=" + hepatiteTipo + ", hernia=" + hernia + ", herniaObs=" + herniaObs + ", herniaPeriodo=" + herniaPeriodo + ", herniaTipo=" + herniaTipo + ", hipertensao=" + hipertensao + ", hipertensaoObs=" + hipertensaoObs + ", hipertensaoPeriodo=" + hipertensaoPeriodo + ", hipertensaoTipo=" + hipertensaoTipo + ", remedio=" + remedio + ", remedioObs=" + remedioObs + ", remedioPeriodo=" + remedioPeriodo + ", remedioTipo=" + remedioTipo + ", usoParacetamol=" + usoParacetamol + ", usoParacetamolObs=" + usoParacetamolObs + ", usoParacetamolPeriodo=" + usoParacetamolPeriodo + ", usoParacetamolTipo=" + usoParacetamolTipo + '}';
+        return "MedicamentoTratamentoModel{" + "idMedicamentoTratamento=" + idMedicamentoTratamento + ", acompanhamentoPaciente=" + acompanhamentoPaciente + ", alcool=" + alcool + ", alcoolObs=" + alcoolObs + ", alcoolPeriodo=" + alcoolPeriodo + ", alcoolTipo=" + alcoolTipo + ", alergias=" + alergias + ", alergiasObs=" + alergiasObs + ", alergiasPeriodo=" + alergiasPeriodo + ", alergiasTipo=" + alergiasTipo + ", bairro=" + bairro + ", cancer=" + cancer + ", cancerObs=" + cancerObs + ", cancerPeriodo=" + cancerPeriodo + ", cancerTipo=" + cancerTipo + ", cidade=" + cidade + ", conhecimentoEspiritaPrevio=" + conhecimentoEspiritaPrevio + ", dataNascimento=" + dataNascimento + ", dengue=" + dengue + ", dengueObs=" + dengueObs + ", denguePeriodo=" + denguePeriodo + ", dengueTipo=" + dengueTipo + ", diabetes=" + diabetes + ", diabetesObs=" + diabetesObs + ", diabetesPeriodo=" + diabetesPeriodo + ", diabetesTipo=" + diabetesTipo + ", doencaAutoimune=" + doencaAutoimune + ", doencaAutoimuneObs=" + doencaAutoimuneObs + ", doencaAutoimunePeriodo=" + doencaAutoimunePeriodo + ", doencaAutoimuneTipo=" + doencaAutoimuneTipo + ", doencaEstomago=" + doencaEstomago + ", doencaEstomagoObs=" + doencaEstomagoObs + ", doencaEstomagoPeriodo=" + doencaEstomagoPeriodo + ", doencaEstomagoTipo=" + doencaEstomagoTipo + ", doencaOssos=" + doencaOssos + ", doencaOssosObs=" + doencaOssosObs + ", doencaOssosPeriodo=" + doencaOssosPeriodo + ", doencaOssosTipo=" + doencaOssosTipo + ", doencaPulmoes=" + doencaPulmoes + ", doencaPulmoesObs=" + doencaPulmoesObs + ", doencaPulmoesPeriodo=" + doencaPulmoesPeriodo + ", doencaPulmoesTipo=" + doencaPulmoesTipo + ", email=" + email + ", feridasTumores=" + feridasTumores + ", feridasTumoresObs=" + feridasTumoresObs + ", feridasTumoresPeriodo=" + feridasTumoresPeriodo + ", feridasTumoresTipo=" + feridasTumoresTipo + ", fonteConhecimentoEspirita=" + fonteConhecimentoEspirita + ", fumo=" + fumo + ", fumoObs=" + fumoObs + ", fumoPeriodo=" + fumoPeriodo + ", fumoTipo=" + fumoTipo + ", hepatite=" + hepatite + ", hepatiteObs=" + hepatiteObs + ", hepatitePeriodo=" + hepatitePeriodo + ", hepatiteTipo=" + hepatiteTipo + ", hernia=" + hernia + ", herniaObs=" + herniaObs + ", herniaPeriodo=" + herniaPeriodo + ", herniaTipo=" + herniaTipo + ", hipertensao=" + hipertensao + ", hipertensaoObs=" + hipertensaoObs + ", hipertensaoPeriodo=" + hipertensaoPeriodo + ", hipertensaoTipo=" + hipertensaoTipo + ", modoDesobsessao=" + modoDesobsessao + ", nome=" + nome + ", objetivoTratamento=" + objetivoTratamento + ", pacienteReincidente=" + pacienteReincidente + ", remedio=" + remedio + ", remedioObs=" + remedioObs + ", remedioPeriodo=" + remedioPeriodo + ", remedioTipo=" + remedioTipo + ", rua=" + rua + ", setor=" + setor + ", statusTratamento=" + statusTratamento + ", telefone=" + telefone + ", usoParacetamol=" + usoParacetamol + ", usoParacetamolObs=" + usoParacetamolObs + ", usoParacetamolPeriodo=" + usoParacetamolPeriodo + ", usoParacetamolTipo=" + usoParacetamolTipo + ", idade=" + idade + ", numCasa=" + numCasa + '}';
     }
 
 }

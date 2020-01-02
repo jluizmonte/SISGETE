@@ -3,15 +3,12 @@ package br.com.sisgete.view;
 import br.com.sisgete.controller.AtendenteFraternoController;
 import br.com.sisgete.model.AtendenteFraternoModel;
 import br.com.sisgete.model.SessaoAtendenteModel;
-import br.com.sisgete.util.alerts.ErrorAlert;
 import br.com.sisgete.util.alerts.WarningAlertCerrar;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 /**
  *
@@ -282,38 +279,6 @@ public class LoginView extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jtfSenhaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(() -> {
-            LoginView dialog = new LoginView(new javax.swing.JFrame(), true);
-            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                @Override
-                public void windowClosing(java.awt.event.WindowEvent e) {
-                    System.exit(0);
-                }
-            });
-            dialog.setVisible(true);
-        });
-    }
-
     private void login() {
 
         atendenteFraternoModel.setUsuario(jtfUsuario.getText());
@@ -324,6 +289,7 @@ public class LoginView extends javax.swing.JDialog {
                 atendenteFraternoModel = atendenteFraternoController.getAtendenteFraternoController(jtfUsuario.getText());
                 setSessionUser();
                 new AtendimentoFraternoView().setVisible(true);
+                //  new ConsultaPaciente().setVisible(true);
                 this.dispose();
             } else {
                 LoginView.lblInfo.setText("LOGIN OU SENHAS INVÁLIDOS");
