@@ -16,6 +16,6 @@ Desenvolvedor:  `José Luiz` <br/>
 
 ### FASE 3 `EM ANDAMENTO`:
 - [x] Escolha da IDE e linguagem de programação `NETBEANS` e `JAVA`</br>
-- [ ] Criação das janelas referente ao primeiro acesso ao sistema `Splash` e `Login`;</br>
+- [x] Criação das janelas referente ao primeiro acesso ao sistema `Splash` e `Login`;</br>
 - [ ] Criação da janela referente ao cadastro e consulta de pacientes;</br>
 
