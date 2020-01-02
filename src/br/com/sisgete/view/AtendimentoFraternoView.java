@@ -2386,34 +2386,17 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     private void jcDesobsessaoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDesobsessaoSimActionPerformed
         if (jcDesobsessaoSim.isSelected()) {
             jcDesobsessaoNao.setSelected(false);
+            modoDesobsessao = jcDesobsessaoSim.getText();
         }
     }//GEN-LAST:event_jcDesobsessaoSimActionPerformed
 
     private void jcDesobsessaoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDesobsessaoNaoActionPerformed
         if (jcDesobsessaoNao.isSelected()) {
             jcDesobsessaoSim.setSelected(false);
+            modoDesobsessao = jcDesobsessaoNao.getText();
+
         }
     }//GEN-LAST:event_jcDesobsessaoNaoActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AtendimentoFraternoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new AtendimentoFraternoView().setVisible(true);
-        });
-    }
 
     /**
      * metodo para calcular a idade do paciente e automaticamente atribuir na

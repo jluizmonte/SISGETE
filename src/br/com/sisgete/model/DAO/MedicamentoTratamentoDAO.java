@@ -91,6 +91,8 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                     + "data_nascimento,"
                     + "status_tratamento,"
                     + "modo_desobsessao,"
+                    + "data_atendimento,"
+                    + "atendente,"
                     + "acompanhamento_paciente,"
                     + "rua,"
                     + "num_casa,"
@@ -174,6 +176,8 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                     + "'" + modelMedicamentoTratamento.getDataNascimento() + "',"
                     + "'" + modelMedicamentoTratamento.getStatusTratamento() + "',"
                     + "'" + modelMedicamentoTratamento.getModoDesobsessao() + "',"
+                    + "'" + modelMedicamentoTratamento.getDataAtendimento() + "',"
+                    + "'" + modelMedicamentoTratamento.getAtendente() + "',"
                     + "'" + modelMedicamentoTratamento.getAcompanhamentoPaciente() + "',"
                     + "'" + modelMedicamentoTratamento.getRua() + "',"
                     + "'" + modelMedicamentoTratamento.getNumCasa() + "',"
@@ -211,7 +215,7 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                     "SELECT  * FROM tbl_medicamento_tratamento WHERE pk_id_medicamento_tratamento = '"
                     + pIdMedicamentoTratamento + "'" + ";"
             );
-            
+
             while (this.getResultSet().next()) {
                 modelMedicamentoTratamento.setIdMedicamentoTratamento(this.getResultSet().getInt(1));
                 modelMedicamentoTratamento.setRemedio(this.getResultSet().getString(2));
@@ -282,19 +286,21 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                 modelMedicamentoTratamento.setDataNascimento(this.getResultSet().getString(67));
                 modelMedicamentoTratamento.setStatusTratamento(this.getResultSet().getString(68));
                 modelMedicamentoTratamento.setModoDesobsessao(this.getResultSet().getString(69));
-                modelMedicamentoTratamento.setAcompanhamentoPaciente(this.getResultSet().getString(70));
-                modelMedicamentoTratamento.setRua(this.getResultSet().getString(71));
-                modelMedicamentoTratamento.setNumCasa(this.getResultSet().getInt(72));
-                modelMedicamentoTratamento.setBairro(this.getResultSet().getString(73));
-                modelMedicamentoTratamento.setCidade(this.getResultSet().getString(74));
-                modelMedicamentoTratamento.setIdade(this.getResultSet().getInt(75));
-                modelMedicamentoTratamento.setConhecimentoEspiritaPrevio(this.getResultSet().getString(76));
-                modelMedicamentoTratamento.setFonteConhecimentoEspirita(this.getResultSet().getString(77));
-                modelMedicamentoTratamento.setObjetivoTratamento(this.getResultSet().getString(78));
-                modelMedicamentoTratamento.setNome(this.getResultSet().getString(79));
-                modelMedicamentoTratamento.setSetor(this.getResultSet().getString(80));
-                modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(81));
-                modelMedicamentoTratamento.setEmail(this.getResultSet().getString(82));
+                modelMedicamentoTratamento.setDataAtendimento(this.getResultSet().getString(70));
+                modelMedicamentoTratamento.setAtendente(this.getResultSet().getString(71));
+                modelMedicamentoTratamento.setAcompanhamentoPaciente(this.getResultSet().getString(72));
+                modelMedicamentoTratamento.setRua(this.getResultSet().getString(73));
+                modelMedicamentoTratamento.setNumCasa(this.getResultSet().getInt(74));
+                modelMedicamentoTratamento.setBairro(this.getResultSet().getString(75));
+                modelMedicamentoTratamento.setCidade(this.getResultSet().getString(76));
+                modelMedicamentoTratamento.setIdade(this.getResultSet().getInt(77));
+                modelMedicamentoTratamento.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
+                modelMedicamentoTratamento.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
+                modelMedicamentoTratamento.setObjetivoTratamento(this.getResultSet().getString(80));
+                modelMedicamentoTratamento.setNome(this.getResultSet().getString(81));
+                modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
+                modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
+                modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -318,7 +324,7 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                     "SELECT * FROM tbl_medicamento_tratamento"
                     + ";"
             );
-            
+
             while (this.getResultSet().next()) {
                 modelMedicamentoTratamento.setIdMedicamentoTratamento(this.getResultSet().getInt(1));
                 modelMedicamentoTratamento.setRemedio(this.getResultSet().getString(2));
@@ -389,19 +395,21 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                 modelMedicamentoTratamento.setDataNascimento(this.getResultSet().getString(67));
                 modelMedicamentoTratamento.setStatusTratamento(this.getResultSet().getString(68));
                 modelMedicamentoTratamento.setModoDesobsessao(this.getResultSet().getString(69));
-                modelMedicamentoTratamento.setAcompanhamentoPaciente(this.getResultSet().getString(70));
-                modelMedicamentoTratamento.setRua(this.getResultSet().getString(71));
-                modelMedicamentoTratamento.setNumCasa(this.getResultSet().getInt(72));
-                modelMedicamentoTratamento.setBairro(this.getResultSet().getString(73));
-                modelMedicamentoTratamento.setCidade(this.getResultSet().getString(74));
-                modelMedicamentoTratamento.setIdade(this.getResultSet().getInt(75));
-                modelMedicamentoTratamento.setConhecimentoEspiritaPrevio(this.getResultSet().getString(76));
-                modelMedicamentoTratamento.setFonteConhecimentoEspirita(this.getResultSet().getString(77));
-                modelMedicamentoTratamento.setObjetivoTratamento(this.getResultSet().getString(78));
-                modelMedicamentoTratamento.setNome(this.getResultSet().getString(79));
-                modelMedicamentoTratamento.setSetor(this.getResultSet().getString(80));
-                modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(81));
-                modelMedicamentoTratamento.setEmail(this.getResultSet().getString(82));
+                modelMedicamentoTratamento.setDataAtendimento(this.getResultSet().getString(70));
+                modelMedicamentoTratamento.setAtendente(this.getResultSet().getString(71));
+                modelMedicamentoTratamento.setAcompanhamentoPaciente(this.getResultSet().getString(72));
+                modelMedicamentoTratamento.setRua(this.getResultSet().getString(73));
+                modelMedicamentoTratamento.setNumCasa(this.getResultSet().getInt(74));
+                modelMedicamentoTratamento.setBairro(this.getResultSet().getString(75));
+                modelMedicamentoTratamento.setCidade(this.getResultSet().getString(76));
+                modelMedicamentoTratamento.setIdade(this.getResultSet().getInt(77));
+                modelMedicamentoTratamento.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
+                modelMedicamentoTratamento.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
+                modelMedicamentoTratamento.setObjetivoTratamento(this.getResultSet().getString(80));
+                modelMedicamentoTratamento.setNome(this.getResultSet().getString(81));
+                modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
+                modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
+                modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
                 listamodelMedicamentoTratamento.add(modelMedicamentoTratamento);
             }
         } catch (SQLException e) {
@@ -492,6 +500,8 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                     + "data_nascimento = '" + modelMedicamentoTratamento.getDataNascimento() + "',"
                     + "status_tratamento = '" + modelMedicamentoTratamento.getStatusTratamento() + "',"
                     + "modo_desobsessao = '" + modelMedicamentoTratamento.getModoDesobsessao() + "',"
+                    + "data_atendimento ='" + modelMedicamentoTratamento.getDataAtendimento() + "',"
+                    + "atendente ='" + modelMedicamentoTratamento.getAtendente() + "',"
                     + "acompanhamento_paciente = '" + modelMedicamentoTratamento.getAcompanhamentoPaciente() + "',"
                     + "rua = '" + modelMedicamentoTratamento.getRua() + "',"
                     + "num_casa = '" + modelMedicamentoTratamento.getNumCasa() + "',"
@@ -539,5 +549,5 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
             this.fecharConexao();
         }
     }
-    
+
 }

@@ -1,7 +1,11 @@
 package br.com.sisgete.view;
 
+import br.com.sisgete.controller.MedicamentoTratamentoController;
+import br.com.sisgete.model.MedicamentoTratamentoModel;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -10,6 +14,9 @@ import javax.swing.JOptionPane;
 public class ConsultaPaciente extends javax.swing.JFrame {
 
     String nome, status, desobsessao, setor;
+    MedicamentoTratamentoController medicamentoTratamentoController = new MedicamentoTratamentoController();
+    MedicamentoTratamentoModel medicamentoTratamentoModel = new MedicamentoTratamentoModel();
+    ArrayList<MedicamentoTratamentoModel> listaTratamentoModels = new ArrayList<>();
 
     /**
      * Creates new form ConsultaPaciente
@@ -20,6 +27,7 @@ public class ConsultaPaciente extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         //  setExtendedState(JFrame.MAXIMIZED_BOTH);
+        popularTabela();
     }
 
     @SuppressWarnings("unchecked")
@@ -34,7 +42,7 @@ public class ConsultaPaciente extends javax.swing.JFrame {
         jrbFiltroStatusTratamento = new javax.swing.JRadioButton();
         jrbFiltroDesobsessão = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
+        jtResultado = new rojerusan.RSTableMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consulta de Pacientes");
@@ -120,7 +128,7 @@ public class ConsultaPaciente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
+        jtResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -146,18 +154,18 @@ public class ConsultaPaciente extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(204, 204, 204));
-        rSTableMetro1.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
-        rSTableMetro1.setColorForegroundHead(new java.awt.Color(0, 112, 192));
-        rSTableMetro1.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
-        rSTableMetro1.setFuenteFilas(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
-        rSTableMetro1.setFuenteFilasSelect(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
-        rSTableMetro1.setFuenteHead(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        rSTableMetro1.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(rSTableMetro1);
-        if (rSTableMetro1.getColumnModel().getColumnCount() > 0) {
-            rSTableMetro1.getColumnModel().getColumn(0).setResizable(false);
-            rSTableMetro1.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jtResultado.setColorBackgoundHead(new java.awt.Color(204, 204, 204));
+        jtResultado.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        jtResultado.setColorForegroundHead(new java.awt.Color(0, 112, 192));
+        jtResultado.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+        jtResultado.setFuenteFilas(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        jtResultado.setFuenteFilasSelect(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        jtResultado.setFuenteHead(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jtResultado.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(jtResultado);
+        if (jtResultado.getColumnModel().getColumnCount() > 0) {
+            jtResultado.getColumnModel().getColumn(0).setResizable(false);
+            jtResultado.getColumnModel().getColumn(0).setPreferredWidth(20);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -254,6 +262,25 @@ public class ConsultaPaciente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jrbFiltroDesobsessãoActionPerformed
 
+    private void popularTabela() {
+        listaTratamentoModels = medicamentoTratamentoController.getListaMedicamentoTratamentoController();
+        DefaultTableModel modelo = (DefaultTableModel) jtResultado.getModel();
+        modelo.setNumRows(0);
+
+        int cont = listaTratamentoModels.size();
+        for (int i = 0; i < cont; i++) {
+            modelo.addRow(new Object[]{
+                listaTratamentoModels.get(i).getIdMedicamentoTratamento(),
+                listaTratamentoModels.get(i).getPacienteReincidente(),
+                listaTratamentoModels.get(i).getSetor(),
+                listaTratamentoModels.get(i).getDataAtendimento(),
+                listaTratamentoModels.get(i).getAtendente(),
+                listaTratamentoModels.get(i).getModoDesobsessao(),
+                listaTratamentoModels.get(i).getStatusTratamento()
+            });
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -287,7 +314,7 @@ public class ConsultaPaciente extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrbFiltroNome;
     private javax.swing.JRadioButton jrbFiltroSetor;
     private javax.swing.JRadioButton jrbFiltroStatusTratamento;
-    private rojerusan.RSTableMetro rSTableMetro1;
+    private rojerusan.RSTableMetro jtResultado;
     // End of variables declaration//GEN-END:variables
 
 }
