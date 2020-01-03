@@ -326,6 +326,7 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
             );
 
             while (this.getResultSet().next()) {
+                modelMedicamentoTratamento = new MedicamentoTratamentoModel();
                 modelMedicamentoTratamento.setIdMedicamentoTratamento(this.getResultSet().getInt(1));
                 modelMedicamentoTratamento.setRemedio(this.getResultSet().getString(2));
                 modelMedicamentoTratamento.setRemedioTipo(this.getResultSet().getString(3));

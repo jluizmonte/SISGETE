@@ -4,8 +4,12 @@ import br.com.sisgete.controller.MedicamentoTratamentoController;
 import br.com.sisgete.model.MedicamentoTratamentoModel;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -13,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ConsultaPaciente extends javax.swing.JFrame {
 
-    String nome, status, desobsessao, setor;
+    String termoPesquisa;
     MedicamentoTratamentoController medicamentoTratamentoController = new MedicamentoTratamentoController();
     MedicamentoTratamentoModel medicamentoTratamentoModel = new MedicamentoTratamentoModel();
     ArrayList<MedicamentoTratamentoModel> listaTratamentoModels = new ArrayList<>();
@@ -26,7 +30,7 @@ public class ConsultaPaciente extends javax.swing.JFrame {
         this.setLocation(400, 100);
         initComponents();
         setLocationRelativeTo(null);
-        //  setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         popularTabela();
     }
 
@@ -180,8 +184,7 @@ public class ConsultaPaciente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -204,7 +207,9 @@ public class ConsultaPaciente extends javax.swing.JFrame {
             jrbFiltroSetor.setSelected(false);
             jrbFiltroStatusTratamento.setSelected(false);
 
-            nome = JOptionPane.showInputDialog(this, "Entre o nome do paciente:", "Pesquisa paciente", JOptionPane.INFORMATION_MESSAGE);
+            termoPesquisa = JOptionPane.showInputDialog(this, "Entre o nome do paciente:", "Pesquisa paciente", JOptionPane.INFORMATION_MESSAGE).toUpperCase();
+            pesquisaPaciente(1);
+            desmarcarFiltro();
         }
     }//GEN-LAST:event_jrbFiltroNomeActionPerformed
 
@@ -222,7 +227,9 @@ public class ConsultaPaciente extends javax.swing.JFrame {
                     null,
                     opcoes,
                     "A1");
-            setor = String.valueOf(resposta);
+            termoPesquisa = String.valueOf(resposta);
+            pesquisaPaciente(2);
+            desmarcarFiltro();
         }
     }//GEN-LAST:event_jrbFiltroSetorActionPerformed
 
@@ -240,7 +247,9 @@ public class ConsultaPaciente extends javax.swing.JFrame {
                     null,
                     opcoes,
                     "Liberado");
-            status = String.valueOf(resposta);
+            termoPesquisa = String.valueOf(resposta).toUpperCase();
+            pesquisaPaciente(6);
+            desmarcarFiltro();
         }
     }//GEN-LAST:event_jrbFiltroStatusTratamentoActionPerformed
 
@@ -258,7 +267,9 @@ public class ConsultaPaciente extends javax.swing.JFrame {
                     null,
                     opcoes,
                     "No Centro");
-            desobsessao = String.valueOf(resposta);
+            termoPesquisa = String.valueOf(resposta);
+            pesquisaPaciente(5);
+            desmarcarFiltro();
         }
     }//GEN-LAST:event_jrbFiltroDesobsessãoActionPerformed
 
@@ -271,7 +282,7 @@ public class ConsultaPaciente extends javax.swing.JFrame {
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
                 listaTratamentoModels.get(i).getIdMedicamentoTratamento(),
-                listaTratamentoModels.get(i).getPacienteReincidente(),
+                listaTratamentoModels.get(i).getNome(),
                 listaTratamentoModels.get(i).getSetor(),
                 listaTratamentoModels.get(i).getDataAtendimento(),
                 listaTratamentoModels.get(i).getAtendente(),
@@ -305,6 +316,19 @@ public class ConsultaPaciente extends javax.swing.JFrame {
         });
     }
 
+    private void pesquisaPaciente(int row) {
+        DefaultTableModel modelo = (DefaultTableModel) this.jtResultado.getModel();
+        final TableRowSorter<TableModel> classificador = new TableRowSorter<>(modelo);
+        this.jtResultado.setRowSorter(classificador);
+        classificador.setRowFilter(RowFilter.regexFilter(termoPesquisa, row));
+    }
+
+    private void desmarcarFiltro() {
+        jrbFiltroDesobsessão.setSelected(false);
+        jrbFiltroNome.setSelected(false);
+        jrbFiltroSetor.setSelected(false);
+        jrbFiltroStatusTratamento.setSelected(false);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
