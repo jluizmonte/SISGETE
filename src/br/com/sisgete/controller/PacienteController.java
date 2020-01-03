@@ -1,16 +1,16 @@
 package br.com.sisgete.controller;
 
-import br.com.sisgete.model.DAO.MedicamentoTratamentoDAO;
-import br.com.sisgete.model.MedicamentoTratamentoModel;
+import br.com.sisgete.model.DAO.PacienteDAO;
+import br.com.sisgete.model.PacienteModel;
 import java.util.ArrayList;
 
 /**
  *
  * @author luiz
  */
-public class MedicamentoTratamentoController {
+public class PacienteController {
 
-    MedicamentoTratamentoDAO medicamentoTratamentoDAO = new MedicamentoTratamentoDAO();
+    PacienteDAO medicamentoTratamentoDAO = new PacienteDAO();
 
     /**
      * grava MedicamentoTratamento
@@ -18,7 +18,7 @@ public class MedicamentoTratamentoController {
      * @param pMedicamentoTratamentoModel return int
      * @return
      */
-    public int salvarMedicamentoTratamentoController(MedicamentoTratamentoModel pMedicamentoTratamentoModel) {
+    public int salvarMedicamentoTratamentoController(PacienteModel pMedicamentoTratamentoModel) {
         return this.medicamentoTratamentoDAO.salvarMedicamentoTratamentoDAO(pMedicamentoTratamentoModel);
     }
 
@@ -26,9 +26,9 @@ public class MedicamentoTratamentoController {
      * recupera MedicamentoTratamento
      *
      * @param pIdMedicamentoTratamento
-     * @return MedicamentoTratamentoModel
+     * @return PacienteModel
      */
-    public MedicamentoTratamentoModel getMedicamentoTratamentoController(int pIdMedicamentoTratamento) {
+    public PacienteModel getMedicamentoTratamentoController(int pIdMedicamentoTratamento) {
         return this.medicamentoTratamentoDAO.getMedicamentoTratamentoDAO(pIdMedicamentoTratamento);
     }
 
@@ -37,7 +37,7 @@ public class MedicamentoTratamentoController {
      *
      * @return ArrayList
      */
-    public ArrayList<MedicamentoTratamentoModel> getListaMedicamentoTratamentoController() {
+    public ArrayList<PacienteModel> getListaMedicamentoTratamentoController() {
         return this.medicamentoTratamentoDAO.getListaMedicamentoTratamentoDAO();
     }
 
@@ -47,7 +47,7 @@ public class MedicamentoTratamentoController {
      * @param pMedicamentoTratamentoModel return boolean
      * @return
      */
-    public boolean atualizarMedicamentoTratamentoController(MedicamentoTratamentoModel pMedicamentoTratamentoModel) {
+    public boolean atualizarMedicamentoTratamentoController(PacienteModel pMedicamentoTratamentoModel) {
         return this.medicamentoTratamentoDAO.atualizarMedicamentoTratamentoDAO(pMedicamentoTratamentoModel);
     }
 

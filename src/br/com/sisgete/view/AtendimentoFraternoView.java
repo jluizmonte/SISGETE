@@ -1,12 +1,10 @@
 package br.com.sisgete.view;
 
 import br.com.sisgete.controller.AtendenteFraternoController;
-import br.com.sisgete.controller.MedicamentoTratamentoController;
-import br.com.sisgete.controller.QuadroPsicofisicoController;
+import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.model.AtendenteFraternoModel;
-import br.com.sisgete.model.MedicamentoTratamentoModel;
-import br.com.sisgete.model.QuadroPsicofisicoModel;
-import br.com.sisgete.model.SessaoAtendenteModel;
+import br.com.sisgete.model.PacienteModel;
+import br.com.sisgete.model.SessaoModel;
 import br.com.sisgete.util.GetDateUtil;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -20,10 +18,8 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
 
     GetDateUtil getDateUtil = new GetDateUtil();
 
-    QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
-    QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
-    MedicamentoTratamentoController medicamentoTratamentoController = new MedicamentoTratamentoController();
-    MedicamentoTratamentoModel medicamentoTratamentoModel = new MedicamentoTratamentoModel();
+    PacienteController pacienteController = new PacienteController();
+    PacienteModel pacienteModel = new PacienteModel();
     AtendenteFraternoModel atendenteFraternoModel = new AtendenteFraternoModel();
     AtendenteFraternoController atendenteFraternoController = new AtendenteFraternoController();
 
@@ -41,7 +37,7 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.setResizable(false);
         jlIdade.setText("");
-        jlAtendente.setText(SessaoAtendenteModel.nomeAtendente);
+        jlAtendente.setText(SessaoModel.nomeUsuario);
         jtfNome.requestFocusInWindow();
     }
 
@@ -2444,84 +2440,86 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     }
 
     private void obterDadosTratamentoMedicamento() {
-        medicamentoTratamentoModel.setDataNascimento(jtfDataNascimento.getText());
-        medicamentoTratamentoModel.setEmail(jtfEmail.getText());
-        medicamentoTratamentoModel.setFonteConhecimentoEspirita(jtfFonte.getText());
-        medicamentoTratamentoModel.setIdade(Integer.parseInt(jlIdade.getText()));
-        medicamentoTratamentoModel.setNome(jtfNome.getText().toUpperCase());
-        medicamentoTratamentoModel.setNumCasa(Integer.parseInt(jtfNumImovel.getText()));
-        medicamentoTratamentoModel.setModoDesobsessao(modoDesobsessao);
-        medicamentoTratamentoModel.setObjetivoTratamento(jtfObjetivoTratamento.getText());
-        medicamentoTratamentoModel.setPacienteReincidente(tratamentoFecma);
-        medicamentoTratamentoModel.setRua(jtfRua.getText());
-        medicamentoTratamentoModel.setSetor(setor);
-        medicamentoTratamentoModel.setTelefone(jtfTelefone.getText());
-        medicamentoTratamentoModel.setStatusTratamento("EM TRATAMENTO");
-        medicamentoTratamentoModel.setBairro(jtfBairro.getText());
-        medicamentoTratamentoModel.setCidade(jcbCidade.getSelectedItem().toString());
-        medicamentoTratamentoModel.setConhecimentoEspiritaPrevio(conhecimentoPrevio);
+        //dados do paciente
+        pacienteModel.setDataNascimento(jtfDataNascimento.getText());
+        pacienteModel.setEmail(jtfEmail.getText());
+        pacienteModel.setFonteConhecimentoEspirita(jtfFonte.getText());
+        pacienteModel.setIdade(Integer.parseInt(jlIdade.getText()));
+        pacienteModel.setNome(jtfNome.getText().toUpperCase());
+        pacienteModel.setNumCasa(Integer.parseInt(jtfNumImovel.getText()));
+        pacienteModel.setModoDesobsessao(modoDesobsessao);
+        pacienteModel.setObjetivoTratamento(jtfObjetivoTratamento.getText());
+        pacienteModel.setPacienteReincidente(tratamentoFecma);
+        pacienteModel.setRua(jtfRua.getText());
+        pacienteModel.setSetor(setor);
+        pacienteModel.setTelefone(jtfTelefone.getText());
+        pacienteModel.setStatusTratamento("EM TRATAMENTO");
+        pacienteModel.setBairro(jtfBairro.getText());
+        pacienteModel.setCidade(jcbCidade.getSelectedItem().toString());
+        pacienteModel.setConhecimentoEspiritaPrevio(conhecimentoPrevio);
 
-        medicamentoTratamentoModel.setAlcool(jcbAlcool.getSelectedItem().toString());
-        medicamentoTratamentoModel.setAlcoolObs(obsDengue);
-        medicamentoTratamentoModel.setAlcoolPeriodo(jtfPeriodoAlcool.getText());
-        medicamentoTratamentoModel.setAlcoolTipo(tipoAlcool);
-        medicamentoTratamentoModel.setDengue(jcbDengue.getSelectedItem().toString());
-        medicamentoTratamentoModel.setDengueObs(obsDengue);
-        medicamentoTratamentoModel.setDenguePeriodo(jtfPeriodoDengue.getText());
-        medicamentoTratamentoModel.setDengueTipo(tipoDengue);
-        medicamentoTratamentoModel.setDiabetes(jcbDiabetes.getSelectedItem().toString());
-        medicamentoTratamentoModel.setDiabetesObs(obsDengue);
-        medicamentoTratamentoModel.setDiabetesPeriodo(jtfPeriodoDiabetes.getText());
-        medicamentoTratamentoModel.setDiabetesTipo(tipoDiabetes);
-        medicamentoTratamentoModel.setFumo(jcbFumo.getSelectedItem().toString());
-        medicamentoTratamentoModel.setFumoObs(obsFumo);
-        medicamentoTratamentoModel.setFumoPeriodo(jtfPeriodoFumo.getText());
-        medicamentoTratamentoModel.setFumoTipo(tipoFumo);
-        medicamentoTratamentoModel.setHepatite(jcbHepatite.getSelectedItem().toString());
-        medicamentoTratamentoModel.setHepatiteObs(obsHepatite);
-        medicamentoTratamentoModel.setHepatitePeriodo(jtfPeriodoHepatite.getText());
-        medicamentoTratamentoModel.setHipertensao(jcbHipertensao.getSelectedItem().toString());
-        medicamentoTratamentoModel.setHipertensaoObs(obsHipertensao);
-        medicamentoTratamentoModel.setHipertensaoPeriodo(jtfPeriodoHipertensao.getText());
-        medicamentoTratamentoModel.setHipertensaoTipo(tipoHipertensao);
-        medicamentoTratamentoModel.setRemedio(jcbRemedioControlado.getSelectedItem().toString());
-        medicamentoTratamentoModel.setRemedioObs(obsRemedios);
-        medicamentoTratamentoModel.setRemedioPeriodo(jtfPeriodoRemedio.getText());
-        medicamentoTratamentoModel.setRemedioTipo(tipoRemedios);
-        medicamentoTratamentoModel.setUsoParacetamol(jcbParacetamol.getSelectedItem().toString());
-        medicamentoTratamentoModel.setUsoParacetamolObs(obsParacetamol);
-        medicamentoTratamentoModel.setUsoParacetamolPeriodo(jtfPeriodoParacetamol.getText());
-        medicamentoTratamentoModel.setUsoParacetamolTipo(tipoParacetamol);
-        medicamentoTratamentoModel.setAlergias(jcbAlergia.getSelectedItem().toString());
-        medicamentoTratamentoModel.setAlergiasObs(obsAlergias);
-        medicamentoTratamentoModel.setAlergiasPeriodo(jtfPeriodoAlergia.getText());
-        medicamentoTratamentoModel.setAlergiasTipo(tipoAlergias);
-        medicamentoTratamentoModel.setCancer(jcbCancer.getSelectedItem().toString());
-        medicamentoTratamentoModel.setCancerObs(obsCancer);
-        medicamentoTratamentoModel.setCancerPeriodo(jtfPeriodoCancer.getText());
-        medicamentoTratamentoModel.setCancerTipo(tipoCancer);
-        medicamentoTratamentoModel.setDoencaEstomago(jcbDoencaEstomago.getSelectedItem().toString());
-        medicamentoTratamentoModel.setDoencaEstomagoObs(obsDoencaEstomago);
-        medicamentoTratamentoModel.setDoencaEstomagoPeriodo(jtfPeriodoDoencaEstomago.getText());
-        medicamentoTratamentoModel.setDoencaEstomagoTipo(tipoDoencaEstomago);
-        medicamentoTratamentoModel.setDoencaOssos(jcbDoencaOssos.getSelectedItem().toString());
-        medicamentoTratamentoModel.setDoencaOssosObs(obsDoencaOssos);
-        medicamentoTratamentoModel.setDoencaOssosPeriodo(jtfPeriodoDoencaOssos.getText());
-        medicamentoTratamentoModel.setDoencaOssosTipo(tipoDoencaOssos);
-        medicamentoTratamentoModel.setDoencaPulmoes(jcbDoencaPulmoes.getSelectedItem().toString());
-        medicamentoTratamentoModel.setDoencaPulmoesObs(obsDoencaPulmoes);
-        medicamentoTratamentoModel.setDoencaPulmoesPeriodo(jtfPeriodoDoencaPulmoes.getText());
-        medicamentoTratamentoModel.setDoencaPulmoesTipo(tipoDoencaPulmoes);
-        medicamentoTratamentoModel.setFeridasTumores(jcbFeridas.getSelectedItem().toString());
-        medicamentoTratamentoModel.setFeridasTumoresObs(obsFeridas);
-        medicamentoTratamentoModel.setFeridasTumoresPeriodo(jtfPeriodoFeridas.getText());
-        medicamentoTratamentoModel.setFeridasTumoresTipo(tipoFeridas);
-        medicamentoTratamentoModel.setHernia(jcbHernia.getSelectedItem().toString());
-        medicamentoTratamentoModel.setHerniaObs(obsHernia);
-        medicamentoTratamentoModel.setHerniaPeriodo(jtfPeriodoHernia.getText());
-        medicamentoTratamentoModel.setHerniaTipo(tipoHernia);
+        //tratamentos/medicamentos
+        pacienteModel.setAlcool(jcbAlcool.getSelectedItem().toString());
+        pacienteModel.setAlcoolObs(obsDengue);
+        pacienteModel.setAlcoolPeriodo(jtfPeriodoAlcool.getText());
+        pacienteModel.setAlcoolTipo(tipoAlcool);
+        pacienteModel.setDengue(jcbDengue.getSelectedItem().toString());
+        pacienteModel.setDengueObs(obsDengue);
+        pacienteModel.setDenguePeriodo(jtfPeriodoDengue.getText());
+        pacienteModel.setDengueTipo(tipoDengue);
+        pacienteModel.setDiabetes(jcbDiabetes.getSelectedItem().toString());
+        pacienteModel.setDiabetesObs(obsDengue);
+        pacienteModel.setDiabetesPeriodo(jtfPeriodoDiabetes.getText());
+        pacienteModel.setDiabetesTipo(tipoDiabetes);
+        pacienteModel.setFumo(jcbFumo.getSelectedItem().toString());
+        pacienteModel.setFumoObs(obsFumo);
+        pacienteModel.setFumoPeriodo(jtfPeriodoFumo.getText());
+        pacienteModel.setFumoTipo(tipoFumo);
+        pacienteModel.setHepatite(jcbHepatite.getSelectedItem().toString());
+        pacienteModel.setHepatiteObs(obsHepatite);
+        pacienteModel.setHepatitePeriodo(jtfPeriodoHepatite.getText());
+        pacienteModel.setHipertensao(jcbHipertensao.getSelectedItem().toString());
+        pacienteModel.setHipertensaoObs(obsHipertensao);
+        pacienteModel.setHipertensaoPeriodo(jtfPeriodoHipertensao.getText());
+        pacienteModel.setHipertensaoTipo(tipoHipertensao);
+        pacienteModel.setRemedio(jcbRemedioControlado.getSelectedItem().toString());
+        pacienteModel.setRemedioObs(obsRemedios);
+        pacienteModel.setRemedioPeriodo(jtfPeriodoRemedio.getText());
+        pacienteModel.setRemedioTipo(tipoRemedios);
+        pacienteModel.setUsoParacetamol(jcbParacetamol.getSelectedItem().toString());
+        pacienteModel.setUsoParacetamolObs(obsParacetamol);
+        pacienteModel.setUsoParacetamolPeriodo(jtfPeriodoParacetamol.getText());
+        pacienteModel.setUsoParacetamolTipo(tipoParacetamol);
+        pacienteModel.setAlergias(jcbAlergia.getSelectedItem().toString());
+        pacienteModel.setAlergiasObs(obsAlergias);
+        pacienteModel.setAlergiasPeriodo(jtfPeriodoAlergia.getText());
+        pacienteModel.setAlergiasTipo(tipoAlergias);
+        pacienteModel.setCancer(jcbCancer.getSelectedItem().toString());
+        pacienteModel.setCancerObs(obsCancer);
+        pacienteModel.setCancerPeriodo(jtfPeriodoCancer.getText());
+        pacienteModel.setCancerTipo(tipoCancer);
+        pacienteModel.setDoencaEstomago(jcbDoencaEstomago.getSelectedItem().toString());
+        pacienteModel.setDoencaEstomagoObs(obsDoencaEstomago);
+        pacienteModel.setDoencaEstomagoPeriodo(jtfPeriodoDoencaEstomago.getText());
+        pacienteModel.setDoencaEstomagoTipo(tipoDoencaEstomago);
+        pacienteModel.setDoencaOssos(jcbDoencaOssos.getSelectedItem().toString());
+        pacienteModel.setDoencaOssosObs(obsDoencaOssos);
+        pacienteModel.setDoencaOssosPeriodo(jtfPeriodoDoencaOssos.getText());
+        pacienteModel.setDoencaOssosTipo(tipoDoencaOssos);
+        pacienteModel.setDoencaPulmoes(jcbDoencaPulmoes.getSelectedItem().toString());
+        pacienteModel.setDoencaPulmoesObs(obsDoencaPulmoes);
+        pacienteModel.setDoencaPulmoesPeriodo(jtfPeriodoDoencaPulmoes.getText());
+        pacienteModel.setDoencaPulmoesTipo(tipoDoencaPulmoes);
+        pacienteModel.setFeridasTumores(jcbFeridas.getSelectedItem().toString());
+        pacienteModel.setFeridasTumoresObs(obsFeridas);
+        pacienteModel.setFeridasTumoresPeriodo(jtfPeriodoFeridas.getText());
+        pacienteModel.setFeridasTumoresTipo(tipoFeridas);
+        pacienteModel.setHernia(jcbHernia.getSelectedItem().toString());
+        pacienteModel.setHerniaObs(obsHernia);
+        pacienteModel.setHerniaPeriodo(jtfPeriodoHernia.getText());
+        pacienteModel.setHerniaTipo(tipoHernia);
 
-        if (medicamentoTratamentoController.salvarMedicamentoTratamentoController(medicamentoTratamentoModel) > 0) {
+        if (pacienteController.salvarMedicamentoTratamentoController(pacienteModel) > 0) {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
             limparCampos();
         } else {

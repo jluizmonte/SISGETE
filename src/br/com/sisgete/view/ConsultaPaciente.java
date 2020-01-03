@@ -1,7 +1,7 @@
 package br.com.sisgete.view;
 
-import br.com.sisgete.controller.MedicamentoTratamentoController;
-import br.com.sisgete.model.MedicamentoTratamentoModel;
+import br.com.sisgete.controller.PacienteController;
+import br.com.sisgete.model.PacienteModel;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -18,9 +18,9 @@ import javax.swing.table.TableRowSorter;
 public class ConsultaPaciente extends javax.swing.JFrame {
 
     String termoPesquisa;
-    MedicamentoTratamentoController medicamentoTratamentoController = new MedicamentoTratamentoController();
-    MedicamentoTratamentoModel medicamentoTratamentoModel = new MedicamentoTratamentoModel();
-    ArrayList<MedicamentoTratamentoModel> listaTratamentoModels = new ArrayList<>();
+    PacienteController medicamentoTratamentoController = new PacienteController();
+    PacienteModel medicamentoTratamentoModel = new PacienteModel();
+    ArrayList<PacienteModel> listaTratamentoModels = new ArrayList<>();
 
     /**
      * Creates new form ConsultaPaciente

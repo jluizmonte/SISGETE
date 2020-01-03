@@ -4,7 +4,7 @@ package br.com.sisgete.model;
  *
  * @author luiz
  */
-public class MedicamentoTratamentoModel {
+public class PacienteModel {
 
     private int idMedicamentoTratamento;
     private String acompanhamentoPaciente;
@@ -72,6 +72,7 @@ public class MedicamentoTratamentoModel {
     private String hipertensaoObs;
     private String hipertensaoPeriodo;
     private String hipertensaoTipo;
+    private String intensidadeSintomas;
     private String modoDesobsessao;
     private String nome;
     private String objetivoTratamento;
@@ -82,6 +83,7 @@ public class MedicamentoTratamentoModel {
     private String remedioTipo;
     private String rua;
     private String setor;
+    private String sintomas;
     private String statusTratamento;
     private String telefone;
     private String usoParacetamol;
@@ -619,6 +621,14 @@ public class MedicamentoTratamentoModel {
         this.hipertensaoTipo = hipertensaoTipo;
     }
 
+    public String getIntensidadeSintomas() {
+        return intensidadeSintomas;
+    }
+
+    public void setIntensidadeSintomas(String intensidadeSintomas) {
+        this.intensidadeSintomas = intensidadeSintomas;
+    }
+
     public String getModoDesobsessao() {
         return modoDesobsessao;
     }
@@ -699,6 +709,14 @@ public class MedicamentoTratamentoModel {
         this.setor = setor;
     }
 
+    public String getSintomas() {
+        return sintomas;
+    }
+
+    public void setSintomas(String sintomas) {
+        this.sintomas = sintomas;
+    }
+
     public String getStatusTratamento() {
         return statusTratamento;
     }
@@ -765,6 +783,8 @@ public class MedicamentoTratamentoModel {
 
     @Override
     public String toString() {
-        return "MedicamentoTratamentoModel{" + "idMedicamentoTratamento=" + idMedicamentoTratamento + ", acompanhamentoPaciente=" + acompanhamentoPaciente + ", alcool=" + alcool + ", alcoolObs=" + alcoolObs + ", alcoolPeriodo=" + alcoolPeriodo + ", alcoolTipo=" + alcoolTipo + ", alergias=" + alergias + ", alergiasObs=" + alergiasObs + ", alergiasPeriodo=" + alergiasPeriodo + ", alergiasTipo=" + alergiasTipo + ", atendente=" + atendente + ", bairro=" + bairro + ", cancer=" + cancer + ", cancerObs=" + cancerObs + ", cancerPeriodo=" + cancerPeriodo + ", cancerTipo=" + cancerTipo + ", cidade=" + cidade + ", conhecimentoEspiritaPrevio=" + conhecimentoEspiritaPrevio + ", dataAtendimento=" + dataAtendimento + ", dataNascimento=" + dataNascimento + ", dengue=" + dengue + ", dengueObs=" + dengueObs + ", denguePeriodo=" + denguePeriodo + ", dengueTipo=" + dengueTipo + ", diabetes=" + diabetes + ", diabetesObs=" + diabetesObs + ", diabetesPeriodo=" + diabetesPeriodo + ", diabetesTipo=" + diabetesTipo + ", doencaAutoimune=" + doencaAutoimune + ", doencaAutoimuneObs=" + doencaAutoimuneObs + ", doencaAutoimunePeriodo=" + doencaAutoimunePeriodo + ", doencaAutoimuneTipo=" + doencaAutoimuneTipo + ", doencaEstomago=" + doencaEstomago + ", doencaEstomagoObs=" + doencaEstomagoObs + ", doencaEstomagoPeriodo=" + doencaEstomagoPeriodo + ", doencaEstomagoTipo=" + doencaEstomagoTipo + ", doencaOssos=" + doencaOssos + ", doencaOssosObs=" + doencaOssosObs + ", doencaOssosPeriodo=" + doencaOssosPeriodo + ", doencaOssosTipo=" + doencaOssosTipo + ", doencaPulmoes=" + doencaPulmoes + ", doencaPulmoesObs=" + doencaPulmoesObs + ", doencaPulmoesPeriodo=" + doencaPulmoesPeriodo + ", doencaPulmoesTipo=" + doencaPulmoesTipo + ", email=" + email + ", feridasTumores=" + feridasTumores + ", feridasTumoresObs=" + feridasTumoresObs + ", feridasTumoresPeriodo=" + feridasTumoresPeriodo + ", feridasTumoresTipo=" + feridasTumoresTipo + ", fonteConhecimentoEspirita=" + fonteConhecimentoEspirita + ", fumo=" + fumo + ", fumoObs=" + fumoObs + ", fumoPeriodo=" + fumoPeriodo + ", fumoTipo=" + fumoTipo + ", hepatite=" + hepatite + ", hepatiteObs=" + hepatiteObs + ", hepatitePeriodo=" + hepatitePeriodo + ", hepatiteTipo=" + hepatiteTipo + ", hernia=" + hernia + ", herniaObs=" + herniaObs + ", herniaPeriodo=" + herniaPeriodo + ", herniaTipo=" + herniaTipo + ", hipertensao=" + hipertensao + ", hipertensaoObs=" + hipertensaoObs + ", hipertensaoPeriodo=" + hipertensaoPeriodo + ", hipertensaoTipo=" + hipertensaoTipo + ", modoDesobsessao=" + modoDesobsessao + ", nome=" + nome + ", objetivoTratamento=" + objetivoTratamento + ", pacienteReincidente=" + pacienteReincidente + ", remedio=" + remedio + ", remedioObs=" + remedioObs + ", remedioPeriodo=" + remedioPeriodo + ", remedioTipo=" + remedioTipo + ", rua=" + rua + ", setor=" + setor + ", statusTratamento=" + statusTratamento + ", telefone=" + telefone + ", usoParacetamol=" + usoParacetamol + ", usoParacetamolObs=" + usoParacetamolObs + ", usoParacetamolPeriodo=" + usoParacetamolPeriodo + ", usoParacetamolTipo=" + usoParacetamolTipo + ", idade=" + idade + ", numCasa=" + numCasa + '}';
+        return "MedicamentoTratamentoModel{" + "idMedicamentoTratamento=" + idMedicamentoTratamento + ", acompanhamentoPaciente=" + acompanhamentoPaciente + ", alcool=" + alcool + ", alcoolObs=" + alcoolObs + ", alcoolPeriodo=" + alcoolPeriodo + ", alcoolTipo=" + alcoolTipo + ", alergias=" + alergias + ", alergiasObs=" + alergiasObs + ", alergiasPeriodo=" + alergiasPeriodo + ", alergiasTipo=" + alergiasTipo + ", atendente=" + atendente + ", bairro=" + bairro + ", cancer=" + cancer + ", cancerObs=" + cancerObs + ", cancerPeriodo=" + cancerPeriodo + ", cancerTipo=" + cancerTipo + ", cidade=" + cidade + ", conhecimentoEspiritaPrevio=" + conhecimentoEspiritaPrevio + ", dataAtendimento=" + dataAtendimento + ", dataNascimento=" + dataNascimento + ", dengue=" + dengue + ", dengueObs=" + dengueObs + ", denguePeriodo=" + denguePeriodo + ", dengueTipo=" + dengueTipo + ", diabetes=" + diabetes + ", diabetesObs=" + diabetesObs + ", diabetesPeriodo=" + diabetesPeriodo + ", diabetesTipo=" + diabetesTipo + ", doencaAutoimune=" + doencaAutoimune + ", doencaAutoimuneObs=" + doencaAutoimuneObs + ", doencaAutoimunePeriodo=" + doencaAutoimunePeriodo + ", doencaAutoimuneTipo=" + doencaAutoimuneTipo + ", doencaEstomago=" + doencaEstomago + ", doencaEstomagoObs=" + doencaEstomagoObs + ", doencaEstomagoPeriodo=" + doencaEstomagoPeriodo + ", doencaEstomagoTipo=" + doencaEstomagoTipo + ", doencaOssos=" + doencaOssos + ", doencaOssosObs=" + doencaOssosObs + ", doencaOssosPeriodo=" + doencaOssosPeriodo + ", doencaOssosTipo=" + doencaOssosTipo + ", doencaPulmoes=" + doencaPulmoes + ", doencaPulmoesObs=" + doencaPulmoesObs + ", doencaPulmoesPeriodo=" + doencaPulmoesPeriodo + ", doencaPulmoesTipo=" + doencaPulmoesTipo + ", email=" + email + ", feridasTumores=" + feridasTumores + ", feridasTumoresObs=" + feridasTumoresObs + ", feridasTumoresPeriodo=" + feridasTumoresPeriodo + ", feridasTumoresTipo=" + feridasTumoresTipo + ", fonteConhecimentoEspirita=" + fonteConhecimentoEspirita + ", fumo=" + fumo + ", fumoObs=" + fumoObs + ", fumoPeriodo=" + fumoPeriodo + ", fumoTipo=" + fumoTipo + ", hepatite=" + hepatite + ", hepatiteObs=" + hepatiteObs + ", hepatitePeriodo=" + hepatitePeriodo + ", hepatiteTipo=" + hepatiteTipo + ", hernia=" + hernia + ", herniaObs=" + herniaObs + ", herniaPeriodo=" + herniaPeriodo + ", herniaTipo=" + herniaTipo + ", hipertensao=" + hipertensao + ", hipertensaoObs=" + hipertensaoObs + ", hipertensaoPeriodo=" + hipertensaoPeriodo + ", hipertensaoTipo=" + hipertensaoTipo + ", intensidadeSintomas=" + intensidadeSintomas + ", modoDesobsessao=" + modoDesobsessao + ", nome=" + nome + ", objetivoTratamento=" + objetivoTratamento + ", pacienteReincidente=" + pacienteReincidente + ", remedio=" + remedio + ", remedioObs=" + remedioObs + ", remedioPeriodo=" + remedioPeriodo + ", remedioTipo=" + remedioTipo + ", rua=" + rua + ", setor=" + setor + ", sintomas=" + sintomas + ", statusTratamento=" + statusTratamento + ", telefone=" + telefone + ", usoParacetamol=" + usoParacetamol + ", usoParacetamolObs=" + usoParacetamolObs + ", usoParacetamolPeriodo=" + usoParacetamolPeriodo + ", usoParacetamolTipo=" + usoParacetamolTipo + ", idade=" + idade + ", numCasa=" + numCasa + '}';
     }
+
+    
 }

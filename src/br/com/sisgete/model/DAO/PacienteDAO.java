@@ -1,7 +1,7 @@
 package br.com.sisgete.model.DAO;
 
 import br.com.sisgete.connection.SisgeteConnectionMySql;
-import br.com.sisgete.model.MedicamentoTratamentoModel;
+import br.com.sisgete.model.PacienteModel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  * @author luiz
  */
-public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
+public class PacienteDAO extends SisgeteConnectionMySql {
 
     /**
      * grava MedicamentoTratamento
@@ -17,7 +17,7 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
      * @param modelMedicamentoTratamento return int
      * @return
      */
-    public int salvarMedicamentoTratamentoDAO(MedicamentoTratamentoModel modelMedicamentoTratamento) {
+    public int salvarMedicamentoTratamentoDAO(PacienteModel modelMedicamentoTratamento) {
         try {
             this.conectar();
             return this.insertSQL(
@@ -105,7 +105,9 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                     + "nome,"
                     + "setor,"
                     + "telefone,"
-                    + "email"
+                    + "email,"
+                    + "sintomas,"
+                    + "intensidade_sintomas"
                     + ") VALUES ("
                     + "'" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "',"
                     + "'" + modelMedicamentoTratamento.getRemedio() + "',"
@@ -190,7 +192,9 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                     + "'" + modelMedicamentoTratamento.getNome() + "',"
                     + "'" + modelMedicamentoTratamento.getSetor() + "',"
                     + "'" + modelMedicamentoTratamento.getTelefone() + "',"
-                    + "'" + modelMedicamentoTratamento.getEmail() + "'"
+                    + "'" + modelMedicamentoTratamento.getEmail() + "',"
+                    + "'" + modelMedicamentoTratamento.getSintomas() + "',"
+                    + "'" + modelMedicamentoTratamento.getIntensidadeSintomas() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -204,11 +208,11 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
     /**
      * recupera MedicamentoTratamento
      *
-     * @param pIdMedicamentoTratamento return MedicamentoTratamentoModel
+     * @param pIdMedicamentoTratamento return PacienteModel
      * @return
      */
-    public MedicamentoTratamentoModel getMedicamentoTratamentoDAO(int pIdMedicamentoTratamento) {
-        MedicamentoTratamentoModel modelMedicamentoTratamento = new MedicamentoTratamentoModel();
+    public PacienteModel getMedicamentoTratamentoDAO(int pIdMedicamentoTratamento) {
+        PacienteModel modelMedicamentoTratamento = new PacienteModel();
         try {
             this.conectar();
             this.executarSQL(
@@ -301,6 +305,8 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                 modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
                 modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
                 modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
+                modelMedicamentoTratamento.setSintomas(this.getResultSet().getString(85));
+                modelMedicamentoTratamento.setIntensidadeSintomas(this.getResultSet().getString(86));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -315,9 +321,9 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
      *
      * @return
      */
-    public ArrayList<MedicamentoTratamentoModel> getListaMedicamentoTratamentoDAO() {
-        ArrayList<MedicamentoTratamentoModel> listamodelMedicamentoTratamento = new ArrayList();
-        MedicamentoTratamentoModel modelMedicamentoTratamento = new MedicamentoTratamentoModel();
+    public ArrayList<PacienteModel> getListaMedicamentoTratamentoDAO() {
+        ArrayList<PacienteModel> listamodelMedicamentoTratamento = new ArrayList();
+        PacienteModel modelMedicamentoTratamento = new PacienteModel();
         try {
             this.conectar();
             this.executarSQL(
@@ -326,7 +332,7 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
             );
 
             while (this.getResultSet().next()) {
-                modelMedicamentoTratamento = new MedicamentoTratamentoModel();
+                modelMedicamentoTratamento = new PacienteModel();
                 modelMedicamentoTratamento.setIdMedicamentoTratamento(this.getResultSet().getInt(1));
                 modelMedicamentoTratamento.setRemedio(this.getResultSet().getString(2));
                 modelMedicamentoTratamento.setRemedioTipo(this.getResultSet().getString(3));
@@ -411,6 +417,8 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                 modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
                 modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
                 modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
+                modelMedicamentoTratamento.setSintomas(this.getResultSet().getString(85));
+                modelMedicamentoTratamento.setIntensidadeSintomas(this.getResultSet().getString(86));
                 listamodelMedicamentoTratamento.add(modelMedicamentoTratamento);
             }
         } catch (SQLException e) {
@@ -427,7 +435,7 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
      * @param modelMedicamentoTratamento return boolean
      * @return
      */
-    public boolean atualizarMedicamentoTratamentoDAO(MedicamentoTratamentoModel modelMedicamentoTratamento) {
+    public boolean atualizarMedicamentoTratamentoDAO(PacienteModel modelMedicamentoTratamento) {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
@@ -515,7 +523,9 @@ public class MedicamentoTratamentoDAO extends SisgeteConnectionMySql {
                     + "nome = '" + modelMedicamentoTratamento.getNome() + "',"
                     + "setor = '" + modelMedicamentoTratamento.getSetor() + "',"
                     + "telefone = '" + modelMedicamentoTratamento.getTelefone() + "',"
-                    + "email = '" + modelMedicamentoTratamento.getEmail() + "'"
+                    + "email = '" + modelMedicamentoTratamento.getEmail() + "',"
+                    + "sintomas ='" + modelMedicamentoTratamento.getSintomas() + "',"
+                    + "intensidade_sintomas ='" + modelMedicamentoTratamento.getIntensidadeSintomas() + "'"
                     + " WHERE "
                     + "pk_id_medicamento_tratamento = '" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "'"
                     + ";"

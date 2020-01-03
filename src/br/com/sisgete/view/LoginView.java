@@ -1,8 +1,8 @@
 package br.com.sisgete.view;
 
-import br.com.sisgete.controller.AtendenteFraternoController;
-import br.com.sisgete.model.AtendenteFraternoModel;
-import br.com.sisgete.model.SessaoAtendenteModel;
+import br.com.sisgete.controller.UsuarioController;
+import br.com.sisgete.model.SessaoModel;
+import br.com.sisgete.model.UsuarioModel;
 import br.com.sisgete.util.alerts.WarningAlertCerrar;
 import java.awt.Color;
 import java.awt.HeadlessException;
@@ -16,8 +16,8 @@ import javax.swing.ImageIcon;
  */
 public class LoginView extends javax.swing.JDialog {
 
-    AtendenteFraternoModel atendenteFraternoModel = new AtendenteFraternoModel();
-    AtendenteFraternoController atendenteFraternoController = new AtendenteFraternoController();
+    UsuarioController usuarioController = new UsuarioController();
+    UsuarioModel usuarioModel = new UsuarioModel();
     int x, y;
 
     /**
@@ -281,12 +281,12 @@ public class LoginView extends javax.swing.JDialog {
 
     private void login() {
 
-        atendenteFraternoModel.setUsuario(jtfUsuario.getText());
-        atendenteFraternoModel.setSenha(String.valueOf(jtfSenha.getPassword()));
+        usuarioModel.setUsuario(jtfUsuario.getText());
+        usuarioModel.setSenha(String.valueOf(jtfSenha.getPassword()));
 
         try {
-            if (atendenteFraternoController.getValidarAtendimentoController(atendenteFraternoModel)) {
-                atendenteFraternoModel = atendenteFraternoController.getAtendenteFraternoController(jtfUsuario.getText());
+            if (usuarioController.getValidarUsuario(usuarioModel)) {
+                usuarioModel = usuarioController.getUsuarioController(jtfUsuario.getText());
                 setSessionUser();
                 new AtendimentoFraternoView().setVisible(true);
                 //  new ConsultaPaciente().setVisible(true);
@@ -309,9 +309,10 @@ public class LoginView extends javax.swing.JDialog {
 
     private void setSessionUser() {
 
-        SessaoAtendenteModel.loginAtendente = atendenteFraternoModel.getUsuario();
-        SessaoAtendenteModel.codigoAtendente = atendenteFraternoModel.getIdAtendenteFraterno();
-        SessaoAtendenteModel.nomeAtendente = atendenteFraternoModel.getNome();
+        SessaoModel.loginUsuario = usuarioModel.getUsuario();
+        SessaoModel.codigoUsuario = usuarioModel.getIdUsuario();
+        SessaoModel.nomeUsuario = usuarioModel.getNome();
+        SessaoModel.nivelAcessoUsuario = usuarioModel.getNivelAcesso();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

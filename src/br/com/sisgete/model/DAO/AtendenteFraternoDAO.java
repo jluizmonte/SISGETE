@@ -21,16 +21,12 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.insertSQL(
-                    "INSERT INTO ttbl_atendente_fraterno ("
-                    + "pk_id_atendente,"
-                    + "nome,"
-                    + "usuario,"
-                    + "senha"
+                    "INSERT INTO tbl_atendente_fraterno ("
+                    + "pk_id_atendente_fraterno,"
+                    + "nome"
                     + ") VALUES ("
                     + "'" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "',"
-                    + "'" + pAtendenteFraternoModel.getNome() + "',"
-                    + "'" + pAtendenteFraternoModel.getUsuario() + "',"
-                    + "'" + pAtendenteFraternoModel.getSenha() + "'"
+                    + "'" + pAtendenteFraternoModel.getNome() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -44,67 +40,22 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
     /**
      * recupera AtendenteFraterno
      *
-     * @param pIdAtendente return AtendenteFraternoModel
+     * @param pIdAtendenteFraterno return AtendenteFraternoModel
      * @return
      */
-    public AtendenteFraternoModel getAtendenteFraternoDAO(int pIdAtendente) {
+    public AtendenteFraternoModel getAtendenteFraternoDAO(int pIdAtendenteFraterno) {
         AtendenteFraternoModel modelAtendenteFraterno = new AtendenteFraternoModel();
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT "
-                    + "pk_id_atendente,"
-                    + "nome,"
-                    + "usuario,"
-                    + "senha"
-                    + " FROM"
-                    + " tbl_atendente_fraterno"
-                    + " WHERE"
-                    + " pk_id_atendente = '" + pIdAtendente + "'"
+                    "SELECT * FROM tbl_atentende_fraterno WHERE"
+                    + " pk_id_atendente_fraterno = '" + pIdAtendenteFraterno + "'"
                     + ";"
             );
 
             while (this.getResultSet().next()) {
                 modelAtendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
                 modelAtendenteFraterno.setNome(this.getResultSet().getString(2));
-                modelAtendenteFraterno.setUsuario(this.getResultSet().getString(3));
-                modelAtendenteFraterno.setSenha(this.getResultSet().getString(4));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            this.fecharConexao();
-        }
-        return modelAtendenteFraterno;
-    }
-
-    /**
-     *
-     * @param pAtendente
-     * @return
-     */
-    public AtendenteFraternoModel getAtendenteFraternoDAO(String pAtendente) {
-        AtendenteFraternoModel modelAtendenteFraterno = new AtendenteFraternoModel();
-        try {
-            this.conectar();
-            this.executarSQL(
-                    "SELECT "
-                    + "pk_id_atendente,"
-                    + "nome,"
-                    + "usuario,"
-                    + "senha"
-                    + " FROM"
-                    + " tbl_atendente_fraterno"
-                    + " WHERE"
-                    + " usuario = '" + pAtendente + "'"
-                    + ";"
-            );
-
-            while (this.getResultSet().next()) {
-                modelAtendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
-                modelAtendenteFraterno.setNome(this.getResultSet().getString(2));
-                modelAtendenteFraterno.setUsuario(this.getResultSet().getString(3));
-                modelAtendenteFraterno.setSenha(this.getResultSet().getString(4));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -125,25 +76,16 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT "
-                    + "pk_id_atendente,"
-                    + "nome,"
-                    + "usuario,"
-                    + "senha"
-                    + " FROM"
-                    + " tbl_atendente_fraterno"
-                    + ";"
+                    "SELECT * FROM tbl_atentende_fraterno;"
             );
 
             while (this.getResultSet().next()) {
                 modelAtendenteFraterno = new AtendenteFraternoModel();
                 modelAtendenteFraterno.setIdAtendenteFraterno(this.getResultSet().getInt(1));
                 modelAtendenteFraterno.setNome(this.getResultSet().getString(2));
-                modelAtendenteFraterno.setUsuario(this.getResultSet().getString(3));
-                modelAtendenteFraterno.setSenha(this.getResultSet().getString(4));
                 listamodelAtendenteFraterno.add(modelAtendenteFraterno);
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             this.fecharConexao();
@@ -162,12 +104,10 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
             this.conectar();
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_atendente_fraterno SET "
-                    + "pk_id_atendente = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "',"
-                    + "nome = '" + pAtendenteFraternoModel.getNome() + "',"
-                    + "usuario = '" + pAtendenteFraternoModel.getUsuario() + "',"
-                    + "senha = '" + pAtendenteFraternoModel.getSenha() + "'"
+                    + "pk_id_atendente_fraterno = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "',"
+                    + "nome = '" + pAtendenteFraternoModel.getNome() + "'"
                     + " WHERE "
-                    + "pk_id_atendente = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "'"
+                    + "pk_id_atendente_fraterno = '" + pAtendenteFraternoModel.getIdAtendenteFraterno() + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -181,16 +121,16 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
     /**
      * exclui AtendenteFraterno
      *
-     * @param pIdAtendente return boolean
+     * @param pIdAtendenteFraterno return boolean
      * @return
      */
-    public boolean excluirAtendenteFraternoDAO(int pIdAtendente) {
+    public boolean excluirAtendenteFraternoDAO(int pIdAtendenteFraterno) {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
                     "DELETE FROM tbl_atendente_fraterno "
                     + " WHERE "
-                    + "pk_id_atendente = '" + pIdAtendente + "'"
+                    + "pk_id_atendente_fraterno = '" + pIdAtendenteFraterno + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -200,29 +140,4 @@ public class AtendenteFraternoDAO extends SisgeteConnectionMySql {
             this.fecharConexao();
         }
     }
-
-    /**
-     * Validar login e senha do usuário
-     *
-     * @param pAtendenteFraterno
-     * @return
-     */
-    public boolean getValidarAtendenteDAO(AtendenteFraternoModel pAtendenteFraterno) {
-        try {
-            this.conectar();
-            this.executarSQL("SELECT *" + " FROM" + " tbl_atendente_fraterno" + " WHERE" + " usuario = '"
-                    + pAtendenteFraterno.getUsuario() + "' AND senha = '" + pAtendenteFraterno.getSenha() + "'" + ";");
-
-            if (getResultSet().next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException e) {
-            return false;
-        } finally {
-            this.fecharConexao();
-        }
-    }
-
 }
