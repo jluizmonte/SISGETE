@@ -18,4 +18,5 @@ Desenvolvedor:  `José Luiz` <br/>
 - [x] Escolha da IDE e linguagem de programação `NETBEANS` e `JAVA`</br>
 - [x] Criação das janelas referente ao primeiro acesso ao sistema `Splash` e `Login`;</br>
 - [ ] Criação da janela referente ao cadastro e consulta de pacientes;</br>
+- [ ] Criação e finalização das frequência do tratamento magnético;<br/>
 
