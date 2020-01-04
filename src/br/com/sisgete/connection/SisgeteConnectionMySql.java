@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
 
 import javax.swing.JOptionPane;
@@ -16,10 +17,10 @@ public class SisgeteConnectionMySql {
 
     private boolean status = false;
     private String mensagem = ""; // variavel que vai informar o status da conexao
-    private Connection con = null; // variavel para conexao
+    public Connection con = null; // variavel para conexao
     private Statement statement;
     private ResultSet resultSet;
-
+    public Savepoint savepoint;
     private String servidor = "localhost";
     private String nomeDoBanco = "sisgetedb";
     private String usuario = "root";
@@ -33,6 +34,11 @@ public class SisgeteConnectionMySql {
         this.nomeDoBanco = pNomeDoBanco;
         this.usuario = pUsuario;
         this.senha = pSenha;
+    }
+
+    public void realizarSavePoint() throws SQLException {
+        this.con.setAutoCommit(false);
+        savepoint = this.con.setSavepoint();
     }
 
     /**
@@ -49,7 +55,6 @@ public class SisgeteConnectionMySql {
             String url = "jdbc:mysql://" + servidor + "/" + nomeDoBanco + "?autoReconnect=true&useSSL=false";
 
             this.setCon(DriverManager.getConnection(url, usuario, senha));
-
             // se ocorrer tudo bem, ou seja, se conectar a linha a seguir é executada
             this.status = true;
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
