@@ -2,6 +2,7 @@ package br.com.sisgete.controller;
 
 import br.com.sisgete.model.DAO.PacienteDAO;
 import br.com.sisgete.model.PacienteModel;
+import br.com.sisgete.model.QuadroPsicofisicoModel;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +17,7 @@ public class PacienteController {
      * grava MedicamentoTratamento
      *
      * @param pMedicamentoTratamentoModel return int
+     * @param pQuadroPsicofisicoModel
      * @return
      */
     public int salvarMedicamentoTratamentoController(PacienteModel pMedicamentoTratamentoModel) {

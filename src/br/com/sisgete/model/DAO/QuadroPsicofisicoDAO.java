@@ -14,6 +14,7 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
      * grava QuadroPsicofisico
      *
      * @param pQuadroPsicofisicoModel return int
+     * @return
      */
     public int salvarQuadroPsicofisicoDAO(QuadroPsicofisicoModel pQuadroPsicofisicoModel) {
         try {
@@ -21,7 +22,7 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
             return this.insertSQL(
                     "INSERT INTO tbl_quadro_psicofisico ("
                     + "pk_id_quadro_psicofisico,"
-                    + "fk_id_paciente,"
+                    + "fk_paciente,"
                     + "presenca_espirito_intensidade,"
                     + "ouve_vozes_intensidade,"
                     + "vultos_intensidade,"
@@ -31,14 +32,14 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
                     + "aceleracao_coracao_intensidade,"
                     + "pesadelos_intensidade,"
                     + "medo_intensidade,"
-                    + "falta_concentracao_intensidade,"
+                    + "falta_concetracao_intensidade,"
                     + "desanimo_intensidade,"
                     + "angustia_intensidade,"
                     + "insonia_intensidade,"
                     + "falta_apetite_intensidade,"
                     + "ansiedade_intensidade,"
                     + "irritacao_sem_motivo_intensidade,"
-                    + "dormecias_intensidade,"
+                    + "dormencias_intensidade,"
                     + "dores_pernas_bracos_intensidade,"
                     + "sudorese_intensidade,"
                     + "tontura_intensidade,"
@@ -48,7 +49,7 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
                     + "dor_coluna_intensidade"
                     + ") VALUES ("
                     + "'" + pQuadroPsicofisicoModel.getIdQuadroPsicofisico() + "',"
-                    + "'" + pQuadroPsicofisicoModel.getIdPaciente() + "',"
+                    + "(SELECT pk_id_paciente FROM tbl_paciente ORDER BY pk_id_paciente DESC LIMIT 1),"
                     + "'" + pQuadroPsicofisicoModel.getPresenca_espirito_intensidade() + "',"
                     + "'" + pQuadroPsicofisicoModel.getOuve_vozes_intensidade() + "',"
                     + "'" + pQuadroPsicofisicoModel.getVultos_intensidade() + "',"
@@ -95,7 +96,7 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
             this.executarSQL(
                     "SELECT "
                     + "pk_id_quadro_psicofisico,"
-                    + "fk_id_paciente,"
+                    + "fk_paciente,"
                     + "presenca_espirito_intensidade,"
                     + "ouve_vozes_intensidade,"
                     + "vultos_intensidade,"
@@ -172,36 +173,7 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT "
-                    + "pk_id_quadro_psicofisico,"
-                    + "fk_id_paciente,"
-                    + "presenca_espirito_intensidade,"
-                    + "ouve_vozes_intensidade,"
-                    + "vultos_intensidade,"
-                    + "ideias_suicidas_intensidade,"
-                    + "zumbidos_intensidade,"
-                    + "calafrios_intensidade,"
-                    + "aceleracao_coracao_intensidade,"
-                    + "pesadelos_intensidade,"
-                    + "medo_intensidade,"
-                    + "falta_concentracao_intensidade,"
-                    + "desanimo_intensidade,"
-                    + "angustia_intensidade,"
-                    + "insonia_intensidade,"
-                    + "falta_apetite_intensidade,"
-                    + "ansiedade_intensidade,"
-                    + "irritacao_sem_motivo_intensidade,"
-                    + "dormecias_intensidade,"
-                    + "dores_pernas_bracos_intensidade,"
-                    + "sudorese_intensidade,"
-                    + "tontura_intensidade,"
-                    + "sonolencia_intensidade,"
-                    + "cansaco_intensidade,"
-                    + "dor_cabeca_intensidade,"
-                    + "dor_coluna_intensidade"
-                    + " FROM"
-                    + " tbl_quadro_psicofisico"
-                    + ";"
+                    "SELECT * FROM tbl_quadro_psicofisico;"
             );
 
             while (this.getResultSet().next()) {
@@ -253,7 +225,7 @@ public class QuadroPsicofisicoDAO extends SisgeteConnectionMySql {
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_quadro_psicofisico SET "
                     + "pk_id_quadro_psicofisico = '" + pQuadroPsicofisicoModel.getIdQuadroPsicofisico() + "',"
-                    + "fk_id_paciente = '" + pQuadroPsicofisicoModel.getIdPaciente() + "',"
+                    + "fk_paciente = '" + pQuadroPsicofisicoModel.getIdPaciente() + "',"
                     + "presenca_espirito_intensidade = '" + pQuadroPsicofisicoModel.getPresenca_espirito_intensidade() + "',"
                     + "ouve_vozes_intensidade = '" + pQuadroPsicofisicoModel.getOuve_vozes_intensidade() + "',"
                     + "vultos_intensidade = '" + pQuadroPsicofisicoModel.getVultos_intensidade() + "',"

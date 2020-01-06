@@ -2,8 +2,10 @@ package br.com.sisgete.view;
 
 import br.com.sisgete.controller.AtendenteFraternoController;
 import br.com.sisgete.controller.PacienteController;
+import br.com.sisgete.controller.QuadroPsicofisicoController;
 import br.com.sisgete.model.AtendenteFraternoModel;
 import br.com.sisgete.model.PacienteModel;
+import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.model.SessaoModel;
 import br.com.sisgete.util.GetDateUtil;
 import javax.swing.ImageIcon;
@@ -15,14 +17,17 @@ import rojerusan.RSPanelsSlider;
  * @author RojeruSan
  */
 public class AtendimentoFraternoView extends javax.swing.JFrame {
-
+    
     GetDateUtil getDateUtil = new GetDateUtil();
-
+    
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
+    QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
+    QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
+    
     AtendenteFraternoModel atendenteFraternoModel = new AtendenteFraternoModel();
     AtendenteFraternoController atendenteFraternoController = new AtendenteFraternoController();
-
+    
     String tipoRemedios, tipoDengue, tipoHepatite, tipoHipertensao, tipoDiabetes, tipoParacetamol, tipoAlcool, tipoFumo, tipoAlergias, tipoHernia, tipoDoencaEstomago, tipoDoencaOssos, tipoDoencaPulmoes, tipoDoencaAutoimune, tipoCancer, tipoFeridas;
     String obsRemedios, obsDengue, obsHepatite, obsHipertensao, obsDiabetes, obsParacetamol, obsAlcool, obsFumo, obsAlergias, obsHernia, obsDoencaEstomago, obsDoencaOssos, obsDoencaPulmoes, obsDoencaAutoimune, obsCancer, obsFeridas;
     String conhecimentoPrevio, modoDesobsessao, tratamentoFecma, setor;
@@ -40,7 +45,7 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
         jlAtendente.setText(SessaoModel.nomeUsuario);
         jtfNome.requestFocusInWindow();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -492,8 +497,8 @@ jtfDataNascimento.setCalendarPreferredSize(new java.awt.Dimension(256, 184));
 jtfDataNascimento.setNothingAllowed(false);
 jtfDataNascimento.setFormat(2);
 try {
-    jtfDataNascimento.setDefaultPeriods(new datechooser.model.multiple.PeriodSet(new datechooser.model.multiple.Period(new java.util.GregorianCalendar(2019, 11, 1),
-        new java.util.GregorianCalendar(2019, 11, 1))));
+    jtfDataNascimento.setDefaultPeriods(new datechooser.model.multiple.PeriodSet(new datechooser.model.multiple.Period(new java.util.GregorianCalendar(1990, 1, 1),
+        new java.util.GregorianCalendar(1990, 1, 1))));
 } catch (datechooser.model.exeptions.IncompatibleDataExeption e1) {
 e1.printStackTrace();
 }
@@ -705,7 +710,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroOuveVozes.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroOuveVozes.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroOuveVozes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroOuveVozes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel21.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -713,7 +718,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroPresencaEspiritos.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroPresencaEspiritos.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroPresencaEspiritos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroPresencaEspiritos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel22.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -721,14 +726,14 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroVultos.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroVultos.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroVultos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroVultos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel25.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel25.setText("Ideias suicidas");
 
     jcbQuadroIrritacao.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroIrritacao.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroIrritacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroIrritacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel24.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -736,7 +741,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroZumbidos.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroZumbidos.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroZumbidos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroZumbidos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel23.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -744,14 +749,14 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroCalafrios.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroCalafrios.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroCalafrios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroCalafrios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel31.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel31.setText("Aceleração do coração");
 
     jcbQuadroTaquicardia.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroTaquicardia.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroTaquicardia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroTaquicardia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel30.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -759,7 +764,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroPesadelos.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroPesadelos.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroPesadelos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroPesadelos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel29.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -767,14 +772,14 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroInsonia.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroInsonia.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroInsonia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroInsonia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel26.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel26.setText("Falta de concentração");
 
     jcbQuadroFaltaConcetracao.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroFaltaConcetracao.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroFaltaConcetracao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroFaltaConcetracao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jlabel.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jlabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -782,7 +787,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroDesanimo.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroDesanimo.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroDesanimo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroDesanimo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel27.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -790,7 +795,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroAngustia.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroAngustia.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroAngustia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroAngustia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel5.setText("Insônia");
@@ -832,51 +837,51 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jcbQuadroDorCabeca.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroDorCabeca.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroDorCabeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroDorCabeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroFaltaApetite.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroFaltaApetite.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroFaltaApetite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroFaltaApetite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroSudorese.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroSudorese.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroSudorese.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroSudorese.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroTonturas.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroTonturas.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroTonturas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroTonturas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroMedo.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroMedo.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroMedo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroMedo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroAnsiedade.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroAnsiedade.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroAnsiedade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroAnsiedade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroDormencia.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroDormencia.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroDormencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroDormencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroIdeiasSuicidas.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroIdeiasSuicidas.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroIdeiasSuicidas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroIdeiasSuicidas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroDorColuna.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroDorColuna.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroDorColuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroDorColuna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroDorPerna.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroDorPerna.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroDorPerna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroDorPerna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroCansaco.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroCansaco.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroCansaco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroCansaco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jcbQuadroSonolencia.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
     jcbQuadroSonolencia.setForeground(new java.awt.Color(0, 112, 192));
-    jcbQuadroSonolencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
+    jcbQuadroSonolencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
     jbAvancarPsicofisico.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jbAvancarPsicofisico.setForeground(new java.awt.Color(0, 112, 192));
@@ -1899,6 +1904,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
 
     jtfFonte.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
     jtfFonte.setForeground(new java.awt.Color(0, 112, 192));
+    jtfFonte.setEnabled(false);
 
     jLabel51.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
     jLabel51.setText("Recife,");
@@ -2059,16 +2065,16 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jLabel68)))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap(84, Short.MAX_VALUE))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
             .addGap(0, 0, Short.MAX_VALUE)
             .addComponent(jLabel69)
             .addGap(44, 44, 44))
         .addGroup(jPanel7Layout.createSequentialGroup()
             .addComponent(jbInfoPaciente)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGap(27, 27, 27)
             .addComponent(jbQuadroPsicofisco)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jbTratamentos)
             .addContainerGap())
     );
@@ -2315,7 +2321,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     }//GEN-LAST:event_jbFeridatumorActionPerformed
 
     private void jbFinalizarAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizarAtendimentoActionPerformed
-
+        
         Object[] opcoes = {"A1", "A2", "B1", "B2"};
         Object resposta;
         resposta = JOptionPane.showInputDialog(null,
@@ -2351,8 +2357,6 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         if (this.jcTratamentoSim.isSelected()) {
             tratamentoFecma = "Sim";
             jcTratamentoNao.setSelected(false);
-        } else {
-            jcTratamentoNao.setSelected(true);
         }
    }//GEN-LAST:event_jcTratamentoSimActionPerformed
 
@@ -2390,7 +2394,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         if (jcDesobsessaoNao.isSelected()) {
             jcDesobsessaoSim.setSelected(false);
             modoDesobsessao = jcDesobsessaoNao.getText();
-
+            
         }
     }//GEN-LAST:event_jcDesobsessaoNaoActionPerformed
 
@@ -2407,38 +2411,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         jlIdade.setText(String.valueOf(idade));
         jlData.setText(getDateUtil.getDateTime());
     }
-
-    /**
-     * metodo pra limpar as seleções realizadas no quadro psicofisico os valores
-     * voltam a ser 'SELECIONE'
-     */
-    private void limparSelecao() {
-        jcbQuadroAngustia.setSelectedItem("SELECIONE");
-        jcbQuadroAnsiedade.setSelectedItem("SELECIONE");
-        jcbQuadroCalafrios.setSelectedItem("SELECIONE");
-        jcbQuadroCansaco.setSelectedItem("SELECIONE");
-        jcbQuadroDesanimo.setSelectedItem("SELECIONE");
-        jcbQuadroDorCabeca.setSelectedItem("SELECIONE");
-        jcbQuadroDorColuna.setSelectedItem("SELECIONE");
-        jcbQuadroDorPerna.setSelectedItem("SELECIONE");
-        jcbQuadroDormencia.setSelectedItem("SELECIONE");
-        jcbQuadroFaltaApetite.setSelectedItem("SELECIONE");
-        jcbQuadroFaltaConcetracao.setSelectedItem("SELECIONE");
-        jcbQuadroIdeiasSuicidas.setSelectedItem("SELECIONE");
-        jcbQuadroInsonia.setSelectedItem("SELECIONE");
-        jcbQuadroIrritacao.setSelectedItem("SELECIONE");
-        jcbQuadroMedo.setSelectedItem("SELECIONE");
-        jcbQuadroOuveVozes.setSelectedItem("SELECIONE");
-        jcbQuadroPesadelos.setSelectedItem("SELECIONE");
-        jcbQuadroPresencaEspiritos.setSelectedItem("SELECIONE");
-        jcbQuadroSonolencia.setSelectedItem("SELECIONE");
-        jcbQuadroSudorese.setSelectedItem("SELECIONE");
-        jcbQuadroTaquicardia.setSelectedItem("SELECIONE");
-        jcbQuadroTonturas.setSelectedItem("SELECIONE");
-        jcbQuadroVultos.setSelectedItem("SELECIONE");
-        jcbQuadroZumbidos.setSelectedItem("SELECIONE");
-    }
-
+    
     private void obterDadosTratamentoMedicamento() {
         //dados do paciente
         pacienteModel.setDataNascimento(jtfDataNascimento.getText());
@@ -2457,6 +2430,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         pacienteModel.setBairro(jtfBairro.getText());
         pacienteModel.setCidade(jcbCidade.getSelectedItem().toString());
         pacienteModel.setConhecimentoEspiritaPrevio(conhecimentoPrevio);
+        pacienteModel.setAtendente(jlAtendente.getText());
 
         //tratamentos/medicamentos
         pacienteModel.setAlcool(jcbAlcool.getSelectedItem().toString());
@@ -2518,15 +2492,78 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         pacienteModel.setHerniaObs(obsHernia);
         pacienteModel.setHerniaPeriodo(jtfPeriodoHernia.getText());
         pacienteModel.setHerniaTipo(tipoHernia);
+        pacienteModel.setDataAtendimento(jlData.getText());
 
+        // quadro psicofisico
+        quadroPsicofisicoModel.setAngustia_intensidade(jcbQuadroAngustia.getSelectedItem().toString());
+        quadroPsicofisicoModel.setAceleracao_coracao_intensidade(jcbQuadroTaquicardia.getSelectedItem().toString());
+        quadroPsicofisicoModel.setAnsiedade_intensidade(jcbQuadroAnsiedade.getSelectedItem().toString());
+        quadroPsicofisicoModel.setCalafrios_intensidade(jcbQuadroCalafrios.getSelectedItem().toString());
+        quadroPsicofisicoModel.setCansaco_intensidade(jcbQuadroCansaco.getSelectedItem().toString());
+        quadroPsicofisicoModel.setDesanimo_intensidade(jcbQuadroDesanimo.getSelectedItem().toString());
+        quadroPsicofisicoModel.setDor_cabeca_intensidade(jcbQuadroDorCabeca.getSelectedItem().toString());
+        quadroPsicofisicoModel.setDor_coluna_intensidade(jcbQuadroDorColuna.getSelectedItem().toString());
+        quadroPsicofisicoModel.setDores_pernas_bracos_intensidade(jcbQuadroDorPerna.getSelectedItem().toString());
+        quadroPsicofisicoModel.setDormecias_intensidade(jcbQuadroDormencia.getSelectedItem().toString());
+        quadroPsicofisicoModel.setFalta_apetite_intensidade(jcbQuadroFaltaApetite.getSelectedItem().toString());
+        quadroPsicofisicoModel.setFalta_concentracao_intensidade(jcbQuadroFaltaConcetracao.getSelectedItem().toString());
+        quadroPsicofisicoModel.setIdeias_suicidas_intensidade(jcbQuadroIdeiasSuicidas.getSelectedItem().toString());
+        quadroPsicofisicoModel.setInsonia_intensidade(jcbQuadroInsonia.getSelectedItem().toString());
+        quadroPsicofisicoModel.setIrritacao_sem_motivo_intensidade(jcbQuadroIrritacao.getSelectedItem().toString());
+        quadroPsicofisicoModel.setMedo_intensidade(jcbQuadroMedo.getSelectedItem().toString());
+        quadroPsicofisicoModel.setOuve_vozes_intensidade(jcbQuadroOuveVozes.getSelectedItem().toString());
+        quadroPsicofisicoModel.setPesadelos_intensidade(jcbQuadroPesadelos.getSelectedItem().toString());
+        quadroPsicofisicoModel.setPresenca_espirito_intensidade(jcbQuadroPresencaEspiritos.getSelectedItem().toString());
+        quadroPsicofisicoModel.setSonolencia_intensidade(jcbQuadroSonolencia.getSelectedItem().toString());
+        quadroPsicofisicoModel.setSudorese_intensidade(jcbQuadroSudorese.getSelectedItem().toString());
+        quadroPsicofisicoModel.setTontura_intensidade(jcbQuadroTonturas.getSelectedItem().toString());
+        quadroPsicofisicoModel.setVultos_intensidade(jcbQuadroVultos.getSelectedItem().toString());
+        quadroPsicofisicoModel.setZumbidos_intensidade(jcbQuadroZumbidos.getSelectedItem().toString());
+        
         if (pacienteController.salvarMedicamentoTratamentoController(pacienteModel) > 0) {
-            JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
-            limparCampos();
+            
+            if (quadroPsicofisicoController.salvarQuadroPsicofisicoController(quadroPsicofisicoModel) > 0) {
+                JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+                rSPanelsSlider1.slidPanel(20, pnl1, RSPanelsSlider.direct.Right);
+                limparCampos();
+            }
+            
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
+    /**
+     * metodo pra limpar as seleções realizadas no quadro psicofisico os valores
+     * voltam a ser 'SELECIONE'
+     */
+    private void limparSelecao() {
+        jcbQuadroAngustia.setSelectedItem("SELECIONE");
+        jcbQuadroAnsiedade.setSelectedItem("SELECIONE");
+        jcbQuadroCalafrios.setSelectedItem("SELECIONE");
+        jcbQuadroCansaco.setSelectedItem("SELECIONE");
+        jcbQuadroDesanimo.setSelectedItem("SELECIONE");
+        jcbQuadroDorCabeca.setSelectedItem("SELECIONE");
+        jcbQuadroDorColuna.setSelectedItem("SELECIONE");
+        jcbQuadroDorPerna.setSelectedItem("SELECIONE");
+        jcbQuadroDormencia.setSelectedItem("SELECIONE");
+        jcbQuadroFaltaApetite.setSelectedItem("SELECIONE");
+        jcbQuadroFaltaConcetracao.setSelectedItem("SELECIONE");
+        jcbQuadroIdeiasSuicidas.setSelectedItem("SELECIONE");
+        jcbQuadroInsonia.setSelectedItem("SELECIONE");
+        jcbQuadroIrritacao.setSelectedItem("SELECIONE");
+        jcbQuadroMedo.setSelectedItem("SELECIONE");
+        jcbQuadroOuveVozes.setSelectedItem("SELECIONE");
+        jcbQuadroPesadelos.setSelectedItem("SELECIONE");
+        jcbQuadroPresencaEspiritos.setSelectedItem("SELECIONE");
+        jcbQuadroSonolencia.setSelectedItem("SELECIONE");
+        jcbQuadroSudorese.setSelectedItem("SELECIONE");
+        jcbQuadroTaquicardia.setSelectedItem("SELECIONE");
+        jcbQuadroTonturas.setSelectedItem("SELECIONE");
+        jcbQuadroVultos.setSelectedItem("SELECIONE");
+        jcbQuadroZumbidos.setSelectedItem("SELECIONE");
+    }
+    
     private void limparCampos() {
         jtfBairro.setText("");
         jtfEmail.setText("");
@@ -2542,8 +2579,10 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         jcDesobsessaoSim.setSelected(false);
         jcTratamentoNao.setSelected(false);
         jcTratamentoSim.setSelected(false);
+        jcbCidade.setSelectedItem("Abreu e Lima");
+        jlIdade.setText("0");
         limparSelecao();
-
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

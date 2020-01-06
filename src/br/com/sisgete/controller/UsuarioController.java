@@ -77,7 +77,7 @@ public class UsuarioController {
      * @param pUsuarioModel
      * @return
      */
-    public boolean getValidarUsuario(UsuarioModel pUsuarioModel) {
+    public boolean validarUsuario(UsuarioModel pUsuarioModel) {
         return this.daoUsuario.validarUsuarioDAO(pUsuarioModel);
     }
 }

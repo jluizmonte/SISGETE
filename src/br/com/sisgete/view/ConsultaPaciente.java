@@ -1,7 +1,9 @@
 package br.com.sisgete.view;
 
 import br.com.sisgete.controller.PacienteController;
+import br.com.sisgete.controller.QuadroPsicofisicoController;
 import br.com.sisgete.model.PacienteModel;
+import br.com.sisgete.model.QuadroPsicofisicoModel;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -21,6 +23,10 @@ public class ConsultaPaciente extends javax.swing.JFrame {
     PacienteController medicamentoTratamentoController = new PacienteController();
     PacienteModel medicamentoTratamentoModel = new PacienteModel();
     ArrayList<PacienteModel> listaTratamentoModels = new ArrayList<>();
+    QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
+    QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
+    ArrayList<QuadroPsicofisicoModel> listaQuadroPsicofisicoModels = new ArrayList<>();
+   
 
     /**
      * Creates new form ConsultaPaciente
@@ -274,7 +280,9 @@ public class ConsultaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jrbFiltroDesobsessãoActionPerformed
 
     private void popularTabela() {
+        listaTratamentoModels = new ArrayList<>(); 
         listaTratamentoModels = medicamentoTratamentoController.getListaMedicamentoTratamentoController();
+        listaQuadroPsicofisicoModels = quadroPsicofisicoController.getListaQuadroPsicofisicoController();
         DefaultTableModel modelo = (DefaultTableModel) jtResultado.getModel();
         modelo.setNumRows(0);
 

@@ -2,6 +2,7 @@ package br.com.sisgete.model.DAO;
 
 import br.com.sisgete.connection.SisgeteConnectionMySql;
 import br.com.sisgete.model.PacienteModel;
+import br.com.sisgete.model.QuadroPsicofisicoModel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -15,14 +16,15 @@ public class PacienteDAO extends SisgeteConnectionMySql {
      * grava MedicamentoTratamento
      *
      * @param modelMedicamentoTratamento return int
+     * @param pQuadroPsicofisicoModel
      * @return
      */
     public int salvarMedicamentoTratamentoDAO(PacienteModel modelMedicamentoTratamento) {
         try {
             this.conectar();
             return this.insertSQL(
-                    "INSERT INTO tbl_medicamento_tratamento ("
-                    + "pk_id_medicamento_tratamento,"
+                    " INSERT INTO tbl_paciente ("
+                    + "pk_id_paciente,"
                     + "remedio_controlado,"
                     + "remedio_controlado_tipo,"
                     + "remedio_controlado_periodo,"
@@ -105,9 +107,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "nome,"
                     + "setor,"
                     + "telefone,"
-                    + "email,"
-                    + "sintomas,"
-                    + "intensidade_sintomas"
+                    + "email"
                     + ") VALUES ("
                     + "'" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "',"
                     + "'" + modelMedicamentoTratamento.getRemedio() + "',"
@@ -192,10 +192,9 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "'" + modelMedicamentoTratamento.getNome() + "',"
                     + "'" + modelMedicamentoTratamento.getSetor() + "',"
                     + "'" + modelMedicamentoTratamento.getTelefone() + "',"
-                    + "'" + modelMedicamentoTratamento.getEmail() + "',"
-                    + "'" + modelMedicamentoTratamento.getSintomas() + "',"
-                    + "'" + modelMedicamentoTratamento.getIntensidadeSintomas() + "'"
+                    + "'" + modelMedicamentoTratamento.getEmail() + "'"
                     + ");"
+                  
             );
         } catch (Exception e) {
             System.out.print(e);
@@ -216,7 +215,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT  * FROM tbl_medicamento_tratamento WHERE pk_id_medicamento_tratamento = '"
+                    "SELECT  * FROM tbl_paciente WHERE pk_id_paciente = '"
                     + pIdMedicamentoTratamento + "'" + ";"
             );
 
@@ -305,8 +304,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                 modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
                 modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
                 modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
-                modelMedicamentoTratamento.setSintomas(this.getResultSet().getString(85));
-                modelMedicamentoTratamento.setIntensidadeSintomas(this.getResultSet().getString(86));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -327,7 +325,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT * FROM tbl_medicamento_tratamento"
+                    "SELECT * FROM tbl_paciente"
                     + ";"
             );
 
@@ -417,8 +415,6 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                 modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
                 modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
                 modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
-                modelMedicamentoTratamento.setSintomas(this.getResultSet().getString(85));
-                modelMedicamentoTratamento.setIntensidadeSintomas(this.getResultSet().getString(86));
                 listamodelMedicamentoTratamento.add(modelMedicamentoTratamento);
             }
         } catch (SQLException e) {
@@ -439,8 +435,8 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                    "UPDATE tbl_medicamento_tratamento SET "
-                    + "pk_id_medicamento_tratamento = '" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "',"
+                    "UPDATE tbl_paciente SET "
+                    + "pk_id_paciente = '" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "',"
                     + "remedio_controlado = '" + modelMedicamentoTratamento.getRemedio() + "',"
                     + "remedio_controlado_tipo = '" + modelMedicamentoTratamento.getRemedioTipo() + "',"
                     + "remedio_controlado_periodo = '" + modelMedicamentoTratamento.getRemedioPeriodo() + "',"
@@ -523,11 +519,9 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "nome = '" + modelMedicamentoTratamento.getNome() + "',"
                     + "setor = '" + modelMedicamentoTratamento.getSetor() + "',"
                     + "telefone = '" + modelMedicamentoTratamento.getTelefone() + "',"
-                    + "email = '" + modelMedicamentoTratamento.getEmail() + "',"
-                    + "sintomas ='" + modelMedicamentoTratamento.getSintomas() + "',"
-                    + "intensidade_sintomas ='" + modelMedicamentoTratamento.getIntensidadeSintomas() + "'"
+                    + "email = '" + modelMedicamentoTratamento.getEmail() + "'"
                     + " WHERE "
-                    + "pk_id_medicamento_tratamento = '" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "'"
+                    + "pk_id_paciente = '" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -548,9 +542,9 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                    "DELETE FROM tbl_medicamento_tratamento "
+                    "DELETE FROM tbl_paciente "
                     + " WHERE "
-                    + "pk_id_medicamento_tratamento = '" + pIdMedicamentoTratamento + "'"
+                    + "pk_id_paciente = '" + pIdMedicamentoTratamento + "'"
                     + ";"
             );
         } catch (Exception e) {

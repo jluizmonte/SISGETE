@@ -49,7 +49,7 @@ public class SisgeteConnectionMySql {
     public Connection conectar() {
         try {
             // Driver do MySQL
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 
             // local do banco, nome do banco, usuario e senha
             String url = "jdbc:mysql://" + servidor + "/" + nomeDoBanco + "?autoReconnect=true&useSSL=false";
@@ -114,7 +114,7 @@ public class SisgeteConnectionMySql {
             this.setStatement(getCon().createStatement());
 
             // Definido o Statement, executamos a query no banco de dados
-            this.getStatement().executeUpdate(pSQL);
+           this.getStatement().executeUpdate(pSQL);
 
             // consulta o ultimo id inserido
             this.setResultSet(this.getStatement().executeQuery("SELECT last_insert_id();"));

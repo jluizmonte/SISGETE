@@ -85,7 +85,7 @@ public class UsuarioDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT * FROM WHERE usuario='"
+                    "SELECT * FROM tbl_usuario WHERE usuario='"
                     + pUsario + "'"
                     + ";"
             );
@@ -198,10 +198,8 @@ public class UsuarioDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT * FROM tbl_usario WHERE "
-                    + " usuario = '" + pUsuarioModel.getUsuario()
-                    + "' AND senha = '" + pUsuarioModel.getSenha() + "'"
-                    + ";"
+                    "SELECT * FROM  tbl_usuario  WHERE  usuario = '"
+                    + pUsuarioModel.getUsuario() + "' AND senha = '" + pUsuarioModel.getSenha() + "'" + ";"
             );
 
             if (getResultSet().next()) {

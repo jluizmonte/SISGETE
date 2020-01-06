@@ -285,7 +285,7 @@ public class LoginView extends javax.swing.JDialog {
         usuarioModel.setSenha(String.valueOf(jtfSenha.getPassword()));
 
         try {
-            if (usuarioController.getValidarUsuario(usuarioModel)) {
+            if (usuarioController.validarUsuario(usuarioModel)) {
                 usuarioModel = usuarioController.getUsuarioController(jtfUsuario.getText());
                 setSessionUser();
                 new AtendimentoFraternoView().setVisible(true);
