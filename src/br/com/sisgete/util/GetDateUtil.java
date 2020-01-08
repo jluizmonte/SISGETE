@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class GetDateUtil {
 
     /**
-     * retorna dia e mes (separado por hifen) e hora (hora e minutos)
+     * retorna dia e mes no formato: dd-MM_HH:mm
      *
      * @return
      */
@@ -20,8 +20,7 @@ public class GetDateUtil {
     }
 
     /**
-     * retorna a data completa (dia ,mês e ano) e a hora atual (hora, minuto e
-     * segundos)
+     * retorna a data completa no formato: dd/MM/yyyy HH:mm:ss
      *
      * @return
      */
@@ -34,7 +33,7 @@ public class GetDateUtil {
     }
 
     /**
-     * retorna o dia e o mês com um underline
+     * retorna o dia e o mês no formato: dd_MM
      *
      * @return
      */
@@ -47,7 +46,7 @@ public class GetDateUtil {
     }
 
     /**
-     * retorna a hora e minutos
+     * retorna a hora e minutos no formato: HH:mm
      *
      * @return
      */
@@ -60,7 +59,7 @@ public class GetDateUtil {
     }
 
     /**
-     * retorna dia, mês e ano atuais
+     * retorna dia, mês e ano atuais no formato: dd/MM/yyyy
      *
      * @return
      */
@@ -72,6 +71,11 @@ public class GetDateUtil {
         return date;
     }
 
+    /**
+     * retorna o ano no formato: yyyy
+     *
+     * @return
+     */
     public String getYear() {
         String date = "";
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy");
@@ -81,7 +85,7 @@ public class GetDateUtil {
     }
 
     /**
-     * retorna a data atualizada de 1 mês
+     * retorna a data atualizada de 1 mês no formato: dd/MM/yyyy
      *
      * @return
      */

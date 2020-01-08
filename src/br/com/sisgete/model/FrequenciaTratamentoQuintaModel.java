@@ -8,6 +8,7 @@ public class FrequenciaTratamentoQuintaModel {
 
     private int idFrequenciaTratamentoQuinta;
     private int paciente;
+    private String setorPaciente;
     private int magnetizador;
     private String recomendacoesEspirituais;
     private String frequenciaQuinta;
@@ -18,89 +19,57 @@ public class FrequenciaTratamentoQuintaModel {
     public FrequenciaTratamentoQuintaModel() {
     }
 
-    /**
-     * seta o valor de idFrequenciaTratamentoQuinta
-     *
-     * @param pIdFrequenciaTratamentoQuinta
-     */
-    public void setIdFrequenciaTratamentoQuinta(int pIdFrequenciaTratamentoQuinta) {
-        this.idFrequenciaTratamentoQuinta = pIdFrequenciaTratamentoQuinta;
-    }
-
-    /**
-     * return pk_idFrequenciaTratamentoQuinta
-     */
     public int getIdFrequenciaTratamentoQuinta() {
-        return this.idFrequenciaTratamentoQuinta;
+        return idFrequenciaTratamentoQuinta;
     }
 
-    /**
-     * seta o valor de paciente
-     *
-     * @param pPaciente
-     */
-    public void setPaciente(int pPaciente) {
-        this.paciente = pPaciente;
+    public void setIdFrequenciaTratamentoQuinta(int idFrequenciaTratamentoQuinta) {
+        this.idFrequenciaTratamentoQuinta = idFrequenciaTratamentoQuinta;
     }
 
-    /**
-     * return fk_paciente
-     */
     public int getPaciente() {
-        return this.paciente;
+        return paciente;
     }
 
-    /**
-     * seta o valor de magnetizador
-     *
-     * @param pMagnetizador
-     */
-    public void setMagnetizador(int pMagnetizador) {
-        this.magnetizador = pMagnetizador;
+    public void setPaciente(int paciente) {
+        this.paciente = paciente;
     }
 
-    /**
-     * return fk_magnetizador
-     */
+    public String getSetorPaciente() {
+        return setorPaciente;
+    }
+
+    public void setSetorPaciente(String setorPaciente) {
+        this.setorPaciente = setorPaciente;
+    }
+
     public int getMagnetizador() {
-        return this.magnetizador;
+        return magnetizador;
     }
 
-    /**
-     * seta o valor de recomendacoesEspirituais
-     *
-     * @param pRecomendacoesEspirituais
-     */
-    public void setRecomendacoesEspirituais(String pRecomendacoesEspirituais) {
-        this.recomendacoesEspirituais = pRecomendacoesEspirituais;
+    public void setMagnetizador(int magnetizador) {
+        this.magnetizador = magnetizador;
     }
 
-    /**
-     * return recomendacoesEspirituais
-     */
     public String getRecomendacoesEspirituais() {
-        return this.recomendacoesEspirituais;
+        return recomendacoesEspirituais;
     }
 
-    /**
-     * seta o valor de frequenciaQuinta
-     *
-     * @param pFrequenciaQuinta
-     */
-    public void setFrequenciaQuinta(String pFrequenciaQuinta) {
-        this.frequenciaQuinta = pFrequenciaQuinta;
+    public void setRecomendacoesEspirituais(String recomendacoesEspirituais) {
+        this.recomendacoesEspirituais = recomendacoesEspirituais;
     }
 
-    /**
-     * return frequenciaQuinta
-     */
     public String getFrequenciaQuinta() {
-        return this.frequenciaQuinta;
+        return frequenciaQuinta;
+    }
+
+    public void setFrequenciaQuinta(String frequenciaQuinta) {
+        this.frequenciaQuinta = frequenciaQuinta;
     }
 
     @Override
     public String toString() {
-        return "FrequenciaTratamentoQuintaModel{" + "idFrequenciaTratamentoQuinta=" + idFrequenciaTratamentoQuinta + ", paciente=" + paciente + ", magnetizador=" + magnetizador + ", recomendacoesEspirituais=" + recomendacoesEspirituais + ", frequenciaQuinta=" + frequenciaQuinta + '}';
+        return "FrequenciaTratamentoQuintaModel{" + "idFrequenciaTratamentoQuinta=" + idFrequenciaTratamentoQuinta + ", paciente=" + paciente + ", setorPaciente=" + setorPaciente + ", magnetizador=" + magnetizador + ", recomendacoesEspirituais=" + recomendacoesEspirituais + ", frequenciaQuinta=" + frequenciaQuinta + '}';
     }
 
 }

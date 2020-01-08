@@ -7,7 +7,7 @@ package br.com.sisgete.model;
 public class PacienteModel {
 
     private int idPaciente;
-    private String acompanhamentoPaciente;
+    private String acompanhamentoPaciente; // data da liberacao ou do inicio da observação
     private String alcool;
     private String alcoolObs;
     private String alcoolPeriodo;
@@ -103,6 +103,10 @@ public class PacienteModel {
         return acompanhamentoPaciente;
     }
 
+    /**
+     *
+     * @param acompanhamentoPaciente
+     */
     public void setAcompanhamentoPaciente(String acompanhamentoPaciente) {
         this.acompanhamentoPaciente = acompanhamentoPaciente;
     }

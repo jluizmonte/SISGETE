@@ -6,7 +6,9 @@ import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.model.FrequenciaTratamentoDomingoModel;
 import br.com.sisgete.model.MagnetizadorModel;
 import br.com.sisgete.model.PacienteModel;
+import br.com.sisgete.util.GetDateUtil;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +24,8 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
     ArrayList<MagnetizadorModel> listaMagnetizadorModel = new ArrayList<>();
     FrequenciaTratamentoDomingoModel frequenciaTratamentoDomingoModel = new FrequenciaTratamentoDomingoModel();
     FrequenciaTratamentoDomingoController frequenciaTratamentoDomingoController = new FrequenciaTratamentoDomingoController();
+    GetDateUtil getDateUtil = new GetDateUtil();
+    String periodoObs;
 
     /**
      * Creates new form FrequenciaDomingoView
@@ -149,7 +153,16 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
         jLabel4.setText("STATUS TRATAMENTO.:");
 
         jcbStatusTratamento.setFont(new java.awt.Font("DejaVu Sans", 1, 16)); // NOI18N
-        jcbStatusTratamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE UMA OPÇÃO", "CONTINUAR TRATAMENTO", "PACIENTE LIBERADO" }));
+        jcbStatusTratamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE UMA OPÇÃO", "CONTINUAR TRATAMENTO", "PACIENTE LIBERADO", "EM OBSERVAÇÃO" }));
+        jcbStatusTratamento.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbStatusTratamentoPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
 
         jcRecomendacoesSim.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jcRecomendacoesSim.setForeground(new java.awt.Color(255, 255, 255));
@@ -383,6 +396,24 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
         carregarAuxiliar();
     }//GEN-LAST:event_jcbAuxiliarPopupMenuWillBecomeVisible
 
+    private void jcbStatusTratamentoPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbStatusTratamentoPopupMenuWillBecomeInvisible
+        if (jcbStatusTratamento.getSelectedItem().equals("EM OBSERVAÇÃO")) {
+            Object[] opcoes = {"30", "60", "90", "120"};
+            Object resposta;
+            resposta = JOptionPane.showInputDialog(null,
+                    "quantidade de dias",
+                    "Continuar tratamento",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    null,
+                    opcoes,
+                    "30");
+            periodoObs = String.valueOf(resposta);
+            //       atualizarStatusPaciente(); <- desativado por enquanto
+        } else {
+            //       atualizarStatusPaciente();
+        }
+    }//GEN-LAST:event_jcbStatusTratamentoPopupMenuWillBecomeInvisible
+
     /**
      * @param args the command line arguments
      */
@@ -452,7 +483,36 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
 
     private void salvarFrequencia() {
         int idMagnetizador = magnetizadorController.getMagnetizadorModel(jcbMagnetizador.getSelectedItem().toString()).getIdMagnetizador();
-        // int idPaciente = pacienteController.getPaciente(pPaciente)
+        int idPaciente = pacienteController.getPaciente(jcbPaciente.getSelectedItem().toString()).getIdPaciente();
+        String dataFrequenciaTratamento = getDateUtil.getDateTime();
+
+        frequenciaTratamentoDomingoModel.setMagnetizador(idMagnetizador);
+        frequenciaTratamentoDomingoModel.setPaciente(idPaciente);
+        frequenciaTratamentoDomingoModel.setFrequenciaDomingo(dataFrequenciaTratamento);
+        frequenciaTratamentoDomingoModel.setRecomendacoesEspirituais(jtfRecomendacoes.getText());
+        frequenciaTratamentoDomingoModel.setSetorPaciente(jlSetor.getText());
+
+        if (frequenciaTratamentoDomingoController.salvarFrequenciaTratamentoDomingoController(frequenciaTratamentoDomingoModel) > 0) {
+            JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+            limparCampos();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void atualizarStatusPaciente() {
+        String paciente = pacienteController.getPaciente(jcbPaciente.getSelectedItem().toString()).getNome();
+
+        if (jcbStatusTratamento.getSelectedItem().equals("PACIENTE LIBERADO")) {
+            pacienteModel.setStatusTratamento("LIBERADO");
+            pacienteModel.setAcompanhamentoPaciente(getDateUtil.getDateTime());
+            pacienteController.atualizarPacienteController(pacienteModel);
+
+        } else if (jcbStatusTratamento.getSelectedItem().equals("EM OBSERVAÇÃO")) {
+            pacienteModel.setStatusTratamento("EM OSERVAÇÃO");
+            pacienteModel.setAcompanhamentoPaciente(periodoObs);
+            pacienteController.atualizarPacienteController(pacienteModel);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

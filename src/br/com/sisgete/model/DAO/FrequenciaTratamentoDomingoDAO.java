@@ -25,12 +25,14 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
                     + "pk_id_frequencia_tratamento_domingo,"
                     + "fk_paciente,"
                     + "fk_magnetizador,"
+                    + "setor_paciente,"
                     + "recomendacoes_espirituais,"
                     + "frequencia_domingo"
                     + ") VALUES ("
                     + "'" + pFrequenciaTratamentoDomingoModel.getIdFrequenciaTratamentoDomingo() + "',"
                     + "'" + pFrequenciaTratamentoDomingoModel.getPaciente() + "',"
                     + "'" + pFrequenciaTratamentoDomingoModel.getMagnetizador() + "',"
+                    + "'" + pFrequenciaTratamentoDomingoModel.getSetorPaciente() + "',"
                     + "'" + pFrequenciaTratamentoDomingoModel.getRecomendacoesEspirituais() + "',"
                     + "'" + pFrequenciaTratamentoDomingoModel.getFrequenciaDomingo() + "'"
                     + ");"
@@ -64,8 +66,9 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
                 modelFrequenciaTratamentoDomingo.setIdFrequenciaTratamentoDomingo(this.getResultSet().getInt(1));
                 modelFrequenciaTratamentoDomingo.setPaciente(this.getResultSet().getInt(2));
                 modelFrequenciaTratamentoDomingo.setMagnetizador(this.getResultSet().getInt(3));
-                modelFrequenciaTratamentoDomingo.setRecomendacoesEspirituais(this.getResultSet().getString(4));
-                modelFrequenciaTratamentoDomingo.setFrequenciaDomingo(this.getResultSet().getString(5));
+                modelFrequenciaTratamentoDomingo.setSetorPaciente(this.getResultSet().getString(4));
+                modelFrequenciaTratamentoDomingo.setRecomendacoesEspirituais(this.getResultSet().getString(5));
+                modelFrequenciaTratamentoDomingo.setFrequenciaDomingo(this.getResultSet().getString(6));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -94,11 +97,11 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
 
             while (this.getResultSet().next()) {
                 modelFrequenciaTratamentoDomingo = new FrequenciaTratamentoDomingoModel();
-                modelFrequenciaTratamentoDomingo.setIdFrequenciaTratamentoDomingo(this.getResultSet().getInt(1));
                 modelFrequenciaTratamentoDomingo.setPaciente(this.getResultSet().getInt(2));
                 modelFrequenciaTratamentoDomingo.setMagnetizador(this.getResultSet().getInt(3));
-                modelFrequenciaTratamentoDomingo.setRecomendacoesEspirituais(this.getResultSet().getString(4));
-                modelFrequenciaTratamentoDomingo.setFrequenciaDomingo(this.getResultSet().getString(5));
+                modelFrequenciaTratamentoDomingo.setSetorPaciente(this.getResultSet().getString(4));
+                modelFrequenciaTratamentoDomingo.setRecomendacoesEspirituais(this.getResultSet().getString(5));
+                modelFrequenciaTratamentoDomingo.setFrequenciaDomingo(this.getResultSet().getString(6));
                 listamodelFrequenciaTratamentoDomingo.add(modelFrequenciaTratamentoDomingo);
             }
         } catch (SQLException e) {
@@ -123,6 +126,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
                     + "pk_id_frequencia_tratamento_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdFrequenciaTratamentoDomingo() + "',"
                     + "fk_paciente = '" + pFrequenciaTratamentoDomingoModel.getPaciente() + "',"
                     + "fk_magnetizador = '" + pFrequenciaTratamentoDomingoModel.getMagnetizador() + "',"
+                    + "setor_paciente ='" + pFrequenciaTratamentoDomingoModel.getSetorPaciente() + "',"
                     + "recomendacoes_espirituais = '" + pFrequenciaTratamentoDomingoModel.getRecomendacoesEspirituais() + "',"
                     + "frequencia_domingo = '" + pFrequenciaTratamentoDomingoModel.getFrequenciaDomingo() + "'"
                     + " WHERE "

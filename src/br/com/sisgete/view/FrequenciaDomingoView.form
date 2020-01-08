@@ -345,13 +345,17 @@
               <Font name="DejaVu Sans" size="16" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="SELECIONE UMA OP&#xc7;&#xc3;O"/>
                 <StringItem index="1" value="CONTINUAR TRATAMENTO"/>
                 <StringItem index="2" value="PACIENTE LIBERADO"/>
+                <StringItem index="3" value="EM OBSERVA&#xc7;&#xc3;O"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="jcbStatusTratamentoPopupMenuWillBecomeInvisible"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
