@@ -22,7 +22,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             this.conectar();
             return this.insertSQL(
                     "INSERT INTO tbl_frequencia_tratamento_domingo ("
-                    + "pk_id_frequencia_tratamento_domingo,"
+                    + "pk_id_frequencia_domingo,"
                     + "fk_paciente,"
                     + "fk_magnetizador,"
                     + "setor_paciente,"
@@ -58,7 +58,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             this.conectar();
             this.executarSQL(
                     "SELECT  * FROM tbl_frequencia_tratamento_domingo WHERE"
-                    + " pk_id_frequencia_tratamento_domingo = '" + pIdFrequenciaTratamentoDomingo + "'"
+                    + " pk_id_frequencia_domingo = '" + pIdFrequenciaTratamentoDomingo + "'"
                     + ";"
             );
 
@@ -130,7 +130,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
                     + "recomendacoes_espirituais = '" + pFrequenciaTratamentoDomingoModel.getRecomendacoesEspirituais() + "',"
                     + "frequencia_domingo = '" + pFrequenciaTratamentoDomingoModel.getFrequenciaDomingo() + "'"
                     + " WHERE "
-                    + "pk_id_frequencia_tratamento_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdFrequenciaTratamentoDomingo() + "'"
+                    + "pk_id_frequencia_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdFrequenciaTratamentoDomingo() + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -153,7 +153,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             return this.executarUpdateDeleteSQL(
                     "DELETE FROM tbl_frequencia_tratamento_domingo "
                     + " WHERE "
-                    + "pk_id_frequencia_tratamento_domingo = '" + pIdFrequenciaTratamentoDomingo + "'"
+                    + "pk_id_frequencia_domingo = '" + pIdFrequenciaTratamentoDomingo + "'"
                     + ";"
             );
         } catch (Exception e) {

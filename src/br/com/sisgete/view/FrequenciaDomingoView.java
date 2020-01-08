@@ -193,6 +193,11 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
         jbSalvar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-salvar-como-24.png"))); // NOI18N
         jbSalvar.setText("Salvar");
+        jbSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalvarActionPerformed(evt);
+            }
+        });
 
         jbCancelar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-cancelar-24.png"))); // NOI18N
@@ -398,7 +403,7 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
 
     private void jcbStatusTratamentoPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbStatusTratamentoPopupMenuWillBecomeInvisible
         if (jcbStatusTratamento.getSelectedItem().equals("EM OBSERVAÇÃO")) {
-            Object[] opcoes = {"30", "60", "90", "120"};
+            Object[] opcoes = {"SELECIONE", "30 DIAS", "60 DIAS", "90 DIAS"};
             Object resposta;
             resposta = JOptionPane.showInputDialog(null,
                     "quantidade de dias",
@@ -406,13 +411,14 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
                     JOptionPane.OK_CANCEL_OPTION,
                     null,
                     opcoes,
-                    "30");
+                    "SELECIONE");
             periodoObs = String.valueOf(resposta);
-            //       atualizarStatusPaciente(); <- desativado por enquanto
-        } else {
-            //       atualizarStatusPaciente();
         }
     }//GEN-LAST:event_jcbStatusTratamentoPopupMenuWillBecomeInvisible
+
+    private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
+        salvarFrequencia();
+        }//GEN-LAST:event_jbSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -493,8 +499,9 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
         frequenciaTratamentoDomingoModel.setSetorPaciente(jlSetor.getText());
 
         if (frequenciaTratamentoDomingoController.salvarFrequenciaTratamentoDomingoController(frequenciaTratamentoDomingoModel) > 0) {
-            JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
-            limparCampos();
+            //  JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+            //     limparCampos();
+            atualizarStatusPaciente();
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -507,12 +514,20 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
             pacienteModel.setStatusTratamento("LIBERADO");
             pacienteModel.setAcompanhamentoPaciente(getDateUtil.getDateTime());
             pacienteController.atualizarPacienteController(pacienteModel);
-
+            limparCampos();
         } else if (jcbStatusTratamento.getSelectedItem().equals("EM OBSERVAÇÃO")) {
-            pacienteModel.setStatusTratamento("EM OSERVAÇÃO");
+            pacienteModel.setStatusTratamento("EM OBSERVAÇÃO");
             pacienteModel.setAcompanhamentoPaciente(periodoObs);
             pacienteController.atualizarPacienteController(pacienteModel);
+            limparCampos();
+        } else {
+            pacienteModel.setStatusTratamento("EM TRATAMENTO");
+            pacienteModel.setAcompanhamentoPaciente(periodoObs);
+            pacienteController.atualizarPacienteController(pacienteModel);
+            limparCampos();
         }
+        JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
