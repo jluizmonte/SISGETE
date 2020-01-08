@@ -75,6 +75,36 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
     }
 
     /**
+     * recupera Magnetizador
+     *
+     * @param pMagnetizador return MagnetizadorModel
+     * @return
+     */
+    public MagnetizadorModel getMagnetizadorDAO(String pMagnetizador) {
+        MagnetizadorModel modelMagnetizador = new MagnetizadorModel();
+        try {
+            this.conectar();
+            this.executarSQL(
+                    "SELECT * FROM tbl_magnetizador"
+                    + " WHERE"
+                    + " nome_magnetizador = '" + pMagnetizador + "'"
+                    + ";"
+            );
+
+            while (this.getResultSet().next()) {
+                modelMagnetizador.setIdMagnetizador(this.getResultSet().getInt(1));
+                modelMagnetizador.setNomeMagnetizador(this.getResultSet().getString(2));
+                modelMagnetizador.setAuxiliarMagnetizador(this.getResultSet().getString(3));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.fecharConexao();
+        }
+        return modelMagnetizador;
+    }
+
+    /**
      * recupera uma lista de Magnetizador return ArrayList
      *
      * @return

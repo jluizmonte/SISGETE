@@ -26,7 +26,6 @@ public class ConsultaPaciente extends javax.swing.JFrame {
     QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
     QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
     ArrayList<QuadroPsicofisicoModel> listaQuadroPsicofisicoModels = new ArrayList<>();
-   
 
     /**
      * Creates new form ConsultaPaciente
@@ -280,8 +279,8 @@ public class ConsultaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jrbFiltroDesobsessãoActionPerformed
 
     private void popularTabela() {
-        listaTratamentoModels = new ArrayList<>(); 
-        listaTratamentoModels = medicamentoTratamentoController.getListaMedicamentoTratamentoController();
+        listaTratamentoModels = new ArrayList<>();
+        listaTratamentoModels = medicamentoTratamentoController.getListaPacienteController();
         listaQuadroPsicofisicoModels = quadroPsicofisicoController.getListaQuadroPsicofisicoController();
         DefaultTableModel modelo = (DefaultTableModel) jtResultado.getModel();
         modelo.setNumRows(0);
@@ -289,7 +288,7 @@ public class ConsultaPaciente extends javax.swing.JFrame {
         int cont = listaTratamentoModels.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
-                listaTratamentoModels.get(i).getIdMedicamentoTratamento(),
+                listaTratamentoModels.get(i).getIdPaciente(),
                 listaTratamentoModels.get(i).getNome(),
                 listaTratamentoModels.get(i).getSetor(),
                 listaTratamentoModels.get(i).getDataAtendimento(),

@@ -10,26 +10,26 @@ import java.util.ArrayList;
  */
 public class PacienteController {
 
-    PacienteDAO medicamentoTratamentoDAO = new PacienteDAO();
+    PacienteDAO pacienteDAO = new PacienteDAO();
 
     /**
-     * grava MedicamentoTratamento
+     * grava Paciente
      *
-     * @param pMedicamentoTratamentoModel return int
+     * @param pPacienteModel return int
      * @return
      */
-    public int salvarMedicamentoTratamentoController(PacienteModel pMedicamentoTratamentoModel) {
-        return this.medicamentoTratamentoDAO.salvarMedicamentoTratamentoDAO(pMedicamentoTratamentoModel);
+    public int salvarPacienteController(PacienteModel pPacienteModel) {
+        return this.pacienteDAO.salvarPacienteDAO(pPacienteModel);
     }
 
     /**
-     * recupera MedicamentoTratamento
+     * recupera Paciente
      *
-     * @param pIdMedicamentoTratamento
+     * @param pIdPaciente
      * @return PacienteModel
      */
-    public PacienteModel getMedicamentoTratamentoController(int pIdMedicamentoTratamento) {
-        return this.medicamentoTratamentoDAO.getMedicamentoTratamentoDAO(pIdMedicamentoTratamento);
+    public PacienteModel getPacienteController(int pIdPaciente) {
+        return this.pacienteDAO.getPacienteDAO(pIdPaciente);
     }
 
     /**
@@ -38,36 +38,36 @@ public class PacienteController {
      * @return
      */
     public PacienteModel getPaciente(String pPaciente) {
-        return this.medicamentoTratamentoDAO.getMedicamentoTratamentoDAO(pPaciente);
+        return this.pacienteDAO.getPacienteDAO(pPaciente);
     }
 
     /**
-     * recupera uma lista deMedicamentoTratamento
+     * recupera uma lista dePaciente
      *
      * @return ArrayList
      */
-    public ArrayList<PacienteModel> getListaMedicamentoTratamentoController() {
-        return this.medicamentoTratamentoDAO.getListaMedicamentoTratamentoDAO();
+    public ArrayList<PacienteModel> getListaPacienteController() {
+        return this.pacienteDAO.getListaPacienteDAO();
     }
 
     /**
-     * atualiza MedicamentoTratamento
+     * atualiza Paciente
      *
-     * @param pMedicamentoTratamentoModel return boolean
+     * @param pPacienteModel return boolean
      * @return
      */
-    public boolean atualizarMedicamentoTratamentoController(PacienteModel pMedicamentoTratamentoModel) {
-        return this.medicamentoTratamentoDAO.atualizarMedicamentoTratamentoDAO(pMedicamentoTratamentoModel);
+    public boolean atualizarPacienteController(PacienteModel pPacienteModel) {
+        return this.pacienteDAO.atualizarPacienteDAO(pPacienteModel);
     }
 
     /**
-     * exclui MedicamentoTratamento
+     * exclui Paciente
      *
-     * @param pIdMedicamentoTratamento
+     * @param pIdPaciente
      * @return boolean
      */
-    public boolean excluirMedicamentoTratamentoController(int pIdMedicamentoTratamento) {
-        return this.medicamentoTratamentoDAO.excluirMedicamentoTratamentoDAO(pIdMedicamentoTratamento);
+    public boolean excluirPacienteController(int pIdPaciente) {
+        return this.pacienteDAO.excluirPacienteDAO(pIdPaciente);
     }
 
 }

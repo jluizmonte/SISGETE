@@ -1,14 +1,12 @@
 package br.com.sisgete.view;
 
+import br.com.sisgete.controller.FrequenciaTratamentoDomingoController;
 import br.com.sisgete.controller.MagnetizadorController;
 import br.com.sisgete.controller.PacienteController;
-import br.com.sisgete.controller.QuadroPsicofisicoController;
+import br.com.sisgete.model.FrequenciaTratamentoDomingoModel;
 import br.com.sisgete.model.MagnetizadorModel;
 import br.com.sisgete.model.PacienteModel;
-import br.com.sisgete.model.QuadroPsicofisicoModel;
-import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,12 +14,14 @@ import javax.swing.JOptionPane;
  */
 public class FrequenciaDomingoView extends javax.swing.JFrame {
 
-    PacienteController medicamentoTratamentoController = new PacienteController();
-    PacienteModel medicamentoTratamentoModel = new PacienteModel();
-    ArrayList<PacienteModel> listaTratamentoModels = new ArrayList<>();
+    PacienteController pacienteController = new PacienteController();
+    PacienteModel pacienteModel = new PacienteModel();
+    ArrayList<PacienteModel> listaPacienteModel = new ArrayList<>();
     MagnetizadorController magnetizadorController = new MagnetizadorController();
     MagnetizadorModel magnetizadorModel = new MagnetizadorModel();
     ArrayList<MagnetizadorModel> listaMagnetizadorModel = new ArrayList<>();
+    FrequenciaTratamentoDomingoModel frequenciaTratamentoDomingoModel = new FrequenciaTratamentoDomingoModel();
+    FrequenciaTratamentoDomingoController frequenciaTratamentoDomingoController = new FrequenciaTratamentoDomingoController();
 
     /**
      * Creates new form FrequenciaDomingoView
@@ -61,6 +61,8 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jcbMagnetizador = new javax.swing.JComboBox<>();
         jcbAuxiliar = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jlAtendente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acompanhamento Domingo");
@@ -173,7 +175,7 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
 
         jlData.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jlData.setForeground(new java.awt.Color(255, 255, 255));
-        jlData.setText("$dd/MM/yyyy");
+        jlData.setText("SEL. PACIENTE");
 
         jbSalvar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-salvar-como-24.png"))); // NOI18N
@@ -192,7 +194,7 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Auxiliar.:");
 
-        jcbMagnetizador.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jcbMagnetizador.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jcbMagnetizador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
         jcbMagnetizador.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
@@ -204,7 +206,7 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
             }
         });
 
-        jcbAuxiliar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jcbAuxiliar.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jcbAuxiliar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE" }));
         jcbAuxiliar.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
@@ -215,6 +217,14 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
                 jcbAuxiliarPopupMenuWillBecomeVisible(evt);
             }
         });
+
+        jLabel11.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Atendente.:");
+
+        jlAtendente.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jlAtendente.setForeground(new java.awt.Color(255, 255, 255));
+        jlAtendente.setText("SELECIONE PACIENTE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -272,6 +282,10 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlData)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlAtendente)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -288,21 +302,23 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
                     .addComponent(jlSetor))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jlData)
+                    .addComponent(jLabel11)
+                    .addComponent(jlAtendente))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel10)
                     .addComponent(jcbMagnetizador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcbAuxiliar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jlData))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jcRecomendacoesSim)
                     .addComponent(jcRecomendacoesNao))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -335,9 +351,7 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
     }//GEN-LAST:event_jcbPacientePopupMenuWillBecomeVisible
 
     private void jcbPacientePopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbPacientePopupMenuWillBecomeInvisible
-        medicamentoTratamentoModel = medicamentoTratamentoController.getPaciente(jcbPaciente.getSelectedItem().toString());
-        jlSetor.setText(medicamentoTratamentoModel.getSetor());
-        jlData.setText(medicamentoTratamentoModel.getDataAtendimento());
+        valoresCampos();
     }//GEN-LAST:event_jcbPacientePopupMenuWillBecomeInvisible
 
     private void jcRecomendacoesNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcRecomendacoesNaoActionPerformed
@@ -396,36 +410,54 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
         jcRecomendacoesNao.setSelected(false);
         jcRecomendacoesSim.setSelected(false);
         jlSetor.setText("SELEC.");
+        jlAtendente.setText("SELECIONE PACIENTE");
+        jlData.setText("SEL. PACIENTE");
+        jcbAuxiliar.setSelectedItem("SELECIONE");
+        jcbMagnetizador.setSelectedItem("SELECIONE");
+        jcbStatusTratamento.setSelectedItem("SELECIONE UMA OPÇÃO");
         carregarPaciente();
     }
 
     private void carregarPaciente() {
-        // listaTratamentoModels = new ArrayList<>();
-        listaTratamentoModels = medicamentoTratamentoController.getListaMedicamentoTratamentoController();
+        // listaPacienteModel = new ArrayList<>();
+        listaPacienteModel = pacienteController.getListaPacienteController();
         jcbPaciente.removeAllItems();
-        for (PacienteModel paciente : listaTratamentoModels) {
+        listaPacienteModel.forEach((paciente) -> {
             jcbPaciente.addItem(String.valueOf(paciente.getNome()));
-        }
+        });
+    }
+
+    private void valoresCampos() {
+        pacienteModel = pacienteController.getPaciente(jcbPaciente.getSelectedItem().toString());
+        jlSetor.setText(pacienteModel.getSetor());
+        jlData.setText(pacienteModel.getDataAtendimento());
+        jlAtendente.setText(pacienteModel.getAtendente());
     }
 
     private void carregarMagnetizador() {
         listaMagnetizadorModel = magnetizadorController.getListaMagnetizadorController();
         jcbMagnetizador.removeAllItems();
-        for (MagnetizadorModel magnetizador : listaMagnetizadorModel) {
+        listaMagnetizadorModel.forEach((magnetizador) -> {
             jcbMagnetizador.addItem(String.valueOf(magnetizador.getNomeMagnetizador()));
-        }
+        });
     }
 
     private void carregarAuxiliar() {
         listaMagnetizadorModel = magnetizadorController.getListaMagnetizadorController();
         jcbAuxiliar.removeAllItems();
-        for (MagnetizadorModel magnetizador : listaMagnetizadorModel) {
+        listaMagnetizadorModel.forEach((magnetizador) -> {
             jcbAuxiliar.addItem(String.valueOf(magnetizador.getAuxiliarMagnetizador()));
-        }
+        });
+    }
+
+    private void salvarFrequencia() {
+        int idMagnetizador = magnetizadorController.getMagnetizadorModel(jcbMagnetizador.getSelectedItem().toString()).getIdMagnetizador();
+        // int idPaciente = pacienteController.getPaciente(pPaciente)
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -446,6 +478,7 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcbMagnetizador;
     private javax.swing.JComboBox<String> jcbPaciente;
     private javax.swing.JComboBox<String> jcbStatusTratamento;
+    private javax.swing.JLabel jlAtendente;
     private javax.swing.JLabel jlData;
     private javax.swing.JLabel jlSetor;
     private javax.swing.JTextArea jtfRecomendacoes;

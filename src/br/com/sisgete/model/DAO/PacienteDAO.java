@@ -12,12 +12,12 @@ import java.util.ArrayList;
 public class PacienteDAO extends SisgeteConnectionMySql {
 
     /**
-     * grava MedicamentoTratamento
+     * grava Paciente
      *
-     * @param modelMedicamentoTratamento return int
+     * @param modelPaciente return int
      * @return
      */
-    public int salvarMedicamentoTratamentoDAO(PacienteModel modelMedicamentoTratamento) {
+    public int salvarPacienteDAO(PacienteModel modelPaciente) {
         try {
             this.conectar();
             return this.insertSQL(
@@ -107,90 +107,90 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "telefone,"
                     + "email"
                     + ") VALUES ("
-                    + "'" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "',"
-                    + "'" + modelMedicamentoTratamento.getRemedio() + "',"
-                    + "'" + modelMedicamentoTratamento.getRemedioTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getRemedioPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getRemedioObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getDengue() + "',"
-                    + "'" + modelMedicamentoTratamento.getDengueTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDenguePeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDengueObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getHepatite() + "',"
-                    + "'" + modelMedicamentoTratamento.getHepatiteTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getHepatitePeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getHepatiteObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getHipertensao() + "',"
-                    + "'" + modelMedicamentoTratamento.getHipertensaoTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getHipertensaoPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getHipertensaoObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getDiabetes() + "',"
-                    + "'" + modelMedicamentoTratamento.getDiabetesTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDiabetesPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDiabetesObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getUsoParacetamol() + "',"
-                    + "'" + modelMedicamentoTratamento.getUsoParacetamolTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getUsoParacetamolPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getUsoParacetamolObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getAlcool() + "',"
-                    + "'" + modelMedicamentoTratamento.getAlcoolTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getAlcoolPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getAlcoolObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getFumo() + "',"
-                    + "'" + modelMedicamentoTratamento.getFumoTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getFumoPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getFumoObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getAlergias() + "',"
-                    + "'" + modelMedicamentoTratamento.getAlergiasTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getAlergiasPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getAlergiasObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getHernia() + "',"
-                    + "'" + modelMedicamentoTratamento.getHerniaTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getHerniaPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getHerniaObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaEstomago() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaEstomagoTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaEstomagoPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaEstomagoObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaOssos() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaOssosTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaOssosPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaOssosObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaPulmoes() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaPulmoesTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaPulmoesPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaPulmoesObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaAutoimune() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaAutoimuneTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaAutoimunePeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getDoencaAutoimuneObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getCancer() + "',"
-                    + "'" + modelMedicamentoTratamento.getCancerTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getCancerPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getCancerObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getFeridasTumores() + "',"
-                    + "'" + modelMedicamentoTratamento.getFeridasTumoresTipo() + "',"
-                    + "'" + modelMedicamentoTratamento.getFeridasTumoresPeriodo() + "',"
-                    + "'" + modelMedicamentoTratamento.getFeridasTumoresObs() + "',"
-                    + "'" + modelMedicamentoTratamento.getPacienteReincidente() + "',"
-                    + "'" + modelMedicamentoTratamento.getDataNascimento() + "',"
-                    + "'" + modelMedicamentoTratamento.getStatusTratamento() + "',"
-                    + "'" + modelMedicamentoTratamento.getModoDesobsessao() + "',"
-                    + "'" + modelMedicamentoTratamento.getDataAtendimento() + "',"
-                    + "'" + modelMedicamentoTratamento.getAtendente() + "',"
-                    + "'" + modelMedicamentoTratamento.getAcompanhamentoPaciente() + "',"
-                    + "'" + modelMedicamentoTratamento.getRua() + "',"
-                    + "'" + modelMedicamentoTratamento.getNumCasa() + "',"
-                    + "'" + modelMedicamentoTratamento.getBairro() + "',"
-                    + "'" + modelMedicamentoTratamento.getCidade() + "',"
-                    + "'" + modelMedicamentoTratamento.getIdade() + "',"
-                    + "'" + modelMedicamentoTratamento.getConhecimentoEspiritaPrevio() + "',"
-                    + "'" + modelMedicamentoTratamento.getFonteConhecimentoEspirita() + "',"
-                    + "'" + modelMedicamentoTratamento.getObjetivoTratamento() + "',"
-                    + "'" + modelMedicamentoTratamento.getNome() + "',"
-                    + "'" + modelMedicamentoTratamento.getSetor() + "',"
-                    + "'" + modelMedicamentoTratamento.getTelefone() + "',"
-                    + "'" + modelMedicamentoTratamento.getEmail() + "'"
+                    + "'" + modelPaciente.getIdPaciente() + "',"
+                    + "'" + modelPaciente.getRemedio() + "',"
+                    + "'" + modelPaciente.getRemedioTipo() + "',"
+                    + "'" + modelPaciente.getRemedioPeriodo() + "',"
+                    + "'" + modelPaciente.getRemedioObs() + "',"
+                    + "'" + modelPaciente.getDengue() + "',"
+                    + "'" + modelPaciente.getDengueTipo() + "',"
+                    + "'" + modelPaciente.getDenguePeriodo() + "',"
+                    + "'" + modelPaciente.getDengueObs() + "',"
+                    + "'" + modelPaciente.getHepatite() + "',"
+                    + "'" + modelPaciente.getHepatiteTipo() + "',"
+                    + "'" + modelPaciente.getHepatitePeriodo() + "',"
+                    + "'" + modelPaciente.getHepatiteObs() + "',"
+                    + "'" + modelPaciente.getHipertensao() + "',"
+                    + "'" + modelPaciente.getHipertensaoTipo() + "',"
+                    + "'" + modelPaciente.getHipertensaoPeriodo() + "',"
+                    + "'" + modelPaciente.getHipertensaoObs() + "',"
+                    + "'" + modelPaciente.getDiabetes() + "',"
+                    + "'" + modelPaciente.getDiabetesTipo() + "',"
+                    + "'" + modelPaciente.getDiabetesPeriodo() + "',"
+                    + "'" + modelPaciente.getDiabetesObs() + "',"
+                    + "'" + modelPaciente.getUsoParacetamol() + "',"
+                    + "'" + modelPaciente.getUsoParacetamolTipo() + "',"
+                    + "'" + modelPaciente.getUsoParacetamolPeriodo() + "',"
+                    + "'" + modelPaciente.getUsoParacetamolObs() + "',"
+                    + "'" + modelPaciente.getAlcool() + "',"
+                    + "'" + modelPaciente.getAlcoolTipo() + "',"
+                    + "'" + modelPaciente.getAlcoolPeriodo() + "',"
+                    + "'" + modelPaciente.getAlcoolObs() + "',"
+                    + "'" + modelPaciente.getFumo() + "',"
+                    + "'" + modelPaciente.getFumoTipo() + "',"
+                    + "'" + modelPaciente.getFumoPeriodo() + "',"
+                    + "'" + modelPaciente.getFumoObs() + "',"
+                    + "'" + modelPaciente.getAlergias() + "',"
+                    + "'" + modelPaciente.getAlergiasTipo() + "',"
+                    + "'" + modelPaciente.getAlergiasPeriodo() + "',"
+                    + "'" + modelPaciente.getAlergiasObs() + "',"
+                    + "'" + modelPaciente.getHernia() + "',"
+                    + "'" + modelPaciente.getHerniaTipo() + "',"
+                    + "'" + modelPaciente.getHerniaPeriodo() + "',"
+                    + "'" + modelPaciente.getHerniaObs() + "',"
+                    + "'" + modelPaciente.getDoencaEstomago() + "',"
+                    + "'" + modelPaciente.getDoencaEstomagoTipo() + "',"
+                    + "'" + modelPaciente.getDoencaEstomagoPeriodo() + "',"
+                    + "'" + modelPaciente.getDoencaEstomagoObs() + "',"
+                    + "'" + modelPaciente.getDoencaOssos() + "',"
+                    + "'" + modelPaciente.getDoencaOssosTipo() + "',"
+                    + "'" + modelPaciente.getDoencaOssosPeriodo() + "',"
+                    + "'" + modelPaciente.getDoencaOssosObs() + "',"
+                    + "'" + modelPaciente.getDoencaPulmoes() + "',"
+                    + "'" + modelPaciente.getDoencaPulmoesTipo() + "',"
+                    + "'" + modelPaciente.getDoencaPulmoesPeriodo() + "',"
+                    + "'" + modelPaciente.getDoencaPulmoesObs() + "',"
+                    + "'" + modelPaciente.getDoencaAutoimune() + "',"
+                    + "'" + modelPaciente.getDoencaAutoimuneTipo() + "',"
+                    + "'" + modelPaciente.getDoencaAutoimunePeriodo() + "',"
+                    + "'" + modelPaciente.getDoencaAutoimuneObs() + "',"
+                    + "'" + modelPaciente.getCancer() + "',"
+                    + "'" + modelPaciente.getCancerTipo() + "',"
+                    + "'" + modelPaciente.getCancerPeriodo() + "',"
+                    + "'" + modelPaciente.getCancerObs() + "',"
+                    + "'" + modelPaciente.getFeridasTumores() + "',"
+                    + "'" + modelPaciente.getFeridasTumoresTipo() + "',"
+                    + "'" + modelPaciente.getFeridasTumoresPeriodo() + "',"
+                    + "'" + modelPaciente.getFeridasTumoresObs() + "',"
+                    + "'" + modelPaciente.getPacienteReincidente() + "',"
+                    + "'" + modelPaciente.getDataNascimento() + "',"
+                    + "'" + modelPaciente.getStatusTratamento() + "',"
+                    + "'" + modelPaciente.getModoDesobsessao() + "',"
+                    + "'" + modelPaciente.getDataAtendimento() + "',"
+                    + "'" + modelPaciente.getAtendente() + "',"
+                    + "'" + modelPaciente.getAcompanhamentoPaciente() + "',"
+                    + "'" + modelPaciente.getRua() + "',"
+                    + "'" + modelPaciente.getNumCasa() + "',"
+                    + "'" + modelPaciente.getBairro() + "',"
+                    + "'" + modelPaciente.getCidade() + "',"
+                    + "'" + modelPaciente.getIdade() + "',"
+                    + "'" + modelPaciente.getConhecimentoEspiritaPrevio() + "',"
+                    + "'" + modelPaciente.getFonteConhecimentoEspirita() + "',"
+                    + "'" + modelPaciente.getObjetivoTratamento() + "',"
+                    + "'" + modelPaciente.getNome() + "',"
+                    + "'" + modelPaciente.getSetor() + "',"
+                    + "'" + modelPaciente.getTelefone() + "',"
+                    + "'" + modelPaciente.getEmail() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -202,105 +202,105 @@ public class PacienteDAO extends SisgeteConnectionMySql {
     }
 
     /**
-     * recupera MedicamentoTratamento
+     * recupera Paciente
      *
-     * @param pIdMedicamentoTratamento return PacienteModel
+     * @param pIdPaciente return PacienteModel
      * @return
      */
-    public PacienteModel getMedicamentoTratamentoDAO(int pIdMedicamentoTratamento) {
-        PacienteModel modelMedicamentoTratamento = new PacienteModel();
+    public PacienteModel getPacienteDAO(int pIdPaciente) {
+        PacienteModel modelPaciente = new PacienteModel();
         try {
             this.conectar();
             this.executarSQL(
                     "SELECT  * FROM tbl_paciente WHERE pk_id_paciente = '"
-                    + pIdMedicamentoTratamento + "'" + ";"
+                    + pIdPaciente + "'" + ";"
             );
 
             while (this.getResultSet().next()) {
-                modelMedicamentoTratamento.setIdMedicamentoTratamento(this.getResultSet().getInt(1));
-                modelMedicamentoTratamento.setRemedio(this.getResultSet().getString(2));
-                modelMedicamentoTratamento.setRemedioTipo(this.getResultSet().getString(3));
-                modelMedicamentoTratamento.setRemedioPeriodo(this.getResultSet().getString(4));
-                modelMedicamentoTratamento.setRemedioObs(this.getResultSet().getString(5));
-                modelMedicamentoTratamento.setDengue(this.getResultSet().getString(6));
-                modelMedicamentoTratamento.setDengueTipo(this.getResultSet().getString(7));
-                modelMedicamentoTratamento.setDenguePeriodo(this.getResultSet().getString(8));
-                modelMedicamentoTratamento.setDengueObs(this.getResultSet().getString(9));
-                modelMedicamentoTratamento.setHepatite(this.getResultSet().getString(10));
-                modelMedicamentoTratamento.setHepatiteTipo(this.getResultSet().getString(11));
-                modelMedicamentoTratamento.setHepatitePeriodo(this.getResultSet().getString(12));
-                modelMedicamentoTratamento.setHepatiteObs(this.getResultSet().getString(13));
-                modelMedicamentoTratamento.setHipertensao(this.getResultSet().getString(14));
-                modelMedicamentoTratamento.setHipertensaoTipo(this.getResultSet().getString(15));
-                modelMedicamentoTratamento.setHipertensaoPeriodo(this.getResultSet().getString(16));
-                modelMedicamentoTratamento.setHipertensaoObs(this.getResultSet().getString(17));
-                modelMedicamentoTratamento.setDiabetes(this.getResultSet().getString(18));
-                modelMedicamentoTratamento.setDiabetesTipo(this.getResultSet().getString(19));
-                modelMedicamentoTratamento.setDiabetesPeriodo(this.getResultSet().getString(20));
-                modelMedicamentoTratamento.setDiabetesObs(this.getResultSet().getString(21));
-                modelMedicamentoTratamento.setUsoParacetamol(this.getResultSet().getString(22));
-                modelMedicamentoTratamento.setUsoParacetamolTipo(this.getResultSet().getString(23));
-                modelMedicamentoTratamento.setUsoParacetamolPeriodo(this.getResultSet().getString(24));
-                modelMedicamentoTratamento.setUsoParacetamolObs(this.getResultSet().getString(25));
-                modelMedicamentoTratamento.setAlcool(this.getResultSet().getString(26));
-                modelMedicamentoTratamento.setAlcoolTipo(this.getResultSet().getString(27));
-                modelMedicamentoTratamento.setAlcoolPeriodo(this.getResultSet().getString(28));
-                modelMedicamentoTratamento.setAlcoolObs(this.getResultSet().getString(29));
-                modelMedicamentoTratamento.setFumo(this.getResultSet().getString(30));
-                modelMedicamentoTratamento.setFumoTipo(this.getResultSet().getString(31));
-                modelMedicamentoTratamento.setFumoPeriodo(this.getResultSet().getString(32));
-                modelMedicamentoTratamento.setFumoObs(this.getResultSet().getString(33));
-                modelMedicamentoTratamento.setAlergias(this.getResultSet().getString(34));
-                modelMedicamentoTratamento.setAlergiasTipo(this.getResultSet().getString(35));
-                modelMedicamentoTratamento.setAlergiasPeriodo(this.getResultSet().getString(36));
-                modelMedicamentoTratamento.setAlergiasObs(this.getResultSet().getString(37));
-                modelMedicamentoTratamento.setHernia(this.getResultSet().getString(38));
-                modelMedicamentoTratamento.setHerniaTipo(this.getResultSet().getString(39));
-                modelMedicamentoTratamento.setHerniaPeriodo(this.getResultSet().getString(40));
-                modelMedicamentoTratamento.setHerniaObs(this.getResultSet().getString(41));
-                modelMedicamentoTratamento.setDoencaEstomago(this.getResultSet().getString(42));
-                modelMedicamentoTratamento.setDoencaEstomagoTipo(this.getResultSet().getString(43));
-                modelMedicamentoTratamento.setDoencaEstomagoPeriodo(this.getResultSet().getString(44));
-                modelMedicamentoTratamento.setDoencaEstomagoObs(this.getResultSet().getString(45));
-                modelMedicamentoTratamento.setDoencaOssos(this.getResultSet().getString(46));
-                modelMedicamentoTratamento.setDoencaOssosTipo(this.getResultSet().getString(47));
-                modelMedicamentoTratamento.setDoencaOssosPeriodo(this.getResultSet().getString(48));
-                modelMedicamentoTratamento.setDoencaOssosObs(this.getResultSet().getString(49));
-                modelMedicamentoTratamento.setDoencaPulmoes(this.getResultSet().getString(50));
-                modelMedicamentoTratamento.setDoencaPulmoesTipo(this.getResultSet().getString(51));
-                modelMedicamentoTratamento.setDoencaPulmoesPeriodo(this.getResultSet().getString(52));
-                modelMedicamentoTratamento.setDoencaPulmoesObs(this.getResultSet().getString(53));
-                modelMedicamentoTratamento.setDoencaAutoimune(this.getResultSet().getString(54));
-                modelMedicamentoTratamento.setDoencaAutoimuneTipo(this.getResultSet().getString(55));
-                modelMedicamentoTratamento.setDoencaAutoimunePeriodo(this.getResultSet().getString(56));
-                modelMedicamentoTratamento.setDoencaAutoimuneObs(this.getResultSet().getString(57));
-                modelMedicamentoTratamento.setCancer(this.getResultSet().getString(58));
-                modelMedicamentoTratamento.setCancerTipo(this.getResultSet().getString(59));
-                modelMedicamentoTratamento.setCancerPeriodo(this.getResultSet().getString(60));
-                modelMedicamentoTratamento.setCancerObs(this.getResultSet().getString(61));
-                modelMedicamentoTratamento.setFeridasTumores(this.getResultSet().getString(62));
-                modelMedicamentoTratamento.setFeridasTumoresTipo(this.getResultSet().getString(63));
-                modelMedicamentoTratamento.setFeridasTumoresPeriodo(this.getResultSet().getString(64));
-                modelMedicamentoTratamento.setFeridasTumoresObs(this.getResultSet().getString(65));
-                modelMedicamentoTratamento.setPacienteReincidente(this.getResultSet().getString(66));
-                modelMedicamentoTratamento.setDataNascimento(this.getResultSet().getString(67));
-                modelMedicamentoTratamento.setStatusTratamento(this.getResultSet().getString(68));
-                modelMedicamentoTratamento.setModoDesobsessao(this.getResultSet().getString(69));
-                modelMedicamentoTratamento.setDataAtendimento(this.getResultSet().getString(70));
-                modelMedicamentoTratamento.setAtendente(this.getResultSet().getString(71));
-                modelMedicamentoTratamento.setAcompanhamentoPaciente(this.getResultSet().getString(72));
-                modelMedicamentoTratamento.setRua(this.getResultSet().getString(73));
-                modelMedicamentoTratamento.setNumCasa(this.getResultSet().getInt(74));
-                modelMedicamentoTratamento.setBairro(this.getResultSet().getString(75));
-                modelMedicamentoTratamento.setCidade(this.getResultSet().getString(76));
-                modelMedicamentoTratamento.setIdade(this.getResultSet().getInt(77));
-                modelMedicamentoTratamento.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
-                modelMedicamentoTratamento.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
-                modelMedicamentoTratamento.setObjetivoTratamento(this.getResultSet().getString(80));
-                modelMedicamentoTratamento.setNome(this.getResultSet().getString(81));
-                modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
-                modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
-                modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
+                modelPaciente.setIdPaciente(this.getResultSet().getInt(1));
+                modelPaciente.setRemedio(this.getResultSet().getString(2));
+                modelPaciente.setRemedioTipo(this.getResultSet().getString(3));
+                modelPaciente.setRemedioPeriodo(this.getResultSet().getString(4));
+                modelPaciente.setRemedioObs(this.getResultSet().getString(5));
+                modelPaciente.setDengue(this.getResultSet().getString(6));
+                modelPaciente.setDengueTipo(this.getResultSet().getString(7));
+                modelPaciente.setDenguePeriodo(this.getResultSet().getString(8));
+                modelPaciente.setDengueObs(this.getResultSet().getString(9));
+                modelPaciente.setHepatite(this.getResultSet().getString(10));
+                modelPaciente.setHepatiteTipo(this.getResultSet().getString(11));
+                modelPaciente.setHepatitePeriodo(this.getResultSet().getString(12));
+                modelPaciente.setHepatiteObs(this.getResultSet().getString(13));
+                modelPaciente.setHipertensao(this.getResultSet().getString(14));
+                modelPaciente.setHipertensaoTipo(this.getResultSet().getString(15));
+                modelPaciente.setHipertensaoPeriodo(this.getResultSet().getString(16));
+                modelPaciente.setHipertensaoObs(this.getResultSet().getString(17));
+                modelPaciente.setDiabetes(this.getResultSet().getString(18));
+                modelPaciente.setDiabetesTipo(this.getResultSet().getString(19));
+                modelPaciente.setDiabetesPeriodo(this.getResultSet().getString(20));
+                modelPaciente.setDiabetesObs(this.getResultSet().getString(21));
+                modelPaciente.setUsoParacetamol(this.getResultSet().getString(22));
+                modelPaciente.setUsoParacetamolTipo(this.getResultSet().getString(23));
+                modelPaciente.setUsoParacetamolPeriodo(this.getResultSet().getString(24));
+                modelPaciente.setUsoParacetamolObs(this.getResultSet().getString(25));
+                modelPaciente.setAlcool(this.getResultSet().getString(26));
+                modelPaciente.setAlcoolTipo(this.getResultSet().getString(27));
+                modelPaciente.setAlcoolPeriodo(this.getResultSet().getString(28));
+                modelPaciente.setAlcoolObs(this.getResultSet().getString(29));
+                modelPaciente.setFumo(this.getResultSet().getString(30));
+                modelPaciente.setFumoTipo(this.getResultSet().getString(31));
+                modelPaciente.setFumoPeriodo(this.getResultSet().getString(32));
+                modelPaciente.setFumoObs(this.getResultSet().getString(33));
+                modelPaciente.setAlergias(this.getResultSet().getString(34));
+                modelPaciente.setAlergiasTipo(this.getResultSet().getString(35));
+                modelPaciente.setAlergiasPeriodo(this.getResultSet().getString(36));
+                modelPaciente.setAlergiasObs(this.getResultSet().getString(37));
+                modelPaciente.setHernia(this.getResultSet().getString(38));
+                modelPaciente.setHerniaTipo(this.getResultSet().getString(39));
+                modelPaciente.setHerniaPeriodo(this.getResultSet().getString(40));
+                modelPaciente.setHerniaObs(this.getResultSet().getString(41));
+                modelPaciente.setDoencaEstomago(this.getResultSet().getString(42));
+                modelPaciente.setDoencaEstomagoTipo(this.getResultSet().getString(43));
+                modelPaciente.setDoencaEstomagoPeriodo(this.getResultSet().getString(44));
+                modelPaciente.setDoencaEstomagoObs(this.getResultSet().getString(45));
+                modelPaciente.setDoencaOssos(this.getResultSet().getString(46));
+                modelPaciente.setDoencaOssosTipo(this.getResultSet().getString(47));
+                modelPaciente.setDoencaOssosPeriodo(this.getResultSet().getString(48));
+                modelPaciente.setDoencaOssosObs(this.getResultSet().getString(49));
+                modelPaciente.setDoencaPulmoes(this.getResultSet().getString(50));
+                modelPaciente.setDoencaPulmoesTipo(this.getResultSet().getString(51));
+                modelPaciente.setDoencaPulmoesPeriodo(this.getResultSet().getString(52));
+                modelPaciente.setDoencaPulmoesObs(this.getResultSet().getString(53));
+                modelPaciente.setDoencaAutoimune(this.getResultSet().getString(54));
+                modelPaciente.setDoencaAutoimuneTipo(this.getResultSet().getString(55));
+                modelPaciente.setDoencaAutoimunePeriodo(this.getResultSet().getString(56));
+                modelPaciente.setDoencaAutoimuneObs(this.getResultSet().getString(57));
+                modelPaciente.setCancer(this.getResultSet().getString(58));
+                modelPaciente.setCancerTipo(this.getResultSet().getString(59));
+                modelPaciente.setCancerPeriodo(this.getResultSet().getString(60));
+                modelPaciente.setCancerObs(this.getResultSet().getString(61));
+                modelPaciente.setFeridasTumores(this.getResultSet().getString(62));
+                modelPaciente.setFeridasTumoresTipo(this.getResultSet().getString(63));
+                modelPaciente.setFeridasTumoresPeriodo(this.getResultSet().getString(64));
+                modelPaciente.setFeridasTumoresObs(this.getResultSet().getString(65));
+                modelPaciente.setPacienteReincidente(this.getResultSet().getString(66));
+                modelPaciente.setDataNascimento(this.getResultSet().getString(67));
+                modelPaciente.setStatusTratamento(this.getResultSet().getString(68));
+                modelPaciente.setModoDesobsessao(this.getResultSet().getString(69));
+                modelPaciente.setDataAtendimento(this.getResultSet().getString(70));
+                modelPaciente.setAtendente(this.getResultSet().getString(71));
+                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(72));
+                modelPaciente.setRua(this.getResultSet().getString(73));
+                modelPaciente.setNumCasa(this.getResultSet().getInt(74));
+                modelPaciente.setBairro(this.getResultSet().getString(75));
+                modelPaciente.setCidade(this.getResultSet().getString(76));
+                modelPaciente.setIdade(this.getResultSet().getInt(77));
+                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
+                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
+                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(80));
+                modelPaciente.setNome(this.getResultSet().getString(81));
+                modelPaciente.setSetor(this.getResultSet().getString(82));
+                modelPaciente.setTelefone(this.getResultSet().getString(83));
+                modelPaciente.setEmail(this.getResultSet().getString(84));
 
             }
         } catch (SQLException e) {
@@ -308,17 +308,17 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         } finally {
             this.fecharConexao();
         }
-        return modelMedicamentoTratamento;
+        return modelPaciente;
     }
 
     /**
-     * recupera MedicamentoTratamento
+     * recupera Paciente
      *
      * @param pPaciente return PacienteModel
      * @return
      */
-    public PacienteModel getMedicamentoTratamentoDAO(String pPaciente) {
-        PacienteModel modelMedicamentoTratamento = new PacienteModel();
+    public PacienteModel getPacienteDAO(String pPaciente) {
+        PacienteModel modelPaciente = new PacienteModel();
         try {
             this.conectar();
             this.executarSQL(
@@ -327,90 +327,90 @@ public class PacienteDAO extends SisgeteConnectionMySql {
             );
 
             while (this.getResultSet().next()) {
-                modelMedicamentoTratamento.setIdMedicamentoTratamento(this.getResultSet().getInt(1));
-                modelMedicamentoTratamento.setRemedio(this.getResultSet().getString(2));
-                modelMedicamentoTratamento.setRemedioTipo(this.getResultSet().getString(3));
-                modelMedicamentoTratamento.setRemedioPeriodo(this.getResultSet().getString(4));
-                modelMedicamentoTratamento.setRemedioObs(this.getResultSet().getString(5));
-                modelMedicamentoTratamento.setDengue(this.getResultSet().getString(6));
-                modelMedicamentoTratamento.setDengueTipo(this.getResultSet().getString(7));
-                modelMedicamentoTratamento.setDenguePeriodo(this.getResultSet().getString(8));
-                modelMedicamentoTratamento.setDengueObs(this.getResultSet().getString(9));
-                modelMedicamentoTratamento.setHepatite(this.getResultSet().getString(10));
-                modelMedicamentoTratamento.setHepatiteTipo(this.getResultSet().getString(11));
-                modelMedicamentoTratamento.setHepatitePeriodo(this.getResultSet().getString(12));
-                modelMedicamentoTratamento.setHepatiteObs(this.getResultSet().getString(13));
-                modelMedicamentoTratamento.setHipertensao(this.getResultSet().getString(14));
-                modelMedicamentoTratamento.setHipertensaoTipo(this.getResultSet().getString(15));
-                modelMedicamentoTratamento.setHipertensaoPeriodo(this.getResultSet().getString(16));
-                modelMedicamentoTratamento.setHipertensaoObs(this.getResultSet().getString(17));
-                modelMedicamentoTratamento.setDiabetes(this.getResultSet().getString(18));
-                modelMedicamentoTratamento.setDiabetesTipo(this.getResultSet().getString(19));
-                modelMedicamentoTratamento.setDiabetesPeriodo(this.getResultSet().getString(20));
-                modelMedicamentoTratamento.setDiabetesObs(this.getResultSet().getString(21));
-                modelMedicamentoTratamento.setUsoParacetamol(this.getResultSet().getString(22));
-                modelMedicamentoTratamento.setUsoParacetamolTipo(this.getResultSet().getString(23));
-                modelMedicamentoTratamento.setUsoParacetamolPeriodo(this.getResultSet().getString(24));
-                modelMedicamentoTratamento.setUsoParacetamolObs(this.getResultSet().getString(25));
-                modelMedicamentoTratamento.setAlcool(this.getResultSet().getString(26));
-                modelMedicamentoTratamento.setAlcoolTipo(this.getResultSet().getString(27));
-                modelMedicamentoTratamento.setAlcoolPeriodo(this.getResultSet().getString(28));
-                modelMedicamentoTratamento.setAlcoolObs(this.getResultSet().getString(29));
-                modelMedicamentoTratamento.setFumo(this.getResultSet().getString(30));
-                modelMedicamentoTratamento.setFumoTipo(this.getResultSet().getString(31));
-                modelMedicamentoTratamento.setFumoPeriodo(this.getResultSet().getString(32));
-                modelMedicamentoTratamento.setFumoObs(this.getResultSet().getString(33));
-                modelMedicamentoTratamento.setAlergias(this.getResultSet().getString(34));
-                modelMedicamentoTratamento.setAlergiasTipo(this.getResultSet().getString(35));
-                modelMedicamentoTratamento.setAlergiasPeriodo(this.getResultSet().getString(36));
-                modelMedicamentoTratamento.setAlergiasObs(this.getResultSet().getString(37));
-                modelMedicamentoTratamento.setHernia(this.getResultSet().getString(38));
-                modelMedicamentoTratamento.setHerniaTipo(this.getResultSet().getString(39));
-                modelMedicamentoTratamento.setHerniaPeriodo(this.getResultSet().getString(40));
-                modelMedicamentoTratamento.setHerniaObs(this.getResultSet().getString(41));
-                modelMedicamentoTratamento.setDoencaEstomago(this.getResultSet().getString(42));
-                modelMedicamentoTratamento.setDoencaEstomagoTipo(this.getResultSet().getString(43));
-                modelMedicamentoTratamento.setDoencaEstomagoPeriodo(this.getResultSet().getString(44));
-                modelMedicamentoTratamento.setDoencaEstomagoObs(this.getResultSet().getString(45));
-                modelMedicamentoTratamento.setDoencaOssos(this.getResultSet().getString(46));
-                modelMedicamentoTratamento.setDoencaOssosTipo(this.getResultSet().getString(47));
-                modelMedicamentoTratamento.setDoencaOssosPeriodo(this.getResultSet().getString(48));
-                modelMedicamentoTratamento.setDoencaOssosObs(this.getResultSet().getString(49));
-                modelMedicamentoTratamento.setDoencaPulmoes(this.getResultSet().getString(50));
-                modelMedicamentoTratamento.setDoencaPulmoesTipo(this.getResultSet().getString(51));
-                modelMedicamentoTratamento.setDoencaPulmoesPeriodo(this.getResultSet().getString(52));
-                modelMedicamentoTratamento.setDoencaPulmoesObs(this.getResultSet().getString(53));
-                modelMedicamentoTratamento.setDoencaAutoimune(this.getResultSet().getString(54));
-                modelMedicamentoTratamento.setDoencaAutoimuneTipo(this.getResultSet().getString(55));
-                modelMedicamentoTratamento.setDoencaAutoimunePeriodo(this.getResultSet().getString(56));
-                modelMedicamentoTratamento.setDoencaAutoimuneObs(this.getResultSet().getString(57));
-                modelMedicamentoTratamento.setCancer(this.getResultSet().getString(58));
-                modelMedicamentoTratamento.setCancerTipo(this.getResultSet().getString(59));
-                modelMedicamentoTratamento.setCancerPeriodo(this.getResultSet().getString(60));
-                modelMedicamentoTratamento.setCancerObs(this.getResultSet().getString(61));
-                modelMedicamentoTratamento.setFeridasTumores(this.getResultSet().getString(62));
-                modelMedicamentoTratamento.setFeridasTumoresTipo(this.getResultSet().getString(63));
-                modelMedicamentoTratamento.setFeridasTumoresPeriodo(this.getResultSet().getString(64));
-                modelMedicamentoTratamento.setFeridasTumoresObs(this.getResultSet().getString(65));
-                modelMedicamentoTratamento.setPacienteReincidente(this.getResultSet().getString(66));
-                modelMedicamentoTratamento.setDataNascimento(this.getResultSet().getString(67));
-                modelMedicamentoTratamento.setStatusTratamento(this.getResultSet().getString(68));
-                modelMedicamentoTratamento.setModoDesobsessao(this.getResultSet().getString(69));
-                modelMedicamentoTratamento.setDataAtendimento(this.getResultSet().getString(70));
-                modelMedicamentoTratamento.setAtendente(this.getResultSet().getString(71));
-                modelMedicamentoTratamento.setAcompanhamentoPaciente(this.getResultSet().getString(72));
-                modelMedicamentoTratamento.setRua(this.getResultSet().getString(73));
-                modelMedicamentoTratamento.setNumCasa(this.getResultSet().getInt(74));
-                modelMedicamentoTratamento.setBairro(this.getResultSet().getString(75));
-                modelMedicamentoTratamento.setCidade(this.getResultSet().getString(76));
-                modelMedicamentoTratamento.setIdade(this.getResultSet().getInt(77));
-                modelMedicamentoTratamento.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
-                modelMedicamentoTratamento.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
-                modelMedicamentoTratamento.setObjetivoTratamento(this.getResultSet().getString(80));
-                modelMedicamentoTratamento.setNome(this.getResultSet().getString(81));
-                modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
-                modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
-                modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
+                modelPaciente.setIdPaciente(this.getResultSet().getInt(1));
+                modelPaciente.setRemedio(this.getResultSet().getString(2));
+                modelPaciente.setRemedioTipo(this.getResultSet().getString(3));
+                modelPaciente.setRemedioPeriodo(this.getResultSet().getString(4));
+                modelPaciente.setRemedioObs(this.getResultSet().getString(5));
+                modelPaciente.setDengue(this.getResultSet().getString(6));
+                modelPaciente.setDengueTipo(this.getResultSet().getString(7));
+                modelPaciente.setDenguePeriodo(this.getResultSet().getString(8));
+                modelPaciente.setDengueObs(this.getResultSet().getString(9));
+                modelPaciente.setHepatite(this.getResultSet().getString(10));
+                modelPaciente.setHepatiteTipo(this.getResultSet().getString(11));
+                modelPaciente.setHepatitePeriodo(this.getResultSet().getString(12));
+                modelPaciente.setHepatiteObs(this.getResultSet().getString(13));
+                modelPaciente.setHipertensao(this.getResultSet().getString(14));
+                modelPaciente.setHipertensaoTipo(this.getResultSet().getString(15));
+                modelPaciente.setHipertensaoPeriodo(this.getResultSet().getString(16));
+                modelPaciente.setHipertensaoObs(this.getResultSet().getString(17));
+                modelPaciente.setDiabetes(this.getResultSet().getString(18));
+                modelPaciente.setDiabetesTipo(this.getResultSet().getString(19));
+                modelPaciente.setDiabetesPeriodo(this.getResultSet().getString(20));
+                modelPaciente.setDiabetesObs(this.getResultSet().getString(21));
+                modelPaciente.setUsoParacetamol(this.getResultSet().getString(22));
+                modelPaciente.setUsoParacetamolTipo(this.getResultSet().getString(23));
+                modelPaciente.setUsoParacetamolPeriodo(this.getResultSet().getString(24));
+                modelPaciente.setUsoParacetamolObs(this.getResultSet().getString(25));
+                modelPaciente.setAlcool(this.getResultSet().getString(26));
+                modelPaciente.setAlcoolTipo(this.getResultSet().getString(27));
+                modelPaciente.setAlcoolPeriodo(this.getResultSet().getString(28));
+                modelPaciente.setAlcoolObs(this.getResultSet().getString(29));
+                modelPaciente.setFumo(this.getResultSet().getString(30));
+                modelPaciente.setFumoTipo(this.getResultSet().getString(31));
+                modelPaciente.setFumoPeriodo(this.getResultSet().getString(32));
+                modelPaciente.setFumoObs(this.getResultSet().getString(33));
+                modelPaciente.setAlergias(this.getResultSet().getString(34));
+                modelPaciente.setAlergiasTipo(this.getResultSet().getString(35));
+                modelPaciente.setAlergiasPeriodo(this.getResultSet().getString(36));
+                modelPaciente.setAlergiasObs(this.getResultSet().getString(37));
+                modelPaciente.setHernia(this.getResultSet().getString(38));
+                modelPaciente.setHerniaTipo(this.getResultSet().getString(39));
+                modelPaciente.setHerniaPeriodo(this.getResultSet().getString(40));
+                modelPaciente.setHerniaObs(this.getResultSet().getString(41));
+                modelPaciente.setDoencaEstomago(this.getResultSet().getString(42));
+                modelPaciente.setDoencaEstomagoTipo(this.getResultSet().getString(43));
+                modelPaciente.setDoencaEstomagoPeriodo(this.getResultSet().getString(44));
+                modelPaciente.setDoencaEstomagoObs(this.getResultSet().getString(45));
+                modelPaciente.setDoencaOssos(this.getResultSet().getString(46));
+                modelPaciente.setDoencaOssosTipo(this.getResultSet().getString(47));
+                modelPaciente.setDoencaOssosPeriodo(this.getResultSet().getString(48));
+                modelPaciente.setDoencaOssosObs(this.getResultSet().getString(49));
+                modelPaciente.setDoencaPulmoes(this.getResultSet().getString(50));
+                modelPaciente.setDoencaPulmoesTipo(this.getResultSet().getString(51));
+                modelPaciente.setDoencaPulmoesPeriodo(this.getResultSet().getString(52));
+                modelPaciente.setDoencaPulmoesObs(this.getResultSet().getString(53));
+                modelPaciente.setDoencaAutoimune(this.getResultSet().getString(54));
+                modelPaciente.setDoencaAutoimuneTipo(this.getResultSet().getString(55));
+                modelPaciente.setDoencaAutoimunePeriodo(this.getResultSet().getString(56));
+                modelPaciente.setDoencaAutoimuneObs(this.getResultSet().getString(57));
+                modelPaciente.setCancer(this.getResultSet().getString(58));
+                modelPaciente.setCancerTipo(this.getResultSet().getString(59));
+                modelPaciente.setCancerPeriodo(this.getResultSet().getString(60));
+                modelPaciente.setCancerObs(this.getResultSet().getString(61));
+                modelPaciente.setFeridasTumores(this.getResultSet().getString(62));
+                modelPaciente.setFeridasTumoresTipo(this.getResultSet().getString(63));
+                modelPaciente.setFeridasTumoresPeriodo(this.getResultSet().getString(64));
+                modelPaciente.setFeridasTumoresObs(this.getResultSet().getString(65));
+                modelPaciente.setPacienteReincidente(this.getResultSet().getString(66));
+                modelPaciente.setDataNascimento(this.getResultSet().getString(67));
+                modelPaciente.setStatusTratamento(this.getResultSet().getString(68));
+                modelPaciente.setModoDesobsessao(this.getResultSet().getString(69));
+                modelPaciente.setDataAtendimento(this.getResultSet().getString(70));
+                modelPaciente.setAtendente(this.getResultSet().getString(71));
+                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(72));
+                modelPaciente.setRua(this.getResultSet().getString(73));
+                modelPaciente.setNumCasa(this.getResultSet().getInt(74));
+                modelPaciente.setBairro(this.getResultSet().getString(75));
+                modelPaciente.setCidade(this.getResultSet().getString(76));
+                modelPaciente.setIdade(this.getResultSet().getInt(77));
+                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
+                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
+                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(80));
+                modelPaciente.setNome(this.getResultSet().getString(81));
+                modelPaciente.setSetor(this.getResultSet().getString(82));
+                modelPaciente.setTelefone(this.getResultSet().getString(83));
+                modelPaciente.setEmail(this.getResultSet().getString(84));
 
             }
         } catch (SQLException e) {
@@ -418,17 +418,17 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         } finally {
             this.fecharConexao();
         }
-        return modelMedicamentoTratamento;
+        return modelPaciente;
     }
 
     /**
-     * recupera uma lista de MedicamentoTratamento return ArrayList
+     * recupera uma lista de Paciente return ArrayList
      *
      * @return
      */
-    public ArrayList<PacienteModel> getListaMedicamentoTratamentoDAO() {
-        ArrayList<PacienteModel> listamodelMedicamentoTratamento = new ArrayList();
-        PacienteModel modelMedicamentoTratamento = new PacienteModel();
+    public ArrayList<PacienteModel> getListaPacienteDAO() {
+        ArrayList<PacienteModel> listamodelPaciente = new ArrayList();
+        PacienteModel modelPaciente = new PacienteModel();
         try {
             this.conectar();
             this.executarSQL(
@@ -436,198 +436,198 @@ public class PacienteDAO extends SisgeteConnectionMySql {
             );
 
             while (this.getResultSet().next()) {
-                modelMedicamentoTratamento = new PacienteModel();
-                modelMedicamentoTratamento.setIdMedicamentoTratamento(this.getResultSet().getInt(1));
-                modelMedicamentoTratamento.setRemedio(this.getResultSet().getString(2));
-                modelMedicamentoTratamento.setRemedioTipo(this.getResultSet().getString(3));
-                modelMedicamentoTratamento.setRemedioPeriodo(this.getResultSet().getString(4));
-                modelMedicamentoTratamento.setRemedioObs(this.getResultSet().getString(5));
-                modelMedicamentoTratamento.setDengue(this.getResultSet().getString(6));
-                modelMedicamentoTratamento.setDengueTipo(this.getResultSet().getString(7));
-                modelMedicamentoTratamento.setDenguePeriodo(this.getResultSet().getString(8));
-                modelMedicamentoTratamento.setDengueObs(this.getResultSet().getString(9));
-                modelMedicamentoTratamento.setHepatite(this.getResultSet().getString(10));
-                modelMedicamentoTratamento.setHepatiteTipo(this.getResultSet().getString(11));
-                modelMedicamentoTratamento.setHepatitePeriodo(this.getResultSet().getString(12));
-                modelMedicamentoTratamento.setHepatiteObs(this.getResultSet().getString(13));
-                modelMedicamentoTratamento.setHipertensao(this.getResultSet().getString(14));
-                modelMedicamentoTratamento.setHipertensaoTipo(this.getResultSet().getString(15));
-                modelMedicamentoTratamento.setHipertensaoPeriodo(this.getResultSet().getString(16));
-                modelMedicamentoTratamento.setHipertensaoObs(this.getResultSet().getString(17));
-                modelMedicamentoTratamento.setDiabetes(this.getResultSet().getString(18));
-                modelMedicamentoTratamento.setDiabetesTipo(this.getResultSet().getString(19));
-                modelMedicamentoTratamento.setDiabetesPeriodo(this.getResultSet().getString(20));
-                modelMedicamentoTratamento.setDiabetesObs(this.getResultSet().getString(21));
-                modelMedicamentoTratamento.setUsoParacetamol(this.getResultSet().getString(22));
-                modelMedicamentoTratamento.setUsoParacetamolTipo(this.getResultSet().getString(23));
-                modelMedicamentoTratamento.setUsoParacetamolPeriodo(this.getResultSet().getString(24));
-                modelMedicamentoTratamento.setUsoParacetamolObs(this.getResultSet().getString(25));
-                modelMedicamentoTratamento.setAlcool(this.getResultSet().getString(26));
-                modelMedicamentoTratamento.setAlcoolTipo(this.getResultSet().getString(27));
-                modelMedicamentoTratamento.setAlcoolPeriodo(this.getResultSet().getString(28));
-                modelMedicamentoTratamento.setAlcoolObs(this.getResultSet().getString(29));
-                modelMedicamentoTratamento.setFumo(this.getResultSet().getString(30));
-                modelMedicamentoTratamento.setFumoTipo(this.getResultSet().getString(31));
-                modelMedicamentoTratamento.setFumoPeriodo(this.getResultSet().getString(32));
-                modelMedicamentoTratamento.setFumoObs(this.getResultSet().getString(33));
-                modelMedicamentoTratamento.setAlergias(this.getResultSet().getString(34));
-                modelMedicamentoTratamento.setAlergiasTipo(this.getResultSet().getString(35));
-                modelMedicamentoTratamento.setAlergiasPeriodo(this.getResultSet().getString(36));
-                modelMedicamentoTratamento.setAlergiasObs(this.getResultSet().getString(37));
-                modelMedicamentoTratamento.setHernia(this.getResultSet().getString(38));
-                modelMedicamentoTratamento.setHerniaTipo(this.getResultSet().getString(39));
-                modelMedicamentoTratamento.setHerniaPeriodo(this.getResultSet().getString(40));
-                modelMedicamentoTratamento.setHerniaObs(this.getResultSet().getString(41));
-                modelMedicamentoTratamento.setDoencaEstomago(this.getResultSet().getString(42));
-                modelMedicamentoTratamento.setDoencaEstomagoTipo(this.getResultSet().getString(43));
-                modelMedicamentoTratamento.setDoencaEstomagoPeriodo(this.getResultSet().getString(44));
-                modelMedicamentoTratamento.setDoencaEstomagoObs(this.getResultSet().getString(45));
-                modelMedicamentoTratamento.setDoencaOssos(this.getResultSet().getString(46));
-                modelMedicamentoTratamento.setDoencaOssosTipo(this.getResultSet().getString(47));
-                modelMedicamentoTratamento.setDoencaOssosPeriodo(this.getResultSet().getString(48));
-                modelMedicamentoTratamento.setDoencaOssosObs(this.getResultSet().getString(49));
-                modelMedicamentoTratamento.setDoencaPulmoes(this.getResultSet().getString(50));
-                modelMedicamentoTratamento.setDoencaPulmoesTipo(this.getResultSet().getString(51));
-                modelMedicamentoTratamento.setDoencaPulmoesPeriodo(this.getResultSet().getString(52));
-                modelMedicamentoTratamento.setDoencaPulmoesObs(this.getResultSet().getString(53));
-                modelMedicamentoTratamento.setDoencaAutoimune(this.getResultSet().getString(54));
-                modelMedicamentoTratamento.setDoencaAutoimuneTipo(this.getResultSet().getString(55));
-                modelMedicamentoTratamento.setDoencaAutoimunePeriodo(this.getResultSet().getString(56));
-                modelMedicamentoTratamento.setDoencaAutoimuneObs(this.getResultSet().getString(57));
-                modelMedicamentoTratamento.setCancer(this.getResultSet().getString(58));
-                modelMedicamentoTratamento.setCancerTipo(this.getResultSet().getString(59));
-                modelMedicamentoTratamento.setCancerPeriodo(this.getResultSet().getString(60));
-                modelMedicamentoTratamento.setCancerObs(this.getResultSet().getString(61));
-                modelMedicamentoTratamento.setFeridasTumores(this.getResultSet().getString(62));
-                modelMedicamentoTratamento.setFeridasTumoresTipo(this.getResultSet().getString(63));
-                modelMedicamentoTratamento.setFeridasTumoresPeriodo(this.getResultSet().getString(64));
-                modelMedicamentoTratamento.setFeridasTumoresObs(this.getResultSet().getString(65));
-                modelMedicamentoTratamento.setPacienteReincidente(this.getResultSet().getString(66));
-                modelMedicamentoTratamento.setDataNascimento(this.getResultSet().getString(67));
-                modelMedicamentoTratamento.setStatusTratamento(this.getResultSet().getString(68));
-                modelMedicamentoTratamento.setModoDesobsessao(this.getResultSet().getString(69));
-                modelMedicamentoTratamento.setDataAtendimento(this.getResultSet().getString(70));
-                modelMedicamentoTratamento.setAtendente(this.getResultSet().getString(71));
-                modelMedicamentoTratamento.setAcompanhamentoPaciente(this.getResultSet().getString(72));
-                modelMedicamentoTratamento.setRua(this.getResultSet().getString(73));
-                modelMedicamentoTratamento.setNumCasa(this.getResultSet().getInt(74));
-                modelMedicamentoTratamento.setBairro(this.getResultSet().getString(75));
-                modelMedicamentoTratamento.setCidade(this.getResultSet().getString(76));
-                modelMedicamentoTratamento.setIdade(this.getResultSet().getInt(77));
-                modelMedicamentoTratamento.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
-                modelMedicamentoTratamento.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
-                modelMedicamentoTratamento.setObjetivoTratamento(this.getResultSet().getString(80));
-                modelMedicamentoTratamento.setNome(this.getResultSet().getString(81));
-                modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
-                modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
-                modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
-                listamodelMedicamentoTratamento.add(modelMedicamentoTratamento);
+                modelPaciente = new PacienteModel();
+                modelPaciente.setIdPaciente(this.getResultSet().getInt(1));
+                modelPaciente.setRemedio(this.getResultSet().getString(2));
+                modelPaciente.setRemedioTipo(this.getResultSet().getString(3));
+                modelPaciente.setRemedioPeriodo(this.getResultSet().getString(4));
+                modelPaciente.setRemedioObs(this.getResultSet().getString(5));
+                modelPaciente.setDengue(this.getResultSet().getString(6));
+                modelPaciente.setDengueTipo(this.getResultSet().getString(7));
+                modelPaciente.setDenguePeriodo(this.getResultSet().getString(8));
+                modelPaciente.setDengueObs(this.getResultSet().getString(9));
+                modelPaciente.setHepatite(this.getResultSet().getString(10));
+                modelPaciente.setHepatiteTipo(this.getResultSet().getString(11));
+                modelPaciente.setHepatitePeriodo(this.getResultSet().getString(12));
+                modelPaciente.setHepatiteObs(this.getResultSet().getString(13));
+                modelPaciente.setHipertensao(this.getResultSet().getString(14));
+                modelPaciente.setHipertensaoTipo(this.getResultSet().getString(15));
+                modelPaciente.setHipertensaoPeriodo(this.getResultSet().getString(16));
+                modelPaciente.setHipertensaoObs(this.getResultSet().getString(17));
+                modelPaciente.setDiabetes(this.getResultSet().getString(18));
+                modelPaciente.setDiabetesTipo(this.getResultSet().getString(19));
+                modelPaciente.setDiabetesPeriodo(this.getResultSet().getString(20));
+                modelPaciente.setDiabetesObs(this.getResultSet().getString(21));
+                modelPaciente.setUsoParacetamol(this.getResultSet().getString(22));
+                modelPaciente.setUsoParacetamolTipo(this.getResultSet().getString(23));
+                modelPaciente.setUsoParacetamolPeriodo(this.getResultSet().getString(24));
+                modelPaciente.setUsoParacetamolObs(this.getResultSet().getString(25));
+                modelPaciente.setAlcool(this.getResultSet().getString(26));
+                modelPaciente.setAlcoolTipo(this.getResultSet().getString(27));
+                modelPaciente.setAlcoolPeriodo(this.getResultSet().getString(28));
+                modelPaciente.setAlcoolObs(this.getResultSet().getString(29));
+                modelPaciente.setFumo(this.getResultSet().getString(30));
+                modelPaciente.setFumoTipo(this.getResultSet().getString(31));
+                modelPaciente.setFumoPeriodo(this.getResultSet().getString(32));
+                modelPaciente.setFumoObs(this.getResultSet().getString(33));
+                modelPaciente.setAlergias(this.getResultSet().getString(34));
+                modelPaciente.setAlergiasTipo(this.getResultSet().getString(35));
+                modelPaciente.setAlergiasPeriodo(this.getResultSet().getString(36));
+                modelPaciente.setAlergiasObs(this.getResultSet().getString(37));
+                modelPaciente.setHernia(this.getResultSet().getString(38));
+                modelPaciente.setHerniaTipo(this.getResultSet().getString(39));
+                modelPaciente.setHerniaPeriodo(this.getResultSet().getString(40));
+                modelPaciente.setHerniaObs(this.getResultSet().getString(41));
+                modelPaciente.setDoencaEstomago(this.getResultSet().getString(42));
+                modelPaciente.setDoencaEstomagoTipo(this.getResultSet().getString(43));
+                modelPaciente.setDoencaEstomagoPeriodo(this.getResultSet().getString(44));
+                modelPaciente.setDoencaEstomagoObs(this.getResultSet().getString(45));
+                modelPaciente.setDoencaOssos(this.getResultSet().getString(46));
+                modelPaciente.setDoencaOssosTipo(this.getResultSet().getString(47));
+                modelPaciente.setDoencaOssosPeriodo(this.getResultSet().getString(48));
+                modelPaciente.setDoencaOssosObs(this.getResultSet().getString(49));
+                modelPaciente.setDoencaPulmoes(this.getResultSet().getString(50));
+                modelPaciente.setDoencaPulmoesTipo(this.getResultSet().getString(51));
+                modelPaciente.setDoencaPulmoesPeriodo(this.getResultSet().getString(52));
+                modelPaciente.setDoencaPulmoesObs(this.getResultSet().getString(53));
+                modelPaciente.setDoencaAutoimune(this.getResultSet().getString(54));
+                modelPaciente.setDoencaAutoimuneTipo(this.getResultSet().getString(55));
+                modelPaciente.setDoencaAutoimunePeriodo(this.getResultSet().getString(56));
+                modelPaciente.setDoencaAutoimuneObs(this.getResultSet().getString(57));
+                modelPaciente.setCancer(this.getResultSet().getString(58));
+                modelPaciente.setCancerTipo(this.getResultSet().getString(59));
+                modelPaciente.setCancerPeriodo(this.getResultSet().getString(60));
+                modelPaciente.setCancerObs(this.getResultSet().getString(61));
+                modelPaciente.setFeridasTumores(this.getResultSet().getString(62));
+                modelPaciente.setFeridasTumoresTipo(this.getResultSet().getString(63));
+                modelPaciente.setFeridasTumoresPeriodo(this.getResultSet().getString(64));
+                modelPaciente.setFeridasTumoresObs(this.getResultSet().getString(65));
+                modelPaciente.setPacienteReincidente(this.getResultSet().getString(66));
+                modelPaciente.setDataNascimento(this.getResultSet().getString(67));
+                modelPaciente.setStatusTratamento(this.getResultSet().getString(68));
+                modelPaciente.setModoDesobsessao(this.getResultSet().getString(69));
+                modelPaciente.setDataAtendimento(this.getResultSet().getString(70));
+                modelPaciente.setAtendente(this.getResultSet().getString(71));
+                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(72));
+                modelPaciente.setRua(this.getResultSet().getString(73));
+                modelPaciente.setNumCasa(this.getResultSet().getInt(74));
+                modelPaciente.setBairro(this.getResultSet().getString(75));
+                modelPaciente.setCidade(this.getResultSet().getString(76));
+                modelPaciente.setIdade(this.getResultSet().getInt(77));
+                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
+                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
+                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(80));
+                modelPaciente.setNome(this.getResultSet().getString(81));
+                modelPaciente.setSetor(this.getResultSet().getString(82));
+                modelPaciente.setTelefone(this.getResultSet().getString(83));
+                modelPaciente.setEmail(this.getResultSet().getString(84));
+                listamodelPaciente.add(modelPaciente);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             this.fecharConexao();
         }
-        return listamodelMedicamentoTratamento;
+        return listamodelPaciente;
     }
 
     /**
-     * atualiza MedicamentoTratamento1
+     * atualiza Paciente1
      *
-     * @param modelMedicamentoTratamento return boolean
+     * @param modelPaciente return boolean
      * @return
      */
-    public boolean atualizarMedicamentoTratamentoDAO(PacienteModel modelMedicamentoTratamento) {
+    public boolean atualizarPacienteDAO(PacienteModel modelPaciente) {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_paciente SET "
-                    + "pk_id_paciente = '" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "',"
-                    + "remedio_controlado = '" + modelMedicamentoTratamento.getRemedio() + "',"
-                    + "remedio_controlado_tipo = '" + modelMedicamentoTratamento.getRemedioTipo() + "',"
-                    + "remedio_controlado_periodo = '" + modelMedicamentoTratamento.getRemedioPeriodo() + "',"
-                    + "remedio_controlado_obs = '" + modelMedicamentoTratamento.getRemedioObs() + "',"
-                    + "dengue = '" + modelMedicamentoTratamento.getDengue() + "',"
-                    + "dengue_tipo = '" + modelMedicamentoTratamento.getDengueTipo() + "',"
-                    + "dengue_periodo = '" + modelMedicamentoTratamento.getDenguePeriodo() + "',"
-                    + "dengue_obs = '" + modelMedicamentoTratamento.getDengueObs() + "',"
-                    + "hepatite = '" + modelMedicamentoTratamento.getHepatite() + "',"
-                    + "hepatite_tipo = '" + modelMedicamentoTratamento.getHepatiteTipo() + "',"
-                    + "hepatite_periodo = '" + modelMedicamentoTratamento.getHepatitePeriodo() + "',"
-                    + "hepatite_obs = '" + modelMedicamentoTratamento.getHepatiteObs() + "',"
-                    + "hipertensao = '" + modelMedicamentoTratamento.getHipertensao() + "',"
-                    + "hipertensao_tipo = '" + modelMedicamentoTratamento.getHipertensaoTipo() + "',"
-                    + "hipertensao_periodo = '" + modelMedicamentoTratamento.getHipertensaoPeriodo() + "',"
-                    + "hipertensao_obs = '" + modelMedicamentoTratamento.getHipertensaoObs() + "',"
-                    + "diabetes = '" + modelMedicamentoTratamento.getDiabetes() + "',"
-                    + "diabetes_tipo = '" + modelMedicamentoTratamento.getDiabetesTipo() + "',"
-                    + "diabetes_periodo = '" + modelMedicamentoTratamento.getDiabetesPeriodo() + "',"
-                    + "diabetes_obs = '" + modelMedicamentoTratamento.getDiabetesObs() + "',"
-                    + "uso_paracetamol = '" + modelMedicamentoTratamento.getUsoParacetamol() + "',"
-                    + "uso_paracetamol_tipo = '" + modelMedicamentoTratamento.getUsoParacetamolTipo() + "',"
-                    + "uso_paracetamol_periodo = '" + modelMedicamentoTratamento.getUsoParacetamolPeriodo() + "',"
-                    + "uso_paracetamol_obs = '" + modelMedicamentoTratamento.getUsoParacetamolObs() + "',"
-                    + "alcool = '" + modelMedicamentoTratamento.getAlcool() + "',"
-                    + "alcool_tipo = '" + modelMedicamentoTratamento.getAlcoolTipo() + "',"
-                    + "alcool_periodo = '" + modelMedicamentoTratamento.getAlcoolPeriodo() + "',"
-                    + "alcool_obs = '" + modelMedicamentoTratamento.getAlcoolObs() + "',"
-                    + "fumo = '" + modelMedicamentoTratamento.getFumo() + "',"
-                    + "fumo_tipo = '" + modelMedicamentoTratamento.getFumoTipo() + "',"
-                    + "fumo_periodo = '" + modelMedicamentoTratamento.getFumoPeriodo() + "',"
-                    + "fumo_obs = '" + modelMedicamentoTratamento.getFumoObs() + "',"
-                    + "alergias = '" + modelMedicamentoTratamento.getAlergias() + "',"
-                    + "alergias_tipo = '" + modelMedicamentoTratamento.getAlergiasTipo() + "',"
-                    + "alergias_periodo = '" + modelMedicamentoTratamento.getAlergiasPeriodo() + "',"
-                    + "alergias_obs = '" + modelMedicamentoTratamento.getAlergiasObs() + "',"
-                    + "hernia = '" + modelMedicamentoTratamento.getHernia() + "',"
-                    + "hernia_tipo = '" + modelMedicamentoTratamento.getHerniaTipo() + "',"
-                    + "hernia_periodo = '" + modelMedicamentoTratamento.getHerniaPeriodo() + "',"
-                    + "hernia_obs = '" + modelMedicamentoTratamento.getHerniaObs() + "',"
-                    + "doenca_estomago = '" + modelMedicamentoTratamento.getDoencaEstomago() + "',"
-                    + "doenca_estomago_tipo = '" + modelMedicamentoTratamento.getDoencaEstomagoTipo() + "',"
-                    + "doenca_estomago_periodo = '" + modelMedicamentoTratamento.getDoencaEstomagoPeriodo() + "',"
-                    + "doenca_estomago_obs = '" + modelMedicamentoTratamento.getDoencaEstomagoObs() + "',"
-                    + "doenca_ossos = '" + modelMedicamentoTratamento.getDoencaOssos() + "',"
-                    + "doenca_ossos_tipo = '" + modelMedicamentoTratamento.getDoencaOssosTipo() + "',"
-                    + "doenca_ossos_periodo = '" + modelMedicamentoTratamento.getDoencaOssosPeriodo() + "',"
-                    + "doenca_ossos_obs = '" + modelMedicamentoTratamento.getDoencaOssosObs() + "',"
-                    + "doenca_pulmoes = '" + modelMedicamentoTratamento.getDoencaPulmoes() + "',"
-                    + "doenca_pulmoes_tipo = '" + modelMedicamentoTratamento.getDoencaPulmoesTipo() + "',"
-                    + "doenca_pulmoes_periodo = '" + modelMedicamentoTratamento.getDoencaPulmoesPeriodo() + "',"
-                    + "doenca_pulmoes_obs = '" + modelMedicamentoTratamento.getDoencaPulmoesObs() + "',"
-                    + "doenca_autoimune = '" + modelMedicamentoTratamento.getDoencaAutoimune() + "',"
-                    + "doenca_autoimune_tipo = '" + modelMedicamentoTratamento.getDoencaAutoimuneTipo() + "',"
-                    + "doenca_autoimune_periodo = '" + modelMedicamentoTratamento.getDoencaAutoimunePeriodo() + "',"
-                    + "doenca_autoimune_obs = '" + modelMedicamentoTratamento.getDoencaAutoimuneObs() + "',"
-                    + "cancer = '" + modelMedicamentoTratamento.getCancer() + "',"
-                    + "cancer_tipo = '" + modelMedicamentoTratamento.getCancerTipo() + "',"
-                    + "cancer_periodo = '" + modelMedicamentoTratamento.getCancerPeriodo() + "',"
-                    + "cancer_obs = '" + modelMedicamentoTratamento.getCancerObs() + "',"
-                    + "feridas_tumores = '" + modelMedicamentoTratamento.getFeridasTumores() + "',"
-                    + "feridas_tumores_tipo = '" + modelMedicamentoTratamento.getFeridasTumoresTipo() + "',"
-                    + "feridas_tumores_periodo = '" + modelMedicamentoTratamento.getFeridasTumoresPeriodo() + "',"
-                    + "feridas_tumores_obs = '" + modelMedicamentoTratamento.getFeridasTumoresObs() + "',"
-                    + "paciente_reincidente = '" + modelMedicamentoTratamento.getPacienteReincidente() + "',"
-                    + "data_nascimento = '" + modelMedicamentoTratamento.getDataNascimento() + "',"
-                    + "status_tratamento = '" + modelMedicamentoTratamento.getStatusTratamento() + "',"
-                    + "modo_desobsessao = '" + modelMedicamentoTratamento.getModoDesobsessao() + "',"
-                    + "data_atendimento ='" + modelMedicamentoTratamento.getDataAtendimento() + "',"
-                    + "atendente ='" + modelMedicamentoTratamento.getAtendente() + "',"
-                    + "acompanhamento_paciente = '" + modelMedicamentoTratamento.getAcompanhamentoPaciente() + "',"
-                    + "rua = '" + modelMedicamentoTratamento.getRua() + "',"
-                    + "num_casa = '" + modelMedicamentoTratamento.getNumCasa() + "',"
-                    + "bairro = '" + modelMedicamentoTratamento.getBairro() + "',"
-                    + "cidade = '" + modelMedicamentoTratamento.getCidade() + "',"
-                    + "idade = '" + modelMedicamentoTratamento.getIdade() + "',"
-                    + "conhecimento_espirita_previo = '" + modelMedicamentoTratamento.getConhecimentoEspiritaPrevio() + "',"
-                    + "fonte_conhecimento_espirita = '" + modelMedicamentoTratamento.getFonteConhecimentoEspirita() + "',"
-                    + "objetivo_tratamento = '" + modelMedicamentoTratamento.getObjetivoTratamento() + "',"
-                    + "nome = '" + modelMedicamentoTratamento.getNome() + "',"
-                    + "setor = '" + modelMedicamentoTratamento.getSetor() + "',"
-                    + "telefone = '" + modelMedicamentoTratamento.getTelefone() + "',"
-                    + "email = '" + modelMedicamentoTratamento.getEmail() + "'"
+                    + "pk_id_paciente = '" + modelPaciente.getIdPaciente() + "',"
+                    + "remedio_controlado = '" + modelPaciente.getRemedio() + "',"
+                    + "remedio_controlado_tipo = '" + modelPaciente.getRemedioTipo() + "',"
+                    + "remedio_controlado_periodo = '" + modelPaciente.getRemedioPeriodo() + "',"
+                    + "remedio_controlado_obs = '" + modelPaciente.getRemedioObs() + "',"
+                    + "dengue = '" + modelPaciente.getDengue() + "',"
+                    + "dengue_tipo = '" + modelPaciente.getDengueTipo() + "',"
+                    + "dengue_periodo = '" + modelPaciente.getDenguePeriodo() + "',"
+                    + "dengue_obs = '" + modelPaciente.getDengueObs() + "',"
+                    + "hepatite = '" + modelPaciente.getHepatite() + "',"
+                    + "hepatite_tipo = '" + modelPaciente.getHepatiteTipo() + "',"
+                    + "hepatite_periodo = '" + modelPaciente.getHepatitePeriodo() + "',"
+                    + "hepatite_obs = '" + modelPaciente.getHepatiteObs() + "',"
+                    + "hipertensao = '" + modelPaciente.getHipertensao() + "',"
+                    + "hipertensao_tipo = '" + modelPaciente.getHipertensaoTipo() + "',"
+                    + "hipertensao_periodo = '" + modelPaciente.getHipertensaoPeriodo() + "',"
+                    + "hipertensao_obs = '" + modelPaciente.getHipertensaoObs() + "',"
+                    + "diabetes = '" + modelPaciente.getDiabetes() + "',"
+                    + "diabetes_tipo = '" + modelPaciente.getDiabetesTipo() + "',"
+                    + "diabetes_periodo = '" + modelPaciente.getDiabetesPeriodo() + "',"
+                    + "diabetes_obs = '" + modelPaciente.getDiabetesObs() + "',"
+                    + "uso_paracetamol = '" + modelPaciente.getUsoParacetamol() + "',"
+                    + "uso_paracetamol_tipo = '" + modelPaciente.getUsoParacetamolTipo() + "',"
+                    + "uso_paracetamol_periodo = '" + modelPaciente.getUsoParacetamolPeriodo() + "',"
+                    + "uso_paracetamol_obs = '" + modelPaciente.getUsoParacetamolObs() + "',"
+                    + "alcool = '" + modelPaciente.getAlcool() + "',"
+                    + "alcool_tipo = '" + modelPaciente.getAlcoolTipo() + "',"
+                    + "alcool_periodo = '" + modelPaciente.getAlcoolPeriodo() + "',"
+                    + "alcool_obs = '" + modelPaciente.getAlcoolObs() + "',"
+                    + "fumo = '" + modelPaciente.getFumo() + "',"
+                    + "fumo_tipo = '" + modelPaciente.getFumoTipo() + "',"
+                    + "fumo_periodo = '" + modelPaciente.getFumoPeriodo() + "',"
+                    + "fumo_obs = '" + modelPaciente.getFumoObs() + "',"
+                    + "alergias = '" + modelPaciente.getAlergias() + "',"
+                    + "alergias_tipo = '" + modelPaciente.getAlergiasTipo() + "',"
+                    + "alergias_periodo = '" + modelPaciente.getAlergiasPeriodo() + "',"
+                    + "alergias_obs = '" + modelPaciente.getAlergiasObs() + "',"
+                    + "hernia = '" + modelPaciente.getHernia() + "',"
+                    + "hernia_tipo = '" + modelPaciente.getHerniaTipo() + "',"
+                    + "hernia_periodo = '" + modelPaciente.getHerniaPeriodo() + "',"
+                    + "hernia_obs = '" + modelPaciente.getHerniaObs() + "',"
+                    + "doenca_estomago = '" + modelPaciente.getDoencaEstomago() + "',"
+                    + "doenca_estomago_tipo = '" + modelPaciente.getDoencaEstomagoTipo() + "',"
+                    + "doenca_estomago_periodo = '" + modelPaciente.getDoencaEstomagoPeriodo() + "',"
+                    + "doenca_estomago_obs = '" + modelPaciente.getDoencaEstomagoObs() + "',"
+                    + "doenca_ossos = '" + modelPaciente.getDoencaOssos() + "',"
+                    + "doenca_ossos_tipo = '" + modelPaciente.getDoencaOssosTipo() + "',"
+                    + "doenca_ossos_periodo = '" + modelPaciente.getDoencaOssosPeriodo() + "',"
+                    + "doenca_ossos_obs = '" + modelPaciente.getDoencaOssosObs() + "',"
+                    + "doenca_pulmoes = '" + modelPaciente.getDoencaPulmoes() + "',"
+                    + "doenca_pulmoes_tipo = '" + modelPaciente.getDoencaPulmoesTipo() + "',"
+                    + "doenca_pulmoes_periodo = '" + modelPaciente.getDoencaPulmoesPeriodo() + "',"
+                    + "doenca_pulmoes_obs = '" + modelPaciente.getDoencaPulmoesObs() + "',"
+                    + "doenca_autoimune = '" + modelPaciente.getDoencaAutoimune() + "',"
+                    + "doenca_autoimune_tipo = '" + modelPaciente.getDoencaAutoimuneTipo() + "',"
+                    + "doenca_autoimune_periodo = '" + modelPaciente.getDoencaAutoimunePeriodo() + "',"
+                    + "doenca_autoimune_obs = '" + modelPaciente.getDoencaAutoimuneObs() + "',"
+                    + "cancer = '" + modelPaciente.getCancer() + "',"
+                    + "cancer_tipo = '" + modelPaciente.getCancerTipo() + "',"
+                    + "cancer_periodo = '" + modelPaciente.getCancerPeriodo() + "',"
+                    + "cancer_obs = '" + modelPaciente.getCancerObs() + "',"
+                    + "feridas_tumores = '" + modelPaciente.getFeridasTumores() + "',"
+                    + "feridas_tumores_tipo = '" + modelPaciente.getFeridasTumoresTipo() + "',"
+                    + "feridas_tumores_periodo = '" + modelPaciente.getFeridasTumoresPeriodo() + "',"
+                    + "feridas_tumores_obs = '" + modelPaciente.getFeridasTumoresObs() + "',"
+                    + "paciente_reincidente = '" + modelPaciente.getPacienteReincidente() + "',"
+                    + "data_nascimento = '" + modelPaciente.getDataNascimento() + "',"
+                    + "status_tratamento = '" + modelPaciente.getStatusTratamento() + "',"
+                    + "modo_desobsessao = '" + modelPaciente.getModoDesobsessao() + "',"
+                    + "data_atendimento ='" + modelPaciente.getDataAtendimento() + "',"
+                    + "atendente ='" + modelPaciente.getAtendente() + "',"
+                    + "acompanhamento_paciente = '" + modelPaciente.getAcompanhamentoPaciente() + "',"
+                    + "rua = '" + modelPaciente.getRua() + "',"
+                    + "num_casa = '" + modelPaciente.getNumCasa() + "',"
+                    + "bairro = '" + modelPaciente.getBairro() + "',"
+                    + "cidade = '" + modelPaciente.getCidade() + "',"
+                    + "idade = '" + modelPaciente.getIdade() + "',"
+                    + "conhecimento_espirita_previo = '" + modelPaciente.getConhecimentoEspiritaPrevio() + "',"
+                    + "fonte_conhecimento_espirita = '" + modelPaciente.getFonteConhecimentoEspirita() + "',"
+                    + "objetivo_tratamento = '" + modelPaciente.getObjetivoTratamento() + "',"
+                    + "nome = '" + modelPaciente.getNome() + "',"
+                    + "setor = '" + modelPaciente.getSetor() + "',"
+                    + "telefone = '" + modelPaciente.getTelefone() + "',"
+                    + "email = '" + modelPaciente.getEmail() + "'"
                     + " WHERE "
-                    + "pk_id_paciente = '" + modelMedicamentoTratamento.getIdMedicamentoTratamento() + "'"
+                    + "pk_id_paciente = '" + modelPaciente.getIdPaciente() + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -639,18 +639,18 @@ public class PacienteDAO extends SisgeteConnectionMySql {
     }
 
     /**
-     * exclui MedicamentoTratamento1
+     * exclui Paciente1
      *
-     * @param pIdMedicamentoTratamento return boolean
+     * @param pIdPaciente return boolean
      * @return
      */
-    public boolean excluirMedicamentoTratamentoDAO(int pIdMedicamentoTratamento) {
+    public boolean excluirPacienteDAO(int pIdPaciente) {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
                     "DELETE FROM tbl_paciente "
                     + " WHERE "
-                    + "pk_id_paciente = '" + pIdMedicamentoTratamento + "'"
+                    + "pk_id_paciente = '" + pIdPaciente + "'"
                     + ";"
             );
         } catch (Exception e) {

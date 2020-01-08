@@ -17,17 +17,17 @@ import rojerusan.RSPanelsSlider;
  * @author RojeruSan
  */
 public class AtendimentoFraternoView extends javax.swing.JFrame {
-    
+
     GetDateUtil getDateUtil = new GetDateUtil();
-    
+
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
     QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
     QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
-    
+
     AtendenteFraternoModel atendenteFraternoModel = new AtendenteFraternoModel();
     AtendenteFraternoController atendenteFraternoController = new AtendenteFraternoController();
-    
+
     String tipoRemedios, tipoDengue, tipoHepatite, tipoHipertensao, tipoDiabetes, tipoParacetamol, tipoAlcool, tipoFumo, tipoAlergias, tipoHernia, tipoDoencaEstomago, tipoDoencaOssos, tipoDoencaPulmoes, tipoDoencaAutoimune, tipoCancer, tipoFeridas;
     String obsRemedios, obsDengue, obsHepatite, obsHipertensao, obsDiabetes, obsParacetamol, obsAlcool, obsFumo, obsAlergias, obsHernia, obsDoencaEstomago, obsDoencaOssos, obsDoencaPulmoes, obsDoencaAutoimune, obsCancer, obsFeridas;
     String conhecimentoPrevio, modoDesobsessao, tratamentoFecma, setor;
@@ -37,16 +37,16 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
      */
     public AtendimentoFraternoView() {
         this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
-    //    this.setLocation(400, 100);
+        //    this.setLocation(400, 100);
         initComponents();
-  //      this.setLocationRelativeTo(this);
-   //     this.setResizable(false);
+        //      this.setLocationRelativeTo(this);
+        //     this.setResizable(false);
         setExtendedState(MAXIMIZED_BOTH);
         jlIdade.setText("");
         jlAtendente.setText(SessaoModel.nomeUsuario);
         jtfNome.requestFocusInWindow();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -2434,7 +2434,7 @@ jPanel4Layout.setHorizontalGroup(
     }//GEN-LAST:event_jbFeridatumorActionPerformed
 
     private void jbFinalizarAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizarAtendimentoActionPerformed
-        
+
         Object[] opcoes = {"A1", "A2", "B1", "B2"};
         Object resposta;
         resposta = JOptionPane.showInputDialog(null,
@@ -2507,7 +2507,7 @@ jPanel4Layout.setHorizontalGroup(
         if (jcDesobsessaoNao.isSelected()) {
             jcDesobsessaoSim.setSelected(false);
             modoDesobsessao = jcDesobsessaoNao.getText();
-            
+
         }
     }//GEN-LAST:event_jcDesobsessaoNaoActionPerformed
 
@@ -2524,7 +2524,7 @@ jPanel4Layout.setHorizontalGroup(
         jlIdade.setText(String.valueOf(idade));
         jlData.setText(getDateUtil.getDateTime());
     }
-    
+
     private void obterDadosTratamentoMedicamento() {
         //dados do paciente
         pacienteModel.setDataNascimento(jtfDataNascimento.getText());
@@ -2632,15 +2632,15 @@ jPanel4Layout.setHorizontalGroup(
         quadroPsicofisicoModel.setTontura_intensidade(jcbQuadroTonturas.getSelectedItem().toString());
         quadroPsicofisicoModel.setVultos_intensidade(jcbQuadroVultos.getSelectedItem().toString());
         quadroPsicofisicoModel.setZumbidos_intensidade(jcbQuadroZumbidos.getSelectedItem().toString());
-        
-        if (pacienteController.salvarMedicamentoTratamentoController(pacienteModel) > 0) {
-            
+
+        if (pacienteController.salvarPacienteController(pacienteModel) > 0) {
+
             if (quadroPsicofisicoController.salvarQuadroPsicofisicoController(quadroPsicofisicoModel) > 0) {
                 JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
                 rSPanelsSlider1.slidPanel(20, pnl1, RSPanelsSlider.direct.Right);
                 limparCampos();
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -2676,7 +2676,7 @@ jPanel4Layout.setHorizontalGroup(
         jcbQuadroVultos.setSelectedItem("SELECIONE");
         jcbQuadroZumbidos.setSelectedItem("SELECIONE");
     }
-    
+
     private void limparCampos() {
         jtfBairro.setText("");
         jtfEmail.setText("");
@@ -2695,9 +2695,10 @@ jPanel4Layout.setHorizontalGroup(
         jcbCidade.setSelectedItem("Abreu e Lima");
         jlIdade.setText("0");
         limparSelecao();
-        
+
     }
-      /**
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -2717,7 +2718,7 @@ jPanel4Layout.setHorizontalGroup(
             java.util.logging.Logger.getLogger(FrequenciaDomingoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */

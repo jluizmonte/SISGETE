@@ -33,6 +33,15 @@ public class MagnetizadorController {
     }
 
     /**
+     *
+     * @param pMagnetizador
+     * @return
+     */
+    public MagnetizadorModel getMagnetizadorModel(String pMagnetizador) {
+        return this.daoMagnetizador.getMagnetizadorDAO(pMagnetizador);
+    }
+
+    /**
      * recupera uma lista deMagnetizador
      *
      * @return ArrayList
