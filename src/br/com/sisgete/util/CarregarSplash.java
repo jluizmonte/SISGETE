@@ -2,7 +2,6 @@ package br.com.sisgete.util;
 
 import br.com.sisgete.view.LoginView;
 import br.com.sisgete.view.SplashView;
-import java.io.FileNotFoundException;
 
 public class CarregarSplash {
 

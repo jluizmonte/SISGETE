@@ -23,7 +23,7 @@ public class SisgeteConnectionMySql {
     public Savepoint savepoint;
     private String servidor = "localhost";
     private String nomeDoBanco = "sisgetedb";
-    private String usuario = "root";
+    private String usuario = "nsoft";
     private String senha = "Jos3@Luiz";
 
     public SisgeteConnectionMySql() {

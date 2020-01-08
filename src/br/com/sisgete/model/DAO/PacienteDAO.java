@@ -2,7 +2,6 @@ package br.com.sisgete.model.DAO;
 
 import br.com.sisgete.connection.SisgeteConnectionMySql;
 import br.com.sisgete.model.PacienteModel;
-import br.com.sisgete.model.QuadroPsicofisicoModel;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -16,7 +15,6 @@ public class PacienteDAO extends SisgeteConnectionMySql {
      * grava MedicamentoTratamento
      *
      * @param modelMedicamentoTratamento return int
-     * @param pQuadroPsicofisicoModel
      * @return
      */
     public int salvarMedicamentoTratamentoDAO(PacienteModel modelMedicamentoTratamento) {
@@ -194,7 +192,6 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "'" + modelMedicamentoTratamento.getTelefone() + "',"
                     + "'" + modelMedicamentoTratamento.getEmail() + "'"
                     + ");"
-                  
             );
         } catch (Exception e) {
             System.out.print(e);
@@ -315,6 +312,116 @@ public class PacienteDAO extends SisgeteConnectionMySql {
     }
 
     /**
+     * recupera MedicamentoTratamento
+     *
+     * @param pPaciente return PacienteModel
+     * @return
+     */
+    public PacienteModel getMedicamentoTratamentoDAO(String pPaciente) {
+        PacienteModel modelMedicamentoTratamento = new PacienteModel();
+        try {
+            this.conectar();
+            this.executarSQL(
+                    "SELECT  * FROM tbl_paciente WHERE nome = '"
+                    + pPaciente + "'" + ";"
+            );
+
+            while (this.getResultSet().next()) {
+                modelMedicamentoTratamento.setIdMedicamentoTratamento(this.getResultSet().getInt(1));
+                modelMedicamentoTratamento.setRemedio(this.getResultSet().getString(2));
+                modelMedicamentoTratamento.setRemedioTipo(this.getResultSet().getString(3));
+                modelMedicamentoTratamento.setRemedioPeriodo(this.getResultSet().getString(4));
+                modelMedicamentoTratamento.setRemedioObs(this.getResultSet().getString(5));
+                modelMedicamentoTratamento.setDengue(this.getResultSet().getString(6));
+                modelMedicamentoTratamento.setDengueTipo(this.getResultSet().getString(7));
+                modelMedicamentoTratamento.setDenguePeriodo(this.getResultSet().getString(8));
+                modelMedicamentoTratamento.setDengueObs(this.getResultSet().getString(9));
+                modelMedicamentoTratamento.setHepatite(this.getResultSet().getString(10));
+                modelMedicamentoTratamento.setHepatiteTipo(this.getResultSet().getString(11));
+                modelMedicamentoTratamento.setHepatitePeriodo(this.getResultSet().getString(12));
+                modelMedicamentoTratamento.setHepatiteObs(this.getResultSet().getString(13));
+                modelMedicamentoTratamento.setHipertensao(this.getResultSet().getString(14));
+                modelMedicamentoTratamento.setHipertensaoTipo(this.getResultSet().getString(15));
+                modelMedicamentoTratamento.setHipertensaoPeriodo(this.getResultSet().getString(16));
+                modelMedicamentoTratamento.setHipertensaoObs(this.getResultSet().getString(17));
+                modelMedicamentoTratamento.setDiabetes(this.getResultSet().getString(18));
+                modelMedicamentoTratamento.setDiabetesTipo(this.getResultSet().getString(19));
+                modelMedicamentoTratamento.setDiabetesPeriodo(this.getResultSet().getString(20));
+                modelMedicamentoTratamento.setDiabetesObs(this.getResultSet().getString(21));
+                modelMedicamentoTratamento.setUsoParacetamol(this.getResultSet().getString(22));
+                modelMedicamentoTratamento.setUsoParacetamolTipo(this.getResultSet().getString(23));
+                modelMedicamentoTratamento.setUsoParacetamolPeriodo(this.getResultSet().getString(24));
+                modelMedicamentoTratamento.setUsoParacetamolObs(this.getResultSet().getString(25));
+                modelMedicamentoTratamento.setAlcool(this.getResultSet().getString(26));
+                modelMedicamentoTratamento.setAlcoolTipo(this.getResultSet().getString(27));
+                modelMedicamentoTratamento.setAlcoolPeriodo(this.getResultSet().getString(28));
+                modelMedicamentoTratamento.setAlcoolObs(this.getResultSet().getString(29));
+                modelMedicamentoTratamento.setFumo(this.getResultSet().getString(30));
+                modelMedicamentoTratamento.setFumoTipo(this.getResultSet().getString(31));
+                modelMedicamentoTratamento.setFumoPeriodo(this.getResultSet().getString(32));
+                modelMedicamentoTratamento.setFumoObs(this.getResultSet().getString(33));
+                modelMedicamentoTratamento.setAlergias(this.getResultSet().getString(34));
+                modelMedicamentoTratamento.setAlergiasTipo(this.getResultSet().getString(35));
+                modelMedicamentoTratamento.setAlergiasPeriodo(this.getResultSet().getString(36));
+                modelMedicamentoTratamento.setAlergiasObs(this.getResultSet().getString(37));
+                modelMedicamentoTratamento.setHernia(this.getResultSet().getString(38));
+                modelMedicamentoTratamento.setHerniaTipo(this.getResultSet().getString(39));
+                modelMedicamentoTratamento.setHerniaPeriodo(this.getResultSet().getString(40));
+                modelMedicamentoTratamento.setHerniaObs(this.getResultSet().getString(41));
+                modelMedicamentoTratamento.setDoencaEstomago(this.getResultSet().getString(42));
+                modelMedicamentoTratamento.setDoencaEstomagoTipo(this.getResultSet().getString(43));
+                modelMedicamentoTratamento.setDoencaEstomagoPeriodo(this.getResultSet().getString(44));
+                modelMedicamentoTratamento.setDoencaEstomagoObs(this.getResultSet().getString(45));
+                modelMedicamentoTratamento.setDoencaOssos(this.getResultSet().getString(46));
+                modelMedicamentoTratamento.setDoencaOssosTipo(this.getResultSet().getString(47));
+                modelMedicamentoTratamento.setDoencaOssosPeriodo(this.getResultSet().getString(48));
+                modelMedicamentoTratamento.setDoencaOssosObs(this.getResultSet().getString(49));
+                modelMedicamentoTratamento.setDoencaPulmoes(this.getResultSet().getString(50));
+                modelMedicamentoTratamento.setDoencaPulmoesTipo(this.getResultSet().getString(51));
+                modelMedicamentoTratamento.setDoencaPulmoesPeriodo(this.getResultSet().getString(52));
+                modelMedicamentoTratamento.setDoencaPulmoesObs(this.getResultSet().getString(53));
+                modelMedicamentoTratamento.setDoencaAutoimune(this.getResultSet().getString(54));
+                modelMedicamentoTratamento.setDoencaAutoimuneTipo(this.getResultSet().getString(55));
+                modelMedicamentoTratamento.setDoencaAutoimunePeriodo(this.getResultSet().getString(56));
+                modelMedicamentoTratamento.setDoencaAutoimuneObs(this.getResultSet().getString(57));
+                modelMedicamentoTratamento.setCancer(this.getResultSet().getString(58));
+                modelMedicamentoTratamento.setCancerTipo(this.getResultSet().getString(59));
+                modelMedicamentoTratamento.setCancerPeriodo(this.getResultSet().getString(60));
+                modelMedicamentoTratamento.setCancerObs(this.getResultSet().getString(61));
+                modelMedicamentoTratamento.setFeridasTumores(this.getResultSet().getString(62));
+                modelMedicamentoTratamento.setFeridasTumoresTipo(this.getResultSet().getString(63));
+                modelMedicamentoTratamento.setFeridasTumoresPeriodo(this.getResultSet().getString(64));
+                modelMedicamentoTratamento.setFeridasTumoresObs(this.getResultSet().getString(65));
+                modelMedicamentoTratamento.setPacienteReincidente(this.getResultSet().getString(66));
+                modelMedicamentoTratamento.setDataNascimento(this.getResultSet().getString(67));
+                modelMedicamentoTratamento.setStatusTratamento(this.getResultSet().getString(68));
+                modelMedicamentoTratamento.setModoDesobsessao(this.getResultSet().getString(69));
+                modelMedicamentoTratamento.setDataAtendimento(this.getResultSet().getString(70));
+                modelMedicamentoTratamento.setAtendente(this.getResultSet().getString(71));
+                modelMedicamentoTratamento.setAcompanhamentoPaciente(this.getResultSet().getString(72));
+                modelMedicamentoTratamento.setRua(this.getResultSet().getString(73));
+                modelMedicamentoTratamento.setNumCasa(this.getResultSet().getInt(74));
+                modelMedicamentoTratamento.setBairro(this.getResultSet().getString(75));
+                modelMedicamentoTratamento.setCidade(this.getResultSet().getString(76));
+                modelMedicamentoTratamento.setIdade(this.getResultSet().getInt(77));
+                modelMedicamentoTratamento.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
+                modelMedicamentoTratamento.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
+                modelMedicamentoTratamento.setObjetivoTratamento(this.getResultSet().getString(80));
+                modelMedicamentoTratamento.setNome(this.getResultSet().getString(81));
+                modelMedicamentoTratamento.setSetor(this.getResultSet().getString(82));
+                modelMedicamentoTratamento.setTelefone(this.getResultSet().getString(83));
+                modelMedicamentoTratamento.setEmail(this.getResultSet().getString(84));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.fecharConexao();
+        }
+        return modelMedicamentoTratamento;
+    }
+
+    /**
      * recupera uma lista de MedicamentoTratamento return ArrayList
      *
      * @return
@@ -325,8 +432,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT * FROM tbl_paciente"
-                    + ";"
+                    "SELECT * FROM tbl_paciente;"
             );
 
             while (this.getResultSet().next()) {
