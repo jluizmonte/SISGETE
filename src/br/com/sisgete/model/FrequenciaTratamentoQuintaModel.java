@@ -8,8 +8,6 @@ public class FrequenciaTratamentoQuintaModel {
 
     private int idFrequenciaTratamentoQuinta;
     private int paciente;
-    private int setorPaciente;
-    private int statusTratamento;
     private int magnetizador;
     private String recomendacoesEspirituais;
     private String frequenciaQuinta;
@@ -50,38 +48,6 @@ public class FrequenciaTratamentoQuintaModel {
      */
     public int getPaciente() {
         return this.paciente;
-    }
-
-    /**
-     * seta o valor de setorPaciente
-     *
-     * @param pSetorPaciente
-     */
-    public void setSetorPaciente(int pSetorPaciente) {
-        this.setorPaciente = pSetorPaciente;
-    }
-
-    /**
-     * return fk_setorPaciente
-     */
-    public int getSetorPaciente() {
-        return this.setorPaciente;
-    }
-
-    /**
-     * seta o valor de statusTratamento
-     *
-     * @param pStatusTratamento
-     */
-    public void setStatusTratamento(int pStatusTratamento) {
-        this.statusTratamento = pStatusTratamento;
-    }
-
-    /**
-     * return fk_statusTratamento
-     */
-    public int getStatusTratamento() {
-        return this.statusTratamento;
     }
 
     /**
@@ -134,6 +100,7 @@ public class FrequenciaTratamentoQuintaModel {
 
     @Override
     public String toString() {
-        return "ModelFrequenciaTratamentoQuinta {" + "::idFrequenciaTratamentoQuinta = " + this.idFrequenciaTratamentoQuinta + "::paciente = " + this.paciente + "::setorPaciente = " + this.setorPaciente + "::statusTratamento = " + this.statusTratamento + "::magnetizador = " + this.magnetizador + "::recomendacoesEspirituais = " + this.recomendacoesEspirituais + "::frequenciaQuinta = " + this.frequenciaQuinta + "}";
+        return "FrequenciaTratamentoQuintaModel{" + "idFrequenciaTratamentoQuinta=" + idFrequenciaTratamentoQuinta + ", paciente=" + paciente + ", magnetizador=" + magnetizador + ", recomendacoesEspirituais=" + recomendacoesEspirituais + ", frequenciaQuinta=" + frequenciaQuinta + '}';
     }
+
 }
