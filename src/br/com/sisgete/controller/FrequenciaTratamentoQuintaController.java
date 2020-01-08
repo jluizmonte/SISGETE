@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class FrequenciaTratamentoQuintaController {
 
-    private FrequenciaTratamentoQuintaDAO daoFrequenciaTratamentoQuinta = new FrequenciaTratamentoQuintaDAO();
+    private FrequenciaTratamentoQuintaDAO frequenciaTratamentoQuintaDAO = new FrequenciaTratamentoQuintaDAO();
 
     /**
      * grava FrequenciaTratamentoQuinta
@@ -19,7 +19,7 @@ public class FrequenciaTratamentoQuintaController {
      * @return
      */
     public int salvarFrequenciaTratamentoQuintaController(FrequenciaTratamentoQuintaModel pFrequenciaTratamentoQuintaModel) {
-        return this.daoFrequenciaTratamentoQuinta.salvarFrequenciaTratamentoQuintaDAO(pFrequenciaTratamentoQuintaModel);
+        return this.frequenciaTratamentoQuintaDAO.salvarFrequenciaTratamentoQuintaDAO(pFrequenciaTratamentoQuintaModel);
     }
 
     /**
@@ -30,7 +30,7 @@ public class FrequenciaTratamentoQuintaController {
      * @return
      */
     public FrequenciaTratamentoQuintaModel getFrequenciaTratamentoQuintaController(int pIdFrequenciaTratamentoQuinta) {
-        return this.daoFrequenciaTratamentoQuinta.getFrequenciaTratamentoQuintaDAO(pIdFrequenciaTratamentoQuinta);
+        return this.frequenciaTratamentoQuintaDAO.getFrequenciaTratamentoQuintaDAO(pIdFrequenciaTratamentoQuinta);
     }
 
     /**
@@ -39,7 +39,7 @@ public class FrequenciaTratamentoQuintaController {
      * @return
      */
     public ArrayList<FrequenciaTratamentoQuintaModel> getListaFrequenciaTratamentoQuintaController() {
-        return this.daoFrequenciaTratamentoQuinta.getListaFrequenciaTratamentoQuintaDAO();
+        return this.frequenciaTratamentoQuintaDAO.getListaFrequenciaTratamentoQuintaDAO();
     }
 
     /**
@@ -49,7 +49,7 @@ public class FrequenciaTratamentoQuintaController {
      * @return
      */
     public boolean atualizarFrequenciaTratamentoQuintaController(FrequenciaTratamentoQuintaModel pFrequenciaTratamentoQuintaModel) {
-        return this.daoFrequenciaTratamentoQuinta.atualizarFrequenciaTratamentoQuintaDAO(pFrequenciaTratamentoQuintaModel);
+        return this.frequenciaTratamentoQuintaDAO.atualizarFrequenciaTratamentoQuintaDAO(pFrequenciaTratamentoQuintaModel);
     }
 
     /**
@@ -59,6 +59,6 @@ public class FrequenciaTratamentoQuintaController {
      * @return
      */
     public boolean excluirFrequenciaTratamentoQuintaController(int pIdFrequenciaTratamentoQuinta) {
-        return this.daoFrequenciaTratamentoQuinta.excluirFrequenciaTratamentoQuintaDAO(pIdFrequenciaTratamentoQuinta);
+        return this.frequenciaTratamentoQuintaDAO.excluirFrequenciaTratamentoQuintaDAO(pIdFrequenciaTratamentoQuinta);
     }
 }

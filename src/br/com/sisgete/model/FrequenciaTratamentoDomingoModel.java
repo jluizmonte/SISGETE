@@ -7,10 +7,12 @@ package br.com.sisgete.model;
 public class FrequenciaTratamentoDomingoModel {
 
     private int idFrequenciaTratamentoDomingo;
-    private int idPaciente;
-    private int idMagnetizador;
-    private String frequenciaDomingo;
+    private int paciente;
+    private int setorPaciente;
+    private int statusTratamento;
+    private int magnetizador;
     private String recomendacoesEspirituais;
+    private String frequenciaDomingo;
 
     /**
      * Construtor
@@ -29,65 +31,73 @@ public class FrequenciaTratamentoDomingoModel {
 
     /**
      * return pk_idFrequenciaTratamentoDomingo
-     *
-     * @return
      */
     public int getIdFrequenciaTratamentoDomingo() {
         return this.idFrequenciaTratamentoDomingo;
     }
 
     /**
-     * seta o valor de idPaciente
+     * seta o valor de paciente
      *
-     * @param pIdPaciente
+     * @param pPaciente
      */
-    public void setIdPaciente(int pIdPaciente) {
-        this.idPaciente = pIdPaciente;
+    public void setPaciente(int pPaciente) {
+        this.paciente = pPaciente;
     }
 
     /**
-     * return fk_idPaciente
-     *
-     * @return
+     * return fk_paciente
      */
-    public int getIdPaciente() {
-        return this.idPaciente;
+    public int getPaciente() {
+        return this.paciente;
     }
 
     /**
-     * seta o valor de idMagnetizador
+     * seta o valor de setorPaciente
      *
-     * @param pIdMagnetizador
+     * @param pSetorPaciente
      */
-    public void setIdMagnetizador(int pIdMagnetizador) {
-        this.idMagnetizador = pIdMagnetizador;
+    public void setSetorPaciente(int pSetorPaciente) {
+        this.setorPaciente = pSetorPaciente;
     }
 
     /**
-     * return fk_idMagnetizador
-     *
-     * @return
+     * return fk_setorPaciente
      */
-    public int getIdMagnetizador() {
-        return this.idMagnetizador;
+    public int getSetorPaciente() {
+        return this.setorPaciente;
     }
 
     /**
-     * seta o valor de frequenciaDomingo
+     * seta o valor de statusTratamento
      *
-     * @param pFrequenciaDomingo
+     * @param pStatusTratamento
      */
-    public void setFrequenciaDomingo(String pFrequenciaDomingo) {
-        this.frequenciaDomingo = pFrequenciaDomingo;
+    public void setStatusTratamento(int pStatusTratamento) {
+        this.statusTratamento = pStatusTratamento;
     }
 
     /**
-     * return frequenciaDomingo
-     *
-     * @return
+     * return fk_statusTratamento
      */
-    public String getFrequenciaDomingo() {
-        return this.frequenciaDomingo;
+    public int getStatusTratamento() {
+        return this.statusTratamento;
+    }
+
+    /**
+     * seta o valor de magnetizador
+     *
+     * @param pMagnetizador
+     */
+    public void setMagnetizador(int pMagnetizador) {
+        this.magnetizador = pMagnetizador;
+    }
+
+    /**
+     * return fk_magnetizador
+     */
+    public int getMagnetizador() {
+        return this.magnetizador;
     }
 
     /**
@@ -101,15 +111,29 @@ public class FrequenciaTratamentoDomingoModel {
 
     /**
      * return recomendacoesEspirituais
-     *
-     * @return
      */
     public String getRecomendacoesEspirituais() {
         return this.recomendacoesEspirituais;
     }
 
+    /**
+     * seta o valor de frequenciaDomingo
+     *
+     * @param pFrequenciaDomingo
+     */
+    public void setFrequenciaDomingo(String pFrequenciaDomingo) {
+        this.frequenciaDomingo = pFrequenciaDomingo;
+    }
+
+    /**
+     * return frequenciaDomingo
+     */
+    public String getFrequenciaDomingo() {
+        return this.frequenciaDomingo;
+    }
+
     @Override
     public String toString() {
-        return "ModelFrequenciaTratamentoDomingo {" + "::idFrequenciaTratamentoDomingo = " + this.idFrequenciaTratamentoDomingo + "::idPaciente = " + this.idPaciente + "::idMagnetizador = " + this.idMagnetizador + "::frequenciaDomingo = " + this.frequenciaDomingo + "::recomendacoesEspirituais = " + this.recomendacoesEspirituais + "}";
+        return "ModelFrequenciaTratamentoDomingo {" + "::idFrequenciaTratamentoDomingo = " + this.idFrequenciaTratamentoDomingo + "::paciente = " + this.paciente + "::setorPaciente = " + this.setorPaciente + "::statusTratamento = " + this.statusTratamento + "::magnetizador = " + this.magnetizador + "::recomendacoesEspirituais = " + this.recomendacoesEspirituais + "::frequenciaDomingo = " + this.frequenciaDomingo + "}";
     }
 }

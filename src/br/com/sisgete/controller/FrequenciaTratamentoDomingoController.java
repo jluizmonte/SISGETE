@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class FrequenciaTratamentoDomingoController {
 
-    private FrequenciaTratamentoDomingoDAO daoFrequenciaTratamentoDomingo = new FrequenciaTratamentoDomingoDAO();
+    private FrequenciaTratamentoDomingoDAO frequenciaTratamentoDomingoDAO = new FrequenciaTratamentoDomingoDAO();
 
     /**
      * grava FrequenciaTratamentoDomingo
@@ -19,7 +19,7 @@ public class FrequenciaTratamentoDomingoController {
      * @return
      */
     public int salvarFrequenciaTratamentoDomingoController(FrequenciaTratamentoDomingoModel pFrequenciaTratamentoDomingoModel) {
-        return this.daoFrequenciaTratamentoDomingo.salvarFrequenciaTratamentoDomingoDAO(pFrequenciaTratamentoDomingoModel);
+        return this.frequenciaTratamentoDomingoDAO.salvarFrequenciaTratamentoDomingoDAO(pFrequenciaTratamentoDomingoModel);
     }
 
     /**
@@ -30,7 +30,7 @@ public class FrequenciaTratamentoDomingoController {
      * @return
      */
     public FrequenciaTratamentoDomingoModel getFrequenciaTratamentoDomingoController(int pIdFrequenciaTratamentoDomingo) {
-        return this.daoFrequenciaTratamentoDomingo.getFrequenciaTratamentoDomingoDAO(pIdFrequenciaTratamentoDomingo);
+        return this.frequenciaTratamentoDomingoDAO.getFrequenciaTratamentoDomingoDAO(pIdFrequenciaTratamentoDomingo);
     }
 
     /**
@@ -39,7 +39,7 @@ public class FrequenciaTratamentoDomingoController {
      * @return
      */
     public ArrayList<FrequenciaTratamentoDomingoModel> getListaFrequenciaTratamentoDomingoController() {
-        return this.daoFrequenciaTratamentoDomingo.getListaFrequenciaTratamentoDomingoDAO();
+        return this.frequenciaTratamentoDomingoDAO.getListaFrequenciaTratamentoDomingoDAO();
     }
 
     /**
@@ -49,7 +49,7 @@ public class FrequenciaTratamentoDomingoController {
      * @return
      */
     public boolean atualizarFrequenciaTratamentoDomingoController(FrequenciaTratamentoDomingoModel pFrequenciaTratamentoDomingoModel) {
-        return this.daoFrequenciaTratamentoDomingo.atualizarFrequenciaTratamentoDomingoDAO(pFrequenciaTratamentoDomingoModel);
+        return this.frequenciaTratamentoDomingoDAO.atualizarFrequenciaTratamentoDomingoDAO(pFrequenciaTratamentoDomingoModel);
     }
 
     /**
@@ -59,6 +59,6 @@ public class FrequenciaTratamentoDomingoController {
      * @return
      */
     public boolean excluirFrequenciaTratamentoDomingoController(int pIdFrequenciaTratamentoDomingo) {
-        return this.daoFrequenciaTratamentoDomingo.excluirFrequenciaTratamentoDomingoDAO(pIdFrequenciaTratamentoDomingo);
+        return this.frequenciaTratamentoDomingoDAO.excluirFrequenciaTratamentoDomingoDAO(pIdFrequenciaTratamentoDomingo);
     }
 }

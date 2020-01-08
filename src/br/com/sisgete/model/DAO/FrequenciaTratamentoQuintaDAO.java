@@ -3,6 +3,7 @@ package br.com.sisgete.model.DAO;
 import br.com.sisgete.connection.SisgeteConnectionMySql;
 import br.com.sisgete.model.FrequenciaTratamentoQuintaModel;
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 
 /**
@@ -21,18 +22,22 @@ public class FrequenciaTratamentoQuintaDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.insertSQL(
-                    "INSERT INTO tbl_frequencia_tratamento_ ("
+                    "INSERT INTO tbl_frequencia_tratamento_quinta ("
                     + "pk_id_frequencia_tratamento_quinta,"
-                    + "fk_id_paciente,"
-                    + "fk_id_magnetizador,"
-                    + "frequencia_quinta,"
-                    + "recomendacoes_espirituais"
+                    + "fk_paciente,"
+                    + "fk_setor_paciente,"
+                    + "fk_status_tratamento,"
+                    + "fk_magnetizador,"
+                    + "recomendacoes_espirituais,"
+                    + "frequencia_quinta"
                     + ") VALUES ("
                     + "'" + pFrequenciaTratamentoQuintaModel.getIdFrequenciaTratamentoQuinta() + "',"
-                    + "'" + pFrequenciaTratamentoQuintaModel.getIdPaciente() + "',"
-                    + "'" + pFrequenciaTratamentoQuintaModel.getIdMagnetizador() + "',"
-                    + "'" + pFrequenciaTratamentoQuintaModel.getFrequenciaQuinta() + "',"
-                    + "'" + pFrequenciaTratamentoQuintaModel.getRecomendacoesEspirituais() + "'"
+                    + "'" + pFrequenciaTratamentoQuintaModel.getPaciente() + "',"
+                    + "'" + pFrequenciaTratamentoQuintaModel.getSetorPaciente() + "',"
+                    + "'" + pFrequenciaTratamentoQuintaModel.getStatusTratamento() + "',"
+                    + "'" + pFrequenciaTratamentoQuintaModel.getMagnetizador() + "',"
+                    + "'" + pFrequenciaTratamentoQuintaModel.getRecomendacoesEspirituais() + "',"
+                    + "'" + pFrequenciaTratamentoQuintaModel.getFrequenciaQuinta() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -48,7 +53,6 @@ public class FrequenciaTratamentoQuintaDAO extends SisgeteConnectionMySql {
      *
      * @param pIdFrequenciaTratamentoQuinta return
      * FrequenciaTratamentoQuintaModel
-     * @return
      */
     public FrequenciaTratamentoQuintaModel getFrequenciaTratamentoQuintaDAO(int pIdFrequenciaTratamentoQuinta) {
         FrequenciaTratamentoQuintaModel modelFrequenciaTratamentoQuinta = new FrequenciaTratamentoQuintaModel();
@@ -57,12 +61,14 @@ public class FrequenciaTratamentoQuintaDAO extends SisgeteConnectionMySql {
             this.executarSQL(
                     "SELECT "
                     + "pk_id_frequencia_tratamento_quinta,"
-                    + "fk_id_paciente,"
-                    + "fk_id_magnetizador,"
-                    + "frequencia_quinta,"
-                    + "recomendacoes_espirituais"
+                    + "fk_paciente,"
+                    + "fk_setor_paciente,"
+                    + "fk_status_tratamento,"
+                    + "fk_magnetizador,"
+                    + "recomendacoes_espirituais,"
+                    + "frequencia_quinta"
                     + " FROM"
-                    + " tbl_frequencia_tratamento_"
+                    + " tbl_frequencia_tratamento_quinta"
                     + " WHERE"
                     + " pk_id_frequencia_tratamento_quinta = '" + pIdFrequenciaTratamentoQuinta + "'"
                     + ";"
@@ -70,10 +76,12 @@ public class FrequenciaTratamentoQuintaDAO extends SisgeteConnectionMySql {
 
             while (this.getResultSet().next()) {
                 modelFrequenciaTratamentoQuinta.setIdFrequenciaTratamentoQuinta(this.getResultSet().getInt(1));
-                modelFrequenciaTratamentoQuinta.setIdPaciente(this.getResultSet().getInt(2));
-                modelFrequenciaTratamentoQuinta.setIdMagnetizador(this.getResultSet().getInt(3));
-                modelFrequenciaTratamentoQuinta.setFrequenciaQuinta(this.getResultSet().getString(4));
-                modelFrequenciaTratamentoQuinta.setRecomendacoesEspirituais(this.getResultSet().getString(5));
+                modelFrequenciaTratamentoQuinta.setPaciente(this.getResultSet().getInt(2));
+                modelFrequenciaTratamentoQuinta.setSetorPaciente(this.getResultSet().getInt(3));
+                modelFrequenciaTratamentoQuinta.setStatusTratamento(this.getResultSet().getInt(4));
+                modelFrequenciaTratamentoQuinta.setMagnetizador(this.getResultSet().getInt(5));
+                modelFrequenciaTratamentoQuinta.setRecomendacoesEspirituais(this.getResultSet().getString(6));
+                modelFrequenciaTratamentoQuinta.setFrequenciaQuinta(this.getResultSet().getString(7));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,8 +93,6 @@ public class FrequenciaTratamentoQuintaDAO extends SisgeteConnectionMySql {
 
     /**
      * recupera uma lista de FrequenciaTratamentoQuinta return ArrayList
-     *
-     * @return
      */
     public ArrayList<FrequenciaTratamentoQuintaModel> getListaFrequenciaTratamentoQuintaDAO() {
         ArrayList<FrequenciaTratamentoQuintaModel> listamodelFrequenciaTratamentoQuinta = new ArrayList();
@@ -96,22 +102,26 @@ public class FrequenciaTratamentoQuintaDAO extends SisgeteConnectionMySql {
             this.executarSQL(
                     "SELECT "
                     + "pk_id_frequencia_tratamento_quinta,"
-                    + "fk_id_paciente,"
-                    + "fk_id_magnetizador,"
-                    + "frequencia_quinta,"
-                    + "recomendacoes_espirituais"
+                    + "fk_paciente,"
+                    + "fk_setor_paciente,"
+                    + "fk_status_tratamento,"
+                    + "fk_magnetizador,"
+                    + "recomendacoes_espirituais,"
+                    + "frequencia_quinta"
                     + " FROM"
-                    + " tbl_frequencia_tratamento_"
+                    + " tbl_frequencia_tratamento_quinta"
                     + ";"
             );
 
             while (this.getResultSet().next()) {
                 modelFrequenciaTratamentoQuinta = new FrequenciaTratamentoQuintaModel();
                 modelFrequenciaTratamentoQuinta.setIdFrequenciaTratamentoQuinta(this.getResultSet().getInt(1));
-                modelFrequenciaTratamentoQuinta.setIdPaciente(this.getResultSet().getInt(2));
-                modelFrequenciaTratamentoQuinta.setIdMagnetizador(this.getResultSet().getInt(3));
-                modelFrequenciaTratamentoQuinta.setFrequenciaQuinta(this.getResultSet().getString(4));
-                modelFrequenciaTratamentoQuinta.setRecomendacoesEspirituais(this.getResultSet().getString(5));
+                modelFrequenciaTratamentoQuinta.setPaciente(this.getResultSet().getInt(2));
+                modelFrequenciaTratamentoQuinta.setSetorPaciente(this.getResultSet().getInt(3));
+                modelFrequenciaTratamentoQuinta.setStatusTratamento(this.getResultSet().getInt(4));
+                modelFrequenciaTratamentoQuinta.setMagnetizador(this.getResultSet().getInt(5));
+                modelFrequenciaTratamentoQuinta.setRecomendacoesEspirituais(this.getResultSet().getString(6));
+                modelFrequenciaTratamentoQuinta.setFrequenciaQuinta(this.getResultSet().getString(7));
                 listamodelFrequenciaTratamentoQuinta.add(modelFrequenciaTratamentoQuinta);
             }
         } catch (SQLException e) {
@@ -132,12 +142,14 @@ public class FrequenciaTratamentoQuintaDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                    "UPDATE tbl_frequencia_tratamento_ SET "
+                    "UPDATE tbl_frequencia_tratamento_quinta SET "
                     + "pk_id_frequencia_tratamento_quinta = '" + pFrequenciaTratamentoQuintaModel.getIdFrequenciaTratamentoQuinta() + "',"
-                    + "fk_id_paciente = '" + pFrequenciaTratamentoQuintaModel.getIdPaciente() + "',"
-                    + "fk_id_magnetizador = '" + pFrequenciaTratamentoQuintaModel.getIdMagnetizador() + "',"
-                    + "frequencia_quinta = '" + pFrequenciaTratamentoQuintaModel.getFrequenciaQuinta() + "',"
-                    + "recomendacoes_espirituais = '" + pFrequenciaTratamentoQuintaModel.getRecomendacoesEspirituais() + "'"
+                    + "fk_paciente = '" + pFrequenciaTratamentoQuintaModel.getPaciente() + "',"
+                    + "fk_setor_paciente = '" + pFrequenciaTratamentoQuintaModel.getSetorPaciente() + "',"
+                    + "fk_status_tratamento = '" + pFrequenciaTratamentoQuintaModel.getStatusTratamento() + "',"
+                    + "fk_magnetizador = '" + pFrequenciaTratamentoQuintaModel.getMagnetizador() + "',"
+                    + "recomendacoes_espirituais = '" + pFrequenciaTratamentoQuintaModel.getRecomendacoesEspirituais() + "',"
+                    + "frequencia_quinta = '" + pFrequenciaTratamentoQuintaModel.getFrequenciaQuinta() + "'"
                     + " WHERE "
                     + "pk_id_frequencia_tratamento_quinta = '" + pFrequenciaTratamentoQuintaModel.getIdFrequenciaTratamentoQuinta() + "'"
                     + ";"
@@ -160,7 +172,7 @@ public class FrequenciaTratamentoQuintaDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                    "DELETE FROM tbl_frequencia_tratamento_ "
+                    "DELETE FROM tbl_frequencia_tratamento_quinta "
                     + " WHERE "
                     + "pk_id_frequencia_tratamento_quinta = '" + pIdFrequenciaTratamentoQuinta + "'"
                     + ";"

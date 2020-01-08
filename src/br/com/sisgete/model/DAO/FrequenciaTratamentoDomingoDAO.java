@@ -23,16 +23,20 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             return this.insertSQL(
                     "INSERT INTO tbl_frequencia_tratamento_domingo ("
                     + "pk_id_frequencia_tratamento_domingo,"
-                    + "fk_id_paciente,"
-                    + "fk_id_magnetizador,"
-                    + "frequencia_domingo,"
-                    + "recomendacoes_espirituais"
+                    + "fk_paciente,"
+                    + "fk_setor_paciente,"
+                    + "fk_status_tratamento,"
+                    + "fk_magnetizador,"
+                    + "recomendacoes_espirituais,"
+                    + "frequencia_domingo"
                     + ") VALUES ("
                     + "'" + pFrequenciaTratamentoDomingoModel.getIdFrequenciaTratamentoDomingo() + "',"
-                    + "'" + pFrequenciaTratamentoDomingoModel.getIdPaciente() + "',"
-                    + "'" + pFrequenciaTratamentoDomingoModel.getIdMagnetizador() + "',"
-                    + "'" + pFrequenciaTratamentoDomingoModel.getFrequenciaDomingo() + "',"
-                    + "'" + pFrequenciaTratamentoDomingoModel.getRecomendacoesEspirituais() + "'"
+                    + "'" + pFrequenciaTratamentoDomingoModel.getPaciente() + "',"
+                    + "'" + pFrequenciaTratamentoDomingoModel.getSetorPaciente() + "',"
+                    + "'" + pFrequenciaTratamentoDomingoModel.getStatusTratamento() + "',"
+                    + "'" + pFrequenciaTratamentoDomingoModel.getMagnetizador() + "',"
+                    + "'" + pFrequenciaTratamentoDomingoModel.getRecomendacoesEspirituais() + "',"
+                    + "'" + pFrequenciaTratamentoDomingoModel.getFrequenciaDomingo() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -57,10 +61,12 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             this.executarSQL(
                     "SELECT "
                     + "pk_id_frequencia_tratamento_domingo,"
-                    + "fk_id_paciente,"
-                    + "fk_id_magnetizador,"
-                    + "frequencia_domingo,"
-                    + "recomendacoes_espirituais"
+                    + "fk_paciente,"
+                    + "fk_setor_paciente,"
+                    + "fk_status_tratamento,"
+                    + "fk_magnetizador,"
+                    + "recomendacoes_espirituais,"
+                    + "frequencia_domingo"
                     + " FROM"
                     + " tbl_frequencia_tratamento_domingo"
                     + " WHERE"
@@ -70,10 +76,12 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
 
             while (this.getResultSet().next()) {
                 modelFrequenciaTratamentoDomingo.setIdFrequenciaTratamentoDomingo(this.getResultSet().getInt(1));
-                modelFrequenciaTratamentoDomingo.setIdPaciente(this.getResultSet().getInt(2));
-                modelFrequenciaTratamentoDomingo.setIdMagnetizador(this.getResultSet().getInt(3));
-                modelFrequenciaTratamentoDomingo.setFrequenciaDomingo(this.getResultSet().getString(4));
-                modelFrequenciaTratamentoDomingo.setRecomendacoesEspirituais(this.getResultSet().getString(5));
+                modelFrequenciaTratamentoDomingo.setPaciente(this.getResultSet().getInt(2));
+                modelFrequenciaTratamentoDomingo.setSetorPaciente(this.getResultSet().getInt(3));
+                modelFrequenciaTratamentoDomingo.setStatusTratamento(this.getResultSet().getInt(4));
+                modelFrequenciaTratamentoDomingo.setMagnetizador(this.getResultSet().getInt(5));
+                modelFrequenciaTratamentoDomingo.setRecomendacoesEspirituais(this.getResultSet().getString(6));
+                modelFrequenciaTratamentoDomingo.setFrequenciaDomingo(this.getResultSet().getString(7));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -96,10 +104,12 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             this.executarSQL(
                     "SELECT "
                     + "pk_id_frequencia_tratamento_domingo,"
-                    + "fk_id_paciente,"
-                    + "fk_id_magnetizador,"
-                    + "frequencia_domingo,"
-                    + "recomendacoes_espirituais"
+                    + "fk_paciente,"
+                    + "fk_setor_paciente,"
+                    + "fk_status_tratamento,"
+                    + "fk_magnetizador,"
+                    + "recomendacoes_espirituais,"
+                    + "frequencia_domingo"
                     + " FROM"
                     + " tbl_frequencia_tratamento_domingo"
                     + ";"
@@ -108,10 +118,12 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             while (this.getResultSet().next()) {
                 modelFrequenciaTratamentoDomingo = new FrequenciaTratamentoDomingoModel();
                 modelFrequenciaTratamentoDomingo.setIdFrequenciaTratamentoDomingo(this.getResultSet().getInt(1));
-                modelFrequenciaTratamentoDomingo.setIdPaciente(this.getResultSet().getInt(2));
-                modelFrequenciaTratamentoDomingo.setIdMagnetizador(this.getResultSet().getInt(3));
-                modelFrequenciaTratamentoDomingo.setFrequenciaDomingo(this.getResultSet().getString(4));
-                modelFrequenciaTratamentoDomingo.setRecomendacoesEspirituais(this.getResultSet().getString(5));
+                modelFrequenciaTratamentoDomingo.setPaciente(this.getResultSet().getInt(2));
+                modelFrequenciaTratamentoDomingo.setSetorPaciente(this.getResultSet().getInt(3));
+                modelFrequenciaTratamentoDomingo.setStatusTratamento(this.getResultSet().getInt(4));
+                modelFrequenciaTratamentoDomingo.setMagnetizador(this.getResultSet().getInt(5));
+                modelFrequenciaTratamentoDomingo.setRecomendacoesEspirituais(this.getResultSet().getString(6));
+                modelFrequenciaTratamentoDomingo.setFrequenciaDomingo(this.getResultSet().getString(7));
                 listamodelFrequenciaTratamentoDomingo.add(modelFrequenciaTratamentoDomingo);
             }
         } catch (SQLException e) {
@@ -134,10 +146,12 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_frequencia_tratamento_domingo SET "
                     + "pk_id_frequencia_tratamento_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdFrequenciaTratamentoDomingo() + "',"
-                    + "fk_id_paciente = '" + pFrequenciaTratamentoDomingoModel.getIdPaciente() + "',"
-                    + "fk_id_magnetizador = '" + pFrequenciaTratamentoDomingoModel.getIdMagnetizador() + "',"
-                    + "frequencia_domingo = '" + pFrequenciaTratamentoDomingoModel.getFrequenciaDomingo() + "',"
-                    + "recomendacoes_espirituais = '" + pFrequenciaTratamentoDomingoModel.getRecomendacoesEspirituais() + "'"
+                    + "fk_paciente = '" + pFrequenciaTratamentoDomingoModel.getPaciente() + "',"
+                    + "fk_setor_paciente = '" + pFrequenciaTratamentoDomingoModel.getSetorPaciente() + "',"
+                    + "fk_status_tratamento = '" + pFrequenciaTratamentoDomingoModel.getStatusTratamento() + "',"
+                    + "fk_magnetizador = '" + pFrequenciaTratamentoDomingoModel.getMagnetizador() + "',"
+                    + "recomendacoes_espirituais = '" + pFrequenciaTratamentoDomingoModel.getRecomendacoesEspirituais() + "',"
+                    + "frequencia_domingo = '" + pFrequenciaTratamentoDomingoModel.getFrequenciaDomingo() + "'"
                     + " WHERE "
                     + "pk_id_frequencia_tratamento_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdFrequenciaTratamentoDomingo() + "'"
                     + ";"

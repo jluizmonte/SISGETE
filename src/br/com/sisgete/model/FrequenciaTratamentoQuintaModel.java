@@ -7,10 +7,12 @@ package br.com.sisgete.model;
 public class FrequenciaTratamentoQuintaModel {
 
     private int idFrequenciaTratamentoQuinta;
-    private int idPaciente;
-    private int idMagnetizador;
-    private String frequenciaQuinta;
+    private int paciente;
+    private int setorPaciente;
+    private int statusTratamento;
+    private int magnetizador;
     private String recomendacoesEspirituais;
+    private String frequenciaQuinta;
 
     /**
      * Construtor
@@ -29,65 +31,73 @@ public class FrequenciaTratamentoQuintaModel {
 
     /**
      * return pk_idFrequenciaTratamentoQuinta
-     *
-     * @return
      */
     public int getIdFrequenciaTratamentoQuinta() {
         return this.idFrequenciaTratamentoQuinta;
     }
 
     /**
-     * seta o valor de idPaciente
+     * seta o valor de paciente
      *
-     * @param pIdPaciente
+     * @param pPaciente
      */
-    public void setIdPaciente(int pIdPaciente) {
-        this.idPaciente = pIdPaciente;
+    public void setPaciente(int pPaciente) {
+        this.paciente = pPaciente;
     }
 
     /**
-     * return fk_idPaciente
-     *
-     * @return
+     * return fk_paciente
      */
-    public int getIdPaciente() {
-        return this.idPaciente;
+    public int getPaciente() {
+        return this.paciente;
     }
 
     /**
-     * seta o valor de idMagnetizador
+     * seta o valor de setorPaciente
      *
-     * @param pIdMagnetizador
+     * @param pSetorPaciente
      */
-    public void setIdMagnetizador(int pIdMagnetizador) {
-        this.idMagnetizador = pIdMagnetizador;
+    public void setSetorPaciente(int pSetorPaciente) {
+        this.setorPaciente = pSetorPaciente;
     }
 
     /**
-     * return fk_idMagnetizador
-     *
-     * @return
+     * return fk_setorPaciente
      */
-    public int getIdMagnetizador() {
-        return this.idMagnetizador;
+    public int getSetorPaciente() {
+        return this.setorPaciente;
     }
 
     /**
-     * seta o valor de frequenciaQuinta
+     * seta o valor de statusTratamento
      *
-     * @param pFrequenciaQuinta
+     * @param pStatusTratamento
      */
-    public void setFrequenciaQuinta(String pFrequenciaQuinta) {
-        this.frequenciaQuinta = pFrequenciaQuinta;
+    public void setStatusTratamento(int pStatusTratamento) {
+        this.statusTratamento = pStatusTratamento;
     }
 
     /**
-     * return frequenciaQuinta
-     *
-     * @return
+     * return fk_statusTratamento
      */
-    public String getFrequenciaQuinta() {
-        return this.frequenciaQuinta;
+    public int getStatusTratamento() {
+        return this.statusTratamento;
+    }
+
+    /**
+     * seta o valor de magnetizador
+     *
+     * @param pMagnetizador
+     */
+    public void setMagnetizador(int pMagnetizador) {
+        this.magnetizador = pMagnetizador;
+    }
+
+    /**
+     * return fk_magnetizador
+     */
+    public int getMagnetizador() {
+        return this.magnetizador;
     }
 
     /**
@@ -101,15 +111,29 @@ public class FrequenciaTratamentoQuintaModel {
 
     /**
      * return recomendacoesEspirituais
-     *
-     * @return
      */
     public String getRecomendacoesEspirituais() {
         return this.recomendacoesEspirituais;
     }
 
+    /**
+     * seta o valor de frequenciaQuinta
+     *
+     * @param pFrequenciaQuinta
+     */
+    public void setFrequenciaQuinta(String pFrequenciaQuinta) {
+        this.frequenciaQuinta = pFrequenciaQuinta;
+    }
+
+    /**
+     * return frequenciaQuinta
+     */
+    public String getFrequenciaQuinta() {
+        return this.frequenciaQuinta;
+    }
+
     @Override
     public String toString() {
-        return "ModelFrequenciaTratamentoQuinta {" + "::idFrequenciaTratamentoQuinta = " + this.idFrequenciaTratamentoQuinta + "::idPaciente = " + this.idPaciente + "::idMagnetizador = " + this.idMagnetizador + "::frequenciaQuinta = " + this.frequenciaQuinta + "::recomendacoesEspirituais = " + this.recomendacoesEspirituais + "}";
+        return "ModelFrequenciaTratamentoQuinta {" + "::idFrequenciaTratamentoQuinta = " + this.idFrequenciaTratamentoQuinta + "::paciente = " + this.paciente + "::setorPaciente = " + this.setorPaciente + "::statusTratamento = " + this.statusTratamento + "::magnetizador = " + this.magnetizador + "::recomendacoesEspirituais = " + this.recomendacoesEspirituais + "::frequenciaQuinta = " + this.frequenciaQuinta + "}";
     }
 }
