@@ -1962,7 +1962,7 @@ jPanel4Layout.setHorizontalGroup(
     jLabel50.setText("NO CASO DE TRATAEMENTO DE DESOBSSÃO:");
 
     jcDesobsessaoSim.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jcDesobsessaoSim.setText("No Centro");
+    jcDesobsessaoSim.setText("NO CENTRO");
     jcDesobsessaoSim.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jcDesobsessaoSimActionPerformed(evt);
@@ -1970,7 +1970,7 @@ jPanel4Layout.setHorizontalGroup(
     });
 
     jcDesobsessaoNao.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jcDesobsessaoNao.setText("À Distância");
+    jcDesobsessaoNao.setText("À DISTÂNCIA");
     jcDesobsessaoNao.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jcDesobsessaoNaoActionPerformed(evt);
@@ -1984,7 +1984,7 @@ jPanel4Layout.setHorizontalGroup(
     jScrollPane1.setViewportView(jtfObjetivoTratamento);
 
     jcTratamentoSim.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jcTratamentoSim.setText("Sim");
+    jcTratamentoSim.setText("SIM");
     jcTratamentoSim.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jcTratamentoSimActionPerformed(evt);
@@ -1992,7 +1992,7 @@ jPanel4Layout.setHorizontalGroup(
     });
 
     jcTratamentoNao.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jcTratamentoNao.setText("Não");
+    jcTratamentoNao.setText("NÃO");
     jcTratamentoNao.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jcTratamentoNaoActionPerformed(evt);
@@ -2000,7 +2000,7 @@ jPanel4Layout.setHorizontalGroup(
     });
 
     jcConhecimentoEspiritaSim.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jcConhecimentoEspiritaSim.setText("Sim");
+    jcConhecimentoEspiritaSim.setText("SIM");
     jcConhecimentoEspiritaSim.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jcConhecimentoEspiritaSimActionPerformed(evt);
@@ -2008,7 +2008,7 @@ jPanel4Layout.setHorizontalGroup(
     });
 
     jcConhecimentoEspiritaNao.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jcConhecimentoEspiritaNao.setText("Não");
+    jcConhecimentoEspiritaNao.setText("NÃO");
     jcConhecimentoEspiritaNao.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jcConhecimentoEspiritaNaoActionPerformed(evt);
@@ -2468,21 +2468,21 @@ jPanel4Layout.setHorizontalGroup(
 
     private void jcTratamentoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcTratamentoSimActionPerformed
         if (this.jcTratamentoSim.isSelected()) {
-            tratamentoFecma = "Sim";
+            tratamentoFecma = "SIM";
             jcTratamentoNao.setSelected(false);
         }
    }//GEN-LAST:event_jcTratamentoSimActionPerformed
 
     private void jcTratamentoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcTratamentoNaoActionPerformed
         if (this.jcTratamentoNao.isSelected()) {
-            tratamentoFecma = "Não";
+            tratamentoFecma = "NÃO";
             jcTratamentoSim.setEnabled(false);
         }
     }//GEN-LAST:event_jcTratamentoNaoActionPerformed
 
     private void jcConhecimentoEspiritaSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcConhecimentoEspiritaSimActionPerformed
         if (this.jcConhecimentoEspiritaSim.isSelected()) {
-            conhecimentoPrevio = "Sim";
+            conhecimentoPrevio = "SIM";
             jcConhecimentoEspiritaNao.setEnabled(false);
             jtfFonte.setEnabled(true);
         }
@@ -2490,7 +2490,7 @@ jPanel4Layout.setHorizontalGroup(
 
     private void jcConhecimentoEspiritaNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcConhecimentoEspiritaNaoActionPerformed
         if (this.jcConhecimentoEspiritaNao.isSelected()) {
-            conhecimentoPrevio = "Não";
+            conhecimentoPrevio = "NÃO";
             jcConhecimentoEspiritaSim.setEnabled(false);
             jtfFonte.setEnabled(false);
         }
