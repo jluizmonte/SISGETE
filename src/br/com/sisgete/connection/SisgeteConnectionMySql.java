@@ -114,7 +114,7 @@ public class SisgeteConnectionMySql {
             this.setStatement(getCon().createStatement());
 
             // Definido o Statement, executamos a query no banco de dados
-           this.getStatement().executeUpdate(pSQL);
+            this.getStatement().executeUpdate(pSQL);
 
             // consulta o ultimo id inserido
             this.setResultSet(this.getStatement().executeQuery("SELECT last_insert_id();"));

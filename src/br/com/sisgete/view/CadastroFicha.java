@@ -6,12 +6,13 @@ package br.com.sisgete.view;
  */
 public class CadastroFicha extends javax.swing.JFrame {
 
-    /** Creates new form CadastroFicha */
+    /**
+     * Creates new form CadastroFicha
+     */
     public CadastroFicha() {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

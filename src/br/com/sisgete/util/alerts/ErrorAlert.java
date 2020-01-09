@@ -195,7 +195,6 @@ public class ErrorAlert extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_materialButton1KeyTyped
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private principal.MaterialButton materialButton1;

@@ -13,7 +13,7 @@ public class SplashView extends javax.swing.JFrame {
      * Creates new form SplashView
      */
     public SplashView() {
-         setUndecorated(true);
+        setUndecorated(true);
         initComponents();
         this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         this.setLocationRelativeTo(null);
@@ -112,7 +112,6 @@ public class SplashView extends javax.swing.JFrame {
     public static void main(String args[]) {
         new CarregarSplash().setSplashTime();
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

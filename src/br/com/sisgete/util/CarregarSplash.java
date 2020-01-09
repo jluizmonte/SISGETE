@@ -5,7 +5,7 @@ import br.com.sisgete.view.SplashView;
 
 public class CarregarSplash {
 
-    public void setSplashTime()  {
+    public void setSplashTime() {
 
         SplashView Splash = new SplashView();
 
