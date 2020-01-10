@@ -37,14 +37,12 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
      */
     public AtendimentoFraternoView() {
         this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
-        //    this.setLocation(400, 100);
         initComponents();
-        //      this.setLocationRelativeTo(this);
-        //     this.setResizable(false);
-        setExtendedState(MAXIMIZED_BOTH);
+        //setExtendedState(MAXIMIZED_BOTH);
         jlIdade.setText("");
         jlAtendente.setText(SessaoModel.nomeUsuario);
         jtfNome.requestFocusInWindow();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -143,7 +141,6 @@ public class AtendimentoFraternoView extends javax.swing.JFrame {
         jcbQuadroCansaco = new javax.swing.JComboBox<>();
         jcbQuadroSonolencia = new javax.swing.JComboBox<>();
         jbAvancarPsicofisico = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
         jbLimparSelecoes = new javax.swing.JButton();
         pnl3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -596,7 +593,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfNumImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
-                    .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jcbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(18, 18, 18)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel14)
@@ -640,12 +637,30 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     pnl1Layout.setHorizontalGroup(
         pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addComponent(jSeparator2)
+        .addGroup(pnl1Layout.createSequentialGroup()
+            .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jbAvancarPnl1)))
+            .addContainerGap())
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
                     .addComponent(jLabel11)
                     .addGap(43, 43, 43))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
+                    .addComponent(jLabel54)
+                    .addGap(216, 216, 216))))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
+                    .addComponent(jLabel63)
+                    .addGap(251, 251, 251))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
                     .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
@@ -656,25 +671,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                             .addGap(57, 57, 57)
                             .addComponent(jLabel64)
                             .addGap(85, 85, 85)))
-                    .addGap(57, 57, 57))))
-        .addGroup(pnl1Layout.createSequentialGroup()
-            .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnl1Layout.createSequentialGroup()
-                    .addGroup(pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnl1Layout.createSequentialGroup()
-                            .addGap(215, 215, 215)
-                            .addComponent(jLabel54))
-                        .addGroup(pnl1Layout.createSequentialGroup()
-                            .addGap(242, 242, 242)
-                            .addComponent(jLabel63)))
-                    .addGap(0, 0, Short.MAX_VALUE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jbAvancarPnl1)))
-            .addContainerGap())
+                    .addGap(107, 107, 107))))
     );
     pnl1Layout.setVerticalGroup(
         pnl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -687,17 +684,17 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
             .addComponent(jLabel63)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel64)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel65)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel66)
-            .addGap(28, 28, 28)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(38, 38, 38)
             .addComponent(jbAvancarPnl1)
-            .addContainerGap(97, Short.MAX_VALUE))
+            .addContainerGap(53, Short.MAX_VALUE))
     );
 
     rSPanelsSlider1.add(pnl1, "card2");
@@ -884,26 +881,6 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     jcbQuadroSonolencia.setForeground(new java.awt.Color(0, 112, 192));
     jcbQuadroSonolencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "NUNCA", "AS VEZES", "QUASE SEMPRE", "SEMPRE" }));
 
-    jbAvancarPsicofisico.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jbAvancarPsicofisico.setForeground(new java.awt.Color(0, 112, 192));
-    jbAvancarPsicofisico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-avançar-24.png"))); // NOI18N
-    jbAvancarPsicofisico.setText("Avançar");
-    jbAvancarPsicofisico.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jbAvancarPsicofisicoActionPerformed(evt);
-        }
-    });
-
-    jbLimparSelecoes.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-    jbLimparSelecoes.setForeground(new java.awt.Color(0, 112, 192));
-    jbLimparSelecoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-limpar-formatação-24.png"))); // NOI18N
-    jbLimparSelecoes.setText("Limpar Seleções");
-    jbLimparSelecoes.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jbLimparSelecoesActionPerformed(evt);
-        }
-    });
-
     javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
     jPanel5.setLayout(jPanel5Layout);
     jPanel5Layout.setHorizontalGroup(
@@ -943,7 +920,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                             .addComponent(jcbQuadroInsonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                             .addComponent(jLabel21)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jcbQuadroOuveVozes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel5Layout.createSequentialGroup()
                             .addComponent(jlabel)
@@ -1005,19 +982,12 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                     .addComponent(jLabel19)
                     .addGap(192, 192, 192)
                     .addComponent(jcbQuadroDormencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addContainerGap(62, Short.MAX_VALUE))
-        .addComponent(jSeparator1)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jbLimparSelecoes)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jbAvancarPsicofisico)
-            .addGap(22, 22, 22))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel5Layout.setVerticalGroup(
         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel5Layout.createSequentialGroup()
-            .addGap(43, 43, 43)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel22)
                 .addComponent(jcbQuadroVultos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1088,28 +1058,53 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                 .addComponent(jLabel17)
                 .addComponent(jcbQuadroAnsiedade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel19)
-                .addComponent(jcbQuadroDormencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jbAvancarPsicofisico)
-                .addComponent(jbLimparSelecoes))
-            .addGap(25, 25, 25))
+                .addComponent(jcbQuadroDormencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
     );
+
+    jbAvancarPsicofisico.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jbAvancarPsicofisico.setForeground(new java.awt.Color(0, 112, 192));
+    jbAvancarPsicofisico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-avançar-24.png"))); // NOI18N
+    jbAvancarPsicofisico.setText("Avançar");
+    jbAvancarPsicofisico.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbAvancarPsicofisicoActionPerformed(evt);
+        }
+    });
+
+    jbLimparSelecoes.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jbLimparSelecoes.setForeground(new java.awt.Color(0, 112, 192));
+    jbLimparSelecoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-limpar-formatação-24.png"))); // NOI18N
+    jbLimparSelecoes.setText("Limpar Seleções");
+    jbLimparSelecoes.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbLimparSelecoesActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout pnl2Layout = new javax.swing.GroupLayout(pnl2);
     pnl2.setLayout(pnl2Layout);
     pnl2Layout.setHorizontalGroup(
         pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(pnl2Layout.createSequentialGroup()
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 97, Short.MAX_VALUE))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl2Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jbLimparSelecoes)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jbAvancarPsicofisico)
+            .addContainerGap())
     );
     pnl2Layout.setVerticalGroup(
         pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(pnl2Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addContainerGap())
+            .addGap(43, 43, 43)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addGroup(pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jbAvancarPsicofisico)
+                .addComponent(jbLimparSelecoes))
+            .addContainerGap(175, Short.MAX_VALUE))
     );
 
     rSPanelsSlider1.add(pnl2, "card3");
@@ -1658,10 +1653,6 @@ jPanel4Layout.setHorizontalGroup(
                         .addComponent(jLabel46)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                        .addComponent(jLabel55)
-                        .addGap(56, 56, 56))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jbFeridatumor)
@@ -1679,8 +1670,11 @@ jPanel4Layout.setHorizontalGroup(
                             .addComponent(jbHipertensao)
                             .addComponent(jbDiabetes)
                             .addComponent(jbParacetamol)
-                            .addComponent(jbAlcool))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jbAlcool)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel55)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jtfPeriodoDoencaPulmoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1920,7 +1914,7 @@ jPanel4Layout.setHorizontalGroup(
             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jbAvancarPnl3)
-            .addContainerGap(52, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout pnl3Layout = new javax.swing.GroupLayout(pnl3);
@@ -2238,7 +2232,7 @@ jPanel4Layout.setHorizontalGroup(
             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addComponent(jbFinalizarAtendimento)
-            .addContainerGap(69, Short.MAX_VALUE))
+            .addContainerGap(23, Short.MAX_VALUE))
     );
 
     rSPanelsSlider1.add(pnl4, "card5");
@@ -2279,16 +2273,16 @@ jPanel4Layout.setHorizontalGroup(
     }//GEN-LAST:event_jbAvancarPsicofisicoActionPerformed
 
     private void jbAvancarPnl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAvancarPnl1ActionPerformed
-        if (!this.jbAvancarPnl1.isSelected()) {
-            rSPanelsSlider1.slidPanel(20, pnl2, RSPanelsSlider.direct.Right);
-        }
         date();
+        pnl1.hide();
+        pnl2.show();
     }//GEN-LAST:event_jbAvancarPnl1ActionPerformed
 
     private void jbHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHomeActionPerformed
-        if (!this.jbHome.isSelected()) {
-            rSPanelsSlider1.slidPanel(20, pnl1, RSPanelsSlider.direct.Right);
-        }
+//        if (!this.jbHome.isSelected()) {
+//            rSPanelsSlider1.slidPanel(20, pnl1, RSPanelsSlider.direct.Right);
+//        }
+
     }//GEN-LAST:event_jbHomeActionPerformed
 
     private void jtfDataNascimentoOnCommit(datechooser.events.CommitEvent evt) {//GEN-FIRST:event_jtfDataNascimentoOnCommit
@@ -2300,9 +2294,11 @@ jPanel4Layout.setHorizontalGroup(
     }//GEN-LAST:event_jbLimparSelecoesActionPerformed
 
     private void jbAvancarPnl3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAvancarPnl3ActionPerformed
-        if (!this.jbAvancarPnl3.isSelected()) {
-            rSPanelsSlider1.slidPanel(20, pnl4, RSPanelsSlider.direct.Right);
-        }
+//        if (!this.jbAvancarPnl3.isSelected()) {
+//            rSPanelsSlider1.slidPanel(20, pnl4, RSPanelsSlider.direct.Right);
+//        }
+        pnl3.hide();
+        pnl4.show();
     }//GEN-LAST:event_jbAvancarPnl3ActionPerformed
 
     private void jbDoencaPulmoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDoencaPulmoesActionPerformed
@@ -2449,9 +2445,10 @@ jPanel4Layout.setHorizontalGroup(
     }//GEN-LAST:event_jbFinalizarAtendimentoActionPerformed
 
     private void jbTratamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTratamentosActionPerformed
-        if (!this.jbTratamentos.isSelected()) {
-            rSPanelsSlider1.slidPanel(20, pnl3, RSPanelsSlider.direct.Right);
-        }
+//        if (!this.jbTratamentos.isSelected()) {
+//            rSPanelsSlider1.slidPanel(20, pnl3, RSPanelsSlider.direct.Right);
+//        }
+
     }//GEN-LAST:event_jbTratamentosActionPerformed
 
     private void jbQuadroPsicofiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbQuadroPsicofiscoActionPerformed
@@ -2806,7 +2803,6 @@ jPanel4Layout.setHorizontalGroup(
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JButton jbAlcool;
