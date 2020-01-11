@@ -2,6 +2,7 @@ package br.com.sisgete.view;
 
 import br.com.sisgete.util.GetDateUtil;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,6 +11,9 @@ import javax.swing.ImageIcon;
 public class CadastroFicha extends javax.swing.JFrame {
 
     GetDateUtil getDateUtil = new GetDateUtil();
+    String tipoRemedios, tipoDengue, tipoHepatite, tipoHipertensao, tipoDiabetes, tipoParacetamol, tipoAlcool, tipoFumo, tipoAlergias, tipoHernia, tipoDoencaEstomago, tipoDoencaOssos, tipoDoencaPulmoes, tipoDoencaAutoimune, tipoCancer, tipoFeridas;
+    String obsRemedios, obsDengue, obsHepatite, obsHipertensao, obsDiabetes, obsParacetamol, obsAlcool, obsFumo, obsAlergias, obsHernia, obsDoencaEstomago, obsDoencaOssos, obsDoencaPulmoes, obsDoencaAutoimune, obsCancer, obsFeridas;
+    String conhecimentoPrevio, modoDesobsessao, tratamentoFecma, setor;
 
     /**
      * Creates new form CadastroFicha
@@ -115,7 +119,93 @@ public class CadastroFicha extends javax.swing.JFrame {
         jcbQuadroCansaco = new javax.swing.JComboBox<>();
         jcbQuadroSonolencia = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
+        jbLimparSelecoes = new javax.swing.JButton();
         jpTratamentos = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jlAlcool = new javax.swing.JLabel();
+        jLabelFumo = new javax.swing.JLabel();
+        jlFeridaTumor = new javax.swing.JLabel();
+        jlCancer = new javax.swing.JLabel();
+        jlDoencaAutoimune = new javax.swing.JLabel();
+        jlDoencaOssos = new javax.swing.JLabel();
+        jlDoencaEstomago = new javax.swing.JLabel();
+        jlHernia = new javax.swing.JLabel();
+        jlAlergia = new javax.swing.JLabel();
+        jcbRemedioControlado = new javax.swing.JComboBox<>();
+        jcbDengue = new javax.swing.JComboBox<>();
+        jcbHepatite = new javax.swing.JComboBox<>();
+        jcbHipertensao = new javax.swing.JComboBox<>();
+        jcbDoencaPulmoes = new javax.swing.JComboBox<>();
+        jcbDiabetes = new javax.swing.JComboBox<>();
+        jcbParacetamol = new javax.swing.JComboBox<>();
+        jcbAlcool = new javax.swing.JComboBox<>();
+        jcbFumo = new javax.swing.JComboBox<>();
+        jcbAlergia = new javax.swing.JComboBox<>();
+        jcbHernia = new javax.swing.JComboBox<>();
+        jcbDoencaEstomago = new javax.swing.JComboBox<>();
+        jcbDoencaAutoimune = new javax.swing.JComboBox<>();
+        jcbDoencaOssos = new javax.swing.JComboBox<>();
+        jcbFeridas = new javax.swing.JComboBox<>();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jtfPeriodoDoencaPulmoes = new datechooser.beans.DateChooserCombo();
+        jbObsDoencaPulomoes = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        jbDoencaPulmoes = new javax.swing.JButton();
+        jcbCancer = new javax.swing.JComboBox<>();
+        jbCancer = new javax.swing.JButton();
+        jbFeridatumor = new javax.swing.JButton();
+        jbDoencaOssos = new javax.swing.JButton();
+        jbDoencaAutoimune = new javax.swing.JButton();
+        jbAlergia = new javax.swing.JButton();
+        jbFumo = new javax.swing.JButton();
+        jbHernia = new javax.swing.JButton();
+        jbDoencaEstomago = new javax.swing.JButton();
+        jbRemedioControlado = new javax.swing.JButton();
+        jbHepatite = new javax.swing.JButton();
+        jbDengue = new javax.swing.JButton();
+        jbDiabetes = new javax.swing.JButton();
+        jbHipertensao = new javax.swing.JButton();
+        jbAlcool = new javax.swing.JButton();
+        jbParacetamol = new javax.swing.JButton();
+        jbObsRemedio = new javax.swing.JButton();
+        jbObsHepatite = new javax.swing.JButton();
+        jbObsDengue = new javax.swing.JButton();
+        jbObsDoencaEstomago = new javax.swing.JButton();
+        jbObsHernia = new javax.swing.JButton();
+        jbObsDiabetes = new javax.swing.JButton();
+        jbObsHipertensao = new javax.swing.JButton();
+        jbObsFeridas = new javax.swing.JButton();
+        jbObsDoencaOssos = new javax.swing.JButton();
+        jbObsCancer = new javax.swing.JButton();
+        jbObsDoencaAutoimune = new javax.swing.JButton();
+        jbObsAlergia = new javax.swing.JButton();
+        jbObsFumo = new javax.swing.JButton();
+        jbObsAlcool = new javax.swing.JButton();
+        jbObsParacetamol = new javax.swing.JButton();
+        jtfPeriodoRemedio = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoDengue = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoDiabetes = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoHipertensao = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoHepatite = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoFumo = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoAlcool = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoParacetamol = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoDoencaEstomago = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoHernia = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoAlergia = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoFeridas = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoDoencaAutoimune = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoDoencaOssos = new datechooser.beans.DateChooserCombo();
+        jtfPeriodoCancer = new datechooser.beans.DateChooserCombo();
         jpOutrasInfo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -805,7 +895,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     jPanel5Layout.setVerticalGroup(
         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel5Layout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(19, 19, 19)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel22)
                 .addComponent(jcbQuadroVultos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -876,7 +966,8 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                 .addComponent(jLabel17)
                 .addComponent(jcbQuadroAnsiedade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel19)
-                .addComponent(jcbQuadroDormencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jcbQuadroDormencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(57, Short.MAX_VALUE))
     );
 
     jButton2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
@@ -888,40 +979,841 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         }
     });
 
+    jbLimparSelecoes.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jbLimparSelecoes.setForeground(new java.awt.Color(0, 112, 192));
+    jbLimparSelecoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-limpar-formatação-24.png"))); // NOI18N
+    jbLimparSelecoes.setText("Limpar Seleções");
+    jbLimparSelecoes.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbLimparSelecoesActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout jpQuadroPsicofisicoLayout = new javax.swing.GroupLayout(jpQuadroPsicofisico);
     jpQuadroPsicofisico.setLayout(jpQuadroPsicofisicoLayout);
     jpQuadroPsicofisicoLayout.setHorizontalGroup(
         jpQuadroPsicofisicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jpQuadroPsicofisicoLayout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(17, Short.MAX_VALUE))
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpQuadroPsicofisicoLayout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton2)
-            .addGap(28, 28, 28))
+            .addGroup(jpQuadroPsicofisicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jpQuadroPsicofisicoLayout.createSequentialGroup()
+                    .addComponent(jbLimparSelecoes)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(11, Short.MAX_VALUE))
     );
     jpQuadroPsicofisicoLayout.setVerticalGroup(
         jpQuadroPsicofisicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jpQuadroPsicofisicoLayout.createSequentialGroup()
             .addGap(29, 29, 29)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGap(18, 18, 18)
-            .addComponent(jButton2)
-            .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(jpQuadroPsicofisicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jButton2)
+                .addComponent(jbLimparSelecoes))
+            .addGap(14, 14, 14))
     );
 
     jpPanel3.add(jpQuadroPsicofisico, "card3");
+
+    jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+    jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabel6.setText("Rémedios Controlados");
+
+    jLabel39.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabel39.setText("Dengue");
+
+    jLabel40.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabel40.setText("Hepatite");
+
+    jLabel41.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabel41.setText("Hipertensão");
+
+    jLabel42.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabel42.setText("Diabetes");
+
+    jLabel43.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabel43.setText("Toma Paracetamol");
+
+    jlAlcool.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jlAlcool.setText("Álcool");
+
+    jLabelFumo.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabelFumo.setText("Fumo");
+
+    jlFeridaTumor.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jlFeridaTumor.setText("Feridas ou tumores");
+
+    jlCancer.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jlCancer.setText("Câncer");
+    jlCancer.setToolTipText("");
+
+    jlDoencaAutoimune.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jlDoencaAutoimune.setText("Doenças auto-imune*");
+    jlDoencaAutoimune.setToolTipText("ex. Lúpus, Viltigo");
+
+    jlDoencaOssos.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jlDoencaOssos.setText("Doença nos ossos*");
+    jlDoencaOssos.setToolTipText("ex. Atrite, Artrose, Osteoporose");
+
+    jlDoencaEstomago.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jlDoencaEstomago.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+    jlDoencaEstomago.setText("Doença no estômago");
+
+    jlHernia.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jlHernia.setText("Hérnia*");
+    jlHernia.setToolTipText("ex. Hiato, Disco, Umbilical, Inguinal");
+
+    jlAlergia.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jlAlergia.setText("Alergia");
+
+    jcbRemedioControlado.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbRemedioControlado.setForeground(new java.awt.Color(0, 112, 192));
+    jcbRemedioControlado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbDengue.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbDengue.setForeground(new java.awt.Color(0, 112, 192));
+    jcbDengue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbHepatite.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbHepatite.setForeground(new java.awt.Color(0, 112, 192));
+    jcbHepatite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbHipertensao.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbHipertensao.setForeground(new java.awt.Color(0, 112, 192));
+    jcbHipertensao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbDoencaPulmoes.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbDoencaPulmoes.setForeground(new java.awt.Color(0, 112, 192));
+    jcbDoencaPulmoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbDiabetes.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbDiabetes.setForeground(new java.awt.Color(0, 112, 192));
+    jcbDiabetes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbParacetamol.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbParacetamol.setForeground(new java.awt.Color(0, 112, 192));
+    jcbParacetamol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbAlcool.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbAlcool.setForeground(new java.awt.Color(0, 112, 192));
+    jcbAlcool.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbFumo.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbFumo.setForeground(new java.awt.Color(0, 112, 192));
+    jcbFumo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbAlergia.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbAlergia.setForeground(new java.awt.Color(0, 112, 192));
+    jcbAlergia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbHernia.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbHernia.setForeground(new java.awt.Color(0, 112, 192));
+    jcbHernia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbDoencaEstomago.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbDoencaEstomago.setForeground(new java.awt.Color(0, 112, 192));
+    jcbDoencaEstomago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbDoencaAutoimune.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbDoencaAutoimune.setForeground(new java.awt.Color(0, 112, 192));
+    jcbDoencaAutoimune.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbDoencaOssos.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbDoencaOssos.setForeground(new java.awt.Color(0, 112, 192));
+    jcbDoencaOssos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jcbFeridas.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbFeridas.setForeground(new java.awt.Color(0, 112, 192));
+    jcbFeridas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jLabel46.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+    jLabel46.setText("TRATAMENTOS/MEDICAMENTOS");
+
+    jLabel55.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+    jLabel55.setText("TIPO");
+
+    jLabel56.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+    jLabel56.setText("DESDE QUANDO?");
+
+    jLabel57.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
+    jLabel57.setText("OBSERVAÇÕES");
+
+    jtfPeriodoDoencaPulmoes.setCurrentView(new datechooser.view.appearance.AppearancesList("Grey",
+        new datechooser.view.appearance.ViewAppearance("custom",
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 0),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 0),
+                new java.awt.Color(0, 0, 255),
+                true,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 255),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(128, 128, 128),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 0),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 0),
+                new java.awt.Color(255, 0, 0),
+                false,
+                false,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            (datechooser.view.BackRenderer)null,
+            false,
+            true)));
+jtfPeriodoDoencaPulmoes.setShowOneMonth(true);
+
+jbObsDoencaPulomoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+jbObsDoencaPulomoes.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jbObsDoencaPulomoesActionPerformed(evt);
+    }
+    });
+
+    jLabel28.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabel28.setText("Doença nos pulmões");
+
+    jbDoencaPulmoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbDoencaPulmoes.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbDoencaPulmoesActionPerformed(evt);
+        }
+    });
+
+    jcbCancer.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+    jcbCancer.setForeground(new java.awt.Color(0, 112, 192));
+    jcbCancer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE", "SIM", "NÃO" }));
+
+    jbCancer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbCancer.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbCancerActionPerformed(evt);
+        }
+    });
+
+    jbFeridatumor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbFeridatumor.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbFeridatumorActionPerformed(evt);
+        }
+    });
+
+    jbDoencaOssos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbDoencaOssos.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbDoencaOssosActionPerformed(evt);
+        }
+    });
+
+    jbDoencaAutoimune.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbDoencaAutoimune.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbDoencaAutoimuneActionPerformed(evt);
+        }
+    });
+
+    jbAlergia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbAlergia.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbAlergiaActionPerformed(evt);
+        }
+    });
+
+    jbFumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbFumo.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbFumoActionPerformed(evt);
+        }
+    });
+
+    jbHernia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbHernia.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbHerniaActionPerformed(evt);
+        }
+    });
+
+    jbDoencaEstomago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbDoencaEstomago.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbDoencaEstomagoActionPerformed(evt);
+        }
+    });
+
+    jbRemedioControlado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbRemedioControlado.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbRemedioControladoActionPerformed(evt);
+        }
+    });
+
+    jbHepatite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbHepatite.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbHepatiteActionPerformed(evt);
+        }
+    });
+
+    jbDengue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbDengue.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbDengueActionPerformed(evt);
+        }
+    });
+
+    jbDiabetes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbDiabetes.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbDiabetesActionPerformed(evt);
+        }
+    });
+
+    jbHipertensao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbHipertensao.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbHipertensaoActionPerformed(evt);
+        }
+    });
+
+    jbAlcool.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbAlcool.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbAlcoolActionPerformed(evt);
+        }
+    });
+
+    jbParacetamol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-tipo-20.png"))); // NOI18N
+    jbParacetamol.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbParacetamolActionPerformed(evt);
+        }
+    });
+
+    jbObsRemedio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsRemedio.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsRemedioActionPerformed(evt);
+        }
+    });
+
+    jbObsHepatite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsHepatite.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsHepatiteActionPerformed(evt);
+        }
+    });
+
+    jbObsDengue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsDengue.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsDengueActionPerformed(evt);
+        }
+    });
+
+    jbObsDoencaEstomago.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsDoencaEstomago.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsDoencaEstomagoActionPerformed(evt);
+        }
+    });
+
+    jbObsHernia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsHernia.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsHerniaActionPerformed(evt);
+        }
+    });
+
+    jbObsDiabetes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsDiabetes.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsDiabetesActionPerformed(evt);
+        }
+    });
+
+    jbObsHipertensao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsHipertensao.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsHipertensaoActionPerformed(evt);
+        }
+    });
+
+    jbObsFeridas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsFeridas.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsFeridasActionPerformed(evt);
+        }
+    });
+
+    jbObsDoencaOssos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsDoencaOssos.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsDoencaOssosActionPerformed(evt);
+        }
+    });
+
+    jbObsCancer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsCancer.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsCancerActionPerformed(evt);
+        }
+    });
+
+    jbObsDoencaAutoimune.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsDoencaAutoimune.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsDoencaAutoimuneActionPerformed(evt);
+        }
+    });
+
+    jbObsAlergia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsAlergia.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsAlergiaActionPerformed(evt);
+        }
+    });
+
+    jbObsFumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsFumo.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsFumoActionPerformed(evt);
+        }
+    });
+
+    jbObsAlcool.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsAlcool.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsAlcoolActionPerformed(evt);
+        }
+    });
+
+    jbObsParacetamol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-linha-20.png"))); // NOI18N
+    jbObsParacetamol.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jbObsParacetamolActionPerformed(evt);
+        }
+    });
+
+    jtfPeriodoRemedio.setShowOneMonth(true);
+
+    jtfPeriodoDengue.setShowOneMonth(true);
+
+    jtfPeriodoDiabetes.setShowOneMonth(true);
+
+    jtfPeriodoHipertensao.setShowOneMonth(true);
+
+    jtfPeriodoHepatite.setShowOneMonth(true);
+
+    jtfPeriodoFumo.setCurrentView(new datechooser.view.appearance.AppearancesList("Grey",
+        new datechooser.view.appearance.ViewAppearance("custom",
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 0),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 0),
+                new java.awt.Color(0, 0, 255),
+                true,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 255),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(128, 128, 128),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 0),
+                new java.awt.Color(0, 0, 255),
+                false,
+                true,
+                new datechooser.view.appearance.swing.LabelPainter()),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Noto Sans", java.awt.Font.PLAIN, 12),
+                new java.awt.Color(0, 0, 0),
+                new java.awt.Color(255, 0, 0),
+                false,
+                false,
+                new datechooser.view.appearance.swing.ButtonPainter()),
+            (datechooser.view.BackRenderer)null,
+            false,
+            true)));
+jtfPeriodoFumo.setShowOneMonth(true);
+
+jtfPeriodoParacetamol.setShowOneMonth(true);
+
+jtfPeriodoDoencaEstomago.setShowOneMonth(true);
+
+jtfPeriodoHernia.setShowOneMonth(true);
+
+jtfPeriodoAlergia.setShowOneMonth(true);
+
+jtfPeriodoFeridas.setShowOneMonth(true);
+
+jtfPeriodoDoencaAutoimune.setShowOneMonth(true);
+
+jtfPeriodoDoencaOssos.setShowOneMonth(true);
+
+jtfPeriodoCancer.setShowOneMonth(true);
+
+javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+jPanel4.setLayout(jPanel4Layout);
+jPanel4Layout.setHorizontalGroup(
+    jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    .addGroup(jPanel4Layout.createSequentialGroup()
+        .addGap(6, 6, 6)
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel28)
+                .addGap(16, 16, 16)
+                .addComponent(jcbDoencaPulmoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jlFeridaTumor)
+            .addComponent(jlHernia)
+            .addComponent(jlAlergia)
+            .addComponent(jLabel43)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlAlcool)
+                    .addComponent(jLabelFumo)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel40)
+                    .addComponent(jLabel41)
+                    .addComponent(jLabel42))
+                .addGap(3, 3, 3)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jcbRemedioControlado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jcbDengue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jcbHernia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jcbHipertensao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbHepatite, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbAlcool, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbParacetamol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbDiabetes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbFumo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcbAlergia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addComponent(jlDoencaOssos)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jcbDoencaOssos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addComponent(jlDoencaEstomago, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jcbDoencaEstomago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlDoencaAutoimune, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCancer))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcbFeridas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbDoencaAutoimune, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbCancer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel46)))
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbFeridatumor)
+                    .addComponent(jbCancer)
+                    .addComponent(jbDoencaOssos)
+                    .addComponent(jbDoencaAutoimune)
+                    .addComponent(jbHernia)
+                    .addComponent(jbDoencaEstomago)
+                    .addComponent(jbFumo)
+                    .addComponent(jbAlergia)
+                    .addComponent(jbDoencaPulmoes)
+                    .addComponent(jbRemedioControlado)
+                    .addComponent(jbDengue)
+                    .addComponent(jbHepatite)
+                    .addComponent(jbHipertensao)
+                    .addComponent(jbDiabetes)
+                    .addComponent(jbParacetamol)
+                    .addComponent(jbAlcool)))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel55)))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jtfPeriodoDoencaPulmoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfPeriodoRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jtfPeriodoDengue, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jtfPeriodoHepatite, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfPeriodoHipertensao, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jtfPeriodoDiabetes, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jtfPeriodoParacetamol, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfPeriodoAlcool, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jtfPeriodoFumo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jtfPeriodoAlergia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfPeriodoHernia, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jtfPeriodoDoencaEstomago, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jtfPeriodoDoencaOssos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfPeriodoDoencaAutoimune, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jtfPeriodoFeridas, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jtfPeriodoCancer, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jLabel56)))
+        .addGap(29, 29, 29)
+        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel57)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbObsRemedio)
+                    .addComponent(jbObsDoencaPulomoes)
+                    .addComponent(jbObsHepatite)
+                    .addComponent(jbObsDengue)
+                    .addComponent(jbObsDiabetes)
+                    .addComponent(jbObsHipertensao)
+                    .addComponent(jbObsDoencaEstomago)
+                    .addComponent(jbObsHernia)
+                    .addComponent(jbObsDoencaAutoimune)
+                    .addComponent(jbObsDoencaOssos)
+                    .addComponent(jbObsCancer)
+                    .addComponent(jbObsFeridas)
+                    .addComponent(jbObsAlcool)
+                    .addComponent(jbObsAlergia)
+                    .addComponent(jbObsFumo)
+                    .addComponent(jbObsParacetamol))))
+        .addContainerGap())
+    );
+    jPanel4Layout.setVerticalGroup(
+        jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel46)
+                .addComponent(jLabel56)
+                .addComponent(jLabel57)
+                .addComponent(jLabel55))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addComponent(jbObsDoencaPulomoes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsDengue, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsHepatite, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsHipertensao, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsDiabetes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbObsParacetamol, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsAlcool, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsFumo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsHernia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsDoencaEstomago, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsDoencaOssos, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsDoencaAutoimune, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsFeridas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jbObsCancer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel28)
+                            .addComponent(jcbDoencaPulmoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbDoencaPulmoes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtfPeriodoDoencaPulmoes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jcbRemedioControlado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbRemedioControlado, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtfPeriodoRemedio, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jcbDengue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel39))
+                            .addGap(9, 9, 9)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jcbHepatite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel40))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jcbHipertensao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel41))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jcbDiabetes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel42))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel43)
+                                .addComponent(jcbParacetamol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(8, 8, 8)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jlAlcool)
+                                .addComponent(jcbAlcool, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelFumo)
+                                .addComponent(jcbFumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jlAlergia)
+                                .addComponent(jcbAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jlHernia)
+                                .addComponent(jcbHernia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jlDoencaEstomago)
+                                .addComponent(jcbDoencaEstomago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jbDengue, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtfPeriodoDengue, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jbHepatite, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jbHipertensao, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jbDiabetes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jtfPeriodoHepatite, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtfPeriodoHipertensao, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtfPeriodoDiabetes, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jbParacetamol, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jbAlcool, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(11, 11, 11)
+                                    .addComponent(jbFumo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jtfPeriodoParacetamol, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtfPeriodoAlcool, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtfPeriodoFumo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jbAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jbHernia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jbDoencaEstomago, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jtfPeriodoAlergia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtfPeriodoHernia, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtfPeriodoDoencaEstomago, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jlDoencaOssos)
+                                        .addComponent(jcbDoencaOssos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jlDoencaAutoimune)
+                                        .addComponent(jcbDoencaAutoimune, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jbDoencaOssos, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jbDoencaAutoimune, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jbFeridatumor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jbCancer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jlFeridaTumor)
+                                        .addComponent(jcbFeridas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jlCancer)
+                                        .addComponent(jcbCancer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(jtfPeriodoDoencaOssos, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfPeriodoDoencaAutoimune, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfPeriodoFeridas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfPeriodoCancer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+    );
 
     javax.swing.GroupLayout jpTratamentosLayout = new javax.swing.GroupLayout(jpTratamentos);
     jpTratamentos.setLayout(jpTratamentosLayout);
     jpTratamentosLayout.setHorizontalGroup(
         jpTratamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 711, Short.MAX_VALUE)
+        .addGroup(jpTratamentosLayout.createSequentialGroup()
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 28, Short.MAX_VALUE))
     );
     jpTratamentosLayout.setVerticalGroup(
         jpTratamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 523, Short.MAX_VALUE)
+        .addGroup(jpTratamentosLayout.createSequentialGroup()
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 0, Short.MAX_VALUE))
     );
 
     jpPanel3.add(jpTratamentos, "card4");
@@ -936,7 +1828,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     );
     jpOutrasInfoLayout.setVerticalGroup(
         jpOutrasInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 523, Short.MAX_VALUE)
+        .addGap(0, 580, Short.MAX_VALUE)
     );
 
     jpPanel3.add(jpOutrasInfo, "card5");
@@ -948,7 +1840,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addComponent(jpBarraLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jpPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jpPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE))
     );
     jPanel1Layout.setVerticalGroup(
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -964,7 +1856,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
+        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
     );
 
     pack();
@@ -990,6 +1882,138 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         this.jpTratamentos.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jbLimparSelecoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparSelecoesActionPerformed
+        limparSelecao();
+    }//GEN-LAST:event_jbLimparSelecoesActionPerformed
+
+    private void jbObsDoencaPulomoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsDoencaPulomoesActionPerformed
+        obsDoencaPulmoes = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsDoencaPulomoesActionPerformed
+
+    private void jbDoencaPulmoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDoencaPulmoesActionPerformed
+        tipoDoencaPulmoes = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbDoencaPulmoesActionPerformed
+
+    private void jbCancerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancerActionPerformed
+        tipoCancer = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbCancerActionPerformed
+
+    private void jbFeridatumorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFeridatumorActionPerformed
+        tipoFeridas = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbFeridatumorActionPerformed
+
+    private void jbDoencaOssosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDoencaOssosActionPerformed
+        tipoDoencaOssos = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbDoencaOssosActionPerformed
+
+    private void jbDoencaAutoimuneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDoencaAutoimuneActionPerformed
+        tipoDoencaAutoimune = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbDoencaAutoimuneActionPerformed
+
+    private void jbAlergiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlergiaActionPerformed
+        tipoAlergias = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbAlergiaActionPerformed
+
+    private void jbFumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFumoActionPerformed
+        tipoFumo = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbFumoActionPerformed
+
+    private void jbHerniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHerniaActionPerformed
+        tipoHernia = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbHerniaActionPerformed
+
+    private void jbDoencaEstomagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDoencaEstomagoActionPerformed
+        tipoDoencaEstomago = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbDoencaEstomagoActionPerformed
+
+    private void jbRemedioControladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRemedioControladoActionPerformed
+        tipoRemedios = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbRemedioControladoActionPerformed
+
+    private void jbHepatiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHepatiteActionPerformed
+        tipoHepatite = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbHepatiteActionPerformed
+
+    private void jbDengueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDengueActionPerformed
+        tipoDengue = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbDengueActionPerformed
+
+    private void jbDiabetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDiabetesActionPerformed
+        tipoDiabetes = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbDiabetesActionPerformed
+
+    private void jbHipertensaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbHipertensaoActionPerformed
+        tipoHipertensao = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbHipertensaoActionPerformed
+
+    private void jbAlcoolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlcoolActionPerformed
+        tipoAlcool = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbAlcoolActionPerformed
+
+    private void jbParacetamolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbParacetamolActionPerformed
+        tipoParacetamol = JOptionPane.showInputDialog(this, "Entre com o tipo:");
+    }//GEN-LAST:event_jbParacetamolActionPerformed
+
+    private void jbObsRemedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsRemedioActionPerformed
+        obsRemedios = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsRemedioActionPerformed
+
+    private void jbObsHepatiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsHepatiteActionPerformed
+        obsHepatite = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsHepatiteActionPerformed
+
+    private void jbObsDengueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsDengueActionPerformed
+        obsDengue = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsDengueActionPerformed
+
+    private void jbObsDoencaEstomagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsDoencaEstomagoActionPerformed
+        obsDoencaEstomago = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsDoencaEstomagoActionPerformed
+
+    private void jbObsHerniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsHerniaActionPerformed
+        obsHernia = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsHerniaActionPerformed
+
+    private void jbObsDiabetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsDiabetesActionPerformed
+        obsDiabetes = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsDiabetesActionPerformed
+
+    private void jbObsHipertensaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsHipertensaoActionPerformed
+        obsHipertensao = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsHipertensaoActionPerformed
+
+    private void jbObsFeridasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsFeridasActionPerformed
+        obsFeridas = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsFeridasActionPerformed
+
+    private void jbObsDoencaOssosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsDoencaOssosActionPerformed
+        obsDoencaOssos = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsDoencaOssosActionPerformed
+
+    private void jbObsCancerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsCancerActionPerformed
+        obsCancer = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsCancerActionPerformed
+
+    private void jbObsDoencaAutoimuneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsDoencaAutoimuneActionPerformed
+        obsDoencaAutoimune = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsDoencaAutoimuneActionPerformed
+
+    private void jbObsAlergiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsAlergiaActionPerformed
+        obsAlergias = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsAlergiaActionPerformed
+
+    private void jbObsFumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsFumoActionPerformed
+        obsFumo = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsFumoActionPerformed
+
+    private void jbObsAlcoolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsAlcoolActionPerformed
+        obsAlcool = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsAlcoolActionPerformed
+
+    private void jbObsParacetamolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbObsParacetamolActionPerformed
+        obsParacetamol = JOptionPane.showInputDialog(this, "Entre com a observação");
+    }//GEN-LAST:event_jbObsParacetamolActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1006,22 +2030,16 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CadastroFicha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
+        //</editor-fold>
+
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadastroFicha().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CadastroFicha().setVisible(true);
         });
     }
 
@@ -1038,6 +2056,34 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
         jlIdade.setText(String.valueOf(idade));
         //   jlData.setText(getDateUtil.getDateTime());
     }
+
+    private void limparSelecao() {
+        jcbQuadroAngustia.setSelectedItem("SELECIONE");
+        jcbQuadroAnsiedade.setSelectedItem("SELECIONE");
+        jcbQuadroCalafrios.setSelectedItem("SELECIONE");
+        jcbQuadroCansaco.setSelectedItem("SELECIONE");
+        jcbQuadroDesanimo.setSelectedItem("SELECIONE");
+        jcbQuadroDorCabeca.setSelectedItem("SELECIONE");
+        jcbQuadroDorColuna.setSelectedItem("SELECIONE");
+        jcbQuadroDorPerna.setSelectedItem("SELECIONE");
+        jcbQuadroDormencia.setSelectedItem("SELECIONE");
+        jcbQuadroFaltaApetite.setSelectedItem("SELECIONE");
+        jcbQuadroFaltaConcetracao.setSelectedItem("SELECIONE");
+        jcbQuadroIdeiasSuicidas.setSelectedItem("SELECIONE");
+        jcbQuadroInsonia.setSelectedItem("SELECIONE");
+        jcbQuadroIrritacao.setSelectedItem("SELECIONE");
+        jcbQuadroMedo.setSelectedItem("SELECIONE");
+        jcbQuadroOuveVozes.setSelectedItem("SELECIONE");
+        jcbQuadroPesadelos.setSelectedItem("SELECIONE");
+        jcbQuadroPresencaEspiritos.setSelectedItem("SELECIONE");
+        jcbQuadroSonolencia.setSelectedItem("SELECIONE");
+        jcbQuadroSudorese.setSelectedItem("SELECIONE");
+        jcbQuadroTaquicardia.setSelectedItem("SELECIONE");
+        jcbQuadroTonturas.setSelectedItem("SELECIONE");
+        jcbQuadroVultos.setSelectedItem("SELECIONE");
+        jcbQuadroZumbidos.setSelectedItem("SELECIONE");
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1061,6 +2107,7 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -1072,24 +2119,84 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelFumo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton jbAlcool;
+    private javax.swing.JButton jbAlergia;
+    private javax.swing.JButton jbCancer;
+    private javax.swing.JButton jbDengue;
+    private javax.swing.JButton jbDiabetes;
+    private javax.swing.JButton jbDoencaAutoimune;
+    private javax.swing.JButton jbDoencaEstomago;
+    private javax.swing.JButton jbDoencaOssos;
+    private javax.swing.JButton jbDoencaPulmoes;
+    private javax.swing.JButton jbFeridatumor;
+    private javax.swing.JButton jbFumo;
+    private javax.swing.JButton jbHepatite;
+    private javax.swing.JButton jbHernia;
+    private javax.swing.JButton jbHipertensao;
     private javax.swing.JButton jbHome;
+    private javax.swing.JButton jbLimparSelecoes;
+    private javax.swing.JButton jbObsAlcool;
+    private javax.swing.JButton jbObsAlergia;
+    private javax.swing.JButton jbObsCancer;
+    private javax.swing.JButton jbObsDengue;
+    private javax.swing.JButton jbObsDiabetes;
+    private javax.swing.JButton jbObsDoencaAutoimune;
+    private javax.swing.JButton jbObsDoencaEstomago;
+    private javax.swing.JButton jbObsDoencaOssos;
+    private javax.swing.JButton jbObsDoencaPulomoes;
+    private javax.swing.JButton jbObsFeridas;
+    private javax.swing.JButton jbObsFumo;
+    private javax.swing.JButton jbObsHepatite;
+    private javax.swing.JButton jbObsHernia;
+    private javax.swing.JButton jbObsHipertensao;
+    private javax.swing.JButton jbObsParacetamol;
+    private javax.swing.JButton jbObsRemedio;
+    private javax.swing.JButton jbParacetamol;
+    private javax.swing.JButton jbRemedioControlado;
+    private javax.swing.JComboBox<String> jcbAlcool;
+    private javax.swing.JComboBox<String> jcbAlergia;
+    private javax.swing.JComboBox<String> jcbCancer;
     private javax.swing.JComboBox<String> jcbCidade;
+    private javax.swing.JComboBox<String> jcbDengue;
+    private javax.swing.JComboBox<String> jcbDiabetes;
+    private javax.swing.JComboBox<String> jcbDoencaAutoimune;
+    private javax.swing.JComboBox<String> jcbDoencaEstomago;
+    private javax.swing.JComboBox<String> jcbDoencaOssos;
+    private javax.swing.JComboBox<String> jcbDoencaPulmoes;
+    private javax.swing.JComboBox<String> jcbFeridas;
+    private javax.swing.JComboBox<String> jcbFumo;
+    private javax.swing.JComboBox<String> jcbHepatite;
+    private javax.swing.JComboBox<String> jcbHernia;
+    private javax.swing.JComboBox<String> jcbHipertensao;
+    private javax.swing.JComboBox<String> jcbParacetamol;
     private javax.swing.JComboBox<String> jcbQuadroAngustia;
     private javax.swing.JComboBox<String> jcbQuadroAnsiedade;
     private javax.swing.JComboBox<String> jcbQuadroCalafrios;
@@ -1114,6 +2221,15 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     private javax.swing.JComboBox<String> jcbQuadroTonturas;
     private javax.swing.JComboBox<String> jcbQuadroVultos;
     private javax.swing.JComboBox<String> jcbQuadroZumbidos;
+    private javax.swing.JComboBox<String> jcbRemedioControlado;
+    private javax.swing.JLabel jlAlcool;
+    private javax.swing.JLabel jlAlergia;
+    private javax.swing.JLabel jlCancer;
+    private javax.swing.JLabel jlDoencaAutoimune;
+    private javax.swing.JLabel jlDoencaEstomago;
+    private javax.swing.JLabel jlDoencaOssos;
+    private javax.swing.JLabel jlFeridaTumor;
+    private javax.swing.JLabel jlHernia;
     private javax.swing.JLabel jlIdade;
     private javax.swing.JLabel jlabel;
     private javax.swing.JPanel jpBarraLateral;
@@ -1127,6 +2243,22 @@ jtfDataNascimento.addCommitListener(new datechooser.events.CommitListener() {
     private javax.swing.JTextField jtfEmail;
     private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfNumImovel;
+    private datechooser.beans.DateChooserCombo jtfPeriodoAlcool;
+    private datechooser.beans.DateChooserCombo jtfPeriodoAlergia;
+    private datechooser.beans.DateChooserCombo jtfPeriodoCancer;
+    private datechooser.beans.DateChooserCombo jtfPeriodoDengue;
+    private datechooser.beans.DateChooserCombo jtfPeriodoDiabetes;
+    private datechooser.beans.DateChooserCombo jtfPeriodoDoencaAutoimune;
+    private datechooser.beans.DateChooserCombo jtfPeriodoDoencaEstomago;
+    private datechooser.beans.DateChooserCombo jtfPeriodoDoencaOssos;
+    private datechooser.beans.DateChooserCombo jtfPeriodoDoencaPulmoes;
+    private datechooser.beans.DateChooserCombo jtfPeriodoFeridas;
+    private datechooser.beans.DateChooserCombo jtfPeriodoFumo;
+    private datechooser.beans.DateChooserCombo jtfPeriodoHepatite;
+    private datechooser.beans.DateChooserCombo jtfPeriodoHernia;
+    private datechooser.beans.DateChooserCombo jtfPeriodoHipertensao;
+    private datechooser.beans.DateChooserCombo jtfPeriodoParacetamol;
+    private datechooser.beans.DateChooserCombo jtfPeriodoRemedio;
     private javax.swing.JTextField jtfRua;
     private javax.swing.JFormattedTextField jtfTelefone;
     private rojerusan.RSPanelImage rSPanelImage1;
