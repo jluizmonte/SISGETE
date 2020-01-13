@@ -2923,7 +2923,7 @@ jPanel4Layout.setVerticalGroup(
     private void jcDesobsessaoCentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDesobsessaoCentroActionPerformed
         if (jcDesobsessaoCentro.isSelected()) {
             jcDesobsessaoDistancia.setEnabled(false);
-            MedicamentoUtil.modoDesobsessao = jcDesobsessaoCentro.getText();
+            MedicamentoUtil.modoDesobsessao = jcDesobsessaoCentro.getText().toUpperCase();
         } else {
             jcDesobsessaoDistancia.setEnabled(true);
         }
@@ -2932,7 +2932,7 @@ jPanel4Layout.setVerticalGroup(
     private void jcDesobsessaoDistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcDesobsessaoDistanciaActionPerformed
         if (jcDesobsessaoDistancia.isSelected()) {
             jcDesobsessaoCentro.setEnabled(false);
-            MedicamentoUtil.modoDesobsessao = jcDesobsessaoDistancia.getText();
+            MedicamentoUtil.modoDesobsessao = jcDesobsessaoDistancia.getText().toUpperCase();
         } else {
             jcDesobsessaoCentro.setEnabled(true);
         }
@@ -3059,7 +3059,7 @@ jPanel4Layout.setVerticalGroup(
     private void obterDadosTratamentoMedicamento() {
         //dados do paciente
         pacienteModel.setDataNascimento(jtfDataNascimento.getText());
-        pacienteModel.setEmail(jtfEmail.getText());
+        pacienteModel.setEmail(jtfEmail.getText().toUpperCase());
         pacienteModel.setFonteConhecimentoEspirita(jtfFonte.getText().toUpperCase());
         pacienteModel.setIdade(Integer.parseInt(jlIdade.getText()));
         pacienteModel.setNome(jtfNome.getText().toUpperCase());
