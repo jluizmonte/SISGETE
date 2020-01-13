@@ -3,6 +3,7 @@ package br.com.sisgete.view;
 import br.com.sisgete.controller.MagnetizadorController;
 import br.com.sisgete.model.MagnetizadorModel;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +21,7 @@ public class MagnetizadorView extends javax.swing.JFrame {
      * Creates new form MagnetizadorView
      */
     public MagnetizadorView() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);

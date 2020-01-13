@@ -10,6 +10,7 @@ import br.com.sisgete.model.MagnetizadorModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.util.GetDateUtil;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,6 +41,7 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
      * Creates new form FrequenciaDomingoView
      */
     public FrequenciaDomingoView() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
