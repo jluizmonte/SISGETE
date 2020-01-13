@@ -1,6 +1,8 @@
 package br.com.sisgete.view;
 
+import br.com.sisgete.controller.AuxiliarController;
 import br.com.sisgete.controller.MagnetizadorController;
+import br.com.sisgete.model.AuxiliarModel;
 import br.com.sisgete.model.MagnetizadorModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -10,16 +12,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author luiz
  */
-public class MagnetizadorView extends javax.swing.JFrame {
+public class AuxiliarView extends javax.swing.JFrame {
 
-    MagnetizadorController magnetizadorController = new MagnetizadorController();
-    MagnetizadorModel magnetizadorModel = new MagnetizadorModel();
-    ArrayList<MagnetizadorModel> listaMagnetizadorModels = new ArrayList<>();
+    AuxiliarController auxiliarController = new AuxiliarController();
+    AuxiliarModel auxiliarModel = new AuxiliarModel();
+    ArrayList<AuxiliarModel> listaAuxiliarModels = new ArrayList<>();
 
     /**
      * Creates new form MagnetizadorView
      */
-    public MagnetizadorView() {
+    public AuxiliarView() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -32,7 +34,7 @@ public class MagnetizadorView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jtfMagnetizador = new javax.swing.JTextField();
+        jtfAuxiliar = new javax.swing.JTextField();
         jbSalvar = new javax.swing.JButton();
         jbCancelar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -40,20 +42,20 @@ public class MagnetizadorView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtMagnetizador = new javax.swing.JTable();
+        jtAuxiliar = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel4.setText("NOME DO MAGNETIZADOR.:");
+        jLabel4.setText("NOME DO AUXILIAR.:");
 
-        jtfMagnetizador.setFont(new java.awt.Font("DejaVu Sans", 1, 16)); // NOI18N
-        jtfMagnetizador.setForeground(new java.awt.Color(0, 112, 192));
-        jtfMagnetizador.addActionListener(new java.awt.event.ActionListener() {
+        jtfAuxiliar.setFont(new java.awt.Font("DejaVu Sans", 1, 16)); // NOI18N
+        jtfAuxiliar.setForeground(new java.awt.Color(0, 112, 192));
+        jtfAuxiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfMagnetizadorActionPerformed(evt);
+                jtfAuxiliarActionPerformed(evt);
             }
         });
 
@@ -79,7 +81,7 @@ public class MagnetizadorView extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("REGULARES NO ATENDIMENTO ESPIRITUAL MAGNÉTICO");
+        jLabel3.setText(" REGULARES NO ATENDIMENTO ESPIRITUAL MAGNÉTICO");
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,7 +89,7 @@ public class MagnetizadorView extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("UTILIZE ESTE FORMULÁRIO PARA CADASTRAR OS MAGNETIZADORES");
+        jLabel2.setText("UTILIZE ESTE FORMULÁRIO PARA CADASTRAR OS AUXILIARES");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -98,29 +100,29 @@ public class MagnetizadorView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel3)))
-                .addGap(17, 17, 17))
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(88, 88, 88))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(16, 16, 16))
         );
 
-        jtMagnetizador.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jtMagnetizador.setForeground(new java.awt.Color(0, 112, 192));
-        jtMagnetizador.setModel(new javax.swing.table.DefaultTableModel(
+        jtAuxiliar.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jtAuxiliar.setForeground(new java.awt.Color(0, 112, 192));
+        jtAuxiliar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -146,10 +148,10 @@ public class MagnetizadorView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jtMagnetizador.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jtMagnetizador);
-        if (jtMagnetizador.getColumnModel().getColumnCount() > 0) {
-            jtMagnetizador.getColumnModel().getColumn(0).setMaxWidth(25);
+        jtAuxiliar.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jtAuxiliar);
+        if (jtAuxiliar.getColumnModel().getColumnCount() > 0) {
+            jtAuxiliar.getColumnModel().getColumn(0).setMaxWidth(25);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -165,7 +167,7 @@ public class MagnetizadorView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbSalvar))
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfMagnetizador, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE))
+                    .addComponent(jtfAuxiliar, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -176,7 +178,7 @@ public class MagnetizadorView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfMagnetizador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfAuxiliar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbSalvar)
@@ -209,20 +211,21 @@ public class MagnetizadorView extends javax.swing.JFrame {
         salvarDados();
     }//GEN-LAST:event_jbSalvarActionPerformed
 
-    private void jtfMagnetizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfMagnetizadorActionPerformed
+    private void jtfAuxiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfAuxiliarActionPerformed
         salvarDados();
-    }//GEN-LAST:event_jtfMagnetizadorActionPerformed
+
+    }//GEN-LAST:event_jtfAuxiliarActionPerformed
 
     private void limparCampos() {
-        jtfMagnetizador.setText("");
+        jtfAuxiliar.setText("");
     }
 
     private void salvarDados() {
-        magnetizadorModel.setNomeMagnetizador(jtfMagnetizador.getText().toUpperCase());
-        if (magnetizadorController.salvarMagnetizadorController(magnetizadorModel) > 1) {
+        auxiliarModel.setNomeAuxiliar(jtfAuxiliar.getText().toUpperCase());
+        if (auxiliarController.salvarAuxiliarController(auxiliarModel) > 1) {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
             limparCampos();
-            jtfMagnetizador.requestFocusInWindow();
+            jtfAuxiliar.requestFocusInWindow();
             carregarDados();
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -230,16 +233,16 @@ public class MagnetizadorView extends javax.swing.JFrame {
     }
 
     private void carregarDados() {
-        listaMagnetizadorModels = new ArrayList<>();
-        listaMagnetizadorModels = magnetizadorController.getListaMagnetizadorController();
-        DefaultTableModel modelo = (DefaultTableModel) jtMagnetizador.getModel();
+        listaAuxiliarModels = new ArrayList<>();
+        listaAuxiliarModels = auxiliarController.getListaAuxiliarController();
+        DefaultTableModel modelo = (DefaultTableModel) jtAuxiliar.getModel();
         modelo.setNumRows(0);
 
-        int cont = listaMagnetizadorModels.size();
+        int cont = listaAuxiliarModels.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
-                listaMagnetizadorModels.get(i).getIdMagnetizador(),
-                listaMagnetizadorModels.get(i).getNomeMagnetizador()
+                listaAuxiliarModels.get(i).getIdAuxiliar(),
+                listaAuxiliarModels.get(i).getNomeAuxiliar()
             });
         }
     }
@@ -253,8 +256,8 @@ public class MagnetizadorView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbSalvar;
-    private javax.swing.JTable jtMagnetizador;
-    private javax.swing.JTextField jtfMagnetizador;
+    private javax.swing.JTable jtAuxiliar;
+    private javax.swing.JTextField jtfAuxiliar;
     // End of variables declaration//GEN-END:variables
 
 }

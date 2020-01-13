@@ -1,5 +1,7 @@
 package br.com.sisgete.util;
 
+import br.com.sisgete.view.AuxiliarView;
+import br.com.sisgete.view.MagnetizadorView;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -11,7 +13,8 @@ public class SisgeteLoaderUtil {
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         String tema = GUIProperties.PLAF_NIMBUS;
-            UIManager.setLookAndFeel(tema);
-            new CarregarSplash().setSplashTime();
+        UIManager.setLookAndFeel(tema);
+        new CarregarSplash().setSplashTime();
+        //new MagnetizadorView().setVisible(true);
     }
 }

@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
  * @author luiz
  */
 public class LoginView extends javax.swing.JDialog {
-    
+
     UsuarioController usuarioController = new UsuarioController();
     UsuarioModel usuarioModel = new UsuarioModel();
     int x, y;
@@ -35,7 +35,7 @@ public class LoginView extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         jtfUsuario.requestFocusInWindow();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -273,12 +273,12 @@ public class LoginView extends javax.swing.JDialog {
             login();
         }
     }//GEN-LAST:event_jtfSenhaActionPerformed
-    
+
     private void login() {
-        
+
         usuarioModel.setUsuario(jtfUsuario.getText());
         usuarioModel.setSenha(String.valueOf(jtfSenha.getPassword()));
-        
+
         try {
             if (usuarioController.validarUsuario(usuarioModel)) {
                 usuarioModel = usuarioController.getUsuarioController(jtfUsuario.getText());
@@ -294,57 +294,23 @@ public class LoginView extends javax.swing.JDialog {
             }
         } catch (HeadlessException e) {
         }
-        
+
     }
-    
+
     private void clearFields() {
         jtfUsuario.setText("");
         jtfSenha.setText("");
     }
-    
+
     private void setSessionUser() {
-        
+
         SessaoModel.loginUsuario = usuarioModel.getUsuario();
         SessaoModel.codigoUsuario = usuarioModel.getIdUsuario();
         SessaoModel.nomeUsuario = usuarioModel.getNome();
         SessaoModel.nivelAcessoUsuario = usuarioModel.getNivelAcesso();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(() -> {
-            LoginView dialog = new LoginView(new javax.swing.JFrame(), true);
-            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                @Override
-                public void windowClosing(java.awt.event.WindowEvent e) {
-                    System.exit(0);
-                }
-            });
-            dialog.setVisible(true);
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
