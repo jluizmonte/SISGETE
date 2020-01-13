@@ -7,7 +7,7 @@ public class CarregarSplash {
 
     public void setSplashTime() {
 
-        SplashView Splash = new SplashView();
+        SplashView Splash = new SplashView()  ;
 
         Splash.setVisible(true);
         for (int i = 0; i <= 80; i++) {

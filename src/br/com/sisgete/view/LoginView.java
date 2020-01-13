@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
  * @author luiz
  */
 public class LoginView extends javax.swing.JDialog {
-
+    
     UsuarioController usuarioController = new UsuarioController();
     UsuarioModel usuarioModel = new UsuarioModel();
     int x, y;
@@ -35,7 +35,7 @@ public class LoginView extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         jtfUsuario.requestFocusInWindow();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -273,18 +273,18 @@ public class LoginView extends javax.swing.JDialog {
             login();
         }
     }//GEN-LAST:event_jtfSenhaActionPerformed
-
+    
     private void login() {
-
+        
         usuarioModel.setUsuario(jtfUsuario.getText());
         usuarioModel.setSenha(String.valueOf(jtfSenha.getPassword()));
-
+        
         try {
             if (usuarioController.validarUsuario(usuarioModel)) {
                 usuarioModel = usuarioController.getUsuarioController(jtfUsuario.getText());
                 setSessionUser();
-                new AtendimentoFraternoView().setVisible(true);
-                //  new ConsultaPaciente().setVisible(true);
+                // new AtendimentoFraternoView().setVisible(true);
+                new CadastroFicha().setVisible(true);
                 this.dispose();
             } else {
                 LoginView.lblInfo.setText("LOGIN OU SENHAS INVÁLIDOS");
@@ -294,16 +294,16 @@ public class LoginView extends javax.swing.JDialog {
             }
         } catch (HeadlessException e) {
         }
-
+        
     }
-
+    
     private void clearFields() {
         jtfUsuario.setText("");
         jtfSenha.setText("");
     }
-
+    
     private void setSessionUser() {
-
+        
         SessaoModel.loginUsuario = usuarioModel.getUsuario();
         SessaoModel.codigoUsuario = usuarioModel.getIdUsuario();
         SessaoModel.nomeUsuario = usuarioModel.getNome();
