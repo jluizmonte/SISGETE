@@ -8,7 +8,6 @@ public class MagnetizadorModel {
 
     private int idMagnetizador;
     private String nomeMagnetizador;
-    private String auxiliarMagnetizador;
 
     /**
      * Construtor
@@ -48,24 +47,8 @@ public class MagnetizadorModel {
         return this.nomeMagnetizador;
     }
 
-    /**
-     * seta o valor de auxiliarMagnetizador
-     *
-     * @param pAuxiliarMagnetizador
-     */
-    public void setAuxiliarMagnetizador(String pAuxiliarMagnetizador) {
-        this.auxiliarMagnetizador = pAuxiliarMagnetizador;
-    }
-
-    /**
-     * return auxiliarMagnetizador
-     */
-    public String getAuxiliarMagnetizador() {
-        return this.auxiliarMagnetizador;
-    }
-
     @Override
     public String toString() {
-        return "ModelMagnetizador {" + "::idMagnetizador = " + this.idMagnetizador + "::nomeMagnetizador = " + this.nomeMagnetizador + "::auxiliarMagnetizador = " + this.auxiliarMagnetizador + "}";
+        return "ModelMagnetizador {" + "::idMagnetizador = " + this.idMagnetizador + "::nomeMagnetizador = " + this.nomeMagnetizador + "}";
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class FrequenciaTratamentoQuintaController {
 
-    private FrequenciaTratamentoQuintaDAO frequenciaTratamentoQuintaDAO = new FrequenciaTratamentoQuintaDAO();
+    private FrequenciaTratamentoQuintaDAO frequenciaQuintaDAO = new FrequenciaTratamentoQuintaDAO();
 
     /**
      * grava FrequenciaTratamentoQuinta
@@ -19,27 +19,27 @@ public class FrequenciaTratamentoQuintaController {
      * @return
      */
     public int salvarFrequenciaTratamentoQuintaController(FrequenciaTratamentoQuintaModel pFrequenciaTratamentoQuintaModel) {
-        return this.frequenciaTratamentoQuintaDAO.salvarFrequenciaTratamentoQuintaDAO(pFrequenciaTratamentoQuintaModel);
+        return this.frequenciaQuintaDAO.salvarFrequenciaTratamentoQuintaDAO(pFrequenciaTratamentoQuintaModel);
     }
 
     /**
      * recupera FrequenciaTratamentoQuinta
      *
-     * @param pIdFrequenciaTratamentoQuinta return
-     * FrequenciaTratamentoQuintaModel
+     * @param pIdQuadroPsicofisicoQuinta return FrequenciaTratamentoQuintaModel
      * @return
      */
-    public FrequenciaTratamentoQuintaModel getFrequenciaTratamentoQuintaController(int pIdFrequenciaTratamentoQuinta) {
-        return this.frequenciaTratamentoQuintaDAO.getFrequenciaTratamentoQuintaDAO(pIdFrequenciaTratamentoQuinta);
+    public FrequenciaTratamentoQuintaModel getFrequenciaTratamentoQuintaController(int pIdQuadroPsicofisicoQuinta) {
+        return this.frequenciaQuintaDAO.getFrequenciaTratamentoQuintaDAO(pIdQuadroPsicofisicoQuinta);
     }
 
     /**
      * recupera uma lista deFrequenciaTratamentoQuinta
      *
+     * @param pIdQuadroPsicofisicoQuinta return ArrayList
      * @return
      */
     public ArrayList<FrequenciaTratamentoQuintaModel> getListaFrequenciaTratamentoQuintaController() {
-        return this.frequenciaTratamentoQuintaDAO.getListaFrequenciaTratamentoQuintaDAO();
+        return this.frequenciaQuintaDAO.getListaFrequenciaTratamentoQuintaDAO();
     }
 
     /**
@@ -49,16 +49,16 @@ public class FrequenciaTratamentoQuintaController {
      * @return
      */
     public boolean atualizarFrequenciaTratamentoQuintaController(FrequenciaTratamentoQuintaModel pFrequenciaTratamentoQuintaModel) {
-        return this.frequenciaTratamentoQuintaDAO.atualizarFrequenciaTratamentoQuintaDAO(pFrequenciaTratamentoQuintaModel);
+        return this.frequenciaQuintaDAO.atualizarFrequenciaTratamentoQuintaDAO(pFrequenciaTratamentoQuintaModel);
     }
 
     /**
      * exclui FrequenciaTratamentoQuinta
      *
-     * @param pIdFrequenciaTratamentoQuinta return boolean
+     * @param pIdQuadroPsicofisicoQuinta return boolean
      * @return
      */
-    public boolean excluirFrequenciaTratamentoQuintaController(int pIdFrequenciaTratamentoQuinta) {
-        return this.frequenciaTratamentoQuintaDAO.excluirFrequenciaTratamentoQuintaDAO(pIdFrequenciaTratamentoQuinta);
+    public boolean excluirFrequenciaTratamentoQuintaController(int pIdQuadroPsicofisicoQuinta) {
+        return this.frequenciaQuintaDAO.excluirFrequenciaTratamentoQuintaDAO(pIdQuadroPsicofisicoQuinta);
     }
 }

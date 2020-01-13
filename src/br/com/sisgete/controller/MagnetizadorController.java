@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class MagnetizadorController {
 
-    private MagnetizadorDAO daoMagnetizador = new MagnetizadorDAO();
+    private MagnetizadorDAO magnetizadorDAO = new MagnetizadorDAO();
 
     /**
      * grava Magnetizador
@@ -19,7 +19,7 @@ public class MagnetizadorController {
      * @return
      */
     public int salvarMagnetizadorController(MagnetizadorModel pMagnetizadorModel) {
-        return this.daoMagnetizador.salvarMagnetizadorDAO(pMagnetizadorModel);
+        return this.magnetizadorDAO.salvarMagnetizadorDAO(pMagnetizadorModel);
     }
 
     /**
@@ -29,25 +29,26 @@ public class MagnetizadorController {
      * @return
      */
     public MagnetizadorModel getMagnetizadorController(int pIdMagnetizador) {
-        return this.daoMagnetizador.getMagnetizadorDAO(pIdMagnetizador);
+        return this.magnetizadorDAO.getMagnetizadorDAO(pIdMagnetizador);
     }
 
     /**
+     * recupera Magnetizador
      *
-     * @param pMagnetizador
+     * @param pMagnetizador return MagnetizadorModel
      * @return
      */
-    public MagnetizadorModel getMagnetizadorModel(String pMagnetizador) {
-        return this.daoMagnetizador.getMagnetizadorDAO(pMagnetizador);
+    public MagnetizadorModel getMagnetizadorController(String pMagnetizador) {
+        return this.magnetizadorDAO.getMagnetizadorDAO(pMagnetizador);
     }
 
     /**
      * recupera uma lista deMagnetizador
      *
-     * @return ArrayList
+     * @return
      */
     public ArrayList<MagnetizadorModel> getListaMagnetizadorController() {
-        return this.daoMagnetizador.getListaMagnetizadorDAO();
+        return this.magnetizadorDAO.getListaMagnetizadorDAO();
     }
 
     /**
@@ -57,7 +58,7 @@ public class MagnetizadorController {
      * @return
      */
     public boolean atualizarMagnetizadorController(MagnetizadorModel pMagnetizadorModel) {
-        return this.daoMagnetizador.atualizarMagnetizadorDAO(pMagnetizadorModel);
+        return this.magnetizadorDAO.atualizarMagnetizadorDAO(pMagnetizadorModel);
     }
 
     /**
@@ -67,6 +68,6 @@ public class MagnetizadorController {
      * @return
      */
     public boolean excluirMagnetizadorController(int pIdMagnetizador) {
-        return this.daoMagnetizador.excluirMagnetizadorDAO(pIdMagnetizador);
+        return this.magnetizadorDAO.excluirMagnetizadorDAO(pIdMagnetizador);
     }
 }

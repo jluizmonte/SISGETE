@@ -6,9 +6,10 @@ package br.com.sisgete.model;
  */
 public class FrequenciaTratamentoDomingoModel {
 
-    private int idFrequenciaTratamentoDomingo;
-    private int paciente;
-    private int magnetizador;
+    private int idQuadroPsicofisicoDomingo;
+    private int idPaciente;
+    private int idMagnetizador;
+    private int idAuxiliar;
     private String setorPaciente;
     private String recomendacoesEspirituais;
     private String frequenciaDomingo;
@@ -19,57 +20,134 @@ public class FrequenciaTratamentoDomingoModel {
     public FrequenciaTratamentoDomingoModel() {
     }
 
-    public int getIdFrequenciaTratamentoDomingo() {
-        return idFrequenciaTratamentoDomingo;
+    /**
+     * seta o valor de idQuadroPsicofisicoDomingo
+     *
+     * @param pIdQuadroPsicofisicoDomingo
+     */
+    public void setIdQuadroPsicofisicoDomingo(int pIdQuadroPsicofisicoDomingo) {
+        this.idQuadroPsicofisicoDomingo = pIdQuadroPsicofisicoDomingo;
     }
 
-    public void setIdFrequenciaTratamentoDomingo(int idFrequenciaTratamentoDomingo) {
-        this.idFrequenciaTratamentoDomingo = idFrequenciaTratamentoDomingo;
+    /**
+     * return pk_idQuadroPsicofisicoDomingo
+     *
+     * @return
+     */
+    public int getIdQuadroPsicofisicoDomingo() {
+        return this.idQuadroPsicofisicoDomingo;
     }
 
-    public int getPaciente() {
-        return paciente;
+    /**
+     * seta o valor de idPaciente
+     *
+     * @param pPaciente
+     */
+    public void setIdPaciente(int pPaciente) {
+        this.idPaciente = pPaciente;
     }
 
-    public void setPaciente(int paciente) {
-        this.paciente = paciente;
+    /**
+     * return fk_fkPaciente
+     *
+     * @return
+     */
+    public int getIdPaciente() {
+        return this.idPaciente;
     }
 
-    public int getMagnetizador() {
-        return magnetizador;
+    /**
+     * seta o valor de idMagnetizador
+     *
+     * @param pMagnetizador
+     */
+    public void setIdMagnetizador(int pMagnetizador) {
+        this.idMagnetizador = pMagnetizador;
     }
 
-    public void setMagnetizador(int magnetizador) {
-        this.magnetizador = magnetizador;
+    /**
+     * return fk_fkMagnetizador
+     *
+     * @return
+     */
+    public int getIdMagnetizador() {
+        return this.idMagnetizador;
     }
 
+    /**
+     * seta o valor de idAuxiliar
+     *
+     * @param pAuxiliar
+     */
+    public void setIdAuxiliar(int pAuxiliar) {
+        this.idAuxiliar = pAuxiliar;
+    }
+
+    /**
+     * return fk_fkAuxiliar
+     *
+     * @return
+     */
+    public int getIdAuxiliar() {
+        return this.idAuxiliar;
+    }
+
+    /**
+     * seta o valor de setorPaciente
+     *
+     * @param pSetorPaciente
+     */
+    public void setSetorPaciente(String pSetorPaciente) {
+        this.setorPaciente = pSetorPaciente;
+    }
+
+    /**
+     * return setorPaciente
+     *
+     * @return
+     */
     public String getSetorPaciente() {
-        return setorPaciente;
+        return this.setorPaciente;
     }
 
-    public void setSetorPaciente(String setorPaciente) {
-        this.setorPaciente = setorPaciente;
+    /**
+     * seta o valor de recomendacoesEspirituais
+     *
+     * @param pRecomendacoesEspirituais
+     */
+    public void setRecomendacoesEspirituais(String pRecomendacoesEspirituais) {
+        this.recomendacoesEspirituais = pRecomendacoesEspirituais;
     }
 
+    /**
+     * return recomendacoesEspirituais
+     *
+     * @return
+     */
     public String getRecomendacoesEspirituais() {
-        return recomendacoesEspirituais;
+        return this.recomendacoesEspirituais;
     }
 
-    public void setRecomendacoesEspirituais(String recomendacoesEspirituais) {
-        this.recomendacoesEspirituais = recomendacoesEspirituais;
+    /**
+     * seta o valor de frequenciaDomingo
+     *
+     * @param pFrequenciaDomingo
+     */
+    public void setFrequenciaDomingo(String pFrequenciaDomingo) {
+        this.frequenciaDomingo = pFrequenciaDomingo;
     }
 
+    /**
+     * return frequenciaDomingo
+     *
+     * @return
+     */
     public String getFrequenciaDomingo() {
-        return frequenciaDomingo;
-    }
-
-    public void setFrequenciaDomingo(String frequenciaDomingo) {
-        this.frequenciaDomingo = frequenciaDomingo;
+        return this.frequenciaDomingo;
     }
 
     @Override
     public String toString() {
-        return "FrequenciaTratamentoDomingoModel{" + "idFrequenciaTratamentoDomingo=" + idFrequenciaTratamentoDomingo + ", paciente=" + paciente + ", magnetizador=" + magnetizador + ", setorPaciente=" + setorPaciente + ", recomendacoesEspirituais=" + recomendacoesEspirituais + ", frequenciaDomingo=" + frequenciaDomingo + '}';
+        return "ModelFrequenciaTratamentoDomingo {" + "::idQuadroPsicofisicoDomingo = " + this.idQuadroPsicofisicoDomingo + "::fkPaciente = " + this.idPaciente + "::fkMagnetizador = " + this.idMagnetizador + "::fkAuxiliar = " + this.idAuxiliar + "::setorPaciente = " + this.setorPaciente + "::recomendacoesEspirituais = " + this.recomendacoesEspirituais + "::frequenciaDomingo = " + this.frequenciaDomingo + "}";
     }
-
 }

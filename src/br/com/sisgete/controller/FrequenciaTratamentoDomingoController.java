@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class FrequenciaTratamentoDomingoController {
 
-    private FrequenciaTratamentoDomingoDAO frequenciaTratamentoDomingoDAO = new FrequenciaTratamentoDomingoDAO();
+    private FrequenciaTratamentoDomingoDAO frequenciaDomingoDao = new FrequenciaTratamentoDomingoDAO();
 
     /**
      * grava FrequenciaTratamentoDomingo
@@ -19,18 +19,18 @@ public class FrequenciaTratamentoDomingoController {
      * @return
      */
     public int salvarFrequenciaTratamentoDomingoController(FrequenciaTratamentoDomingoModel pFrequenciaTratamentoDomingoModel) {
-        return this.frequenciaTratamentoDomingoDAO.salvarFrequenciaTratamentoDomingoDAO(pFrequenciaTratamentoDomingoModel);
+        return this.frequenciaDomingoDao.salvarFrequenciaTratamentoDomingoDAO(pFrequenciaTratamentoDomingoModel);
     }
 
     /**
      * recupera FrequenciaTratamentoDomingo
      *
-     * @param pIdFrequenciaTratamentoDomingo return
+     * @param pIdQuadroPsicofisicoDomingo return
      * FrequenciaTratamentoDomingoModel
      * @return
      */
-    public FrequenciaTratamentoDomingoModel getFrequenciaTratamentoDomingoController(int pIdFrequenciaTratamentoDomingo) {
-        return this.frequenciaTratamentoDomingoDAO.getFrequenciaTratamentoDomingoDAO(pIdFrequenciaTratamentoDomingo);
+    public FrequenciaTratamentoDomingoModel getFrequenciaTratamentoDomingoController(int pIdQuadroPsicofisicoDomingo) {
+        return this.frequenciaDomingoDao.getFrequenciaTratamentoDomingoDAO(pIdQuadroPsicofisicoDomingo);
     }
 
     /**
@@ -39,7 +39,7 @@ public class FrequenciaTratamentoDomingoController {
      * @return
      */
     public ArrayList<FrequenciaTratamentoDomingoModel> getListaFrequenciaTratamentoDomingoController() {
-        return this.frequenciaTratamentoDomingoDAO.getListaFrequenciaTratamentoDomingoDAO();
+        return this.frequenciaDomingoDao.getListaFrequenciaTratamentoDomingoDAO();
     }
 
     /**
@@ -49,16 +49,16 @@ public class FrequenciaTratamentoDomingoController {
      * @return
      */
     public boolean atualizarFrequenciaTratamentoDomingoController(FrequenciaTratamentoDomingoModel pFrequenciaTratamentoDomingoModel) {
-        return this.frequenciaTratamentoDomingoDAO.atualizarFrequenciaTratamentoDomingoDAO(pFrequenciaTratamentoDomingoModel);
+        return this.frequenciaDomingoDao.atualizarFrequenciaTratamentoDomingoDAO(pFrequenciaTratamentoDomingoModel);
     }
 
     /**
      * exclui FrequenciaTratamentoDomingo
      *
-     * @param pIdFrequenciaTratamentoDomingo return boolean
+     * @param pIdQuadroPsicofisicoDomingo return boolean
      * @return
      */
-    public boolean excluirFrequenciaTratamentoDomingoController(int pIdFrequenciaTratamentoDomingo) {
-        return this.frequenciaTratamentoDomingoDAO.excluirFrequenciaTratamentoDomingoDAO(pIdFrequenciaTratamentoDomingo);
+    public boolean excluirFrequenciaTratamentoDomingoController(int pIdQuadroPsicofisicoDomingo) {
+        return this.frequenciaDomingoDao.excluirFrequenciaTratamentoDomingoDAO(pIdQuadroPsicofisicoDomingo);
     }
 }

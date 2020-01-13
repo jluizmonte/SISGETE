@@ -23,12 +23,10 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
             return this.insertSQL(
                     "INSERT INTO tbl_magnetizador ("
                     + "pk_id_magnetizador,"
-                    + "nome_magnetizador,"
-                    + "auxiliar_magnetizador"
+                    + "nome_magnetizador"
                     + ") VALUES ("
                     + "'" + pMagnetizadorModel.getIdMagnetizador() + "',"
-                    + "'" + pMagnetizadorModel.getNomeMagnetizador() + "',"
-                    + "'" + pMagnetizadorModel.getAuxiliarMagnetizador() + "'"
+                    + "'" + pMagnetizadorModel.getNomeMagnetizador() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -52,8 +50,7 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
             this.executarSQL(
                     "SELECT "
                     + "pk_id_magnetizador,"
-                    + "nome_magnetizador,"
-                    + "auxiliar_magnetizador"
+                    + "nome_magnetizador"
                     + " FROM"
                     + " tbl_magnetizador"
                     + " WHERE"
@@ -64,7 +61,6 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
             while (this.getResultSet().next()) {
                 modelMagnetizador.setIdMagnetizador(this.getResultSet().getInt(1));
                 modelMagnetizador.setNomeMagnetizador(this.getResultSet().getString(2));
-                modelMagnetizador.setAuxiliarMagnetizador(this.getResultSet().getString(3));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,7 +81,11 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT * FROM tbl_magnetizador"
+                    "SELECT "
+                    + "pk_id_magnetizador,"
+                    + "nome_magnetizador"
+                    + " FROM"
+                    + " tbl_magnetizador"
                     + " WHERE"
                     + " nome_magnetizador = '" + pMagnetizador + "'"
                     + ";"
@@ -94,7 +94,6 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
             while (this.getResultSet().next()) {
                 modelMagnetizador.setIdMagnetizador(this.getResultSet().getInt(1));
                 modelMagnetizador.setNomeMagnetizador(this.getResultSet().getString(2));
-                modelMagnetizador.setAuxiliarMagnetizador(this.getResultSet().getString(3));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -117,8 +116,7 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
             this.executarSQL(
                     "SELECT "
                     + "pk_id_magnetizador,"
-                    + "nome_magnetizador,"
-                    + "auxiliar_magnetizador"
+                    + "nome_magnetizador"
                     + " FROM"
                     + " tbl_magnetizador"
                     + ";"
@@ -128,7 +126,6 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
                 modelMagnetizador = new MagnetizadorModel();
                 modelMagnetizador.setIdMagnetizador(this.getResultSet().getInt(1));
                 modelMagnetizador.setNomeMagnetizador(this.getResultSet().getString(2));
-                modelMagnetizador.setAuxiliarMagnetizador(this.getResultSet().getString(3));
                 listamodelMagnetizador.add(modelMagnetizador);
             }
         } catch (SQLException e) {
@@ -151,8 +148,7 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_magnetizador SET "
                     + "pk_id_magnetizador = '" + pMagnetizadorModel.getIdMagnetizador() + "',"
-                    + "nome_magnetizador = '" + pMagnetizadorModel.getNomeMagnetizador() + "',"
-                    + "auxiliar_magnetizador = '" + pMagnetizadorModel.getAuxiliarMagnetizador() + "'"
+                    + "nome_magnetizador = '" + pMagnetizadorModel.getNomeMagnetizador() + "'"
                     + " WHERE "
                     + "pk_id_magnetizador = '" + pMagnetizadorModel.getIdMagnetizador() + "'"
                     + ";"
@@ -169,6 +165,7 @@ public class MagnetizadorDAO extends SisgeteConnectionMySql {
      * exclui Magnetizador
      *
      * @param pIdMagnetizador return boolean
+     * @return
      */
     public boolean excluirMagnetizadorDAO(int pIdMagnetizador) {
         try {
