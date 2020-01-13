@@ -17,6 +17,6 @@ Desenvolvedor:  `José Luiz` <br/>
 ### FASE 3 `EM ANDAMENTO`:
 - [x] Escolha da IDE e linguagem de programação `NETBEANS` e `JAVA`</br>
 - [x] Criação das janelas referente ao primeiro acesso ao sistema `Splash` e `Login`;</br>
-- [] Criação da janela referente ao cadastro e consulta de pacientes;</br>
-- [] Criação e finalização das frequência do tratamento magnético;<br/>
+- [ ] Criação da janela referente ao cadastro e consulta de pacientes;</br>
+- [ ] Criação e finalização das frequência do tratamento magnético;<br/>
 
