@@ -283,7 +283,7 @@ public class LoginView extends javax.swing.JDialog {
             if (usuarioController.validarUsuario(usuarioModel)) {
                 usuarioModel = usuarioController.getUsuarioController(jtfUsuario.getText());
                 setSessionUser();
-                new CadastroFichaView().setVisible(true);
+                new PrincipalView().setVisible(true);
                 this.dispose();
             } else {
                 LoginView.lblInfo.setText("LOGIN OU SENHAS INVÁLIDOS");

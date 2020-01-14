@@ -16,7 +16,7 @@ public class SisgeteLoaderUtil {
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         UIManager.setLookAndFeel(GUIProperties.PLAF_NIMBUS);
-        //   new CarregarSplash().setSplashTime();
+        //    new CarregarSplash().setSplashTime();
         //   new MagnetizadorView().setVisible(true);
         new PrincipalView().setVisible(true);
         //new CadastroFichaView().setVisible(true);
