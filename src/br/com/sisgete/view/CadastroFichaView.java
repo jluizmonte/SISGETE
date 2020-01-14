@@ -9,7 +9,6 @@ import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.model.SessaoModel;
 import br.com.sisgete.util.GetDateUtil;
 import br.com.sisgete.util.MedicamentoUtil;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,12 +29,8 @@ public class CadastroFichaView extends javax.swing.JInternalFrame {
      * Creates new form CadastroFicha
      */
     public CadastroFichaView() {
-        //     this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
-        //     setLocationRelativeTo(null);
-        //    setResizable(false);
         dadosIniciais();
-       
     }
 
     @SuppressWarnings("unchecked")

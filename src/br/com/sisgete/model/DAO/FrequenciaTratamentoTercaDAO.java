@@ -22,7 +22,7 @@ public class FrequenciaTratamentoTercaDAO extends SisgeteConnectionMySql {
             this.conectar();
             return this.insertSQL(
                     "INSERT INTO tbl_frequencia_tratamento_terca ("
-                    + "pk_id_frequencia_tratamento_terca,"
+                    + "pk_id_frequencia_terca,"
                     + "fk_paciente,"
                     + "frequencia_terca"
                     + ") VALUES ("
@@ -43,7 +43,7 @@ public class FrequenciaTratamentoTercaDAO extends SisgeteConnectionMySql {
      * recupera FrequenciaTratamentoTerca
      *
      * @param pIdFrequenciaTratamentoTerca return FrequenciaTratamentoTercaModel
-     * @return 
+     * @return
      */
     public FrequenciaTratamentoTercaModel getFrequenciaTratamentoTercaDAO(int pIdFrequenciaTratamentoTerca) {
         FrequenciaTratamentoTercaModel modelFrequenciaTratamentoTerca = new FrequenciaTratamentoTercaModel();
@@ -51,13 +51,13 @@ public class FrequenciaTratamentoTercaDAO extends SisgeteConnectionMySql {
             this.conectar();
             this.executarSQL(
                     "SELECT "
-                    + "pk_id_frequencia_tratamento_terca,"
+                    + "pk_id_frequencia_terca,"
                     + "fk_paciente,"
                     + "frequencia_terca"
                     + " FROM"
                     + " tbl_frequencia_tratamento_terca"
                     + " WHERE"
-                    + " pk_id_frequencia_tratamento_terca = '" + pIdFrequenciaTratamentoTerca + "'"
+                    + " pk_id_frequencia_terca = '" + pIdFrequenciaTratamentoTerca + "'"
                     + ";"
             );
 
@@ -85,11 +85,7 @@ public class FrequenciaTratamentoTercaDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT "
-                    + "pk_id_frequencia_tratamento_terca,"
-                    + "fk_paciente,"
-                    + "frequencia_terca"
-                    + " FROM"
+                    "SELECT * FROM"
                     + " tbl_frequencia_tratamento_terca"
                     + ";"
             );
@@ -120,11 +116,11 @@ public class FrequenciaTratamentoTercaDAO extends SisgeteConnectionMySql {
             this.conectar();
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_frequencia_tratamento_terca SET "
-                    + "pk_id_frequencia_tratamento_terca = '" + pFrequenciaTratamentoTercaModel.getIdFrequenciaTratamentoTerca() + "',"
+                    + "pk_id_frequencia_terca = '" + pFrequenciaTratamentoTercaModel.getIdFrequenciaTratamentoTerca() + "',"
                     + "fk_paciente = '" + pFrequenciaTratamentoTercaModel.getPaciente() + "',"
                     + "frequencia_terca = '" + pFrequenciaTratamentoTercaModel.getFrequenciaTerca() + "'"
                     + " WHERE "
-                    + "pk_id_frequencia_tratamento_terca = '" + pFrequenciaTratamentoTercaModel.getIdFrequenciaTratamentoTerca() + "'"
+                    + "pk_id_frequencia_terca = '" + pFrequenciaTratamentoTercaModel.getIdFrequenciaTratamentoTerca() + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -147,7 +143,7 @@ public class FrequenciaTratamentoTercaDAO extends SisgeteConnectionMySql {
             return this.executarUpdateDeleteSQL(
                     "DELETE FROM tbl_frequencia_tratamento_terca "
                     + " WHERE "
-                    + "pk_id_frequencia_tratamento_terca = '" + pIdFrequenciaTratamentoTerca + "'"
+                    + "pk_id_frequencia_terca = '" + pIdFrequenciaTratamentoTerca + "'"
                     + ";"
             );
         } catch (Exception e) {

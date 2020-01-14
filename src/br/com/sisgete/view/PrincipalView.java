@@ -10,9 +10,11 @@ public class PrincipalView extends javax.swing.JFrame {
     
     CadastroFichaView cadastroFichaView = new CadastroFichaView();
     ConsultaPacienteView consultaPacienteView = new ConsultaPacienteView();
-    FrequenciaDomingoView frequenciaDomingoView = new FrequenciaDomingoView();
     MagnetizadorView magnetizadorView = new MagnetizadorView();
     AuxiliarView auxiliarView = new AuxiliarView();
+    FrequenciaDomingoView frequenciaDomingoView = new FrequenciaDomingoView();
+    FrequenciaTercaView frequenciaTercaView = new FrequenciaTercaView();
+    FrequenciaQuintaView frequenciaQuintaView = new FrequenciaQuintaView();
 
     /**
      * Creates new form PrincipalView
@@ -263,7 +265,8 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_jbFrequenciaQuintaActionPerformed
 
     private void jbFrequenciaTercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFrequenciaTercaActionPerformed
-        // TODO add your handling code here:
+        desktopPane.add(frequenciaTercaView);
+        frequenciaTercaView.setVisible(true);
     }//GEN-LAST:event_jbFrequenciaTercaActionPerformed
 
     private void jbMagnetizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMagnetizadorActionPerformed
