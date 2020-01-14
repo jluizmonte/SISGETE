@@ -7,7 +7,6 @@ import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.util.ColorirLinhaStatus;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -18,7 +17,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author luiz
  */
-public class ConsultaPaciente extends javax.swing.JFrame {
+public class ConsultaPacienteView extends javax.swing.JInternalFrame {
 
     String termoPesquisa;
     PacienteController medicamentoTratamentoController = new PacienteController();
@@ -31,14 +30,15 @@ public class ConsultaPaciente extends javax.swing.JFrame {
     /**
      * Creates new form ConsultaPaciente
      */
-    public ConsultaPaciente() {
-        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
-        this.setLocation(400, 100);
+    public ConsultaPacienteView() {
+        //   this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
-        setLocationRelativeTo(null);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //  setLocationRelativeTo(null);
+        //   setExtendedState(MAXIMIZED_BOTH);
         popularTabela();
         corLinhaTabela();
+        setIconifiable(true);
+        setClosable(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -56,7 +56,10 @@ public class ConsultaPaciente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtResultado = new rojerusan.RSTableMetro();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Consulta de Pacientes");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

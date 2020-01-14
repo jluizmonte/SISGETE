@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author luiz
  */
-public class MagnetizadorView extends javax.swing.JFrame {
+public class MagnetizadorView extends javax.swing.JInternalFrame {
 
     MagnetizadorController magnetizadorController = new MagnetizadorController();
     MagnetizadorModel magnetizadorModel = new MagnetizadorModel();
@@ -21,11 +21,12 @@ public class MagnetizadorView extends javax.swing.JFrame {
      * Creates new form MagnetizadorView
      */
     public MagnetizadorView() {
-        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
+        //    this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
-        setLocationRelativeTo(null);
-        setResizable(false);
+        //       setLocationRelativeTo(null);
         carregarDados();
+        setIconifiable(true);
+        setClosable(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -44,7 +45,9 @@ public class MagnetizadorView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtMagnetizador = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

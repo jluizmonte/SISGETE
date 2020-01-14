@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author luiz
  */
-public class FrequenciaDomingoView extends javax.swing.JFrame {
+public class FrequenciaDomingoView extends javax.swing.JInternalFrame {
 
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
@@ -41,10 +41,12 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
      * Creates new form FrequenciaDomingoView
      */
     public FrequenciaDomingoView() {
-        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
+        //     this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
-        setResizable(false);
-        setLocationRelativeTo(null);
+//        setResizable(false);
+//        setLocationRelativeTo(null);
+        setIconifiable(true);
+        setClosable(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -79,7 +81,9 @@ public class FrequenciaDomingoView extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jlAtendente = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
         setTitle("Acompanhamento Domingo");
 
         jPanel1.setBackground(new java.awt.Color(0, 112, 192));

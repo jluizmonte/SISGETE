@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author luiz
  */
-public class AuxiliarView extends javax.swing.JFrame {
+public class AuxiliarView extends javax.swing.JInternalFrame {
 
     AuxiliarController auxiliarController = new AuxiliarController();
     AuxiliarModel auxiliarModel = new AuxiliarModel();
@@ -23,10 +23,10 @@ public class AuxiliarView extends javax.swing.JFrame {
      * Creates new form MagnetizadorView
      */
     public AuxiliarView() {
-        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
+        //       this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
-        setLocationRelativeTo(null);
-        setResizable(false);
+        //     setLocationRelativeTo(null);
+        //     setResizable(false);
         carregarDados();
     }
 
@@ -46,7 +46,8 @@ public class AuxiliarView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAuxiliar = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setIconifiable(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
