@@ -10,7 +10,6 @@ import br.com.sisgete.model.MagnetizadorModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.util.GetDateUtil;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
