@@ -15,6 +15,7 @@ public class PrincipalView extends javax.swing.JFrame {
     FrequenciaDomingoView frequenciaDomingoView = new FrequenciaDomingoView();
     FrequenciaTercaView frequenciaTercaView = new FrequenciaTercaView();
     FrequenciaQuintaView frequenciaQuintaView = new FrequenciaQuintaView();
+    ExtraView extraView = new ExtraView();
 
     /**
      * Creates new form PrincipalView
@@ -131,6 +132,11 @@ public class PrincipalView extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
         jButton1.setText("Extra");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -261,7 +267,8 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_jbFrequenciaDomingoActionPerformed
 
     private void jbFrequenciaQuintaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFrequenciaQuintaActionPerformed
-        // TODO add your handling code here:
+        desktopPane.add(frequenciaQuintaView);
+        frequenciaQuintaView.setVisible(true);
     }//GEN-LAST:event_jbFrequenciaQuintaActionPerformed
 
     private void jbFrequenciaTercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFrequenciaTercaActionPerformed
@@ -278,6 +285,11 @@ public class PrincipalView extends javax.swing.JFrame {
         desktopPane.add(auxiliarView);
         auxiliarView.setVisible(true);
     }//GEN-LAST:event_jbAuxiliarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        desktopPane.add(extraView);
+        extraView.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
