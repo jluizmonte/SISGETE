@@ -19,4 +19,5 @@ Desenvolvedor:  `José Luiz` <br/>
 - [x] Criação das janelas referente ao primeiro acesso ao sistema `Splash` e `Login`;</br>
 - [ ] Criação da janela referente ao cadastro e consulta de pacientes;</br>
 - [ ] Criação e finalização das frequência do tratamento magnético;<br/>
+- [ ] Criação das janelas referentes a frequência da terça, quinta e domingo;<br/>
 
