@@ -32,7 +32,7 @@ public class PrincipalView extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         setarData();
         dadosIniciais();
-        setarNivel();
+//        setarNivel();
     }
 
     @SuppressWarnings("unchecked")
@@ -69,7 +69,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jbCadastroPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbCadastroPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-24.png"))); // NOI18N
-        jbCadastroPaciente.setText("Abrir ficha paciente");
+        jbCadastroPaciente.setText("Ficha paciente");
         jbCadastroPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCadastroPacienteActionPerformed(evt);
@@ -396,22 +396,25 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     private void setarNivel() {
-        if (SessaoModel.nivelAcessoUsuario.equals("MAGNETIZADOR/AUXILIAR")) {
-            jbFrequenciaDomingo.setEnabled(true);
-            jbFrequenciaQuinta.setEnabled(true);
-            jbFrequenciaTerca.setEnabled(true);
-            jbMagnetizador.setEnabled(true);
-            jbAuxiliar.setEnabled(true);
-            jbExtra.setEnabled(true);
-        } else if (SessaoModel.nivelAcessoUsuario.equals("ATENDENTE FRATERNO")) {
-            jbFrequenciaDomingo.setEnabled(false);
-            jbFrequenciaQuinta.setEnabled(false);
-            jbFrequenciaTerca.setEnabled(false);
-            jbMagnetizador.setEnabled(false);
-            jbAuxiliar.setEnabled(false);
-            jbExtra.setEnabled(false);
-        } else {
-
+        switch (SessaoModel.nivelAcessoUsuario) {
+            case "MAGNETIZADOR/AUXILIAR":
+                jbFrequenciaDomingo.setEnabled(true);
+                jbFrequenciaQuinta.setEnabled(true);
+                jbFrequenciaTerca.setEnabled(true);
+                jbMagnetizador.setEnabled(true);
+                jbAuxiliar.setEnabled(true);
+                jbExtra.setEnabled(true);
+                break;
+            case "ATENDENTE FRATERNO":
+                jbFrequenciaDomingo.setEnabled(false);
+                jbFrequenciaQuinta.setEnabled(false);
+                jbFrequenciaTerca.setEnabled(false);
+                jbMagnetizador.setEnabled(false);
+                jbAuxiliar.setEnabled(false);
+                jbExtra.setEnabled(false);
+                break;
+            default:
+                break;
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

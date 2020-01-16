@@ -269,6 +269,7 @@ public class CadastroFichaView extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Atendimento Fraterno");
 
         jLabel58.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N

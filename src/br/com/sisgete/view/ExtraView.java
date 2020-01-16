@@ -1,8 +1,14 @@
 package br.com.sisgete.view;
 
+import br.com.sisgete.controller.TemaController;
 import br.com.sisgete.controller.UsuarioController;
+import br.com.sisgete.model.TemaModel;
 import br.com.sisgete.model.UsuarioModel;
+import br.com.sisgete.util.GUIProperties;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,10 +17,13 @@ import javax.swing.table.DefaultTableModel;
  * @author luiz
  */
 public class ExtraView extends javax.swing.JInternalFrame {
-
+    
     UsuarioController usuarioController = new UsuarioController();
     UsuarioModel usuarioModel = new UsuarioModel();
     ArrayList<UsuarioModel> listaUsuarioModels = new ArrayList<>();
+    TemaController temaController = new TemaController();
+    TemaModel temaModel = new TemaModel();
+    String tema;
 
     /**
      * Creates new form ExtraView
@@ -24,7 +33,7 @@ public class ExtraView extends javax.swing.JInternalFrame {
         dadosIniciais();
         carregarDados();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -52,6 +61,8 @@ public class ExtraView extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -278,17 +289,38 @@ public class ExtraView extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        jButton2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jButton2.setText("SELECIONAR TEMA");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jLabel2.setText("TEMA PARA O SISTEMA.:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 424, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton2))
+                .addGap(0, 377, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -322,12 +354,16 @@ public class ExtraView extends javax.swing.JInternalFrame {
         salvarDados();
     }//GEN-LAST:event_jbSalvarActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        escolhaTema();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
     private void salvarDados() {
         usuarioModel.setNivelAcesso(jcbNivel.getSelectedItem().toString());
         usuarioModel.setNome(jtfNome.getText().toUpperCase());
         usuarioModel.setSenha(jtfSenha.getText());
         usuarioModel.setUsuario(jtfLogin.getText());
-
+        
         if (usuarioController.salvarUsuarioController(usuarioModel) > 0) {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
             limparCampos();
@@ -336,23 +372,23 @@ public class ExtraView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     private void limparCampos() {
         jtfLogin.setText("");
         jtfNome.setText("");
         jtfSenha.setText("");
     }
-
+    
     private void dadosIniciais() {
         jtfNome.requestFocusInWindow();
     }
-
+    
     private void carregarDados() {
         listaUsuarioModels = new ArrayList<>();
         listaUsuarioModels = usuarioController.getListaUsuarioController();
         DefaultTableModel modelo = (DefaultTableModel) jtusuario.getModel();
         modelo.setNumRows(0);
-
+        
         int cont = listaUsuarioModels.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
@@ -363,10 +399,67 @@ public class ExtraView extends javax.swing.JInternalFrame {
             });
         }
     }
+    
+    private void escolhaTema() {
+        Object[] opcoes = {"METAL", "NIMBUS", "AZUL", "BRANCO", "PRETO"};
+        Object resposta;
+        resposta = JOptionPane.showInputDialog(null, "Deseja aplicar qual tema   ?", "Aplicar tema?",
+                JOptionPane.OK_CANCEL_OPTION, null, opcoes, "Sim");
+        if (resposta.equals("NIMBUS")) {
+            try {
+                tema = GUIProperties.PLAF_NIMBUS;
+                updateLaf();
+            } catch (ParseException ex) {
+                Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (resposta.equals("METAL")) {
+            try {
+                tema = GUIProperties.PLAF_METAL;
+                updateLaf();
+            } catch (ParseException ex) {
+                Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (resposta.equals("AZUL")) {
+            try {
+                tema = GUIProperties.PLAF_SYNTHETICA_BLUE;
+                updateLaf();
+            } catch (ParseException ex) {
+                Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (resposta.equals("BRANCO")) {
+            try {
+                tema = GUIProperties.PLAF_SYNTHETICA_PLAIN;
+                updateLaf();
+            } catch (ParseException ex) {
+                Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        } else if (resposta.equals("PRETO")) {
+            try {
+                tema = GUIProperties.PLAF_SYNTHETICA_BLACKSTEEL;
+                updateLaf();
+            } catch (ParseException ex) {
+                Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhum tema será aplicado!", "Tema inalterado!",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public void updateLaf() throws ParseException {
+        temaModel.setIdTema(1);
+        temaModel.setTema(tema);
+        if (temaController.atualizarTemaDAO(temaModel)) {
+            JOptionPane.showMessageDialog(null, "O tema será carregado na próxima inicialização", "Atenção", JOptionPane.WARNING_MESSAGE);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
