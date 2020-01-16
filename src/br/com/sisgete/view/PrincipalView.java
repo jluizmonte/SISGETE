@@ -1,5 +1,9 @@
 package br.com.sisgete.view;
 
+import br.com.sisgete.model.SessaoModel;
+import br.com.sisgete.util.GetDateUtil;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.ImageIcon;
 
 /**
@@ -7,7 +11,7 @@ import javax.swing.ImageIcon;
  * @author luiz
  */
 public class PrincipalView extends javax.swing.JFrame {
-    
+
     CadastroFichaView cadastroFichaView = new CadastroFichaView();
     ConsultaPacienteView consultaPacienteView = new ConsultaPacienteView();
     MagnetizadorView magnetizadorView = new MagnetizadorView();
@@ -16,6 +20,7 @@ public class PrincipalView extends javax.swing.JFrame {
     FrequenciaTercaView frequenciaTercaView = new FrequenciaTercaView();
     FrequenciaQuintaView frequenciaQuintaView = new FrequenciaQuintaView();
     ExtraView extraView = new ExtraView();
+    GetDateUtil getDateUtil = new GetDateUtil();
 
     /**
      * Creates new form PrincipalView
@@ -25,8 +30,11 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);
+        setarData();
+        dadosIniciais();
+        setarNivel();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,7 +51,15 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jbSair = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbExtra = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jlUsuario = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jlDataLogin = new javax.swing.JLabel();
+        jlData = new javax.swing.JLabel();
         desktopPane = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,67 +145,116 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("FUNÇÕES AVANÇADAS:");
 
-        jButton1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
-        jButton1.setText("Extra");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbExtra.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jbExtra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
+        jbExtra.setText("Extra");
+        jbExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbExtraActionPerformed(evt);
             }
         });
+
+        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("INFORMAÇÕES.:");
+
+        jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("USUÁRIO LOGADO NA SESSÃO.:");
+
+        jlUsuario.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jlUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jlUsuario.setText("$USER");
+
+        jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("HORÁRIO DE LOGIN.:");
+
+        jlDataLogin.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jlDataLogin.setForeground(new java.awt.Color(255, 255, 255));
+        jlDataLogin.setText("$dd/MM/yyyy HH:mm:ss");
+
+        jlData.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jlData.setForeground(new java.awt.Color(255, 255, 255));
+        jlData.setText("$dd/MM/yyyy HH:mm:ss");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jbSair))
+            .addComponent(jSeparator1)
+            .addComponent(jSeparator2)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jbConsultaPaciente)
-                            .addComponent(jbCadastroPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(7, 7, 7))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jlData)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbSair))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jbFrequenciaQuinta)
-                                    .addComponent(jbFrequenciaTerca)
+                                .addComponent(jLabel3)
+                                .addGap(57, 57, 57))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jbConsultaPaciente)
+                                    .addComponent(jbCadastroPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jbMagnetizador)))
-                                .addGap(9, 9, 9))
-                            .addComponent(jbFrequenciaDomingo)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
+                                        .addComponent(jLabel1)
+                                        .addGap(7, 7, 7)))
+                                .addGap(21, 21, 21))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jbFrequenciaQuinta)
+                                            .addComponent(jbFrequenciaTerca)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jbMagnetizador)))
+                                        .addGap(9, 9, 9))
+                                    .addComponent(jbFrequenciaDomingo)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jButton1))
-                                    .addComponent(jbAuxiliar))))))
-                .addContainerGap(13, Short.MAX_VALUE))
+                                        .addGap(43, 43, 43)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jbExtra))
+                                            .addComponent(jbAuxiliar)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(jLabel2)))
+                                .addGap(17, 17, 17))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jlUsuario)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jlDataLogin))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbCadastroPaciente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbConsultaPaciente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbFrequenciaDomingo)
@@ -202,20 +267,36 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbAuxiliar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(5, 5, 5)
-                .addComponent(jbSair))
+                .addComponent(jbExtra)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlDataLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbSair, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jlData)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
         desktopPaneLayout.setHorizontalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 443, Short.MAX_VALUE)
+            .addGap(0, 421, Short.MAX_VALUE)
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 644, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -286,25 +367,75 @@ public class PrincipalView extends javax.swing.JFrame {
         auxiliarView.setVisible(true);
     }//GEN-LAST:event_jbAuxiliarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExtraActionPerformed
         desktopPane.add(extraView);
         extraView.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbExtraActionPerformed
 
+    private void dadosIniciais() {
+        jlUsuario.setText(SessaoModel.nomeUsuario);
+        jlDataLogin.setText(getDateUtil.getDateNow());
+    }
+
+    /**
+     * exibir na toolbar (barra de status/ barra inferior) a data atual do login
+     * do usuário.
+     */
+    public void setarData() {
+        Thread clock = new Thread() {
+            @Override
+            public void run() {
+                for (;;) {
+                    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yy HH:mm:ss");
+                    LocalDateTime timepoint = LocalDateTime.now();
+                    jlData.setText(timepoint.format(fmt));
+                }
+            }
+        };
+        clock.start();
+    }
+
+    private void setarNivel() {
+        if (SessaoModel.nivelAcessoUsuario.equals("MAGNETIZADOR/AUXILIAR")) {
+            jbFrequenciaDomingo.setEnabled(true);
+            jbFrequenciaQuinta.setEnabled(true);
+            jbFrequenciaTerca.setEnabled(true);
+            jbMagnetizador.setEnabled(true);
+            jbAuxiliar.setEnabled(true);
+            jbExtra.setEnabled(true);
+        } else if (SessaoModel.nivelAcessoUsuario.equals("ATENDENTE FRATERNO")) {
+            jbFrequenciaDomingo.setEnabled(false);
+            jbFrequenciaQuinta.setEnabled(false);
+            jbFrequenciaTerca.setEnabled(false);
+            jbMagnetizador.setEnabled(false);
+            jbAuxiliar.setEnabled(false);
+            jbExtra.setEnabled(false);
+        } else {
+
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbAuxiliar;
     private javax.swing.JButton jbCadastroPaciente;
     private javax.swing.JButton jbConsultaPaciente;
+    private javax.swing.JButton jbExtra;
     private javax.swing.JButton jbFrequenciaDomingo;
     private javax.swing.JButton jbFrequenciaQuinta;
     private javax.swing.JButton jbFrequenciaTerca;
     private javax.swing.JButton jbMagnetizador;
     private javax.swing.JButton jbSair;
+    private javax.swing.JLabel jlData;
+    private javax.swing.JLabel jlDataLogin;
+    private javax.swing.JLabel jlUsuario;
     // End of variables declaration//GEN-END:variables
 }

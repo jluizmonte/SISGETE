@@ -275,7 +275,6 @@ public class LoginView extends javax.swing.JDialog {
     }//GEN-LAST:event_jtfSenhaActionPerformed
 
     private void login() {
-
         usuarioModel.setUsuario(jtfUsuario.getText());
         usuarioModel.setSenha(String.valueOf(jtfSenha.getPassword()));
 
@@ -293,7 +292,6 @@ public class LoginView extends javax.swing.JDialog {
             }
         } catch (HeadlessException e) {
         }
-
     }
 
     private void clearFields() {
@@ -302,13 +300,11 @@ public class LoginView extends javax.swing.JDialog {
     }
 
     private void setSessionUser() {
-
         SessaoModel.loginUsuario = usuarioModel.getUsuario();
         SessaoModel.codigoUsuario = usuarioModel.getIdUsuario();
         SessaoModel.nomeUsuario = usuarioModel.getNome();
         SessaoModel.nivelAcessoUsuario = usuarioModel.getNivelAcesso();
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
