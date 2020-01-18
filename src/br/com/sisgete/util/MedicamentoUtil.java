@@ -42,4 +42,5 @@ public class MedicamentoUtil {
     public static String modoDesobsessao;
     public static String tratamentoFecma;
     public static String setor;
+    public static String statusFicha;
 }

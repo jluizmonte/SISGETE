@@ -235,6 +235,9 @@ public class CadastroFichaView extends javax.swing.JInternalFrame {
         jLabel53 = new javax.swing.JLabel();
         jlData = new javax.swing.JLabel();
         jlAtendente = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jcbStatusAtiva = new javax.swing.JCheckBox();
+        jcbStatusInativo = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
@@ -2518,6 +2521,25 @@ jPanel4Layout.setVerticalGroup(
     jlAtendente.setForeground(new java.awt.Color(0, 112, 192));
     jlAtendente.setText("$Atendente");
 
+    jLabel64.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+    jLabel64.setText("Status Ficha:");
+
+    jcbStatusAtiva.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+    jcbStatusAtiva.setText("Ativa");
+    jcbStatusAtiva.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jcbStatusAtivaActionPerformed(evt);
+        }
+    });
+
+    jcbStatusInativo.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
+    jcbStatusInativo.setText("A. Morto");
+    jcbStatusInativo.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jcbStatusInativoActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
     jPanel6.setLayout(jPanel6Layout);
     jPanel6Layout.setHorizontalGroup(
@@ -2539,25 +2561,12 @@ jPanel4Layout.setVerticalGroup(
                     .addComponent(jcTratamentoNao)
                     .addGap(117, 117, 117))
                 .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel50)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel53)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jlData))
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel51)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jlAtendente)))
+                    .addComponent(jLabel50)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel53)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jlData)
                     .addGap(0, 0, Short.MAX_VALUE))
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addComponent(jLabel52)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(jcDesobsessaoCentro)
-                    .addGap(56, 56, 56)
-                    .addComponent(jcDesobsessaoDistancia)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addComponent(jLabel48)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2568,7 +2577,30 @@ jPanel4Layout.setVerticalGroup(
                     .addComponent(jLabel49)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jtfFonte)
-                    .addContainerGap())))
+                    .addContainerGap())
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(jLabel51)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jlAtendente)
+                            .addGap(184, 184, 184)
+                            .addComponent(jLabel64))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(jLabel52)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jcDesobsessaoCentro)))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGap(56, 56, 56)
+                            .addComponent(jcDesobsessaoDistancia)
+                            .addContainerGap(26, Short.MAX_VALUE))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jcbStatusAtiva)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbStatusInativo)
+                            .addGap(25, 25, 25))))))
     );
     jPanel6Layout.setVerticalGroup(
         jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2597,7 +2629,10 @@ jPanel4Layout.setVerticalGroup(
             .addGap(18, 18, 18)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel51)
-                .addComponent(jlAtendente))
+                .addComponent(jlAtendente)
+                .addComponent(jLabel64)
+                .addComponent(jcbStatusAtiva)
+                .addComponent(jcbStatusInativo))
             .addGap(18, 18, 18)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel52)
@@ -2727,7 +2762,7 @@ jPanel4Layout.setVerticalGroup(
             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
             .addComponent(jbFinalizarAtendimento)
             .addGap(17, 17, 17))
     );
@@ -3008,6 +3043,24 @@ jPanel4Layout.setVerticalGroup(
         obterDadosTratamentoMedicamento();
     }//GEN-LAST:event_jbFinalizarAtendimentoActionPerformed
 
+    private void jcbStatusInativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbStatusInativoActionPerformed
+        if (jcbStatusInativo.isSelected()) {
+            jcbStatusAtiva.setSelected(false);
+            MedicamentoUtil.statusFicha = "INATIVA";
+        } else {
+            jcbStatusAtiva.setSelected(true);
+        }
+    }//GEN-LAST:event_jcbStatusInativoActionPerformed
+
+    private void jcbStatusAtivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbStatusAtivaActionPerformed
+        if (jcbStatusAtiva.isSelected()) {
+            jcbStatusInativo.setSelected(false);
+            MedicamentoUtil.statusFicha = "ATIVA";
+        } else {
+            jcbStatusInativo.setSelected(true);
+        }
+    }//GEN-LAST:event_jcbStatusAtivaActionPerformed
+
     /**
      * metodo para calcular a idade do paciente e automaticamente atribuir na
      * tela
@@ -3194,6 +3247,7 @@ jPanel4Layout.setVerticalGroup(
     }
 
     private void dadosIniciais() {
+        jcbStatusAtiva.setSelected(true);
         jlAtendente.setText(SessaoModel.nomeUsuario);
         jlData.setText(getDateUtil.getDateTime()); //data do atendimento;
         jlIdade.setVisible(false);
@@ -3263,6 +3317,7 @@ jPanel4Layout.setVerticalGroup(
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
@@ -3363,6 +3418,8 @@ jPanel4Layout.setVerticalGroup(
     private javax.swing.JComboBox<String> jcbQuadroVultos;
     private javax.swing.JComboBox<String> jcbQuadroZumbidos;
     private javax.swing.JComboBox<String> jcbRemedioControlado;
+    private javax.swing.JCheckBox jcbStatusAtiva;
+    private javax.swing.JCheckBox jcbStatusInativo;
     private javax.swing.JLabel jlAlcool;
     private javax.swing.JLabel jlAlergia;
     private javax.swing.JLabel jlAtendente;

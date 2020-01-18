@@ -90,6 +90,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "paciente_reincidente,"
                     + "data_nascimento,"
                     + "status_tratamento,"
+                    + "status_ficha,"
                     + "modo_desobsessao,"
                     + "data_atendimento,"
                     + "atendente,"
@@ -175,6 +176,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "'" + modelPaciente.getPacienteReincidente() + "',"
                     + "'" + modelPaciente.getDataNascimento() + "',"
                     + "'" + modelPaciente.getStatusTratamento() + "',"
+                    + "'" + modelPaciente.getStatusFicha() + "',"
                     + "'" + modelPaciente.getModoDesobsessao() + "',"
                     + "'" + modelPaciente.getDataAtendimento() + "',"
                     + "'" + modelPaciente.getAtendente() + "',"
@@ -285,22 +287,23 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                 modelPaciente.setPacienteReincidente(this.getResultSet().getString(66));
                 modelPaciente.setDataNascimento(this.getResultSet().getString(67));
                 modelPaciente.setStatusTratamento(this.getResultSet().getString(68));
-                modelPaciente.setModoDesobsessao(this.getResultSet().getString(69));
-                modelPaciente.setDataAtendimento(this.getResultSet().getString(70));
-                modelPaciente.setAtendente(this.getResultSet().getString(71));
-                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(72));
-                modelPaciente.setRua(this.getResultSet().getString(73));
-                modelPaciente.setNumCasa(this.getResultSet().getInt(74));
-                modelPaciente.setBairro(this.getResultSet().getString(75));
-                modelPaciente.setCidade(this.getResultSet().getString(76));
-                modelPaciente.setIdade(this.getResultSet().getInt(77));
-                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
-                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
-                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(80));
-                modelPaciente.setNome(this.getResultSet().getString(81));
-                modelPaciente.setSetor(this.getResultSet().getString(82));
-                modelPaciente.setTelefone(this.getResultSet().getString(83));
-                modelPaciente.setEmail(this.getResultSet().getString(84));
+                modelPaciente.setStatusFicha(this.getResultSet().getString(69));
+                modelPaciente.setModoDesobsessao(this.getResultSet().getString(70));
+                modelPaciente.setDataAtendimento(this.getResultSet().getString(71));
+                modelPaciente.setAtendente(this.getResultSet().getString(72));
+                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(73));
+                modelPaciente.setRua(this.getResultSet().getString(74));
+                modelPaciente.setNumCasa(this.getResultSet().getInt(75));
+                modelPaciente.setBairro(this.getResultSet().getString(76));
+                modelPaciente.setCidade(this.getResultSet().getString(77));
+                modelPaciente.setIdade(this.getResultSet().getInt(78));
+                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(79));
+                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(80));
+                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(81));
+                modelPaciente.setNome(this.getResultSet().getString(82));
+                modelPaciente.setSetor(this.getResultSet().getString(83));
+                modelPaciente.setTelefone(this.getResultSet().getString(84));
+                modelPaciente.setEmail(this.getResultSet().getString(85));
 
             }
         } catch (SQLException e) {
@@ -395,22 +398,23 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                 modelPaciente.setPacienteReincidente(this.getResultSet().getString(66));
                 modelPaciente.setDataNascimento(this.getResultSet().getString(67));
                 modelPaciente.setStatusTratamento(this.getResultSet().getString(68));
-                modelPaciente.setModoDesobsessao(this.getResultSet().getString(69));
-                modelPaciente.setDataAtendimento(this.getResultSet().getString(70));
-                modelPaciente.setAtendente(this.getResultSet().getString(71));
-                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(72));
-                modelPaciente.setRua(this.getResultSet().getString(73));
-                modelPaciente.setNumCasa(this.getResultSet().getInt(74));
-                modelPaciente.setBairro(this.getResultSet().getString(75));
-                modelPaciente.setCidade(this.getResultSet().getString(76));
-                modelPaciente.setIdade(this.getResultSet().getInt(77));
-                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
-                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
-                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(80));
-                modelPaciente.setNome(this.getResultSet().getString(81));
-                modelPaciente.setSetor(this.getResultSet().getString(82));
-                modelPaciente.setTelefone(this.getResultSet().getString(83));
-                modelPaciente.setEmail(this.getResultSet().getString(84));
+                modelPaciente.setStatusFicha(this.getResultSet().getString(69));
+                modelPaciente.setModoDesobsessao(this.getResultSet().getString(70));
+                modelPaciente.setDataAtendimento(this.getResultSet().getString(71));
+                modelPaciente.setAtendente(this.getResultSet().getString(72));
+                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(73));
+                modelPaciente.setRua(this.getResultSet().getString(74));
+                modelPaciente.setNumCasa(this.getResultSet().getInt(75));
+                modelPaciente.setBairro(this.getResultSet().getString(76));
+                modelPaciente.setCidade(this.getResultSet().getString(77));
+                modelPaciente.setIdade(this.getResultSet().getInt(78));
+                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(79));
+                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(80));
+                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(81));
+                modelPaciente.setNome(this.getResultSet().getString(82));
+                modelPaciente.setSetor(this.getResultSet().getString(83));
+                modelPaciente.setTelefone(this.getResultSet().getString(84));
+                modelPaciente.setEmail(this.getResultSet().getString(85));
 
             }
         } catch (SQLException e) {
@@ -505,22 +509,23 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                 modelPaciente.setPacienteReincidente(this.getResultSet().getString(66));
                 modelPaciente.setDataNascimento(this.getResultSet().getString(67));
                 modelPaciente.setStatusTratamento(this.getResultSet().getString(68));
-                modelPaciente.setModoDesobsessao(this.getResultSet().getString(69));
-                modelPaciente.setDataAtendimento(this.getResultSet().getString(70));
-                modelPaciente.setAtendente(this.getResultSet().getString(71));
-                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(72));
-                modelPaciente.setRua(this.getResultSet().getString(73));
-                modelPaciente.setNumCasa(this.getResultSet().getInt(74));
-                modelPaciente.setBairro(this.getResultSet().getString(75));
-                modelPaciente.setCidade(this.getResultSet().getString(76));
-                modelPaciente.setIdade(this.getResultSet().getInt(77));
-                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(78));
-                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(79));
-                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(80));
-                modelPaciente.setNome(this.getResultSet().getString(81));
-                modelPaciente.setSetor(this.getResultSet().getString(82));
-                modelPaciente.setTelefone(this.getResultSet().getString(83));
-                modelPaciente.setEmail(this.getResultSet().getString(84));
+                modelPaciente.setStatusFicha(this.getResultSet().getString(69));
+                modelPaciente.setModoDesobsessao(this.getResultSet().getString(70));
+                modelPaciente.setDataAtendimento(this.getResultSet().getString(71));
+                modelPaciente.setAtendente(this.getResultSet().getString(72));
+                modelPaciente.setAcompanhamentoPaciente(this.getResultSet().getString(73));
+                modelPaciente.setRua(this.getResultSet().getString(74));
+                modelPaciente.setNumCasa(this.getResultSet().getInt(75));
+                modelPaciente.setBairro(this.getResultSet().getString(76));
+                modelPaciente.setCidade(this.getResultSet().getString(77));
+                modelPaciente.setIdade(this.getResultSet().getInt(78));
+                modelPaciente.setConhecimentoEspiritaPrevio(this.getResultSet().getString(79));
+                modelPaciente.setFonteConhecimentoEspirita(this.getResultSet().getString(80));
+                modelPaciente.setObjetivoTratamento(this.getResultSet().getString(81));
+                modelPaciente.setNome(this.getResultSet().getString(82));
+                modelPaciente.setSetor(this.getResultSet().getString(83));
+                modelPaciente.setTelefone(this.getResultSet().getString(84));
+                modelPaciente.setEmail(this.getResultSet().getString(85));
                 listamodelPaciente.add(modelPaciente);
             }
         } catch (SQLException e) {
@@ -610,6 +615,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
                     + "paciente_reincidente = '" + modelPaciente.getPacienteReincidente() + "',"
                     + "data_nascimento = '" + modelPaciente.getDataNascimento() + "',"
                     + "status_tratamento = '" + modelPaciente.getStatusTratamento() + "',"
+                    + "status_ficha ='" + modelPaciente.getStatusFicha() + "',"
                     + "modo_desobsessao = '" + modelPaciente.getModoDesobsessao() + "',"
                     + "data_atendimento ='" + modelPaciente.getDataAtendimento() + "',"
                     + "atendente ='" + modelPaciente.getAtendente() + "',"

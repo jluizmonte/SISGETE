@@ -6,7 +6,6 @@ import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.util.ColorirLinhaStatus;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -20,9 +19,9 @@ import javax.swing.table.TableRowSorter;
 public class ConsultaPacienteView extends javax.swing.JInternalFrame {
 
     String termoPesquisa;
-    PacienteController medicamentoTratamentoController = new PacienteController();
-    PacienteModel medicamentoTratamentoModel = new PacienteModel();
-    ArrayList<PacienteModel> listaTratamentoModels = new ArrayList<>();
+    PacienteController pacienteController = new PacienteController();
+    PacienteModel pacienteModel = new PacienteModel();
+    ArrayList<PacienteModel> listaPacienteModel = new ArrayList<>();
     QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
     QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
     ArrayList<QuadroPsicofisicoModel> listaQuadroPsicofisicoModels = new ArrayList<>();
@@ -53,8 +52,9 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         jrbFiltroStatusTratamento = new javax.swing.JRadioButton();
         jrbFiltroDesobsessão = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtResultado = new rojerusan.RSTableMetro();
+        jrbFiltroInativo = new javax.swing.JRadioButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtResultado = new javax.swing.JTable();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -67,12 +67,10 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(0, 112, 192));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Escolha um dos filtros disponíveis para consulta do paciente:");
 
         jrbFiltroNome.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroNome.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jrbFiltroNome.setForeground(new java.awt.Color(255, 255, 255));
         jrbFiltroNome.setText("Por nome");
         jrbFiltroNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +80,6 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
 
         jrbFiltroSetor.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroSetor.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jrbFiltroSetor.setForeground(new java.awt.Color(255, 255, 255));
         jrbFiltroSetor.setText("Por setor");
         jrbFiltroSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +89,6 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
 
         jrbFiltroStatusTratamento.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroStatusTratamento.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jrbFiltroStatusTratamento.setForeground(new java.awt.Color(255, 255, 255));
         jrbFiltroStatusTratamento.setText("Por status tratamento");
         jrbFiltroStatusTratamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,8 +98,7 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
 
         jrbFiltroDesobsessão.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroDesobsessão.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jrbFiltroDesobsessão.setForeground(new java.awt.Color(255, 255, 255));
-        jrbFiltroDesobsessão.setText("por modo de desobsessão");
+        jrbFiltroDesobsessão.setText("Por modo de desobsessão");
         jrbFiltroDesobsessão.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrbFiltroDesobsessãoActionPerformed(evt);
@@ -111,8 +106,15 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 10)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("(UM POR VEZ)");
+
+        jrbFiltroInativo.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jrbFiltroInativo.setText("Por fichas inativas");
+        jrbFiltroInativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbFiltroInativoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,20 +122,23 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jrbFiltroNome, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                .addGap(95, 95, 95)
-                .addComponent(jrbFiltroSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                .addGap(93, 93, 93)
-                .addComponent(jrbFiltroStatusTratamento, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                .addGap(66, 66, 66)
-                .addComponent(jrbFiltroDesobsessão, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                .addGap(33, 33, 33))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                .addGap(89, 89, 89)
-                .addComponent(jLabel2)
-                .addContainerGap())
+                .addComponent(jrbFiltroNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(47, 47, 47)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jrbFiltroSetor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(63, 63, 63)
+                        .addComponent(jrbFiltroStatusTratamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jrbFiltroDesobsessão, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jrbFiltroInativo)
+                        .addGap(24, 24, 24))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(89, 89, 89)
+                        .addComponent(jLabel2)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,48 +152,40 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
                     .addComponent(jrbFiltroNome)
                     .addComponent(jrbFiltroSetor)
                     .addComponent(jrbFiltroStatusTratamento)
-                    .addComponent(jrbFiltroDesobsessão))
+                    .addComponent(jrbFiltroDesobsessão)
+                    .addComponent(jrbFiltroInativo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jtResultado.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jtResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "#", "Paciente", "Setor", "Data Atendimento", "Atendente", "Desobsessão", "Status"
+                "#", "Paciente", "Setor", "Data Atendimento", "Atendente", "Desobsessão", "Status", "Ficha"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jtResultado.setColorBackgoundHead(new java.awt.Color(204, 204, 204));
-        jtResultado.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
-        jtResultado.setColorForegroundHead(new java.awt.Color(0, 112, 192));
-        jtResultado.setFont(new java.awt.Font("DejaVu Sans", 0, 12)); // NOI18N
-        jtResultado.setFuenteFilas(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
-        jtResultado.setFuenteFilasSelect(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
-        jtResultado.setFuenteHead(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jtResultado.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jtResultado);
+        jtResultado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtResultadoMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jtResultado);
         if (jtResultado.getColumnModel().getColumnCount() > 0) {
-            jtResultado.getColumnModel().getColumn(0).setResizable(false);
-            jtResultado.getColumnModel().getColumn(0).setPreferredWidth(20);
+            jtResultado.getColumnModel().getColumn(0).setPreferredWidth(25);
+            jtResultado.getColumnModel().getColumn(2).setPreferredWidth(25);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -196,14 +193,15 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -292,23 +290,44 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jrbFiltroDesobsessãoActionPerformed
 
+    private void jrbFiltroInativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbFiltroInativoActionPerformed
+        if (jrbFiltroInativo.isSelected()) {
+            jrbFiltroDesobsessão.setSelected(false);
+            jrbFiltroStatusTratamento.setSelected(false);
+            jrbFiltroSetor.setSelected(false);
+            jrbFiltroNome.setSelected(false);
+            termoPesquisa = "INATIVA";
+            pesquisaPaciente(7);
+            desmarcarFiltro();
+        }
+
+    }//GEN-LAST:event_jrbFiltroInativoActionPerformed
+
+    private void jtResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtResultadoMouseClicked
+       int linha = jtResultado.getSelectedRow();
+       int codigoPaciente = (int) jtResultado.getValueAt(linha, 0);
+       pacienteModel = pacienteController.getPacienteController(codigoPaciente);
+        JOptionPane.showMessageDialog(this, pacienteModel.getNome(),"Atenção",JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jtResultadoMouseClicked
+
     private void popularTabela() {
-        listaTratamentoModels = new ArrayList<>();
-        listaTratamentoModels = medicamentoTratamentoController.getListaPacienteController();
+        listaPacienteModel = new ArrayList<>();
+        listaPacienteModel = pacienteController.getListaPacienteController();
         listaQuadroPsicofisicoModels = quadroPsicofisicoController.getListaQuadroPsicofisicoController();
         DefaultTableModel modelo = (DefaultTableModel) jtResultado.getModel();
         modelo.setNumRows(0);
 
-        int cont = listaTratamentoModels.size();
+        int cont = listaPacienteModel.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
-                listaTratamentoModels.get(i).getIdPaciente(),
-                listaTratamentoModels.get(i).getNome(),
-                listaTratamentoModels.get(i).getSetor(),
-                listaTratamentoModels.get(i).getDataAtendimento(),
-                listaTratamentoModels.get(i).getAtendente(),
-                listaTratamentoModels.get(i).getModoDesobsessao(),
-                listaTratamentoModels.get(i).getStatusTratamento()
+                listaPacienteModel.get(i).getIdPaciente(),
+                listaPacienteModel.get(i).getNome(),
+                listaPacienteModel.get(i).getSetor(),
+                listaPacienteModel.get(i).getDataAtendimento(),
+                listaPacienteModel.get(i).getAtendente(),
+                listaPacienteModel.get(i).getModoDesobsessao(),
+                listaPacienteModel.get(i).getStatusTratamento(),
+                listaPacienteModel.get(i).getStatusFicha()
             });
         }
     }
@@ -325,6 +344,7 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         jrbFiltroNome.setSelected(false);
         jrbFiltroSetor.setSelected(false);
         jrbFiltroStatusTratamento.setSelected(false);
+        jrbFiltroInativo.setSelected(false);
     }
 
     private void corLinhaTabela() {
@@ -336,12 +356,13 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JRadioButton jrbFiltroDesobsessão;
+    private javax.swing.JRadioButton jrbFiltroInativo;
     private javax.swing.JRadioButton jrbFiltroNome;
     private javax.swing.JRadioButton jrbFiltroSetor;
     private javax.swing.JRadioButton jrbFiltroStatusTratamento;
-    private rojerusan.RSTableMetro jtResultado;
+    private javax.swing.JTable jtResultado;
     // End of variables declaration//GEN-END:variables
 
 }
