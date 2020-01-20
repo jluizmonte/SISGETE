@@ -1,5 +1,6 @@
 package br.com.sisgete.connection;
 
+import br.com.sisgete.util.LogCatch;
 import br.com.sisgete.util.ObterInfoSistema;
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.sql.Statement;
 
 import javax.swing.JOptionPane;
 
-public class AcervoConnectionSqLite {
+public class SisgeteConnectionSqLite {
 
     ObterInfoSistema info = new ObterInfoSistema();
     static String diretorioUsuario;
@@ -41,7 +42,7 @@ public class AcervoConnectionSqLite {
         if (!diretorio.exists()) {
             try {
                 diretorio.mkdir();
-                arquivo.createNewFile();
+                arquivo.createNewFile();          
             } catch (IOException e) {
                 System.out.println("Erro: " + e);
             }

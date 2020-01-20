@@ -1,10 +1,10 @@
 package br.com.sisgete.model.DAO;
 
-import br.com.sisgete.connection.AcervoConnectionSqLite;
+import br.com.sisgete.connection.SisgeteConnectionSqLite;
 import br.com.sisgete.model.TemaModel;
 import java.sql.SQLException;
 
-public class TemaDao extends AcervoConnectionSqLite {
+public class TemaDao extends SisgeteConnectionSqLite {
 
     public TemaModel getTemaDAO() {
         TemaModel temaModel = new TemaModel();

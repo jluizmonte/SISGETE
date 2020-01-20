@@ -46,6 +46,19 @@ public class GetDateUtil {
     }
 
     /**
+     * retorna dia, mês e ano separados por underline
+     *
+     * @return
+     */
+    public String getNewDateTime() {
+        String date = "";
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd_MM_yyyy");
+        LocalDateTime timepoint = LocalDateTime.now();
+        date = (timepoint.format(fmt));
+        return date;
+    }
+
+    /**
      * retorna a hora e minutos no formato: HH:mm
      *
      * @return

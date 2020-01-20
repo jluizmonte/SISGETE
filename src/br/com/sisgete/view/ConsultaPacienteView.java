@@ -5,6 +5,7 @@ import br.com.sisgete.controller.QuadroPsicofisicoController;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.util.ColorirLinhaStatus;
+import br.com.sisgete.util.LogCatch;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -17,7 +18,7 @@ import javax.swing.table.TableRowSorter;
  * @author luiz
  */
 public class ConsultaPacienteView extends javax.swing.JInternalFrame {
-
+    
     String termoPesquisa;
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
@@ -39,7 +40,7 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setClosable(true);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -223,7 +224,7 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
             jrbFiltroDesobsessão.setSelected(false);
             jrbFiltroSetor.setSelected(false);
             jrbFiltroStatusTratamento.setSelected(false);
-
+            
             termoPesquisa = JOptionPane.showInputDialog(this, "Entre o nome do paciente:", "Pesquisa paciente", JOptionPane.INFORMATION_MESSAGE).toUpperCase();
             pesquisaPaciente(1);
             desmarcarFiltro();
@@ -304,19 +305,20 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jrbFiltroInativoActionPerformed
 
     private void jtResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtResultadoMouseClicked
-       int linha = jtResultado.getSelectedRow();
-       int codigoPaciente = (int) jtResultado.getValueAt(linha, 0);
-       pacienteModel = pacienteController.getPacienteController(codigoPaciente);
-        JOptionPane.showMessageDialog(this, pacienteModel.getNome(),"Atenção",JOptionPane.WARNING_MESSAGE);
+        int linha = jtResultado.getSelectedRow();
+        int codigoPaciente = (int) jtResultado.getValueAt(linha, 0);
+        pacienteModel = pacienteController.getPacienteController(codigoPaciente);
+        JOptionPane.showMessageDialog(this, pacienteModel.getNome(), "Atenção", JOptionPane.WARNING_MESSAGE);
+        new LogCatch().listaPaciente(pacienteModel.getNome());
     }//GEN-LAST:event_jtResultadoMouseClicked
-
+    
     private void popularTabela() {
         listaPacienteModel = new ArrayList<>();
         listaPacienteModel = pacienteController.getListaPacienteController();
         listaQuadroPsicofisicoModels = quadroPsicofisicoController.getListaQuadroPsicofisicoController();
         DefaultTableModel modelo = (DefaultTableModel) jtResultado.getModel();
         modelo.setNumRows(0);
-
+        
         int cont = listaPacienteModel.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
@@ -331,14 +333,14 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
             });
         }
     }
-
+    
     private void pesquisaPaciente(int row) {
         DefaultTableModel modelo = (DefaultTableModel) this.jtResultado.getModel();
         final TableRowSorter<TableModel> classificador = new TableRowSorter<>(modelo);
         this.jtResultado.setRowSorter(classificador);
         classificador.setRowFilter(RowFilter.regexFilter(termoPesquisa, row));
     }
-
+    
     private void desmarcarFiltro() {
         jrbFiltroDesobsessão.setSelected(false);
         jrbFiltroNome.setSelected(false);
@@ -346,7 +348,7 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         jrbFiltroStatusTratamento.setSelected(false);
         jrbFiltroInativo.setSelected(false);
     }
-
+    
     private void corLinhaTabela() {
         ColorirLinhaStatus colorirLinhaStatus = new ColorirLinhaStatus(6);
         jtResultado.getColumnModel().getColumn(6).setCellRenderer(colorirLinhaStatus);
