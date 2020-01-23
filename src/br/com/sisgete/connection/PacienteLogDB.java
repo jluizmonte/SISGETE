@@ -1,6 +1,7 @@
 package br.com.sisgete.connection;
 
-import br.com.sisgete.util.LogCatch;
+import static br.com.sisgete.connection.SisgeteConnectionSqLite.diretorioUsuario;
+import br.com.sisgete.util.LogModel;
 import br.com.sisgete.util.ObterInfoSistema;
 import java.io.File;
 import java.io.IOException;
@@ -10,72 +11,70 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.JOptionPane;
 
-public class SisgeteConnectionSqLite {
+/**
+ *
+ * @author luiz
+ */
+public class PacienteLogDB {
 
     ObterInfoSistema info = new ObterInfoSistema();
     static String diretorioUsuario;
     static String diretorioPadrao = System.getProperty("user.home");
     private final String nomeSistema = System.getProperty("os.name");
     File sisgeteDB;
+    File pacienteLogDB;
     ResultSet resultSet;
     String url;
     Connection conn;
     Statement stmt;
     PreparedStatement preparedStatement;
+    String atendimentoDB = "Atendimento" + LogModel.nowDateTime + ".db";
 
-    public void sisgeteDB() throws IOException, ClassNotFoundException {
+    public void pacienteLogDB() throws ClassNotFoundException, IOException {
         Class.forName("org.sqlite.JDBC");
         if (nomeSistema.equals("Linux")) {
-            diretorioUsuario = diretorioPadrao + "/.sisgete";
-            this.setUrl("jdbc:sqlite:" + diretorioUsuario + "/sisgete.db");
-            sisgeteDB = new File(diretorioUsuario + "/sisgete.db");
+            diretorioUsuario = diretorioPadrao + "/.sisgete/registro/";
+            this.setUrl("jdbc:sqlite:" + diretorioUsuario + atendimentoDB);
+            pacienteLogDB = new File(diretorioUsuario + atendimentoDB);
         } else {
-            diretorioUsuario = diretorioPadrao + "\\sisgete";
-            this.setUrl("jdbc:sqlite:" + diretorioUsuario + "\\sisgete.db");
-            sisgeteDB = new File(diretorioUsuario + "\\sisgete.db");
+            diretorioUsuario = diretorioPadrao + "\\sisgete\\registro\\";
+            this.setUrl("jdbc:sqlite:" + atendimentoDB);
+            pacienteLogDB = new File(diretorioUsuario + atendimentoDB);
         }
 
         File diretorio = new File(diretorioUsuario);
         if (!diretorio.exists()) {
             try {
                 diretorio.mkdir();
-                sisgeteDB.createNewFile();
+                pacienteLogDB.createNewFile();
             } catch (IOException e) {
                 System.out.println("Erro: " + e);
             }
         }
     }
 
-    public void sisgeteTableDB() {
+    public void pacienteTableDB() {
 
         if (nomeSistema.equals("Linux")) {
-            diretorioUsuario = diretorioPadrao + "/.sisgete";
-            this.setUrl("jdbc:sqlite:" + diretorioUsuario + "/sisgete.db");
-
+            diretorioUsuario = diretorioPadrao + "/.sisgete/registro/";
+            this.setUrl("jdbc:sqlite:" + diretorioUsuario + atendimentoDB);
+            pacienteLogDB = new File(diretorioUsuario + atendimentoDB);
         } else {
-            diretorioUsuario = diretorioPadrao + "\\sisgete";
-            this.setUrl("jdbc:sqlite:" + diretorioUsuario + "\\sisgete.db");
+            diretorioUsuario = diretorioPadrao + "\\sisgete\\registro\\";
+            this.setUrl("jdbc:sqlite:" + diretorioUsuario + atendimentoDB);
         }
 
-        // criação das tabelas
-        String tema = "CREATE TABLE \"tbl_tema\" (\n"
-                + "	\"pk_id_tema\"	INTEGER PRIMARY KEY AUTOINCREMENT,\n"
-                + "	\"tema_nome\"	TEXT NOT NULL\n"
+        String tbl_paciente = "CREATE TABLE \"tbl_paciente\" (\n"
+                + "	\"pk_id_paciente\"	INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                + "	\"paciente\"	TEXT NOT NULL,\n"
+                + "	\"setor\"	TEXT NOT NULL,\n"
+                + "                \"tipo\" TEXT NOT NULL \n"
                 + ");";
 
-        // inserção de dados nas tabelas
-        String insert_tema = "INSERT INTO tbl_tema VALUES (1,'de.javasoft.plaf.synthetica.SyntheticaBlueLightLookAndFeel');";
-
         try (Connection conn = DriverManager.getConnection(this.getUrl()); Statement stmt = conn.createStatement()) {
-            // create a new table
-
-            stmt.execute(tema);
-            /**/
-            PreparedStatement pstmt = conn.prepareStatement(insert_tema);
-            pstmt.executeUpdate();
+            stmt.execute(tbl_paciente);
         } catch (SQLException e) {
             // System.out.println(e.getMessage());
         }
@@ -84,12 +83,12 @@ public class SisgeteConnectionSqLite {
     public Connection connect() {
 
         if (info.getNomeSistema().equals("Linux")) {
-            diretorioUsuario = diretorioPadrao + "/.sisgete";
-            this.setUrl("jdbc:sqlite:" + diretorioUsuario + "/sisgete.db");
+            diretorioUsuario = diretorioPadrao + "/.sisgete/registro/";
+            this.setUrl("jdbc:sqlite:" + diretorioUsuario + atendimentoDB);
 
         } else {
-            diretorioUsuario = diretorioPadrao + "\\sisgete";
-            this.setUrl("jdbc:sqlite:" + diretorioUsuario + "\\sisgete.db");
+            diretorioUsuario = diretorioPadrao + "\\sisgete\\registro\\";
+            this.setUrl("jdbc:sqlite:" + diretorioUsuario + atendimentoDB);
         }
         this.setConn(null);
         try {

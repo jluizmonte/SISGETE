@@ -1,5 +1,6 @@
 package br.com.sisgete.util;
 
+import br.com.sisgete.connection.PacienteLogDB;
 import br.com.sisgete.connection.SisgeteConnectionSqLite;
 import br.com.sisgete.controller.TemaController;
 import br.com.sisgete.model.TemaModel;
@@ -16,15 +17,21 @@ public class SisgeteLoaderUtil {
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException, IOException {
         SisgeteConnectionSqLite criacaoBDTema = new SisgeteConnectionSqLite();
-        criacaoBDTema.createNewDatabase();
-        criacaoBDTema.createNewTable();
+        PacienteLogDB pacienteLogDB = new PacienteLogDB();
+        criacaoBDTema.sisgeteDB();
+        criacaoBDTema.sisgeteTableDB();
+        
+        pacienteLogDB.pacienteLogDB();
+         pacienteLogDB.pacienteTableDB();
+        
         TemaModel temaModel = new TemaModel();
         temaModel = new TemaController().getTemaDAO();
         String tema = temaModel.getTema();
+        
         new LogCatch().criarPastaLogs();
-        new LogCatch().criarPastaListaPaciente();
+      //  new LogCatch().criarPastaListaPaciente();
         new LogCatch().firstWriteFile();
-        new LogCatch().pacienteLog();
+        //new LogCatch().pacienteLog();
         try {
             UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
             try {
