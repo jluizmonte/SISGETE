@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author luiz
  */
-public class FrequenciaTercaView extends javax.swing.JInternalFrame {
+public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
 
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
@@ -24,7 +24,7 @@ public class FrequenciaTercaView extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrequenciaTercaView
      */
-    public FrequenciaTercaView() {
+    public AcompanhamentoTercaView() {
         initComponents();
     }
 

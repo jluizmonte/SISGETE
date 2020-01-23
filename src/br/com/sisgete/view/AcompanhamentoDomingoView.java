@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author luiz
  */
-public class FrequenciaDomingoView extends javax.swing.JInternalFrame {
+public class AcompanhamentoDomingoView extends javax.swing.JInternalFrame {
 
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
@@ -39,11 +39,8 @@ public class FrequenciaDomingoView extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrequenciaDomingoView
      */
-    public FrequenciaDomingoView() {
-        //     this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
+    public AcompanhamentoDomingoView() {
         initComponents();
-//        setResizable(false);
-//        setLocationRelativeTo(null);
         setIconifiable(true);
         setClosable(true);
     }
@@ -451,7 +448,6 @@ public class FrequenciaDomingoView extends javax.swing.JInternalFrame {
     }
 
     private void carregarPaciente() {
-        // listaPacienteModel = new ArrayList<>();
         listaPacienteModel = pacienteController.getListaPacienteController();
         jcbPaciente.removeAllItems();
         listaPacienteModel.forEach((paciente) -> {

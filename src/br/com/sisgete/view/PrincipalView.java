@@ -13,12 +13,13 @@ import javax.swing.ImageIcon;
 public class PrincipalView extends javax.swing.JFrame {
 
     CadastroFichaView cadastroFichaView = new CadastroFichaView();
-    PesquisaPacienteView consultaPacienteView = new PesquisaPacienteView();
+    PesquisaPacienteView pesquisaPacienteView = new PesquisaPacienteView();
     MagnetizadorView magnetizadorView = new MagnetizadorView();
     AuxiliarView auxiliarView = new AuxiliarView();
-    FrequenciaDomingoView frequenciaDomingoView = new FrequenciaDomingoView();
-    FrequenciaTercaView frequenciaTercaView = new FrequenciaTercaView();
-    FrequenciaQuintaView frequenciaQuintaView = new FrequenciaQuintaView();
+    AcompanhamentoDomingoView acompanhamentoDomingoView = new AcompanhamentoDomingoView();
+    AcompanhamentoTercaView acompanhamentoTercaView = new AcompanhamentoTercaView();
+    AcompanhamentoQuintaView acompanhamentoQuintaView = new AcompanhamentoQuintaView();
+    ConsultaDomingoView consultaDomingoView = new ConsultaDomingoView();
     ExtraView extraView = new ExtraView();
     GetDateUtil getDateUtil = new GetDateUtil();
 
@@ -52,7 +53,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbSair = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jbExtra = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -60,6 +60,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jlDataLogin = new javax.swing.JLabel();
         jlData = new javax.swing.JLabel();
+        jbConsulta = new javax.swing.JButton();
         desktopPane = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,7 +79,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jbConsultaPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbConsultaPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-24.png"))); // NOI18N
-        jbConsultaPaciente.setText("Consultar  paciente");
+        jbConsultaPaciente.setText("Pesquisar  paciente");
         jbConsultaPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConsultaPacienteActionPerformed(evt);
@@ -178,13 +179,21 @@ public class PrincipalView extends javax.swing.JFrame {
         jlData.setForeground(new java.awt.Color(255, 255, 255));
         jlData.setText("$dd/MM/yyyy HH:mm:ss");
 
+        jbConsulta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jbConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-na-lista-24.png"))); // NOI18N
+        jbConsulta.setText("Consultas Paciente");
+        jbConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbConsultaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
             .addComponent(jSeparator2)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -195,9 +204,6 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(57, 57, 57))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jbConsultaPaciente)
                                     .addComponent(jbCadastroPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,6 +211,24 @@ public class PrincipalView extends javax.swing.JFrame {
                                         .addComponent(jLabel1)
                                         .addGap(7, 7, 7)))
                                 .addGap(21, 21, 21))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jLabel3)
+                                            .addGap(47, 47, 47))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                            .addGap(22, 22, 22)
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel6)
+                                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                                    .addGap(22, 22, 22)
+                                                    .addComponent(jlUsuario)))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jlDataLogin))
+                                .addGap(14, 14, 14))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -226,22 +250,10 @@ public class PrincipalView extends javax.swing.JFrame {
                                             .addComponent(jbAuxiliar)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(12, 12, 12)
-                                        .addComponent(jLabel2)))
-                                .addGap(17, 17, 17))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jlUsuario)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jlDataLogin))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jbConsulta)
+                                            .addComponent(jLabel2))))
+                                .addGap(18, 18, 18))))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,9 +264,9 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jbCadastroPaciente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbConsultaPaciente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbConsulta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbFrequenciaDomingo)
@@ -280,7 +292,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlDataLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbSair, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -296,7 +308,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 644, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -334,8 +346,8 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCadastroPacienteActionPerformed
 
     private void jbConsultaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultaPacienteActionPerformed
-        desktopPane.add(consultaPacienteView);
-        consultaPacienteView.setVisible(true);
+        desktopPane.add(pesquisaPacienteView);
+        pesquisaPacienteView.setVisible(true);
     }//GEN-LAST:event_jbConsultaPacienteActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
@@ -343,18 +355,18 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jbFrequenciaDomingoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFrequenciaDomingoActionPerformed
-        desktopPane.add(frequenciaDomingoView);
-        frequenciaDomingoView.setVisible(true);
+        desktopPane.add(acompanhamentoDomingoView);
+        acompanhamentoDomingoView.setVisible(true);
     }//GEN-LAST:event_jbFrequenciaDomingoActionPerformed
 
     private void jbFrequenciaQuintaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFrequenciaQuintaActionPerformed
-        desktopPane.add(frequenciaQuintaView);
-        frequenciaQuintaView.setVisible(true);
+        desktopPane.add(acompanhamentoQuintaView);
+        acompanhamentoQuintaView.setVisible(true);
     }//GEN-LAST:event_jbFrequenciaQuintaActionPerformed
 
     private void jbFrequenciaTercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFrequenciaTercaActionPerformed
-        desktopPane.add(frequenciaTercaView);
-        frequenciaTercaView.setVisible(true);
+        desktopPane.add(acompanhamentoTercaView);
+        acompanhamentoTercaView.setVisible(true);
     }//GEN-LAST:event_jbFrequenciaTercaActionPerformed
 
     private void jbMagnetizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMagnetizadorActionPerformed
@@ -371,6 +383,11 @@ public class PrincipalView extends javax.swing.JFrame {
         desktopPane.add(extraView);
         extraView.setVisible(true);
     }//GEN-LAST:event_jbExtraActionPerformed
+
+    private void jbConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultaActionPerformed
+        desktopPane.add(consultaDomingoView);
+        consultaDomingoView.setVisible(true);
+    }//GEN-LAST:event_jbConsultaActionPerformed
 
     private void dadosIniciais() {
         jlUsuario.setText(SessaoModel.nomeUsuario);
@@ -426,10 +443,10 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbAuxiliar;
     private javax.swing.JButton jbCadastroPaciente;
+    private javax.swing.JButton jbConsulta;
     private javax.swing.JButton jbConsultaPaciente;
     private javax.swing.JButton jbExtra;
     private javax.swing.JButton jbFrequenciaDomingo;

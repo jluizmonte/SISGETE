@@ -4,10 +4,10 @@ package br.com.sisgete.view;
  *
  * @author luiz
  */
-public class FrequenciaQuintaView extends javax.swing.JInternalFrame {
+public class AcompanhamentoQuintaView extends javax.swing.JInternalFrame {
 
     /** Creates new form FrequenciaQuintaView */
-    public FrequenciaQuintaView() {
+    public AcompanhamentoQuintaView() {
         initComponents();
     }
 
