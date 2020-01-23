@@ -19,7 +19,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author luiz
  */
-public class ConsultaPacienteView extends javax.swing.JInternalFrame {
+public class PesquisaPacienteView extends javax.swing.JInternalFrame {
 
     String termoPesquisa;
     PacienteController pacienteController = new PacienteController();
@@ -35,7 +35,7 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
     /**
      * Creates new form ConsultaPaciente
      */
-    public ConsultaPacienteView() {
+    public PesquisaPacienteView() {
         //   this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
         //  setLocationRelativeTo(null);
@@ -66,7 +66,7 @@ public class ConsultaPacienteView extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Consulta de Pacientes");
+        setTitle("Pesquisa de Pacientes");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

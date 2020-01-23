@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 public class PrincipalView extends javax.swing.JFrame {
 
     CadastroFichaView cadastroFichaView = new CadastroFichaView();
-    ConsultaPacienteView consultaPacienteView = new ConsultaPacienteView();
+    PesquisaPacienteView consultaPacienteView = new PesquisaPacienteView();
     MagnetizadorView magnetizadorView = new MagnetizadorView();
     AuxiliarView auxiliarView = new AuxiliarView();
     FrequenciaDomingoView frequenciaDomingoView = new FrequenciaDomingoView();

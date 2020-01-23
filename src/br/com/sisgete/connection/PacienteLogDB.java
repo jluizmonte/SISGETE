@@ -69,7 +69,7 @@ public class PacienteLogDB {
         String tbl_paciente = "CREATE TABLE \"tbl_paciente\" (\n"
                 + "	\"pk_id_paciente\"	INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "	\"paciente\"	TEXT NOT NULL,\n"
-                + "	\"setor\"	TEXT NOT NULL,\n"
+                + "	\"setor\"	TEXT,\n"
                 + "                \"tipo\" TEXT NOT NULL \n"
                 + ");";
 
