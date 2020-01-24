@@ -73,10 +73,12 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(0, 112, 192));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Escolha um dos filtros disponíveis para consulta do paciente:");
 
         jrbFiltroNome.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroNome.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jrbFiltroNome.setForeground(new java.awt.Color(255, 255, 255));
         jrbFiltroNome.setText("Por nome");
         jrbFiltroNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +88,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
 
         jrbFiltroSetor.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroSetor.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jrbFiltroSetor.setForeground(new java.awt.Color(255, 255, 255));
         jrbFiltroSetor.setText("Por setor");
         jrbFiltroSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +98,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
 
         jrbFiltroStatusTratamento.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroStatusTratamento.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jrbFiltroStatusTratamento.setForeground(new java.awt.Color(255, 255, 255));
         jrbFiltroStatusTratamento.setText("Por status tratamento");
         jrbFiltroStatusTratamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +108,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
 
         jrbFiltroDesobsessão.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroDesobsessão.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jrbFiltroDesobsessão.setForeground(new java.awt.Color(255, 255, 255));
         jrbFiltroDesobsessão.setText("Por modo de desobsessão");
         jrbFiltroDesobsessão.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +119,9 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 10)); // NOI18N
         jLabel2.setText("(UM POR VEZ)");
 
+        jrbFiltroInativo.setBackground(new java.awt.Color(0, 112, 192));
         jrbFiltroInativo.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jrbFiltroInativo.setForeground(new java.awt.Color(255, 255, 255));
         jrbFiltroInativo.setText("Por fichas inativas");
         jrbFiltroInativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

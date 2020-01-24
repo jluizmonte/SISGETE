@@ -175,6 +175,7 @@ public class AcompanhamentoDomingoView extends javax.swing.JInternalFrame {
             }
         });
 
+        jcRecomendacoesSim.setBackground(new java.awt.Color(0, 112, 192));
         jcRecomendacoesSim.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jcRecomendacoesSim.setForeground(new java.awt.Color(255, 255, 255));
         jcRecomendacoesSim.setText("Sim");
@@ -184,6 +185,7 @@ public class AcompanhamentoDomingoView extends javax.swing.JInternalFrame {
             }
         });
 
+        jcRecomendacoesNao.setBackground(new java.awt.Color(0, 112, 192));
         jcRecomendacoesNao.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jcRecomendacoesNao.setForeground(new java.awt.Color(255, 255, 255));
         jcRecomendacoesNao.setText("Não");
