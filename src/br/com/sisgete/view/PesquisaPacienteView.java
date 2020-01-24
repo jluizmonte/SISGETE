@@ -183,11 +183,6 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        jtResultado.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtResultadoMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(jtResultado);
         if (jtResultado.getColumnModel().getColumnCount() > 0) {
             jtResultado.getColumnModel().getColumn(0).setPreferredWidth(25);
@@ -308,23 +303,6 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jrbFiltroInativoActionPerformed
-
-    private void jtResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtResultadoMouseClicked
-        salvarLog();
-    }//GEN-LAST:event_jtResultadoMouseClicked
-
-    private void salvarLog() {
-        int linha = jtResultado.getSelectedRow();
-        int codigoPaciente = (int) jtResultado.getValueAt(linha, 0);
-        pacienteModel = pacienteController.getPacienteController(codigoPaciente);
-        pacienteLogModel.setPacienteLog(pacienteModel.getNome());
-        pacienteLogModel.setSetorPacienteLog(pacienteModel.getSetor());
-        if (pacienteLogController.insertPacienteLog(pacienteLogModel) > 0) {
-            JOptionPane.showMessageDialog(null, "Paciente salvo");
-        } else {
-            JOptionPane.showMessageDialog(null, "Paciente não salvo");
-        }
-    }
 
     private void popularTabela() {
         listaPacienteModel = new ArrayList<>();

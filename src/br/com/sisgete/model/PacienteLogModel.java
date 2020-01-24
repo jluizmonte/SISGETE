@@ -9,6 +9,7 @@ public class PacienteLogModel {
     private int idPacienteLog;
     private String pacienteLog;
     private String setorPacienteLog;
+    private String tipoPacienteLog;
 
     public int getIdPacienteLog() {
         return idPacienteLog;
@@ -34,9 +35,17 @@ public class PacienteLogModel {
         this.setorPacienteLog = setorPacienteLog;
     }
 
+    public String getTipoPacienteLog() {
+        return tipoPacienteLog;
+    }
+
+    public void setTipoPacienteLog(String tipoPacienteLog) {
+        this.tipoPacienteLog = tipoPacienteLog;
+    }
+
     @Override
     public String toString() {
-        return "PacienteLogModel{" + "idPacienteLog=" + idPacienteLog + ", pacienteLog=" + pacienteLog + ", setorPaceinteLog=" + setorPacienteLog + '}';
+        return "PacienteLogModel{" + "idPacienteLog=" + idPacienteLog + ", pacienteLog=" + pacienteLog + ", setorPacienteLog=" + setorPacienteLog + ", tipoPacienteLog=" + tipoPacienteLog + '}';
     }
 
 }

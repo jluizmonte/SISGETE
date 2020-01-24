@@ -1,24 +1,30 @@
 package br.com.sisgete.view;
 
 import br.com.sisgete.controller.PacienteController;
+import br.com.sisgete.controller.PacienteLogController;
 import br.com.sisgete.controller.QuadroPsicofisicoController;
+import br.com.sisgete.model.PacienteLogModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author luiz
  */
 public class ConsultaDomingoView extends javax.swing.JInternalFrame {
-
+    
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
     ArrayList<PacienteModel> listaPacienteModel = new ArrayList<>();
     QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
     QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
     ArrayList<QuadroPsicofisicoModel> listaQuadroPsicofisicoModels = new ArrayList<>();
+    PacienteLogModel pacienteLogModel = new PacienteLogModel();
+    PacienteLogController pacienteLogController = new PacienteLogController();
+    String nomePaciente;
+    ConsultaDomingoPesquisaPacienteView consultaPaciente = new ConsultaDomingoPesquisaPacienteView(null, true);
 
     /**
      * Creates new form ConsultaDomingoView
@@ -27,7 +33,7 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         initComponents();
         carregarPaciente();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,6 +72,15 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
 
         jcbPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
         jcbPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbPaciente.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbPacientePopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
 
         jlSetor.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jlSetor.setText("$SETOR");
@@ -75,6 +90,11 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         jbAddPaciente.setText("Adicionar Paciente");
 
         jbPesquisaPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-24.png"))); // NOI18N
+        jbPesquisaPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbPesquisaPacienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -118,12 +138,17 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel5.setText("NOME.:");
 
-        jtfNome.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jtfNome.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
         jtfNome.setForeground(new java.awt.Color(0, 112, 192));
 
         jbAddConsulta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbAddConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-regra-24.png"))); // NOI18N
         jbAddConsulta.setText("Adicionar Consulta");
+        jbAddConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAddConsultaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -146,8 +171,8 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
                 .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbAddConsulta))
         );
 
@@ -192,12 +217,40 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jcbPacientePopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbPacientePopupMenuWillBecomeInvisible
+        carregarValores();
+    }//GEN-LAST:event_jcbPacientePopupMenuWillBecomeInvisible
+
+    private void jbPesquisaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisaPacienteActionPerformed
+        
+        consultaPaciente.setVisible(true);
+        
+    }//GEN-LAST:event_jbPesquisaPacienteActionPerformed
+
+    private void jbAddConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddConsultaActionPerformed
+        salvarListaConsulta();
+    }//GEN-LAST:event_jbAddConsultaActionPerformed
+    
     private void carregarPaciente() {
         listaPacienteModel = pacienteController.getListaPacienteController();
         jcbPaciente.removeAllItems();
         listaPacienteModel.forEach((paciente) -> {
             jcbPaciente.addItem(String.valueOf(paciente.getNome()));
         });
+    }
+    
+    private void salvarListaConsulta() {
+        pacienteLogModel.setPacienteLog(jtfNome.getText().toUpperCase());
+        pacienteLogModel.setTipoPacienteLog("CONSULTA");
+        pacienteLogModel.setSetorPacienteLog("NULL");
+        pacienteLogController.insertPacienteLog(pacienteLogModel);
+        JOptionPane.showMessageDialog(null, "Consulta salva com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+        jtfNome.setText("");
+    }
+    
+    private void carregarValores() {
+        pacienteModel = pacienteController.getPaciente(jcbPaciente.getSelectedItem().toString());
+        jlSetor.setText(pacienteModel.getSetor());
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

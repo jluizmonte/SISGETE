@@ -13,10 +13,11 @@ public class PacienteLogDAO extends PacienteLogDB {
 
     public int insertPacienteLog(PacienteLogModel pacienteLogModel) {
         try {
-            String sql = "INSERT INTO tbl_paciente (paciente, setor) VALUES (?,?)";
+            String sql = "INSERT INTO tbl_paciente (paciente, setor,tipo) VALUES (?,?,?)";
             PreparedStatement preparedStatement = this.connect().prepareStatement(sql);
             preparedStatement.setString(1, pacienteLogModel.getPacienteLog());
             preparedStatement.setString(2, pacienteLogModel.getSetorPacienteLog());
+            preparedStatement.setString(3, pacienteLogModel.getTipoPacienteLog());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
