@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author luiz
  */
 public class ExtraView extends javax.swing.JInternalFrame {
-    
+
     UsuarioController usuarioController = new UsuarioController();
     UsuarioModel usuarioModel = new UsuarioModel();
     ArrayList<UsuarioModel> listaUsuarioModels = new ArrayList<>();
@@ -33,7 +33,7 @@ public class ExtraView extends javax.swing.JInternalFrame {
         dadosIniciais();
         carregarDados();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -357,13 +357,13 @@ public class ExtraView extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         escolhaTema();
     }//GEN-LAST:event_jButton2ActionPerformed
-    
+
     private void salvarDados() {
         usuarioModel.setNivelAcesso(jcbNivel.getSelectedItem().toString());
         usuarioModel.setNome(jtfNome.getText().toUpperCase());
         usuarioModel.setSenha(jtfSenha.getText());
         usuarioModel.setUsuario(jtfLogin.getText());
-        
+
         if (usuarioController.salvarUsuarioController(usuarioModel) > 0) {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
             limparCampos();
@@ -372,23 +372,23 @@ public class ExtraView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     private void limparCampos() {
         jtfLogin.setText("");
         jtfNome.setText("");
         jtfSenha.setText("");
     }
-    
+
     private void dadosIniciais() {
         jtfNome.requestFocusInWindow();
     }
-    
+
     private void carregarDados() {
         listaUsuarioModels = new ArrayList<>();
         listaUsuarioModels = usuarioController.getListaUsuarioController();
         DefaultTableModel modelo = (DefaultTableModel) jtusuario.getModel();
         modelo.setNumRows(0);
-        
+
         int cont = listaUsuarioModels.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
@@ -399,9 +399,9 @@ public class ExtraView extends javax.swing.JInternalFrame {
             });
         }
     }
-    
+
     private void escolhaTema() {
-        Object[] opcoes = {"METAL", "NIMBUS", "AZUL", "BRANCO", "PRETO"};
+        Object[] opcoes = {"METAL", "NIMBUS"};
         Object resposta;
         resposta = JOptionPane.showInputDialog(null, "Deseja aplicar qual tema   ?", "Aplicar tema?",
                 JOptionPane.OK_CANCEL_OPTION, null, opcoes, "Sim");
@@ -419,34 +419,13 @@ public class ExtraView extends javax.swing.JInternalFrame {
             } catch (ParseException ex) {
                 Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else if (resposta.equals("AZUL")) {
-            try {
-                tema = GUIProperties.PLAF_SYNTHETICA_BLUE;
-                updateLaf();
-            } catch (ParseException ex) {
-                Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (resposta.equals("BRANCO")) {
-            try {
-                tema = GUIProperties.PLAF_SYNTHETICA_PLAIN;
-                updateLaf();
-            } catch (ParseException ex) {
-                Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        } else if (resposta.equals("PRETO")) {
-            try {
-                tema = GUIProperties.PLAF_SYNTHETICA_BLACKSTEEL;
-                updateLaf();
-            } catch (ParseException ex) {
-                Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
-            }
+
         } else {
             JOptionPane.showMessageDialog(null, "Nenhum tema será aplicado!", "Tema inalterado!",
                     JOptionPane.WARNING_MESSAGE);
         }
     }
-    
+
     public void updateLaf() throws ParseException {
         temaModel.setIdTema(1);
         temaModel.setTema(tema);

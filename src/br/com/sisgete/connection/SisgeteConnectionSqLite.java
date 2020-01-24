@@ -1,6 +1,5 @@
 package br.com.sisgete.connection;
 
-import br.com.sisgete.util.LogCatch;
 import br.com.sisgete.util.ObterInfoSistema;
 import java.io.File;
 import java.io.IOException;
@@ -67,7 +66,7 @@ public class SisgeteConnectionSqLite {
                 + ");";
 
         // inserção de dados nas tabelas
-        String insert_tema = "INSERT INTO tbl_tema VALUES (1,'de.javasoft.plaf.synthetica.SyntheticaBlueLightLookAndFeel');";
+        String insert_tema = "INSERT INTO tbl_tema VALUES (1,'javax.swing.plaf.nimbus.NimbusLookAndFeel');";
 
         try (Connection conn = DriverManager.getConnection(this.getUrl()); Statement stmt = conn.createStatement()) {
             // create a new table
