@@ -20,24 +20,24 @@ public class SisgeteLoaderUtil {
         PacienteLogDB pacienteLogDB = new PacienteLogDB();
         criacaoBDTema.sisgeteDB();
         criacaoBDTema.sisgeteTableDB();
-        
+
         pacienteLogDB.pacienteLogDB();
-         pacienteLogDB.pacienteTableDB();
-        
+        pacienteLogDB.pacienteTableDB();
+
         TemaModel temaModel = new TemaModel();
         temaModel = new TemaController().getTemaDAO();
         String tema = temaModel.getTema();
-        
+
         new LogCatch().criarPastaLogs();
-      //  new LogCatch().criarPastaListaPaciente();
+        //  new LogCatch().criarPastaListaPaciente();
         new LogCatch().firstWriteFile();
         //new LogCatch().pacienteLog();
         try {
             UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
             try {
                 UIManager.setLookAndFeel(tema);
-             //         new CarregarSplash().setSplashTime();
-                 new PrincipalView().setVisible(true);
+                //new CarregarSplash().setSplashTime();
+                new PrincipalView().setVisible(true);
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
                 //      e.printStackTrace();
             }
