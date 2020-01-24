@@ -2,6 +2,8 @@ package br.com.sisgete.view;
 
 import br.com.sisgete.model.SessaoModel;
 import br.com.sisgete.util.GetDateUtil;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ImageIcon;
@@ -153,7 +155,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jbConsulta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-na-lista-24.png"))); // NOI18N
-        jbConsulta.setText("Consultas Paciente");
+        jbConsulta.setText("Atendimento");
         jbConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConsultaActionPerformed(evt);
@@ -301,6 +303,15 @@ public class PrincipalView extends javax.swing.JFrame {
                         .addComponent(jlData)
                         .addGap(14, 14, 14))))
         );
+
+        ImageIcon icon = new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/sisgete.jpg"));
+        Image image = icon.getImage();
+        desktopPane = new javax.swing.JDesktopPane() {
+            @Override
+            public void paintComponent(Graphics g) {
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
