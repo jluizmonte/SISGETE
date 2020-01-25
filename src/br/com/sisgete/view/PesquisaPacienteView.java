@@ -65,7 +65,6 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("Pesquisa de Pacientes");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

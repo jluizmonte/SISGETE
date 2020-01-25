@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * @author luiz
  */
 public class PrincipalView extends javax.swing.JFrame {
-
+    
     CadastroFichaView cadastroFichaView = new CadastroFichaView();
     PesquisaPacienteView pesquisaPacienteView = new PesquisaPacienteView();
     MagnetizadorView magnetizadorView = new MagnetizadorView();
@@ -22,6 +22,7 @@ public class PrincipalView extends javax.swing.JFrame {
     AcompanhamentoTercaView acompanhamentoTercaView = new AcompanhamentoTercaView();
     AcompanhamentoQuintaView acompanhamentoQuintaView = new AcompanhamentoQuintaView();
     ConsultaDomingoView consultaDomingoView = new ConsultaDomingoView();
+    ListaPacienteView listaPacienteView = new ListaPacienteView();
     ExtraView extraView = new ExtraView();
     GetDateUtil getDateUtil = new GetDateUtil();
 
@@ -37,7 +38,7 @@ public class PrincipalView extends javax.swing.JFrame {
         dadosIniciais();
         //   setarNivel();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -398,10 +399,12 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_jbExtraActionPerformed
 
     private void jbConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultaActionPerformed
-        desktopPane.add(consultaDomingoView);
-        consultaDomingoView.setVisible(true);
+        //       desktopPane.add(consultaDomingoView);
+        //     consultaDomingoView.setVisible(true);
+        desktopPane.add(listaPacienteView);
+        listaPacienteView.setVisible(true);
     }//GEN-LAST:event_jbConsultaActionPerformed
-
+    
     private void dadosIniciais() {
         jlUsuario.setText(SessaoModel.nomeUsuario);
     }
@@ -423,7 +426,7 @@ public class PrincipalView extends javax.swing.JFrame {
         };
         clock.start();
     }
-
+    
     private void setarNivel() {
         switch (SessaoModel.nivelAcessoUsuario) {
             case "MAGNETIZADOR/AUXILIAR":
