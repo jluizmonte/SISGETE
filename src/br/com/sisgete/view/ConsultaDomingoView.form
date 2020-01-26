@@ -273,6 +273,9 @@
                   <Color blue="c0" green="70" red="0" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfNomeActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jbAddConsulta">
               <Properties>
