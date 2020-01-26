@@ -1,6 +1,5 @@
 package br.com.sisgete.connection;
 
-import static br.com.sisgete.connection.SisgeteConnectionSqLite.diretorioUsuario;
 import br.com.sisgete.util.LogModel;
 import br.com.sisgete.util.ObterInfoSistema;
 import java.io.File;
