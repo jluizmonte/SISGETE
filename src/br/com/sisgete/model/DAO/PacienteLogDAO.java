@@ -29,9 +29,13 @@ public class PacienteLogDAO extends PacienteLogDB {
             preparedStatement.setString(3, pacienteLogModel.getTipoPacienteLog());
             preparedStatement.execute();
         } catch (SQLException e) {
-          //  System.out.println(e);
-          e.printStackTrace();
+            //  System.out.println(e);
+            e.printStackTrace();
             return 0;
+        }
+        finally
+        {
+            this.closeConection();
         }
         return 0;
     }

@@ -1,5 +1,6 @@
 package br.com.sisgete.view;
 
+import br.com.sisgete.connection.PacienteLogDB;
 import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.controller.PacienteLogController;
 import br.com.sisgete.controller.QuadroPsicofisicoController;

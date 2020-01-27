@@ -88,6 +88,11 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         jbAddPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbAddPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-24.png"))); // NOI18N
         jbAddPaciente.setText("Adicionar Paciente");
+        jbAddPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAddPacienteActionPerformed(evt);
+            }
+        });
 
         jbPesquisaPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-24.png"))); // NOI18N
         jbPesquisaPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -238,6 +243,10 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
     private void jtfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeActionPerformed
         salvarListaConsulta();
     }//GEN-LAST:event_jtfNomeActionPerformed
+
+    private void jbAddPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAddPacienteActionPerformed
 
     private void carregarPaciente() {
         listaPacienteModel = pacienteController.getListaPacienteController();
