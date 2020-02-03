@@ -27,14 +27,12 @@ public class PacienteLogDAO extends PacienteLogDB {
             preparedStatement.setString(1, pacienteLogModel.getPacienteLog());
             preparedStatement.setString(2, pacienteLogModel.getSetorPacienteLog());
             preparedStatement.setString(3, pacienteLogModel.getTipoPacienteLog());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             //  System.out.println(e);
             e.printStackTrace();
             return 0;
-        }
-        finally
-        {
+        } finally {
             this.closeConection();
         }
         return 0;
@@ -67,6 +65,8 @@ public class PacienteLogDAO extends PacienteLogDB {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            this.closeConection();
         }
         return listamodelPacienteLogModel;
     }
@@ -82,6 +82,8 @@ public class PacienteLogDAO extends PacienteLogDB {
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
+        } finally {
+            this.closeConection();
         }
         return quantidadeTotal;
     }

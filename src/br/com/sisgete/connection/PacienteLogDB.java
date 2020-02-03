@@ -74,6 +74,7 @@ public class PacienteLogDB {
 
         try (Connection conn = DriverManager.getConnection(this.getUrl()); Statement stmt = conn.createStatement()) {
             stmt.execute(tbl_paciente);
+            stmt.close();
         } catch (SQLException e) {
             // System.out.println(e.getMessage());
         }
