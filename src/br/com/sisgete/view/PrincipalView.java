@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * @author luiz
  */
 public class PrincipalView extends javax.swing.JFrame {
-
+    
     CadastroFichaView cadastroFichaView = new CadastroFichaView();
     PesquisaPacienteView pesquisaPacienteView = new PesquisaPacienteView();
     MagnetizadorView magnetizadorView = new MagnetizadorView();
@@ -38,7 +38,7 @@ public class PrincipalView extends javax.swing.JFrame {
         dadosIniciais();
         //   setarNivel();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -68,12 +68,20 @@ public class PrincipalView extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jmiSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmiNovoPaciente = new javax.swing.JMenuItem();
+        jmiPesquisarPaciente = new javax.swing.JMenuItem();
+        jmiAtendimento = new javax.swing.JMenuItem();
+        jmiPacienteConsulta = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISGETE - FECMA");
@@ -188,7 +196,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jlUsuario.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jlUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        jlUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlUsuario.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jlUsuario.setText("$USER");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -200,23 +208,22 @@ public class PrincipalView extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addComponent(jLabel3))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(77, 77, 77)
-                            .addComponent(jlUsuario))))
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jlUsuario)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addContainerGap()
                 .addComponent(jLabel3)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel4)
                 .addGap(6, 6, 6)
                 .addComponent(jlUsuario)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jlData.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -366,10 +373,15 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu1.setText("Arquivo");
         jMenu1.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
 
-        jMenuItem3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-desligar-24.png"))); // NOI18N
-        jMenuItem3.setText("Sair");
-        jMenu1.add(jMenuItem3);
+        jmiSair.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jmiSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-desligar-24.png"))); // NOI18N
+        jmiSair.setText("Sair");
+        jmiSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmiSair);
 
         jMenuBar1.add(jMenu1);
 
@@ -379,26 +391,99 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu3.setText("Básicas");
         jMenu3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jmiNovoPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        jmiNovoPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiNovoPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-24.png"))); // NOI18N
+        jmiNovoPaciente.setText("Novo Paciente");
+        jmiNovoPaciente.setToolTipText("Abrir ficha novo paciente");
+        jmiNovoPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jmiNovoPacienteActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem1);
+        jMenu3.add(jmiNovoPaciente);
+
+        jmiPesquisarPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        jmiPesquisarPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiPesquisarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-24.png"))); // NOI18N
+        jmiPesquisarPaciente.setText("Pesquisar paciente");
+        jmiPesquisarPaciente.setToolTipText("");
+        jmiPesquisarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPesquisarPacienteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmiPesquisarPaciente);
+
+        jmiAtendimento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        jmiAtendimento.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiAtendimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-na-lista-24.png"))); // NOI18N
+        jmiAtendimento.setText("Atendimento");
+        jmiAtendimento.setToolTipText("Separar fichas para tratamento ou consulta");
+        jmiAtendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAtendimentoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmiAtendimento);
+
+        jmiPacienteConsulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        jmiPacienteConsulta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiPacienteConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-lista-24.png"))); // NOI18N
+        jmiPacienteConsulta.setText("Pacientes Consulta");
+        jmiPacienteConsulta.setToolTipText("Lista de pacientes para  consulta");
+        jmiPacienteConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPacienteConsultaActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmiPacienteConsulta);
 
         jMenu2.add(jMenu3);
 
         jMenu4.setText("Avançadas");
         jMenu4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24.png"))); // NOI18N
+        jMenuItem2.setText("Frequência Domingo");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
         jMenu4.add(jMenuItem2);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24 (1).png"))); // NOI18N
+        jMenuItem1.setText("Frequência Quinta");
+        jMenu4.add(jMenuItem1);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24ter.png"))); // NOI18N
+        jMenuItem3.setText("Frequência Terça");
+        jMenu4.add(jMenuItem3);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
+        jMenuItem4.setText("Novo Magnetizador");
+        jMenu4.add(jMenuItem4);
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
+        jMenuItem5.setText("Novo Auxiliar");
+        jMenu4.add(jMenuItem5);
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
+        jMenuItem6.setText("Funções Extras");
+        jMenu4.add(jMenuItem6);
 
         jMenu2.add(jMenu4);
 
@@ -475,16 +560,35 @@ public class PrincipalView extends javax.swing.JFrame {
         listaPacienteView.setVisible(true);
     }//GEN-LAST:event_jbConsultaActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        desktopPane.add(consultaDomingoView);
-        consultaDomingoView.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jmiNovoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNovoPacienteActionPerformed
+        desktopPane.add(cadastroFichaView);
+        cadastroFichaView.setVisible(true);
+    }//GEN-LAST:event_jmiNovoPacienteActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         desktopPane.add(listaPacienteView);
         listaPacienteView.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jmiPesquisarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPesquisarPacienteActionPerformed
+        desktopPane.add(pesquisaPacienteView);
+        pesquisaPacienteView.setVisible(true);
+    }//GEN-LAST:event_jmiPesquisarPacienteActionPerformed
+
+    private void jmiAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAtendimentoActionPerformed
+        desktopPane.add(consultaDomingoView);
+        consultaDomingoView.setVisible(true);
+    }//GEN-LAST:event_jmiAtendimentoActionPerformed
+
+    private void jmiPacienteConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPacienteConsultaActionPerformed
+        desktopPane.add(listaPacienteView);
+        listaPacienteView.setVisible(true);
+    }//GEN-LAST:event_jmiPacienteConsultaActionPerformed
+
+    private void jmiSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jmiSairActionPerformed
+    
     private void dadosIniciais() {
         jlUsuario.setText(SessaoModel.nomeUsuario);
     }
@@ -506,7 +610,7 @@ public class PrincipalView extends javax.swing.JFrame {
         };
         clock.start();
     }
-
+    
     private void setarNivel() {
         switch (SessaoModel.nivelAcessoUsuario) {
             case "MAGNETIZADOR/AUXILIAR":
@@ -543,6 +647,9 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -561,5 +668,10 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JButton jbSair;
     private javax.swing.JLabel jlData;
     private javax.swing.JLabel jlUsuario;
+    private javax.swing.JMenuItem jmiAtendimento;
+    private javax.swing.JMenuItem jmiNovoPaciente;
+    private javax.swing.JMenuItem jmiPacienteConsulta;
+    private javax.swing.JMenuItem jmiPesquisarPaciente;
+    private javax.swing.JMenuItem jmiSair;
     // End of variables declaration//GEN-END:variables
 }
