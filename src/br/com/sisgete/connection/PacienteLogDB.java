@@ -175,5 +175,4 @@ public class PacienteLogDB {
     public void setPreparedStatement(PreparedStatement preparedStatement) {
         this.preparedStatement = preparedStatement;
     }
-
 }
