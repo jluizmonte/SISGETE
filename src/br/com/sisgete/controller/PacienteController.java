@@ -42,12 +42,21 @@ public class PacienteController {
     }
 
     /**
-     * recupera uma lista dePaciente
+     * recupera uma lista de Paciente
      *
      * @return ArrayList
      */
     public ArrayList<PacienteModel> getListaPacienteController() {
         return this.pacienteDAO.getListaPacienteDAO();
+    }
+
+    /**
+     * recupera uma lista de Pacientes ativos
+     *
+     * @return ArrayList
+     */
+    public ArrayList<PacienteModel> getListaPacienteAtivoController() {
+        return this.pacienteDAO.getListaPacienteAtivoDAO();
     }
 
     /**

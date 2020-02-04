@@ -4,9 +4,11 @@ import br.com.sisgete.controller.AuxiliarController;
 import br.com.sisgete.controller.FrequenciaTratamentoDomingoController;
 import br.com.sisgete.controller.MagnetizadorController;
 import br.com.sisgete.controller.PacienteController;
+import br.com.sisgete.controller.PacienteLogController;
 import br.com.sisgete.model.AuxiliarModel;
 import br.com.sisgete.model.FrequenciaTratamentoDomingoModel;
 import br.com.sisgete.model.MagnetizadorModel;
+import br.com.sisgete.model.PacienteLogModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.util.GetDateUtil;
 import java.util.ArrayList;
@@ -29,6 +31,10 @@ public class AcompanhamentoDomingoView extends javax.swing.JInternalFrame {
     AuxiliarController auxiliarController = new AuxiliarController();
     AuxiliarModel auxiliarModel = new AuxiliarModel();
     ArrayList<AuxiliarModel> listaAuxiliarModels = new ArrayList<>();
+
+    PacienteLogModel pacienteLogModel = new PacienteLogModel();
+    PacienteLogController pacienteLogController = new PacienteLogController();
+    ArrayList<PacienteLogModel> listaPacienteLogModel = new ArrayList<>();
 
     FrequenciaTratamentoDomingoModel frequenciaTratamentoDomingoModel = new FrequenciaTratamentoDomingoModel();
     FrequenciaTratamentoDomingoController frequenciaTratamentoDomingoController = new FrequenciaTratamentoDomingoController();
@@ -450,10 +456,12 @@ public class AcompanhamentoDomingoView extends javax.swing.JInternalFrame {
     }
 
     private void carregarPaciente() {
+        listaPacienteLogModel = new ArrayList<>();
         listaPacienteModel = pacienteController.getListaPacienteController();
+        listaPacienteLogModel = pacienteLogController.getListaPacienteAtendimentoLogDAO();
         jcbPaciente.removeAllItems();
-        listaPacienteModel.forEach((paciente) -> {
-            jcbPaciente.addItem(String.valueOf(paciente.getNome()));
+        listaPacienteLogModel.forEach((paciente) -> {
+            jcbPaciente.addItem(String.valueOf(paciente.getPacienteLog()));
         });
     }
 

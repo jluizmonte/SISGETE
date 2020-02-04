@@ -39,7 +39,7 @@ public class PacienteLogDAO extends PacienteLogDB {
     }
 
     /**
-     * recupera uma lista de paciente return ArrayList
+     * recupera uma lista de paciente aptos a consulta return ArrayList
      *
      * @return
      */
@@ -50,6 +50,39 @@ public class PacienteLogDAO extends PacienteLogDB {
         try {
 
             String sql = "SELECT * FROM tbl_paciente WHERE tipo='CONSULTA'";
+            Connection conn = this.connect();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+
+                pacienteLogModel = new PacienteLogModel();
+                pacienteLogModel.setIdPacienteLog(rs.getInt("pk_id_paciente"));
+                pacienteLogModel.setPacienteLog(rs.getString("paciente"));
+                pacienteLogModel.setSetorPacienteLog(rs.getString("setor"));
+                pacienteLogModel.setTipoPacienteLog(rs.getString("tipo"));
+                listamodelPacienteLogModel.add(pacienteLogModel);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.closeConection();
+        }
+        return listamodelPacienteLogModel;
+    }
+
+    /**
+     * recupera uma lista de paciente aptos a tratamento return ArrayList
+     *
+     * @return
+     */
+    public ArrayList<PacienteLogModel> getListaPacienteAtendimentoLogDAO() {
+        ArrayList<PacienteLogModel> listamodelPacienteLogModel = new ArrayList();
+        PacienteLogModel pacienteLogModel = new PacienteLogModel();
+
+        try {
+
+            String sql = "SELECT * FROM tbl_paciente WHERE tipo='ATENDIMENTO'";
             Connection conn = this.connect();
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);

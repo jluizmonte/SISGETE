@@ -19,18 +19,18 @@ public class ColorirLinhaStatus extends DefaultTableCellRenderer {
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean Selected, boolean hasFocus,
             int row, int col) {
-        Font font = new Font("DejaVu Sans", Font.BOLD, 16);
+        Font font = new Font("DejaVu Sans", Font.BOLD, 15);
         switch (table.getValueAt(row, colunaStatus).toString()) {
 
             case "LIBERADO":
-                setForeground(Color.BLACK);
+                setForeground(Color.WHITE);
                 setBackground(Color.GREEN);
                 setFont(font);
                 setHorizontalAlignment(CENTER);
                 break;
 
             case "EM OBSERVAÇÃO":
-                setForeground(Color.BLACK);
+                setForeground(Color.WHITE);
                 setBackground(Color.YELLOW);
                 setFont(font);
                 setHorizontalAlignment(CENTER);
@@ -38,6 +38,20 @@ public class ColorirLinhaStatus extends DefaultTableCellRenderer {
 
             case "EM TRATAMENTO":
                 setForeground(Color.BLACK);
+                setBackground(Color.CYAN);
+                setFont(font);
+                setHorizontalAlignment(CENTER);
+                break;
+
+            case "ATIVA":
+                setForeground(Color.BLACK);
+                setBackground(Color.GREEN);
+                setFont(font);
+                setHorizontalAlignment(CENTER);
+                break;
+
+            case "INATIVA":
+                setForeground(Color.WHITE);
                 setBackground(Color.RED);
                 setFont(font);
                 setHorizontalAlignment(CENTER);

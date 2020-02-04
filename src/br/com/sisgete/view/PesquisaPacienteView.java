@@ -7,7 +7,6 @@ import br.com.sisgete.model.PacienteLogModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.util.ColorirLinhaStatus;
-import br.com.sisgete.util.LogCatch;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -36,12 +35,10 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
      * Creates new form ConsultaPaciente
      */
     public PesquisaPacienteView() {
-        //   this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
-        //  setLocationRelativeTo(null);
-        //   setExtendedState(MAXIMIZED_BOTH);
         popularTabela();
-        corLinhaTabela();
+        corLinhaStatusPaciente();
+        corLinhaStatusFicha();
         setIconifiable(true);
         setClosable(true);
     }
@@ -58,7 +55,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         jrbFiltroStatusTratamento = new javax.swing.JRadioButton();
         jrbFiltroDesobsessão = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
-        jrbFiltroInativo = new javax.swing.JRadioButton();
+        jrfStatusFicha = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtResultado = new javax.swing.JTable();
 
@@ -118,13 +115,13 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 10)); // NOI18N
         jLabel2.setText("(UM POR VEZ)");
 
-        jrbFiltroInativo.setBackground(new java.awt.Color(0, 112, 192));
-        jrbFiltroInativo.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jrbFiltroInativo.setForeground(new java.awt.Color(255, 255, 255));
-        jrbFiltroInativo.setText("Por fichas inativas");
-        jrbFiltroInativo.addActionListener(new java.awt.event.ActionListener() {
+        jrfStatusFicha.setBackground(new java.awt.Color(0, 112, 192));
+        jrfStatusFicha.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jrfStatusFicha.setForeground(new java.awt.Color(255, 255, 255));
+        jrfStatusFicha.setText("Por status ficha");
+        jrfStatusFicha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbFiltroInativoActionPerformed(evt);
+                jrfStatusFichaActionPerformed(evt);
             }
         });
 
@@ -144,7 +141,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
                         .addGap(35, 35, 35)
                         .addComponent(jrbFiltroDesobsessão, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jrbFiltroInativo)
+                        .addComponent(jrfStatusFicha)
                         .addGap(24, 24, 24))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,7 +162,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
                     .addComponent(jrbFiltroSetor)
                     .addComponent(jrbFiltroStatusTratamento)
                     .addComponent(jrbFiltroDesobsessão)
-                    .addComponent(jrbFiltroInativo))
+                    .addComponent(jrfStatusFicha))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -297,18 +294,26 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jrbFiltroDesobsessãoActionPerformed
 
-    private void jrbFiltroInativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbFiltroInativoActionPerformed
-        if (jrbFiltroInativo.isSelected()) {
+    private void jrfStatusFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrfStatusFichaActionPerformed
+        if (jrfStatusFicha.isSelected()) {
             jrbFiltroDesobsessão.setSelected(false);
             jrbFiltroStatusTratamento.setSelected(false);
             jrbFiltroSetor.setSelected(false);
             jrbFiltroNome.setSelected(false);
-            termoPesquisa = "INATIVA";
+            Object[] opcoes = {"ATIVA", "INATIVA"};
+            Object resposta;
+            resposta = JOptionPane.showInputDialog(null,
+                    "Status da ficha",
+                    "Pesquisa paciente",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    null,
+                    opcoes,
+                    "ATIVA");
+            termoPesquisa = String.valueOf(resposta);
             pesquisaPaciente(7);
             desmarcarFiltro();
         }
-
-    }//GEN-LAST:event_jrbFiltroInativoActionPerformed
+    }//GEN-LAST:event_jrfStatusFichaActionPerformed
 
     private void popularTabela() {
         listaPacienteModel = new ArrayList<>();
@@ -344,12 +349,17 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         jrbFiltroNome.setSelected(false);
         jrbFiltroSetor.setSelected(false);
         jrbFiltroStatusTratamento.setSelected(false);
-        jrbFiltroInativo.setSelected(false);
+        jrfStatusFicha.setSelected(false);
     }
 
-    private void corLinhaTabela() {
+    private void corLinhaStatusPaciente() {
         ColorirLinhaStatus colorirLinhaStatus = new ColorirLinhaStatus(6);
         jtResultado.getColumnModel().getColumn(6).setCellRenderer(colorirLinhaStatus);
+    }
+
+    private void corLinhaStatusFicha() {
+        ColorirLinhaStatus colorirLinhaStatusFicha = new ColorirLinhaStatus(7);
+        jtResultado.getColumnModel().getColumn(7).setCellRenderer(colorirLinhaStatusFicha);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -358,10 +368,10 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JRadioButton jrbFiltroDesobsessão;
-    private javax.swing.JRadioButton jrbFiltroInativo;
     private javax.swing.JRadioButton jrbFiltroNome;
     private javax.swing.JRadioButton jrbFiltroSetor;
     private javax.swing.JRadioButton jrbFiltroStatusTratamento;
+    private javax.swing.JRadioButton jrfStatusFicha;
     private javax.swing.JTable jtResultado;
     // End of variables declaration//GEN-END:variables
 

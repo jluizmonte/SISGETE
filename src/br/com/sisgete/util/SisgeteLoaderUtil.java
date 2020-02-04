@@ -29,15 +29,13 @@ public class SisgeteLoaderUtil {
         String tema = temaModel.getTema();
 
         new LogCatch().criarPastaLogs();
-        //  new LogCatch().criarPastaListaPaciente();
         new LogCatch().firstWriteFile();
-        //new LogCatch().pacienteLog();
         try {
             UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
             try {
                 UIManager.setLookAndFeel(tema);
-                new CarregarSplash().setSplashTime();
-          //      new PrincipalView().setVisible(true);
+                //  new CarregarSplash().setSplashTime();
+                new PrincipalView().setVisible(true);
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
                 //      e.printStackTrace();
             }

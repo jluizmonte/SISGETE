@@ -20,7 +20,12 @@ public class PacienteLogController {
         return this.pacienteLogDAO.getListaPacienteLogDAO();
     }
 
+    public ArrayList<PacienteLogModel> getListaPacienteAtendimentoLogDAO() {
+        return this.pacienteLogDAO.getListaPacienteAtendimentoLogDAO();
+    }
+    
     public int getQuantidadePaciente() {
         return this.pacienteLogDAO.getQuatidadePaciente();
     }
+
 }
