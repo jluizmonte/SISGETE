@@ -1,11 +1,9 @@
 package br.com.sisgete.view;
 
 import br.com.sisgete.controller.AuxiliarController;
-import br.com.sisgete.controller.MagnetizadorController;
 import br.com.sisgete.model.AuxiliarModel;
-import br.com.sisgete.model.MagnetizadorModel;
+import br.com.sisgete.util.ColorirLinhaStatus;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,11 +21,9 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
      * Creates new form MagnetizadorView
      */
     public AuxiliarView() {
-        //       this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
         initComponents();
-        //     setLocationRelativeTo(null);
-        //     setResizable(false);
         carregarDados();
+        corLinhaStatusAuxiliar();
     }
 
     @SuppressWarnings("unchecked")
@@ -48,6 +44,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("ENTRADA DE AUXILIARES");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -127,20 +124,20 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
         jtAuxiliar.setForeground(new java.awt.Color(0, 112, 192));
         jtAuxiliar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "#", "Nome"
+                "#", "Nome", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -162,17 +159,18 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbSalvar))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtfAuxiliar, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jbCancelar)
+                            .addGap(306, 306, 306)
+                            .addComponent(jbSalvar))
+                        .addComponent(jtfAuxiliar, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jLabel4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,6 +223,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
 
     private void salvarDados() {
         auxiliarModel.setNomeAuxiliar(jtfAuxiliar.getText().toUpperCase());
+        auxiliarModel.setNomeAuxiliar("ATIVO");
         if (auxiliarController.salvarAuxiliarController(auxiliarModel) > 1) {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
             limparCampos();
@@ -245,9 +244,15 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
                 listaAuxiliarModels.get(i).getIdAuxiliar(),
-                listaAuxiliarModels.get(i).getNomeAuxiliar()
+                listaAuxiliarModels.get(i).getNomeAuxiliar(),
+                listaAuxiliarModels.get(i).getStatusAuxiliar()
             });
         }
+    }
+
+    private void corLinhaStatusAuxiliar() {
+        ColorirLinhaStatus colorirLinhaStatus = new ColorirLinhaStatus(2);
+        jtAuxiliar.getColumnModel().getColumn(2).setCellRenderer(colorirLinhaStatus);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

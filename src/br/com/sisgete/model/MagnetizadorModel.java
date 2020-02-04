@@ -8,6 +8,7 @@ public class MagnetizadorModel {
 
     private int idMagnetizador;
     private String nomeMagnetizador;
+    private String statusMagnetizador;
 
     /**
      * Construtor
@@ -15,40 +16,33 @@ public class MagnetizadorModel {
     public MagnetizadorModel() {
     }
 
-    /**
-     * seta o valor de idMagnetizador
-     *
-     * @param pIdMagnetizador
-     */
-    public void setIdMagnetizador(int pIdMagnetizador) {
-        this.idMagnetizador = pIdMagnetizador;
-    }
-
-    /**
-     * return pk_idMagnetizador
-     */
     public int getIdMagnetizador() {
-        return this.idMagnetizador;
+        return idMagnetizador;
     }
 
-    /**
-     * seta o valor de nomeMagnetizador
-     *
-     * @param pNomeMagnetizador
-     */
-    public void setNomeMagnetizador(String pNomeMagnetizador) {
-        this.nomeMagnetizador = pNomeMagnetizador;
+    public void setIdMagnetizador(int idMagnetizador) {
+        this.idMagnetizador = idMagnetizador;
     }
 
-    /**
-     * return nomeMagnetizador
-     */
     public String getNomeMagnetizador() {
-        return this.nomeMagnetizador;
+        return nomeMagnetizador;
+    }
+
+    public void setNomeMagnetizador(String nomeMagnetizador) {
+        this.nomeMagnetizador = nomeMagnetizador;
+    }
+
+    public String getStatusMagnetizador() {
+        return statusMagnetizador;
+    }
+
+    public void setStatusMagnetizador(String statusMagnetizador) {
+        this.statusMagnetizador = statusMagnetizador;
     }
 
     @Override
     public String toString() {
-        return "ModelMagnetizador {" + "::idMagnetizador = " + this.idMagnetizador + "::nomeMagnetizador = " + this.nomeMagnetizador + "}";
+        return "MagnetizadorModel{" + "idMagnetizador=" + idMagnetizador + ", nomeMagnetizador=" + nomeMagnetizador + ", statusMagnetizador=" + statusMagnetizador + '}';
     }
+
 }

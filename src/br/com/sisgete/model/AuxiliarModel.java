@@ -8,6 +8,7 @@ public class AuxiliarModel {
 
     private int idAuxiliar;
     private String nomeAuxiliar;
+    private String statusAuxiliar;
 
     /**
      * Construtor
@@ -15,40 +16,33 @@ public class AuxiliarModel {
     public AuxiliarModel() {
     }
 
-    /**
-     * seta o valor de idAuxiliar
-     *
-     * @param pIdAuxiliar
-     */
-    public void setIdAuxiliar(int pIdAuxiliar) {
-        this.idAuxiliar = pIdAuxiliar;
-    }
-
-    /**
-     * return pk_idAuxiliar
-     */
     public int getIdAuxiliar() {
-        return this.idAuxiliar;
+        return idAuxiliar;
     }
 
-    /**
-     * seta o valor de nomeAuxiliar
-     *
-     * @param pNomeAuxiliar
-     */
-    public void setNomeAuxiliar(String pNomeAuxiliar) {
-        this.nomeAuxiliar = pNomeAuxiliar;
+    public void setIdAuxiliar(int idAuxiliar) {
+        this.idAuxiliar = idAuxiliar;
     }
 
-    /**
-     * return nomeAuxiliar
-     */
     public String getNomeAuxiliar() {
-        return this.nomeAuxiliar;
+        return nomeAuxiliar;
+    }
+
+    public void setNomeAuxiliar(String nomeAuxiliar) {
+        this.nomeAuxiliar = nomeAuxiliar;
+    }
+
+    public String getStatusAuxiliar() {
+        return statusAuxiliar;
+    }
+
+    public void setStatusAuxiliar(String statusAuxiliar) {
+        this.statusAuxiliar = statusAuxiliar;
     }
 
     @Override
     public String toString() {
-        return "ModelAuxiliar {" + "::idAuxiliar = " + this.idAuxiliar + "::nomeAuxiliar = " + this.nomeAuxiliar + "}";
+        return "AuxiliarModel{" + "idAuxiliar=" + idAuxiliar + ", nomeAuxiliar=" + nomeAuxiliar + ", statusAuxiliar=" + statusAuxiliar + '}';
     }
+
 }

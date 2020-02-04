@@ -57,6 +57,20 @@ public class ColorirLinhaStatus extends DefaultTableCellRenderer {
                 setHorizontalAlignment(CENTER);
                 break;
 
+            case "ATIVO":
+                setForeground(Color.BLACK);
+                setBackground(Color.GREEN);
+                setFont(font);
+                setHorizontalAlignment(CENTER);
+                break;
+
+            case "INATIVO":
+                setForeground(Color.WHITE);
+                setBackground(Color.RED);
+                setFont(font);
+                setHorizontalAlignment(CENTER);
+                break;
+
             default:
                 setForeground(Color.BLACK);
                 setBackground(Color.WHITE);

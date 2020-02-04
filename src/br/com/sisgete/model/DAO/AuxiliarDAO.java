@@ -23,10 +23,12 @@ public class AuxiliarDAO extends SisgeteConnectionMySql {
             return this.insertSQL(
                     "INSERT INTO tbl_auxiliar ("
                     + "pk_id_auxiliar,"
-                    + "nome_auxiliar"
+                    + "nome_auxiliar,"
+                    + "status_auxiliar"
                     + ") VALUES ("
                     + "'" + pAuxiliarModel.getIdAuxiliar() + "',"
-                    + "'" + pAuxiliarModel.getNomeAuxiliar() + "'"
+                    + "'" + pAuxiliarModel.getNomeAuxiliar() + "',"
+                    + "'" + pAuxiliarModel.getStatusAuxiliar() + "'"
                     + ");"
             );
         } catch (Exception e) {
@@ -48,12 +50,7 @@ public class AuxiliarDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT "
-                    + "pk_id_auxiliar,"
-                    + "nome_auxiliar"
-                    + " FROM"
-                    + " tbl_auxiliar"
-                    + " WHERE"
+                    "SELECT * FROM tbl_auxiliar WHERE"
                     + " pk_id_auxiliar = '" + pIdAuxiliar + "'"
                     + ";"
             );
@@ -61,6 +58,7 @@ public class AuxiliarDAO extends SisgeteConnectionMySql {
             while (this.getResultSet().next()) {
                 modelAuxiliar.setIdAuxiliar(this.getResultSet().getInt(1));
                 modelAuxiliar.setNomeAuxiliar(this.getResultSet().getString(2));
+                modelAuxiliar.setStatusAuxiliar(this.getResultSet().getString(3));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -73,7 +71,7 @@ public class AuxiliarDAO extends SisgeteConnectionMySql {
     /**
      * recupera Auxiliar
      *
-     * @param pIdAuxiliar return AuxiliarModel
+     * @param pAuxiliar
      * @return
      */
     public AuxiliarModel getAuxiliarDAO(String pAuxiliar) {
@@ -81,12 +79,7 @@ public class AuxiliarDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT "
-                    + "pk_id_auxiliar,"
-                    + "nome_auxiliar"
-                    + " FROM"
-                    + " tbl_auxiliar"
-                    + " WHERE"
+                    "SELECT * FROM tbl_auxiliar WHERE"
                     + " nome_auxiliar = '" + pAuxiliar + "'"
                     + ";"
             );
@@ -94,6 +87,7 @@ public class AuxiliarDAO extends SisgeteConnectionMySql {
             while (this.getResultSet().next()) {
                 modelAuxiliar.setIdAuxiliar(this.getResultSet().getInt(1));
                 modelAuxiliar.setNomeAuxiliar(this.getResultSet().getString(2));
+                modelAuxiliar.setStatusAuxiliar(this.getResultSet().getString(3));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -114,18 +108,14 @@ public class AuxiliarDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             this.executarSQL(
-                    "SELECT "
-                    + "pk_id_auxiliar,"
-                    + "nome_auxiliar"
-                    + " FROM"
-                    + " tbl_auxiliar"
-                    + ";"
+                    "SELECT * FROM tbl_auxiliar;"
             );
 
             while (this.getResultSet().next()) {
                 modelAuxiliar = new AuxiliarModel();
                 modelAuxiliar.setIdAuxiliar(this.getResultSet().getInt(1));
                 modelAuxiliar.setNomeAuxiliar(this.getResultSet().getString(2));
+                modelAuxiliar.setStatusAuxiliar(this.getResultSet().getString(3));
                 listamodelAuxiliar.add(modelAuxiliar);
             }
         } catch (SQLException e) {
@@ -148,7 +138,8 @@ public class AuxiliarDAO extends SisgeteConnectionMySql {
             return this.executarUpdateDeleteSQL(
                     "UPDATE tbl_auxiliar SET "
                     + "pk_id_auxiliar = '" + pAuxiliarModel.getIdAuxiliar() + "',"
-                    + "nome_auxiliar = '" + pAuxiliarModel.getNomeAuxiliar() + "'"
+                    + "nome_auxiliar = '" + pAuxiliarModel.getNomeAuxiliar() + "',"
+                    + "status_auxiliar = '" + pAuxiliarModel.getStatusAuxiliar() + "'"
                     + " WHERE "
                     + "pk_id_auxiliar = '" + pAuxiliarModel.getIdAuxiliar() + "'"
                     + ";"
