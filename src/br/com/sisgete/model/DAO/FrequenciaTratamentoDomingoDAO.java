@@ -21,8 +21,8 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.insertSQL(
-                    "INSERT INTO tbl_frequencia_domingo ("
-                    + "pk_id_quadro_psicofisico_domingo,"
+                    "INSERT INTO tbl_frequencia_tratamento_domingo ("
+                    + "pk_id_frequencia_domingo,"
                     + "fk_paciente,"
                     + "fk_magnetizador,"
                     + "fk_auxiliar,"
@@ -60,7 +60,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             this.conectar();
             this.executarSQL(
                     "SELECT "
-                    + "pk_id_quadro_psicofisico_domingo,"
+                    + "pk_id_frequencia_domingo,"
                     + "fk_paciente,"
                     + "fk_magnetizador,"
                     + "fk_auxiliar,"
@@ -68,9 +68,9 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
                     + "recomendacoes_espirituais,"
                     + "frequencia_domingo"
                     + " FROM"
-                    + " tbl_frequencia_domingo"
+                    + " tbl_frequencia_tratamento_domingo"
                     + " WHERE"
-                    + " pk_id_quadro_psicofisico_domingo = '" + pIdQuadroPsicofisicoDomingo + "'"
+                    + " pk_id_frequencia_domingo = '" + pIdQuadroPsicofisicoDomingo + "'"
                     + ";"
             );
 
@@ -103,7 +103,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             this.conectar();
             this.executarSQL(
                     "SELECT "
-                    + "pk_id_quadro_psicofisico_domingo,"
+                    + "pk_id_frequencia_domingo,"
                     + "fk_paciente,"
                     + "fk_magnetizador,"
                     + "fk_auxiliar,"
@@ -111,7 +111,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
                     + "recomendacoes_espirituais,"
                     + "frequencia_domingo"
                     + " FROM"
-                    + " tbl_frequencia_domingo"
+                    + " tbl_frequencia_tratamento_domingo"
                     + ";"
             );
 
@@ -144,8 +144,8 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                    "UPDATE tbl_frequencia_domingo SET "
-                    + "pk_id_quadro_psicofisico_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdQuadroPsicofisicoDomingo() + "',"
+                    "UPDATE tbl_frequencia_tratamento_domingo SET "
+                    + "pk_id_frequencia_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdQuadroPsicofisicoDomingo() + "',"
                     + "fk_paciente = '" + pFrequenciaTratamentoDomingoModel.getIdPaciente() + "',"
                     + "fk_magnetizador = '" + pFrequenciaTratamentoDomingoModel.getIdMagnetizador() + "',"
                     + "fk_auxiliar = '" + pFrequenciaTratamentoDomingoModel.getIdAuxiliar() + "',"
@@ -153,7 +153,7 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
                     + "recomendacoes_espirituais = '" + pFrequenciaTratamentoDomingoModel.getRecomendacoesEspirituais() + "',"
                     + "frequencia_domingo = '" + pFrequenciaTratamentoDomingoModel.getFrequenciaDomingo() + "'"
                     + " WHERE "
-                    + "pk_id_quadro_psicofisico_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdQuadroPsicofisicoDomingo() + "'"
+                    + "pk_id_frequencia_domingo = '" + pFrequenciaTratamentoDomingoModel.getIdQuadroPsicofisicoDomingo() + "'"
                     + ";"
             );
         } catch (Exception e) {
@@ -174,9 +174,9 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
         try {
             this.conectar();
             return this.executarUpdateDeleteSQL(
-                    "DELETE FROM tbl_frequencia_domingo "
+                    "DELETE FROM tbl_frequencia_tratamento_domingo "
                     + " WHERE "
-                    + "pk_id_quadro_psicofisico_domingo = '" + pIdQuadroPsicofisicoDomingo + "'"
+                    + "pk_id_frequencia_domingo = '" + pIdQuadroPsicofisicoDomingo + "'"
                     + ";"
             );
         } catch (Exception e) {

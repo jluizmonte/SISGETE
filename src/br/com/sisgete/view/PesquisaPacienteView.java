@@ -21,9 +21,11 @@ import javax.swing.table.TableRowSorter;
 public class PesquisaPacienteView extends javax.swing.JInternalFrame {
 
     String termoPesquisa;
+    
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
     ArrayList<PacienteModel> listaPacienteModel = new ArrayList<>();
+    
     QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
     QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
     ArrayList<QuadroPsicofisicoModel> listaQuadroPsicofisicoModels = new ArrayList<>();

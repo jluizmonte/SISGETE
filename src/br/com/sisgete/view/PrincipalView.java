@@ -22,7 +22,8 @@ public class PrincipalView extends javax.swing.JFrame {
     AcompanhamentoTercaView acompanhamentoTercaView = new AcompanhamentoTercaView();
     AcompanhamentoQuintaView acompanhamentoQuintaView = new AcompanhamentoQuintaView();
     ConsultaDomingoView consultaDomingoView = new ConsultaDomingoView();
-    ListaPacienteView listaPacienteView = new ListaPacienteView();
+    ListaPacienteConsultaView listaPacienteView = new ListaPacienteConsultaView();
+    ListaPacientesDomingoView listaPacientesDomingoView = new ListaPacientesDomingoView();
     ExtraView extraView = new ExtraView();
     GetDateUtil getDateUtil = new GetDateUtil();
 
@@ -82,6 +83,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiMagnetizador = new javax.swing.JMenuItem();
         jmiAuxiliar = new javax.swing.JMenuItem();
         jmiExtras = new javax.swing.JMenuItem();
+        jmiPacienteDomingo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISGETE - FECMA");
@@ -373,6 +375,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu1.setText("Arquivo");
         jMenu1.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
 
+        jmiSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jmiSair.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jmiSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-desligar-24.png"))); // NOI18N
         jmiSair.setText("Sair");
@@ -510,6 +513,17 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu4.add(jmiExtras);
 
+        jmiPacienteDomingo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, 0));
+        jmiPacienteDomingo.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiPacienteDomingo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pessoas-multiculturais-24.png"))); // NOI18N
+        jmiPacienteDomingo.setText("Lista de Pacientes (DOMINGO)");
+        jmiPacienteDomingo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPacienteDomingoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmiPacienteDomingo);
+
         jMenu2.add(jMenu4);
 
         jMenuBar1.add(jMenu2);
@@ -638,6 +652,11 @@ public class PrincipalView extends javax.swing.JFrame {
         desktopPane.add(extraView);
         extraView.setVisible(true);
     }//GEN-LAST:event_jmiExtrasActionPerformed
+
+    private void jmiPacienteDomingoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPacienteDomingoActionPerformed
+        desktopPane.add(listaPacientesDomingoView);
+        listaPacientesDomingoView.setVisible(true);
+    }//GEN-LAST:event_jmiPacienteDomingoActionPerformed
     
     private void dadosIniciais() {
         jlUsuario.setText(SessaoModel.nomeUsuario);
@@ -721,6 +740,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiMagnetizador;
     private javax.swing.JMenuItem jmiNovoPaciente;
     private javax.swing.JMenuItem jmiPacienteConsulta;
+    private javax.swing.JMenuItem jmiPacienteDomingo;
     private javax.swing.JMenuItem jmiPesquisarPaciente;
     private javax.swing.JMenuItem jmiSair;
     // End of variables declaration//GEN-END:variables

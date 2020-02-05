@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  * @author luiz
  */
-public class ListaPacienteView extends javax.swing.JInternalFrame {
+public class ListaPacienteConsultaView extends javax.swing.JInternalFrame {
     
     PacienteLogModel pacienteLogModel = new PacienteLogModel();
     PacienteLogController pacienteLogController = new PacienteLogController();
@@ -17,7 +17,7 @@ public class ListaPacienteView extends javax.swing.JInternalFrame {
     /**
      * Creates new form ListaPacienteView
      */
-    public ListaPacienteView() {
+    public ListaPacienteConsultaView() {
         initComponents();
         listarPaciente();
     }
