@@ -1,13 +1,11 @@
 package br.com.sisgete.view;
 
-import br.com.sisgete.connection.PacienteLogDB;
 import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.controller.PacienteLogController;
 import br.com.sisgete.controller.QuadroPsicofisicoController;
 import br.com.sisgete.model.PacienteLogModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
-import br.com.sisgete.model.SessaoModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -20,7 +18,7 @@ import javax.swing.table.TableRowSorter;
  * @author luiz
  */
 public class ConsultaDomingoPesquisaPacienteView extends javax.swing.JDialog {
-    
+
     PacienteLogModel pacienteLogModel = new PacienteLogModel();
     PacienteLogController pacienteLogController = new PacienteLogController();
     PacienteController pacienteController = new PacienteController();
@@ -44,7 +42,7 @@ public class ConsultaDomingoPesquisaPacienteView extends javax.swing.JDialog {
         popularTabela();
         jtfPaciente.requestFocus();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -189,16 +187,16 @@ public class ConsultaDomingoPesquisaPacienteView extends javax.swing.JDialog {
 
     private void jbPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisaActionPerformed
         pesquisaPaciente();
-        
+
     }//GEN-LAST:event_jbPesquisaActionPerformed
-    
+
     private void popularTabela() {
         listaPacienteModel = new ArrayList<>();
         listaPacienteModel = pacienteController.getListaPacienteController();
         listaQuadroPsicofisicoModels = quadroPsicofisicoController.getListaQuadroPsicofisicoController();
         DefaultTableModel modelo = (DefaultTableModel) jtPaciente.getModel();
         modelo.setNumRows(0);
-        
+
         int cont = listaPacienteModel.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
@@ -213,7 +211,7 @@ public class ConsultaDomingoPesquisaPacienteView extends javax.swing.JDialog {
             });
         }
     }
-    
+
     private void pesquisaPaciente() {
         DefaultTableModel modelo = (DefaultTableModel) this.jtPaciente.getModel();
         final TableRowSorter<TableModel> classificador = new TableRowSorter<>(modelo);
@@ -221,7 +219,7 @@ public class ConsultaDomingoPesquisaPacienteView extends javax.swing.JDialog {
         classificador.setRowFilter(RowFilter.regexFilter(jtfPaciente.getText().toUpperCase(), 1));
         jtfPaciente.setText("");
     }
-    
+
     private void salvarLog() {
         int linha = jtPaciente.getSelectedRow();
         int codigoPaciente = (int) jtPaciente.getValueAt(linha, 0);

@@ -16,6 +16,7 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
     MagnetizadorController magnetizadorController = new MagnetizadorController();
     MagnetizadorModel magnetizadorModel = new MagnetizadorModel();
     ArrayList<MagnetizadorModel> listaMagnetizadorModels = new ArrayList<>();
+    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true);
 
     /**
      * Creates new form MagnetizadorView
@@ -152,6 +153,11 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
             }
         });
         jtMagnetizador.getTableHeader().setReorderingAllowed(false);
+        jtMagnetizador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtMagnetizadorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtMagnetizador);
         if (jtMagnetizador.getColumnModel().getColumnCount() > 0) {
             jtMagnetizador.getColumnModel().getColumn(0).setMaxWidth(25);
@@ -218,8 +224,35 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
         salvarDados();
     }//GEN-LAST:event_jtfMagnetizadorActionPerformed
 
+    private void jtMagnetizadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMagnetizadorMouseClicked
+        menuOpcoesView.setVisible(true);
+        if (menuOpcoesView.flag == true) {
+            atualizarDados();
+        }
+    }//GEN-LAST:event_jtMagnetizadorMouseClicked
+
     private void limparCampos() {
         jtfMagnetizador.setText("");
+    }
+
+    public void atualizarDados() {
+        String status = "";
+        int linha = jtMagnetizador.getSelectedRow();
+        String paciente = (String.valueOf(jtMagnetizador.getValueAt(linha, 1)));
+        magnetizadorModel = magnetizadorController.getMagnetizadorController(paciente);
+
+        if (magnetizadorModel.getStatusMagnetizador().equals("ATIVO")) {
+            magnetizadorModel.setStatusMagnetizador("INATIVO");
+        } else if (magnetizadorModel.getStatusMagnetizador().equals("INATIVO")) {
+            magnetizadorModel.setStatusMagnetizador("ATIVO");
+        }
+
+        if (magnetizadorController.atualizarMagnetizadorController(magnetizadorModel)) {
+            JOptionPane.showMessageDialog(this, "Status do magnetizador alterado!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+            carregarDados();
+        } else {
+            JOptionPane.showMessageDialog(this, "Status do magnetizador não alterado", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void salvarDados() {

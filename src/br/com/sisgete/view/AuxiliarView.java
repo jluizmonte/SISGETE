@@ -16,6 +16,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
     AuxiliarController auxiliarController = new AuxiliarController();
     AuxiliarModel auxiliarModel = new AuxiliarModel();
     ArrayList<AuxiliarModel> listaAuxiliarModels = new ArrayList<>();
+    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true);
 
     /**
      * Creates new form MagnetizadorView
@@ -149,6 +150,11 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
             }
         });
         jtAuxiliar.getTableHeader().setReorderingAllowed(false);
+        jtAuxiliar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtAuxiliarMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtAuxiliar);
         if (jtAuxiliar.getColumnModel().getColumnCount() > 0) {
             jtAuxiliar.getColumnModel().getColumn(0).setMaxWidth(25);
@@ -217,8 +223,36 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jtfAuxiliarActionPerformed
 
+    private void jtAuxiliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtAuxiliarMouseClicked
+
+        menuOpcoesView.setVisible(true);
+        if (menuOpcoesView.flag == true) {
+            atualizarDados();
+        }
+    }//GEN-LAST:event_jtAuxiliarMouseClicked
+
     private void limparCampos() {
         jtfAuxiliar.setText("");
+    }
+
+    public void atualizarDados() {
+        String status = "";
+        int linha = jtAuxiliar.getSelectedRow();
+        String paciente = (String.valueOf(jtAuxiliar.getValueAt(linha, 1)));
+        auxiliarModel = auxiliarController.getAuxiliarController(paciente);
+
+        if (auxiliarModel.getStatusAuxiliar().equals("ATIVO")) {
+            auxiliarModel.setStatusAuxiliar("INATIVO");
+        } else if (auxiliarModel.getStatusAuxiliar().equals("INATIVO")) {
+            auxiliarModel.setStatusAuxiliar("ATIVO");
+        }
+
+        if (auxiliarController.atualizarAuxiliarController(auxiliarModel)) {
+            JOptionPane.showMessageDialog(this, "Status do auxiliar alterado!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+            carregarDados();
+        } else {
+            JOptionPane.showMessageDialog(this, "Status do auxiliar não alterado", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void salvarDados() {
