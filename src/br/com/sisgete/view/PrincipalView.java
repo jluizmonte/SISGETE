@@ -76,12 +76,12 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiAtendimento = new javax.swing.JMenuItem();
         jmiPacienteConsulta = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jmiFrequenciaDomingo = new javax.swing.JMenuItem();
+        jmiFrequenciaQuinta = new javax.swing.JMenuItem();
+        jmiFrequenciaTerca = new javax.swing.JMenuItem();
+        jmiMagnetizador = new javax.swing.JMenuItem();
+        jmiAuxiliar = new javax.swing.JMenuItem();
+        jmiExtras = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISGETE - FECMA");
@@ -444,46 +444,71 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu4.setText("Avançadas");
         jMenu4.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24.png"))); // NOI18N
-        jMenuItem2.setText("Frequência Domingo");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jmiFrequenciaDomingo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, 0));
+        jmiFrequenciaDomingo.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiFrequenciaDomingo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24.png"))); // NOI18N
+        jmiFrequenciaDomingo.setText("Frequência Domingo");
+        jmiFrequenciaDomingo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jmiFrequenciaDomingoActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem2);
+        jMenu4.add(jmiFrequenciaDomingo);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24 (1).png"))); // NOI18N
-        jMenuItem1.setText("Frequência Quinta");
-        jMenu4.add(jMenuItem1);
+        jmiFrequenciaQuinta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jmiFrequenciaQuinta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiFrequenciaQuinta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24 (1).png"))); // NOI18N
+        jmiFrequenciaQuinta.setText("Frequência Quinta");
+        jmiFrequenciaQuinta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiFrequenciaQuintaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmiFrequenciaQuinta);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24ter.png"))); // NOI18N
-        jMenuItem3.setText("Frequência Terça");
-        jMenu4.add(jMenuItem3);
+        jmiFrequenciaTerca.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jmiFrequenciaTerca.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiFrequenciaTerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24ter.png"))); // NOI18N
+        jmiFrequenciaTerca.setText("Frequência Terça");
+        jmiFrequenciaTerca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiFrequenciaTercaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmiFrequenciaTerca);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
-        jMenuItem4.setText("Novo Magnetizador");
-        jMenu4.add(jMenuItem4);
+        jmiMagnetizador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        jmiMagnetizador.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiMagnetizador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
+        jmiMagnetizador.setText("Novo Magnetizador");
+        jmiMagnetizador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiMagnetizadorActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmiMagnetizador);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
-        jMenuItem5.setText("Novo Auxiliar");
-        jMenu4.add(jMenuItem5);
+        jmiAuxiliar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jmiAuxiliar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiAuxiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
+        jmiAuxiliar.setText("Novo Auxiliar");
+        jmiAuxiliar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAuxiliarActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmiAuxiliar);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
-        jMenuItem6.setText("Funções Extras");
-        jMenu4.add(jMenuItem6);
+        jmiExtras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jmiExtras.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiExtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
+        jmiExtras.setText("Funções Extras");
+        jmiExtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiExtrasActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmiExtras);
 
         jMenu2.add(jMenu4);
 
@@ -565,10 +590,10 @@ public class PrincipalView extends javax.swing.JFrame {
         cadastroFichaView.setVisible(true);
     }//GEN-LAST:event_jmiNovoPacienteActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jmiFrequenciaDomingoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFrequenciaDomingoActionPerformed
         desktopPane.add(listaPacienteView);
         listaPacienteView.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jmiFrequenciaDomingoActionPerformed
 
     private void jmiPesquisarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPesquisarPacienteActionPerformed
         desktopPane.add(pesquisaPacienteView);
@@ -588,6 +613,31 @@ public class PrincipalView extends javax.swing.JFrame {
     private void jmiSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jmiSairActionPerformed
+
+    private void jmiFrequenciaQuintaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFrequenciaQuintaActionPerformed
+        desktopPane.add(acompanhamentoQuintaView);
+        acompanhamentoQuintaView.setVisible(true);
+    }//GEN-LAST:event_jmiFrequenciaQuintaActionPerformed
+
+    private void jmiFrequenciaTercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFrequenciaTercaActionPerformed
+        desktopPane.add(acompanhamentoTercaView);
+        acompanhamentoTercaView.setVisible(true);
+    }//GEN-LAST:event_jmiFrequenciaTercaActionPerformed
+
+    private void jmiMagnetizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMagnetizadorActionPerformed
+        desktopPane.add(magnetizadorView);
+        magnetizadorView.setVisible(true);
+    }//GEN-LAST:event_jmiMagnetizadorActionPerformed
+
+    private void jmiAuxiliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAuxiliarActionPerformed
+        desktopPane.add(auxiliarView);
+        auxiliarView.setVisible(true);
+    }//GEN-LAST:event_jmiAuxiliarActionPerformed
+
+    private void jmiExtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiExtrasActionPerformed
+        desktopPane.add(extraView);
+        extraView.setVisible(true);
+    }//GEN-LAST:event_jmiExtrasActionPerformed
     
     private void dadosIniciais() {
         jlUsuario.setText(SessaoModel.nomeUsuario);
@@ -644,12 +694,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -669,6 +713,12 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel jlData;
     private javax.swing.JLabel jlUsuario;
     private javax.swing.JMenuItem jmiAtendimento;
+    private javax.swing.JMenuItem jmiAuxiliar;
+    private javax.swing.JMenuItem jmiExtras;
+    private javax.swing.JMenuItem jmiFrequenciaDomingo;
+    private javax.swing.JMenuItem jmiFrequenciaQuinta;
+    private javax.swing.JMenuItem jmiFrequenciaTerca;
+    private javax.swing.JMenuItem jmiMagnetizador;
     private javax.swing.JMenuItem jmiNovoPaciente;
     private javax.swing.JMenuItem jmiPacienteConsulta;
     private javax.swing.JMenuItem jmiPesquisarPaciente;

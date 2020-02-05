@@ -233,7 +233,6 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
 
     private void jbPesquisaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisaPacienteActionPerformed
         consultaPaciente.setVisible(true);
-
     }//GEN-LAST:event_jbPesquisaPacienteActionPerformed
 
     private void jbAddConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddConsultaActionPerformed
@@ -245,7 +244,8 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfNomeActionPerformed
 
     private void jbAddPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddPacienteActionPerformed
-        // TODO add your handling code here:
+        salvarListaAtendimento();
+        JOptionPane.showMessageDialog(null, "Atendimento salva com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jbAddPacienteActionPerformed
 
     private void carregarPaciente() {
@@ -254,6 +254,14 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         listaPacienteModel.forEach((paciente) -> {
             jcbPaciente.addItem(String.valueOf(paciente.getNome()));
         });
+    }
+
+    private void salvarListaAtendimento() {
+        pacienteLogModel.setPacienteLog(jcbPaciente.getSelectedItem().toString());
+        pacienteLogModel.setTipoPacienteLog("ATENDIMENTO");
+        pacienteLogModel.setSetorPacienteLog(jlSetor.getText());
+        pacienteLogController.insertPacienteLog(pacienteLogModel);
+        JOptionPane.showMessageDialog(null, "Atendimento salvo com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
     }
 
     private void salvarListaConsulta() {

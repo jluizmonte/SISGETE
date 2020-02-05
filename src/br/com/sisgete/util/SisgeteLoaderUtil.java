@@ -18,6 +18,7 @@ public class SisgeteLoaderUtil {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException, IOException {
         SisgeteConnectionSqLite criacaoBDTema = new SisgeteConnectionSqLite();
         PacienteLogDB pacienteLogDB = new PacienteLogDB();
+     
         criacaoBDTema.sisgeteDB();
         criacaoBDTema.sisgeteTableDB();
 
