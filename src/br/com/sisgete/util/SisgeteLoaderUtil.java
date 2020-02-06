@@ -18,7 +18,7 @@ public class SisgeteLoaderUtil {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException, IOException {
         SisgeteConnectionSqLite criacaoBDTema = new SisgeteConnectionSqLite();
         PacienteLogDB pacienteLogDB = new PacienteLogDB();
-     
+
         criacaoBDTema.sisgeteDB();
         criacaoBDTema.sisgeteTableDB();
 
@@ -35,8 +35,8 @@ public class SisgeteLoaderUtil {
             UIManager.put("Synthetica.window.decoration", Boolean.FALSE);
             try {
                 UIManager.setLookAndFeel(tema);
-                //  new CarregarSplash().setSplashTime();
-                new PrincipalView().setVisible(true);
+                new CarregarSplash().setSplashTime();
+                //   new PrincipalView().setVisible(true);
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
                 //      e.printStackTrace();
             }

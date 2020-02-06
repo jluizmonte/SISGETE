@@ -186,4 +186,5 @@ public class FrequenciaTratamentoDomingoDAO extends SisgeteConnectionMySql {
             this.fecharConexao();
         }
     }
+
 }

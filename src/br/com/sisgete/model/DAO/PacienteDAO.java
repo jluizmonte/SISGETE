@@ -1,6 +1,8 @@
 package br.com.sisgete.model.DAO;
 
 import br.com.sisgete.connection.SisgeteConnectionMySql;
+import br.com.sisgete.model.FrequenciaTratamentoDomingoModel;
+import br.com.sisgete.model.PacienteFrequenciaModel;
 import br.com.sisgete.model.PacienteModel;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -536,7 +538,7 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         return listamodelPaciente;
     }
 
-        /**
+    /**
      * recupera uma lista de Pacientes ativos return ArrayList
      *
      * @return
@@ -646,9 +648,58 @@ public class PacienteDAO extends SisgeteConnectionMySql {
         }
         return listamodelPaciente;
     }
-    
+
     /**
-     * atualiza Paciente1
+     *
+     * @param pCodigoPaciente
+     * @return
+     */
+    public ArrayList<PacienteFrequenciaModel> getListaPacienteLiberadoDAO(int pCodigoPaciente) {
+        ArrayList<PacienteFrequenciaModel> listaPacienteModel = new ArrayList();
+        PacienteModel pacienteModel = new PacienteModel();
+        FrequenciaTratamentoDomingoModel frequenciaTratamentoDomingoModel = new FrequenciaTratamentoDomingoModel();
+        PacienteFrequenciaModel pacienteFrequenciaModel = new PacienteFrequenciaModel();
+        try {
+            this.conectar();
+            this.executarSQL(" SELECT "
+                    + "tbl_paciente.pk_id_paciente,"
+                    + "tbl_paciente.nome,"
+                    + "tbl_paciente.setor,"
+                    + "tbl_paciente.status_tratamento,"
+                    + "tbl_frequencia_tratamento_domingo.frequencia_domingo"
+                    + "from tbl_frequencia_tratamento_domingo"
+                    + "INNER JOIN tbl_paciente on tbl_paciente.pk_id_paciente"
+                    + "= tbl_frequencia_tratamento_domingo.fk_paciente;"
+                    + "WHERE tbl_frequencia_tratamento_domingo.fk_paciente ='" + pCodigoPaciente + "';");
+
+            while (this.getResultSet().next()) {
+                frequenciaTratamentoDomingoModel = new FrequenciaTratamentoDomingoModel();
+                pacienteModel = new PacienteModel();
+                pacienteFrequenciaModel = new PacienteFrequenciaModel();
+                listaPacienteModel = new ArrayList<>();
+
+                pacienteModel.setIdPaciente(this.getResultSet().getInt(1));
+                pacienteModel.setNome(this.getResultSet().getString(2));
+                pacienteModel.setSetor(this.getResultSet().getString(3));
+                pacienteModel.setStatusTratamento(this.getResultSet().getString(4));
+
+                frequenciaTratamentoDomingoModel.setFrequenciaDomingo(this.getResultSet().getString(5));
+
+                pacienteFrequenciaModel.setPacienteModel(pacienteModel);
+                pacienteFrequenciaModel.setTratamentoDomingoModel(frequenciaTratamentoDomingoModel);
+
+                listaPacienteModel.add(pacienteFrequenciaModel);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.fecharConexao();
+        }
+        return listaPacienteModel;
+    }
+
+    /**
+     * atualiza Paciente
      *
      * @param modelPaciente return boolean
      * @return

@@ -24,6 +24,7 @@ public class PrincipalView extends javax.swing.JFrame {
     ConsultaDomingoView consultaDomingoView = new ConsultaDomingoView();
     ListaPacienteConsultaView listaPacienteView = new ListaPacienteConsultaView();
     ListaPacientesDomingoView listaPacientesDomingoView = new ListaPacientesDomingoView();
+    ListaPacientesLiberadoView listaPacientesLiberadoView = new ListaPacientesLiberadoView();
     ExtraView extraView = new ExtraView();
     GetDateUtil getDateUtil = new GetDateUtil();
 
@@ -84,6 +85,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiAuxiliar = new javax.swing.JMenuItem();
         jmiExtras = new javax.swing.JMenuItem();
         jmiPacienteDomingo = new javax.swing.JMenuItem();
+        jmiPacienteLiberado = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISGETE - FECMA");
@@ -375,7 +377,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu1.setText("Arquivo");
         jMenu1.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
 
-        jmiSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jmiSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
         jmiSair.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jmiSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-desligar-24.png"))); // NOI18N
         jmiSair.setText("Sair");
@@ -394,7 +396,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu3.setText("Básicas");
         jMenu3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
 
-        jmiNovoPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        jmiNovoPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         jmiNovoPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiNovoPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-24.png"))); // NOI18N
         jmiNovoPaciente.setText("Novo Paciente");
@@ -406,7 +408,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu3.add(jmiNovoPaciente);
 
-        jmiPesquisarPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        jmiPesquisarPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
         jmiPesquisarPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiPesquisarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-24.png"))); // NOI18N
         jmiPesquisarPaciente.setText("Pesquisar paciente");
@@ -418,7 +420,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu3.add(jmiPesquisarPaciente);
 
-        jmiAtendimento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        jmiAtendimento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
         jmiAtendimento.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiAtendimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-na-lista-24.png"))); // NOI18N
         jmiAtendimento.setText("Atendimento");
@@ -430,7 +432,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu3.add(jmiAtendimento);
 
-        jmiPacienteConsulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        jmiPacienteConsulta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         jmiPacienteConsulta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiPacienteConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-lista-24.png"))); // NOI18N
         jmiPacienteConsulta.setText("Pacientes Consulta");
@@ -458,7 +460,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu4.add(jmiFrequenciaDomingo);
 
-        jmiFrequenciaQuinta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jmiFrequenciaQuinta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, 0));
         jmiFrequenciaQuinta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiFrequenciaQuinta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24 (1).png"))); // NOI18N
         jmiFrequenciaQuinta.setText("Frequência Quinta");
@@ -469,7 +471,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu4.add(jmiFrequenciaQuinta);
 
-        jmiFrequenciaTerca.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jmiFrequenciaTerca.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, 0));
         jmiFrequenciaTerca.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiFrequenciaTerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24ter.png"))); // NOI18N
         jmiFrequenciaTerca.setText("Frequência Terça");
@@ -480,7 +482,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu4.add(jmiFrequenciaTerca);
 
-        jmiMagnetizador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        jmiMagnetizador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, 0));
         jmiMagnetizador.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiMagnetizador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
         jmiMagnetizador.setText("Novo Magnetizador");
@@ -491,7 +493,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu4.add(jmiMagnetizador);
 
-        jmiAuxiliar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jmiAuxiliar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, 0));
         jmiAuxiliar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiAuxiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
         jmiAuxiliar.setText("Novo Auxiliar");
@@ -502,7 +504,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu4.add(jmiAuxiliar);
 
-        jmiExtras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jmiExtras.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, 0));
         jmiExtras.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiExtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
         jmiExtras.setText("Funções Extras");
@@ -523,6 +525,17 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
         jMenu4.add(jmiPacienteDomingo);
+
+        jmiPacienteLiberado.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, 0));
+        jmiPacienteLiberado.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jmiPacienteLiberado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-abrir-documento-24.png"))); // NOI18N
+        jmiPacienteLiberado.setText("Lista de Pacientes (LIBERADOS E INATIVOS)");
+        jmiPacienteLiberado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPacienteLiberadoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmiPacienteLiberado);
 
         jMenu2.add(jMenu4);
 
@@ -657,6 +670,11 @@ public class PrincipalView extends javax.swing.JFrame {
         desktopPane.add(listaPacientesDomingoView);
         listaPacientesDomingoView.setVisible(true);
     }//GEN-LAST:event_jmiPacienteDomingoActionPerformed
+
+    private void jmiPacienteLiberadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPacienteLiberadoActionPerformed
+        desktopPane.add(listaPacientesLiberadoView);
+        listaPacientesLiberadoView.setVisible(true);
+    }//GEN-LAST:event_jmiPacienteLiberadoActionPerformed
     
     private void dadosIniciais() {
         jlUsuario.setText(SessaoModel.nomeUsuario);
@@ -741,6 +759,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiNovoPaciente;
     private javax.swing.JMenuItem jmiPacienteConsulta;
     private javax.swing.JMenuItem jmiPacienteDomingo;
+    private javax.swing.JMenuItem jmiPacienteLiberado;
     private javax.swing.JMenuItem jmiPesquisarPaciente;
     private javax.swing.JMenuItem jmiSair;
     // End of variables declaration//GEN-END:variables

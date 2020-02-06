@@ -1,6 +1,7 @@
 package br.com.sisgete.controller;
 
 import br.com.sisgete.model.DAO.PacienteDAO;
+import br.com.sisgete.model.PacienteFrequenciaModel;
 import br.com.sisgete.model.PacienteModel;
 import java.util.ArrayList;
 
@@ -57,6 +58,15 @@ public class PacienteController {
      */
     public ArrayList<PacienteModel> getListaPacienteAtivoController() {
         return this.pacienteDAO.getListaPacienteAtivoDAO();
+    }
+
+    /**
+     *
+     * @param pCodigoPaciente
+     * @return
+     */
+    public ArrayList<PacienteFrequenciaModel> getListaPacienteLiberadoDAO(int pCodigoPaciente) {
+        return this.pacienteDAO.getListaPacienteLiberadoDAO(pCodigoPaciente);
     }
 
     /**

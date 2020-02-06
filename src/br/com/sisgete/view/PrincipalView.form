@@ -15,7 +15,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jmiSair">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+S"/>
+                  <KeyStroke key="F2"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="DejaVu Sans" size="14" style="1"/>
@@ -50,7 +50,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiNovoPaciente">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="F2"/>
+                      <KeyStroke key="F3"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -68,7 +68,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiPesquisarPaciente">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="F3"/>
+                      <KeyStroke key="F4"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -86,7 +86,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiAtendimento">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="F4"/>
+                      <KeyStroke key="F5"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -104,7 +104,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiPacienteConsulta">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="F5"/>
+                      <KeyStroke key="F6"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -149,7 +149,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiFrequenciaQuinta">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="Ctrl+Q"/>
+                      <KeyStroke key="Q"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -166,7 +166,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiFrequenciaTerca">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="Ctrl+T"/>
+                      <KeyStroke key="T"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -183,7 +183,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiMagnetizador">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="Ctrl+M"/>
+                      <KeyStroke key="M"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -200,7 +200,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiAuxiliar">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="Ctrl+A"/>
+                      <KeyStroke key="A"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -217,7 +217,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="jmiExtras">
                   <Properties>
                     <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                      <KeyStroke key="Ctrl+E"/>
+                      <KeyStroke key="E"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="DejaVu Sans" size="14" style="0"/>
@@ -246,6 +246,23 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiPacienteDomingoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jmiPacienteLiberado">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="L"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="DejaVu Sans" size="14" style="0"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-abrir-documento-24.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Lista de Pacientes (LIBERADOS E INATIVOS)"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiPacienteLiberadoActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

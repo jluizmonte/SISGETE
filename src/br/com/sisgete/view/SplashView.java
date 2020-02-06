@@ -1,6 +1,5 @@
 package br.com.sisgete.view;
 
-import br.com.sisgete.util.CarregarSplash;
 import javax.swing.ImageIcon;
 
 /**
