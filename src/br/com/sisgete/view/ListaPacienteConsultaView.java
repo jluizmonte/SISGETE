@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author luiz
  */
 public class ListaPacienteConsultaView extends javax.swing.JInternalFrame {
-    
+
     PacienteLogModel pacienteLogModel = new PacienteLogModel();
     PacienteLogController pacienteLogController = new PacienteLogController();
     ArrayList<PacienteLogModel> listaPacienteLogModels = new ArrayList<>();
@@ -21,7 +21,7 @@ public class ListaPacienteConsultaView extends javax.swing.JInternalFrame {
         initComponents();
         listarPaciente();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -129,7 +129,7 @@ public class ListaPacienteConsultaView extends javax.swing.JInternalFrame {
     private void listarPaciente() {
         listaPacienteLogModels = pacienteLogController.getListaPacienteLogController();
         int cont = listaPacienteLogModels.size();
-        
+
         listaPacienteLogModels.forEach((paciente) -> {
             jtfListaPaciente.append(paciente.getPacienteLog() + "\n");
         });

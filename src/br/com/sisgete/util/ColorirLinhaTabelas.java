@@ -8,11 +8,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 @SuppressWarnings("serial")
-public class ColorirLinhaStatus extends DefaultTableCellRenderer {
+public class ColorirLinhaTabelas extends DefaultTableCellRenderer {
 
     private final int colunaStatus;
 
-    public ColorirLinhaStatus(int colunaTabela) {
+    public ColorirLinhaTabelas(int colunaTabela) {
         this.colunaStatus = colunaTabela;
     }
 
@@ -30,8 +30,8 @@ public class ColorirLinhaStatus extends DefaultTableCellRenderer {
                 break;
 
             case "EM OBSERVAÇÃO":
-                setForeground(Color.WHITE);
-                setBackground(Color.YELLOW);
+                setForeground(Color.BLACK);
+                setBackground(Color.MAGENTA);
                 setFont(font);
                 setHorizontalAlignment(CENTER);
                 break;

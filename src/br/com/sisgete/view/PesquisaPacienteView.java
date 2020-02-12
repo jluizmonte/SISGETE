@@ -6,7 +6,7 @@ import br.com.sisgete.controller.QuadroPsicofisicoController;
 import br.com.sisgete.model.PacienteLogModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
-import br.com.sisgete.util.ColorirLinhaStatus;
+import br.com.sisgete.util.ColorirLinhaTabelas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -21,11 +21,11 @@ import javax.swing.table.TableRowSorter;
 public class PesquisaPacienteView extends javax.swing.JInternalFrame {
 
     String termoPesquisa;
-    
+
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
     ArrayList<PacienteModel> listaPacienteModel = new ArrayList<>();
-    
+
     QuadroPsicofisicoController quadroPsicofisicoController = new QuadroPsicofisicoController();
     QuadroPsicofisicoModel quadroPsicofisicoModel = new QuadroPsicofisicoModel();
     ArrayList<QuadroPsicofisicoModel> listaQuadroPsicofisicoModels = new ArrayList<>();
@@ -56,8 +56,8 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         jrbFiltroSetor = new javax.swing.JRadioButton();
         jrbFiltroStatusTratamento = new javax.swing.JRadioButton();
         jrbFiltroDesobsessão = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
         jrfStatusFicha = new javax.swing.JRadioButton();
+        jbResetarFiltros = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtResultado = new javax.swing.JTable();
 
@@ -114,9 +114,6 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 10)); // NOI18N
-        jLabel2.setText("(UM POR VEZ)");
-
         jrfStatusFicha.setBackground(new java.awt.Color(0, 112, 192));
         jrfStatusFicha.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jrfStatusFicha.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,6 +121,15 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         jrfStatusFicha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrfStatusFichaActionPerformed(evt);
+            }
+        });
+
+        jbResetarFiltros.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jbResetarFiltros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-reiniciar-18.png"))); // NOI18N
+        jbResetarFiltros.setText("RESETAR FLITROS");
+        jbResetarFiltros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbResetarFiltrosActionPerformed(evt);
             }
         });
 
@@ -138,18 +144,18 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jrbFiltroSetor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(63, 63, 63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jrbFiltroStatusTratamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(35, 35, 35)
+                        .addGap(29, 29, 29)
                         .addComponent(jrbFiltroDesobsessão, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addGap(32, 32, 32)
                         .addComponent(jrfStatusFicha)
-                        .addGap(24, 24, 24))
+                        .addGap(67, 67, 67))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel2)
-                        .addContainerGap())))
+                        .addGap(47, 47, 47)
+                        .addComponent(jbResetarFiltros)
+                        .addGap(82, 82, 82))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +163,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(jbResetarFiltros))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jrbFiltroNome)
@@ -190,8 +196,9 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtResultado);
         if (jtResultado.getColumnModel().getColumnCount() > 0) {
-            jtResultado.getColumnModel().getColumn(0).setPreferredWidth(25);
-            jtResultado.getColumnModel().getColumn(2).setPreferredWidth(25);
+            jtResultado.getColumnModel().getColumn(0).setPreferredWidth(30);
+            jtResultado.getColumnModel().getColumn(0).setMaxWidth(30);
+            jtResultado.getColumnModel().getColumn(2).setMaxWidth(50);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -199,7 +206,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1016, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,7 +221,7 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1016, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,8 +324,15 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jrfStatusFichaActionPerformed
 
+    private void jbResetarFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbResetarFiltrosActionPerformed
+
+        
+        
+    }//GEN-LAST:event_jbResetarFiltrosActionPerformed
+
     private void popularTabela() {
         listaPacienteModel = new ArrayList<>();
+        listaQuadroPsicofisicoModels = new ArrayList<>();
         listaPacienteModel = pacienteController.getListaPacienteController();
         listaQuadroPsicofisicoModels = quadroPsicofisicoController.getListaQuadroPsicofisicoController();
         DefaultTableModel modelo = (DefaultTableModel) jtResultado.getModel();
@@ -355,20 +369,20 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
     }
 
     private void corLinhaStatusPaciente() {
-        ColorirLinhaStatus colorirLinhaStatus = new ColorirLinhaStatus(6);
+        ColorirLinhaTabelas colorirLinhaStatus = new ColorirLinhaTabelas(6);
         jtResultado.getColumnModel().getColumn(6).setCellRenderer(colorirLinhaStatus);
     }
 
     private void corLinhaStatusFicha() {
-        ColorirLinhaStatus colorirLinhaStatusFicha = new ColorirLinhaStatus(7);
+        ColorirLinhaTabelas colorirLinhaStatusFicha = new ColorirLinhaTabelas(7);
         jtResultado.getColumnModel().getColumn(7).setCellRenderer(colorirLinhaStatusFicha);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton jbResetarFiltros;
     private javax.swing.JRadioButton jrbFiltroDesobsessão;
     private javax.swing.JRadioButton jrbFiltroNome;
     private javax.swing.JRadioButton jrbFiltroSetor;

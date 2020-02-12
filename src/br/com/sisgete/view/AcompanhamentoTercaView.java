@@ -5,6 +5,8 @@ import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.model.FrequenciaTratamentoTercaModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.util.GetDateUtil;
+import br.com.sisgete.util.LogCatch;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -19,6 +21,7 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
     ArrayList<PacienteModel> listaPacienteModel = new ArrayList<>();
     FrequenciaTratamentoTercaController frequenciaController = new FrequenciaTratamentoTercaController();
     FrequenciaTratamentoTercaModel frequenciaModel = new FrequenciaTratamentoTercaModel();
+    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true, "DESEJA SALVAR AS INFORMAÇÕES?");
     GetDateUtil getDateUtil = new GetDateUtil();
 
     /**
@@ -49,6 +52,7 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
         jbSalvar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jbCancelar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -91,13 +95,13 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
         jcbPaciente.setForeground(new java.awt.Color(0, 112, 192));
         jcbPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE UM PACIENTE" }));
         jcbPaciente.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbPacientePopupMenuWillBecomeVisible(evt);
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 jcbPacientePopupMenuWillBecomeInvisible(evt);
             }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                jcbPacientePopupMenuWillBecomeVisible(evt);
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
@@ -150,6 +154,15 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("PARA REGISTRAR A PRESENÇA DO PACIENTE NA REUNIÃO.");
 
+        jbCancelar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jbCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-cancelar-24.png"))); // NOI18N
+        jbCancelar.setText("Cancelar");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -171,7 +184,7 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jcbPaciente, 0, 377, Short.MAX_VALUE)
+                                .addComponent(jcbPaciente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -182,18 +195,20 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
                                 .addGap(223, 223, 223)))
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7))
-                .addGap(56, 56, 56))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(498, 498, 498)
+                        .addGap(384, 384, 384)
+                        .addComponent(jbCancelar)
+                        .addGap(39, 39, 39)
                         .addComponent(jbSalvar))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,7 +234,9 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jbSalvar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbSalvar)
+                    .addComponent(jbCancelar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -250,21 +267,25 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbPacientePopupMenuWillBecomeVisible
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
-        Object[] opcoes = {"SIM", "NÃO"};
-        Object resposta;
-        resposta = JOptionPane.showInputDialog(null,
-                "Opções",
-                "Realizar registro?",
-                JOptionPane.OK_CANCEL_OPTION,
-                null,
-                opcoes,
-                "SIM");
-        if (resposta.equals("SIM")) {
+        menuOpcoesView.setVisible(true);
+        if (menuOpcoesView.flag == true) {
             salvarFrequencia();
         } else {
-            JOptionPane.showMessageDialog(null, "Registro de presença cancelado!", "Atenção", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário!", "Cancelada", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jbSalvarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        limparCampos();
+
+    }//GEN-LAST:event_jbCancelarActionPerformed
+
+    private void limparCampos() {
+        jcbPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"SELECIONE UM PACIENTE"}));
+        jlAtendente.setText("SELECIONE PACIENTE");
+        jlData.setText("SEL. PACIENTE");
+        jlSetor.setText("SELEC.");
+    }
 
     private void salvarFrequencia() {
         int idPaciente = pacienteController.getPaciente(jcbPaciente.getSelectedItem().toString()).getIdPaciente();
@@ -277,6 +298,7 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
+            new LogCatch().writeLog("Erro ao salvar a frequencia de terça do paciente");
         }
     }
 
@@ -307,6 +329,7 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton jbCancelar;
     private javax.swing.JButton jbSalvar;
     private javax.swing.JComboBox<String> jcbPaciente;
     private javax.swing.JLabel jlAtendente;

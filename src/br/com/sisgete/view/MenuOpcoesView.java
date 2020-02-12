@@ -29,10 +29,12 @@ public class MenuOpcoesView extends javax.swing.JDialog {
      *
      * @param parent
      * @param modal
+     * @param pergunta
      */
-    public MenuOpcoesView(java.awt.Frame parent, boolean modal) {
+    public MenuOpcoesView(java.awt.Frame parent, boolean modal, String pergunta) {
         super(parent, modal);
         initComponents();
+        jlPergunta.setText(pergunta);
         setLocationRelativeTo(null);
         // Close the dialog when Esc is pressed
         String cancelName = "cancel";
@@ -65,7 +67,7 @@ public class MenuOpcoesView extends javax.swing.JDialog {
 
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jlPergunta = new javax.swing.JLabel();
 
         setTitle("MENU OPPÇÕES");
         setBackground(new java.awt.Color(0, 112, 192));
@@ -89,8 +91,9 @@ public class MenuOpcoesView extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel1.setText("VOCÊ QUER ALTERAR O STATUS DO AUXILIAR?");
+        jlPergunta.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
+        jlPergunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlPergunta.setText("ERRO AO EXIBIR TEXTO (ERRO 01)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,8 +108,8 @@ public class MenuOpcoesView extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cancelButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 1, Short.MAX_VALUE)))
+                        .addComponent(jlPergunta)
+                        .addGap(0, 155, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -116,7 +119,7 @@ public class MenuOpcoesView extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jlPergunta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
@@ -153,7 +156,7 @@ public class MenuOpcoesView extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlPergunta;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 

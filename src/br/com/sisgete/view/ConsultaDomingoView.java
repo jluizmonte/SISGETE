@@ -6,6 +6,7 @@ import br.com.sisgete.controller.QuadroPsicofisicoController;
 import br.com.sisgete.model.PacienteLogModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
+import br.com.sisgete.util.LogCatch;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -25,13 +26,13 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
     PacienteLogController pacienteLogController = new PacienteLogController();
     String nomePaciente;
     ConsultaDomingoPesquisaPacienteView consultaPaciente = new ConsultaDomingoPesquisaPacienteView(null, true);
+    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true, "DESEJA SALVAR AS INFORMAÇÕES?");
 
     /**
      * Creates new form ConsultaDomingoView
      */
     public ConsultaDomingoView() {
         initComponents();
-        carregarPaciente();
     }
 
     @SuppressWarnings("unchecked")
@@ -70,15 +71,16 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel3.setText("SETOR.:");
 
-        jcbPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 16)); // NOI18N
-        jcbPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbPaciente.setFont(new java.awt.Font("DejaVu Sans", 1, 16)); // NOI18N
+        jcbPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE UM PACIENTE" }));
         jcbPaciente.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbPacientePopupMenuWillBecomeVisible(evt);
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 jcbPacientePopupMenuWillBecomeInvisible(evt);
             }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
         });
 
@@ -227,26 +229,45 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jcbPacientePopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbPacientePopupMenuWillBecomeInvisible
-        carregarValores();
-    }//GEN-LAST:event_jcbPacientePopupMenuWillBecomeInvisible
-
     private void jbPesquisaPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisaPacienteActionPerformed
         consultaPaciente.setVisible(true);
     }//GEN-LAST:event_jbPesquisaPacienteActionPerformed
 
     private void jbAddConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddConsultaActionPerformed
-        salvarListaConsulta();
+        menuOpcoesView.setVisible(true);
+        if (menuOpcoesView.flag == true) {
+            salvarListaConsulta();
+        } else {
+            JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário!", "Cancelada", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jbAddConsultaActionPerformed
 
     private void jtfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNomeActionPerformed
-        salvarListaConsulta();
+        menuOpcoesView.setVisible(true);
+        if (menuOpcoesView.flag == true) {
+            salvarListaConsulta();
+        } else {
+            JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário!", "Cancelada", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jtfNomeActionPerformed
 
     private void jbAddPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAddPacienteActionPerformed
-        salvarListaAtendimento();
-        JOptionPane.showMessageDialog(null, "Atendimento salva com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+        menuOpcoesView.setVisible(true);
+        if (menuOpcoesView.flag == true) {
+            salvarListaAtendimento();
+        } else {
+            JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário!", "Cancelada", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jbAddPacienteActionPerformed
+
+    private void jcbPacientePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbPacientePopupMenuWillBecomeVisible
+        carregarPaciente();
+    }//GEN-LAST:event_jcbPacientePopupMenuWillBecomeVisible
+
+    private void jcbPacientePopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbPacientePopupMenuWillBecomeInvisible
+
+        carregarValores();
+    }//GEN-LAST:event_jcbPacientePopupMenuWillBecomeInvisible
 
     private void carregarPaciente() {
         listaPacienteModel = pacienteController.getListaPacienteController();
@@ -261,16 +282,27 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         pacienteLogModel.setTipoPacienteLog("ATENDIMENTO");
         pacienteLogModel.setSetorPacienteLog(jlSetor.getText());
         pacienteLogController.insertPacienteLog(pacienteLogModel);
-        JOptionPane.showMessageDialog(null, "Atendimento salvo com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Paciente inserido a lista de atendimento.", "Sucesso", JOptionPane.WARNING_MESSAGE);
+        if (pacienteLogController.insertPacienteLog(pacienteLogModel) > 0) {
+            JOptionPane.showMessageDialog(null, "Paciente inserido a lista de atendimento.", "Sucesso", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar as informações");
+            new LogCatch().writeLog("O paciente não foi inserido na lista, houve um erro");
+        }
     }
 
     private void salvarListaConsulta() {
         pacienteLogModel.setPacienteLog(jtfNome.getText().toUpperCase());
         pacienteLogModel.setTipoPacienteLog("CONSULTA");
         pacienteLogModel.setSetorPacienteLog("NULL");
-        pacienteLogController.insertPacienteLog(pacienteLogModel);
-        JOptionPane.showMessageDialog(null, "Consulta salva com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
-        jtfNome.setText("");
+
+        if (pacienteLogController.insertPacienteLog(pacienteLogModel) > 0) {
+            JOptionPane.showMessageDialog(null, "Paciente inserido a lista de consulta.", "Sucesso", JOptionPane.WARNING_MESSAGE);
+            jtfNome.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao salvar as informações");
+            new LogCatch().writeLog("O paciente não foi inserido na lista do atendimento fraterno");
+        }
     }
 
     private void carregarValores() {

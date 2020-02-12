@@ -2,9 +2,12 @@ package br.com.sisgete.view;
 
 import br.com.sisgete.controller.MagnetizadorController;
 import br.com.sisgete.model.MagnetizadorModel;
-import br.com.sisgete.util.ColorirLinhaStatus;
+import br.com.sisgete.util.ColorirLinhaTabelas;
+import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,7 +19,6 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
     MagnetizadorController magnetizadorController = new MagnetizadorController();
     MagnetizadorModel magnetizadorModel = new MagnetizadorModel();
     ArrayList<MagnetizadorModel> listaMagnetizadorModels = new ArrayList<>();
-    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true);
 
     /**
      * Creates new form MagnetizadorView
@@ -27,6 +29,9 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
         corLinhaStatusMagnetizador();
         setIconifiable(true);
         setClosable(true);
+        alignCenterTable(0);
+        alignCenterTable(1);
+        alignCenterTable(2);
     }
 
     @SuppressWarnings("unchecked")
@@ -225,10 +230,8 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtfMagnetizadorActionPerformed
 
     private void jtMagnetizadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMagnetizadorMouseClicked
-        menuOpcoesView.setVisible(true);
-        if (menuOpcoesView.flag == true) {
-            atualizarDados();
-        }
+        obterCodigo();
+
     }//GEN-LAST:event_jtMagnetizadorMouseClicked
 
     private void limparCampos() {
@@ -284,9 +287,35 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
         }
     }
 
+    public void obterCodigo() {
+        int linha = jtMagnetizador.getSelectedRow();
+        int codigoMagnetizador = (int) jtMagnetizador.getValueAt(linha, 0);
+        OpcoesTabela opcoesTabela = new OpcoesTabela(null, true, codigoMagnetizador, "Magnetizador");
+        opcoesTabela.setVisible(true);
+        if (opcoesTabela.flag == true) {
+            atualizarDados();
+        } else {
+            JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário!", "Cancelada", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
     private void corLinhaStatusMagnetizador() {
-        ColorirLinhaStatus colorirLinhaStatus = new ColorirLinhaStatus(2);
+        ColorirLinhaTabelas colorirLinhaStatus = new ColorirLinhaTabelas(2);
         jtMagnetizador.getColumnModel().getColumn(2).setCellRenderer(colorirLinhaStatus);
+    }
+
+    private void alignCenterTable(int column) {
+
+        DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+
+        cellRenderer.setHorizontalAlignment(JLabel.CENTER);
+        headerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        headerRenderer.setBackground(Color.lightGray);
+
+        jtMagnetizador.getColumnModel().getColumn(column).setCellRenderer(cellRenderer);
+        jtMagnetizador.getColumnModel().getColumn(column).setHeaderRenderer(headerRenderer);
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

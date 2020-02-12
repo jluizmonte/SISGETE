@@ -1,5 +1,6 @@
 package br.com.sisgete.connection;
 
+import br.com.sisgete.util.CarregarFrame;
 import br.com.sisgete.util.ObterInfoSistema;
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class SisgeteConnectionSqLite {
             try {
                 diretorio.mkdir();
                 sisgeteDB.createNewFile();
+                new CarregarFrame().setFrameTime();
             } catch (IOException e) {
                 System.out.println("Erro: " + e);
             }

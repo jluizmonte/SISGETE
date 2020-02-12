@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author joseluiz
+ * @author luiz
  */
 public class Control {
 
@@ -35,6 +35,7 @@ public class Control {
                 ErrorAlert.titulo.setText("Atenção!!");
                 ErrorAlert.msj.setText("O Sistema já está em execução!");
                 ErrorAlert.msj1.setText("");
+                closeProgram();
                 er.setVisible(true);
                 return false;
             } else {

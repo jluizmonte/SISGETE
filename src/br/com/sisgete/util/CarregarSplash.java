@@ -1,5 +1,6 @@
 package br.com.sisgete.util;
 
+import br.com.sisgete.view.FirstSplashView;
 import br.com.sisgete.view.LoginView;
 import br.com.sisgete.view.SplashView;
 
@@ -7,9 +8,11 @@ public class CarregarSplash {
 
     public void setSplashTime() {
 
-        SplashView Splash = new SplashView()  ;
-
+        SplashView Splash = new SplashView();
+        FirstSplashView firstSplashView = new FirstSplashView();
+        firstSplashView.setVisible(false);
         Splash.setVisible(true);
+
         for (int i = 0; i <= 80; i++) {
             try {
                 Thread.sleep(50);

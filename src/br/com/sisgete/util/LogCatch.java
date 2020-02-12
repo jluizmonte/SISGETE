@@ -15,58 +15,29 @@ public class LogCatch {
 
     File logCat;
 
-    public void criarPastaLogs() {
+    public void createFolder() {
         File diretorio = new File(LogModel.userSystemDirectory);
         if (!diretorio.exists()) {
             try {
                 diretorio.mkdirs();
             } catch (Exception e) {
                 LogModel.logClass = this.getClass().getName();
-                new LogCatch().writeFile(String.valueOf(e));
-            }
-        }
-    }
-
-    public void criarPastaListaPaciente() {
-        File diretorio = new File(LogModel.diretorioPacienteDiario);
-        if (!diretorio.exists()) {
-            try {
-                diretorio.mkdirs();
-            } catch (Exception e) {
-                LogModel.logClass = this.getClass().getName();
-                new LogCatch().writeFile(String.valueOf(e));
+                new LogCatch().writeLog(String.valueOf(e));
             }
         }
     }
 
     /**
-     * criacao do arquivo de Log
+     * criacao do arquivo de createFile
      */
-    public void Log() {
+    public void createFile() {
 
         logCat = new File(LogModel.userSystemFile);
         try {
             logCat.createNewFile();
         } catch (IOException e) {
             LogModel.logClass = this.getClass().getName();
-            new LogCatch().writeFile(String.valueOf(e));
-        }
-    }
-
-    /**
-     * criacao lista de paciente consultados por dia
-     *
-     * @throws java.io.IOException
-     */
-    public void pacienteLog() throws IOException {
-        logCat = new File(LogModel.pacienteLog);
-        try {
-            if (!logCat.exists()) {
-                logCat.createNewFile();
-            }
-        } catch (IOException e) {
-            LogModel.logClass = this.getClass().getName();
-            new LogCatch().writeFile(String.valueOf(e));
+            new LogCatch().writeLog(String.valueOf(e));
         }
     }
 
@@ -75,7 +46,7 @@ public class LogCatch {
      *
      * @param log
      */
-    public void writeFile(String log) {
+    public void writeLog(String log) {
         logCat = new File(LogModel.userSystemFile);
         try {
             if (("".equals(log)) || (log == null)) {
@@ -88,11 +59,12 @@ public class LogCatch {
             }
             FileWriter fileWriter = new FileWriter(logCat, true);
             try (BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+                bufferedWriter.newLine();
                 bufferedWriter.write("---------------------------------------------");
                 bufferedWriter.newLine();
                 bufferedWriter.write("usuário: " + SessaoModel.nomeUsuario);
                 bufferedWriter.newLine();
-                bufferedWriter.write("Classe geradora do log: " + LogModel.logClass);
+                bufferedWriter.write("Classe geradora do log: " + getClass().toString());
                 bufferedWriter.newLine();
                 bufferedWriter.write(new LogModel().logDateNow + ": " + log + "\n");
             }
@@ -100,7 +72,6 @@ public class LogCatch {
             JOptionPane.showMessageDialog(null,
                     "Erro ao criar arquivo de LOG\n" + " Informe ao desenvolvedor o ocorrido", "Erro Critico",
                     JOptionPane.ERROR_MESSAGE);
-
         }
     }
 
@@ -109,7 +80,7 @@ public class LogCatch {
         try {
             FileWriter fileWriter = new FileWriter(logCat);
             try (BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-                bufferedWriter.write("LOGS SISGETE");
+                bufferedWriter.write("LOG DE ERROS DO SISTEMA SISGETE");
                 bufferedWriter.newLine();
                 bufferedWriter.write("Instituição: FECMA");
                 bufferedWriter.newLine();
@@ -119,36 +90,19 @@ public class LogCatch {
                 bufferedWriter.newLine();
                 bufferedWriter.write("Licenciado para: " + new ObterInfoSistema().getNomeUsuario());
                 bufferedWriter.newLine();
-                bufferedWriter.write("<<<<< LOGCAT >>>>>\n");
-                bufferedWriter.write("\n");
-                bufferedWriter.write(new LogModel().logDateNow + ": " + "sistema instalado com sucesso!\n");
-            }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null,
-                    "Erro ao criar arquivo de LOG\n" + " Informe ao desenvolvedor o ocorrido", "Erro Critico",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void listaPaciente(String paciente) {
-        logCat = new File(LogModel.pacienteLog);
-        try {
-            FileWriter fileWriter = new FileWriter(logCat);
-            try (BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-
-                bufferedWriter.write("<<<<< CONTAGEM PACIENTES E CONSULTAS >>>>>\n");
+                bufferedWriter.write("<<<<< LOGCATCH >>>>>\n");
                 bufferedWriter.newLine();
-                bufferedWriter.write(paciente + "\n");
+                bufferedWriter.write(new LogModel().logDateNow + ": " + "sistema instalado com sucesso!\n");
+                bufferedWriter.newLine();
             }
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null,
                     "Erro ao criar arquivo de LOG\n" + " Informe ao desenvolvedor o ocorrido", "Erro Critico",
                     JOptionPane.ERROR_MESSAGE);
-
         }
     }
 
-    public void readNameLogs() {
+    public void readLogs() {
         File folder = new File(LogModel.userSystemDirectory);
         File[] listOfFiles = folder.listFiles();
 

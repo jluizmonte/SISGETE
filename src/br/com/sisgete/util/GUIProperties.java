@@ -3,7 +3,8 @@ package br.com.sisgete.util;
 import javax.swing.UIManager;
 
 /**
- * @author Michael Hagen
+ *
+ * @author luiz
  */
 public class GUIProperties {
 

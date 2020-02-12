@@ -5,8 +5,10 @@ import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.model.FrequenciaTratamentoDomingoModel;
 import br.com.sisgete.model.PacienteFrequenciaModel;
 import br.com.sisgete.model.PacienteModel;
-import br.com.sisgete.util.ColorirLinhaStatus;
+import br.com.sisgete.util.ColorirLinhaTabelas;
 import java.util.ArrayList;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -48,7 +50,7 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("LISTA DE PACIENTES ATENDIDOS (TOTAL)");
+        setTitle("ARQUIVO MORTO - LIBERADOS");
 
         jPanel1.setBackground(new java.awt.Color(0, 112, 192));
 
@@ -62,29 +64,30 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
 
         jtPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "#", "NOME", "SETOR", "DATA LIBERAÇÃO"
+                "#", "NOME", "FICHA", "SETOR", "DATA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jtPaciente.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtPaciente);
         if (jtPaciente.getColumnModel().getColumnCount() > 0) {
-            jtPaciente.getColumnModel().getColumn(0).setPreferredWidth(25);
-            jtPaciente.getColumnModel().getColumn(0).setMaxWidth(25);
-            jtPaciente.getColumnModel().getColumn(2).setPreferredWidth(55);
-            jtPaciente.getColumnModel().getColumn(2).setMaxWidth(55);
+            jtPaciente.getColumnModel().getColumn(0).setMaxWidth(35);
+            jtPaciente.getColumnModel().getColumn(2).setMaxWidth(90);
+            jtPaciente.getColumnModel().getColumn(3).setMaxWidth(55);
+            jtPaciente.getColumnModel().getColumn(4).setMaxWidth(95);
         }
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -139,10 +142,6 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void corLinhaStatusPaciente() {
-        ColorirLinhaStatus colorirLinhaStatus = new ColorirLinhaStatus(4);
-        jtPaciente.getColumnModel().getColumn(4).setCellRenderer(colorirLinhaStatus);
-    }
 
     private void popularTabela() {
         listaPacienteModel = new ArrayList<>();
@@ -150,7 +149,7 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
         listaFrequenciaModels = new ArrayList<>();
         listaPacienteModel = pacienteController.getListaPacienteController();
         listaTratamentoDomingoModels = frequenciaTratamentoDomingoController.getListaFrequenciaTratamentoDomingoController();
-    //    listaFrequenciaModels = pacienteController.getListaPacienteLiberadoDAO(1);
+        //    listaFrequenciaModels = pacienteController.getListaPacienteLiberadoDAO(1);
         DefaultTableModel modelo = (DefaultTableModel) jtPaciente.getModel();
         modelo.setNumRows(0);
         int cont = listaPacienteModel.size();
@@ -169,6 +168,8 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
             paciente.getStatusTratamento();
         });
     }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

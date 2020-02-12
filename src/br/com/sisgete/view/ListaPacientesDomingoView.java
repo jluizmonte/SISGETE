@@ -2,7 +2,7 @@ package br.com.sisgete.view;
 
 import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.model.PacienteModel;
-import br.com.sisgete.util.ColorirLinhaStatus;
+import br.com.sisgete.util.ColorirLinhaTabelas;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -131,7 +131,7 @@ public class ListaPacientesDomingoView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void corLinhaStatusPaciente() {
-        ColorirLinhaStatus colorirLinhaStatus = new ColorirLinhaStatus(4);
+        ColorirLinhaTabelas colorirLinhaStatus = new ColorirLinhaTabelas(4);
         jtPaciente.getColumnModel().getColumn(4).setCellRenderer(colorirLinhaStatus);
     }
 

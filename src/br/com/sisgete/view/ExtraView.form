@@ -296,10 +296,11 @@
                       <Font name="DejaVu Sans" size="16" style="1"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
+                      <StringArray count="4">
                         <StringItem index="0" value="ADMINISTRADOR"/>
                         <StringItem index="1" value="ATENDENTE FRATERNO"/>
                         <StringItem index="2" value="MAGNETIZADOR/AUXILIAR"/>
+                        <StringItem index="3" value="RECEP&#xc7;&#xc3;O"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -390,6 +391,9 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtusuarioMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

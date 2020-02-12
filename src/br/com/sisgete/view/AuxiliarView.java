@@ -2,7 +2,8 @@ package br.com.sisgete.view;
 
 import br.com.sisgete.controller.AuxiliarController;
 import br.com.sisgete.model.AuxiliarModel;
-import br.com.sisgete.util.ColorirLinhaStatus;
+import br.com.sisgete.util.ColorirLinhaTabelas;
+import br.com.sisgete.util.LogCatch;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +17,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
     AuxiliarController auxiliarController = new AuxiliarController();
     AuxiliarModel auxiliarModel = new AuxiliarModel();
     ArrayList<AuxiliarModel> listaAuxiliarModels = new ArrayList<>();
-    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true);
+    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true, "VOCÊ QUER ALTERAR O STATUS DO AUXILIAR?");
 
     /**
      * Creates new form MagnetizadorView
@@ -252,6 +253,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
             carregarDados();
         } else {
             JOptionPane.showMessageDialog(this, "Status do auxiliar não alterado", "Erro", JOptionPane.ERROR_MESSAGE);
+            new LogCatch().writeLog("Erro ao alterar o status do auxliar");
         }
     }
 
@@ -265,6 +267,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
             carregarDados();
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
+            new LogCatch().writeLog("Erro ao salvar os dados do auxiliar");
         }
     }
 
@@ -285,7 +288,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
     }
 
     private void corLinhaStatusAuxiliar() {
-        ColorirLinhaStatus colorirLinhaStatus = new ColorirLinhaStatus(2);
+        ColorirLinhaTabelas colorirLinhaStatus = new ColorirLinhaTabelas(2);
         jtAuxiliar.getColumnModel().getColumn(2).setCellRenderer(colorirLinhaStatus);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

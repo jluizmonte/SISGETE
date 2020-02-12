@@ -3,6 +3,7 @@ package br.com.sisgete.view;
 import br.com.sisgete.controller.UsuarioController;
 import br.com.sisgete.model.SessaoModel;
 import br.com.sisgete.model.UsuarioModel;
+import br.com.sisgete.util.LogCatch;
 import br.com.sisgete.util.alerts.WarningAlertCerrar;
 import java.awt.Color;
 import java.awt.HeadlessException;
@@ -16,6 +17,7 @@ import javax.swing.ImageIcon;
  */
 public class LoginView extends javax.swing.JDialog {
 
+    //PrincipalView principalView = new PrincipalView();
     UsuarioController usuarioController = new UsuarioController();
     UsuarioModel usuarioModel = new UsuarioModel();
     int x, y;
@@ -278,20 +280,20 @@ public class LoginView extends javax.swing.JDialog {
         usuarioModel.setUsuario(jtfUsuario.getText());
         usuarioModel.setSenha(String.valueOf(jtfSenha.getPassword()));
 
-        try {
-            if (usuarioController.validarUsuario(usuarioModel)) {
-                usuarioModel = usuarioController.getUsuarioController(jtfUsuario.getText());
-                setSessionUser();
-                new PrincipalView().setVisible(true);
-                this.dispose();
-            } else {
-                LoginView.lblInfo.setText("LOGIN OU SENHAS INVÁLIDOS");
-                LoginView.lblInfo.setForeground(Color.red);
-                clearFields();
-                jtfUsuario.requestFocusInWindow();
-            }
-        } catch (HeadlessException e) {
+        if (usuarioController.validarUsuario(usuarioModel)) {
+            usuarioModel = usuarioController.getUsuarioController(jtfUsuario.getText());
+            setSessionUser();
+            //  principalView.setVisible(true);
+            new PrincipalView().setVisible(true);
+            this.dispose();
+        } else {
+            LoginView.lblInfo.setText("LOGIN OU SENHAS INVÁLIDOS");
+            LoginView.lblInfo.setForeground(Color.red);
+            clearFields();
+            jtfUsuario.requestFocusInWindow();
+            new LogCatch().writeLog(lblInfo.getText());
         }
+
     }
 
     private void clearFields() {
