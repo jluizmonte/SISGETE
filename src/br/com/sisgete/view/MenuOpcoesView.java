@@ -14,7 +14,7 @@ import javax.swing.KeyStroke;
  */
 public class MenuOpcoesView extends javax.swing.JDialog {
 
-    public boolean flag;
+    public boolean flag, flagExcluir;
     /**
      * A return status code - returned if Cancel button has been pressed
      */
@@ -135,11 +135,13 @@ public class MenuOpcoesView extends javax.swing.JDialog {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         doClose(RET_OK);
         this.flag = true;
+        this.flagExcluir = true;
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         doClose(RET_CANCEL);
         this.flag = false;
+        this.flagExcluir = false;
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**

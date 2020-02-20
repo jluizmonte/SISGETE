@@ -7,6 +7,7 @@ import br.com.sisgete.model.PacienteLogModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.model.QuadroPsicofisicoModel;
 import br.com.sisgete.util.LogCatch;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -281,27 +282,28 @@ public class ConsultaDomingoView extends javax.swing.JInternalFrame {
         pacienteLogModel.setPacienteLog(jcbPaciente.getSelectedItem().toString());
         pacienteLogModel.setTipoPacienteLog("ATENDIMENTO");
         pacienteLogModel.setSetorPacienteLog(jlSetor.getText());
-        pacienteLogController.insertPacienteLog(pacienteLogModel);
-        JOptionPane.showMessageDialog(null, "Paciente inserido a lista de atendimento.", "Sucesso", JOptionPane.WARNING_MESSAGE);
-        if (pacienteLogController.insertPacienteLog(pacienteLogModel) > 0) {
+
+        try {
+            pacienteLogController.insertPacienteLog(pacienteLogModel);
             JOptionPane.showMessageDialog(null, "Paciente inserido a lista de atendimento.", "Sucesso", JOptionPane.WARNING_MESSAGE);
-        } else {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(this, "Erro ao salvar as informações");
-            new LogCatch().writeLog("O paciente não foi inserido na lista, houve um erro");
+            new LogCatch().writeLog("O paciente não foi inserido na lista, houve um erro: " + e, this.getClass().toString());
         }
     }
 
     private void salvarListaConsulta() {
+        pacienteLogModel = new PacienteLogModel();
         pacienteLogModel.setPacienteLog(jtfNome.getText().toUpperCase());
         pacienteLogModel.setTipoPacienteLog("CONSULTA");
         pacienteLogModel.setSetorPacienteLog("NULL");
-
-        if (pacienteLogController.insertPacienteLog(pacienteLogModel) > 0) {
+        try {
+            pacienteLogController.insertPacienteLog(pacienteLogModel);
             JOptionPane.showMessageDialog(null, "Paciente inserido a lista de consulta.", "Sucesso", JOptionPane.WARNING_MESSAGE);
             jtfNome.setText("");
-        } else {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(this, "Erro ao salvar as informações");
-            new LogCatch().writeLog("O paciente não foi inserido na lista do atendimento fraterno");
+            new LogCatch().writeLog("O paciente não foi inserido na lista do atendimento fraterno: " + e, this.getClass().toString());
         }
     }
 

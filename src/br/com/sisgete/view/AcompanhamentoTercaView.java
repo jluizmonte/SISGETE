@@ -6,7 +6,6 @@ import br.com.sisgete.model.FrequenciaTratamentoTercaModel;
 import br.com.sisgete.model.PacienteModel;
 import br.com.sisgete.util.GetDateUtil;
 import br.com.sisgete.util.LogCatch;
-import java.awt.HeadlessException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -298,7 +297,7 @@ public class AcompanhamentoTercaView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
-            new LogCatch().writeLog("Erro ao salvar a frequencia de terça do paciente");
+            new LogCatch().writeLog("Erro ao salvar a frequencia de terça do paciente", getClass().toString());
         }
     }
 

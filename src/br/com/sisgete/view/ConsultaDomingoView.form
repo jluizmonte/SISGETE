@@ -89,9 +89,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder justification="2" title="PACIENTES EM TRATAMENTO">
-                  <Font PropertyName="font" name="DejaVu Sans" size="12" style="1"/>
-                </TitledBorder>
+                <TitledBorder justification="2" title="PACIENTES EM TRATAMENTO"/>
               </Border>
             </Property>
           </Properties>
@@ -217,9 +215,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder justification="2" title="CONSULTA ATENDIMENTO FRATERNO">
-                  <Font PropertyName="font" name="DejaVu Sans" size="12" style="1"/>
-                </TitledBorder>
+                <TitledBorder justification="2" title="CONSULTA ATENDIMENTO FRATERNO"/>
               </Border>
             </Property>
           </Properties>

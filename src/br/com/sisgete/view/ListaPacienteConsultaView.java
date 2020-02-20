@@ -133,7 +133,7 @@ public class ListaPacienteConsultaView extends javax.swing.JInternalFrame {
         listaPacienteLogModels.forEach((paciente) -> {
             jtfListaPaciente.append(paciente.getPacienteLog() + "\n");
         });
-        jlQtdePaciente.setText(String.valueOf(pacienteLogController.getQuantidadePaciente()));
+        jlQtdePaciente.setText(String.valueOf(pacienteLogController.getQtdePacienteAtendimento()));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -1,8 +1,11 @@
 package br.com.sisgete.view;
 
+import br.com.sisgete.controller.AuxiliarController;
 import br.com.sisgete.controller.FrequenciaTratamentoDomingoController;
 import br.com.sisgete.controller.MagnetizadorController;
 import br.com.sisgete.controller.UsuarioController;
+import br.com.sisgete.util.LogCatch;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,10 +16,11 @@ public class OpcoesTabela extends javax.swing.JDialog {
 
     UsuarioController usuarioController = new UsuarioController();
     MagnetizadorController magnetizadorController = new MagnetizadorController();
+    AuxiliarController auxiliarController = new AuxiliarController();
     FrequenciaTratamentoDomingoController frequenciaTratamentoDomingoController = new FrequenciaTratamentoDomingoController();
-    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true, "VOCÊ QUER ALTERAR O STATUS DO MAGNETIZADOR?");
+    MenuOpcoesView menuOpcoesView;
     public boolean flag;
-    public int codigoMagnetizador;
+    public int codigoRecebido;
     public String janela;
 
     /**
@@ -32,8 +36,9 @@ public class OpcoesTabela extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        codigoMagnetizador = codigo;
+        codigoRecebido = codigo;
         janela = janelaAberta;
+
     }
 
     @SuppressWarnings("unchecked")
@@ -45,9 +50,15 @@ public class OpcoesTabela extends javax.swing.JDialog {
         jbAlterarStatus = new javax.swing.JButton();
         jbAlterarNome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmiSair = new javax.swing.JMenuItem();
+        jmiStatus = new javax.swing.JMenuItem();
+        jmiNome = new javax.swing.JMenuItem();
+        jmiExcluir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -79,7 +90,16 @@ public class OpcoesTabela extends javax.swing.JDialog {
         });
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
-        jLabel2.setText("ATALHO F2 - Fechar esta janela");
+        jLabel2.setText("ATALHOS F2 - Fechar esta janela ");
+
+        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jLabel3.setText("F3 - Alterar Nome");
+
+        jLabel4.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jLabel4.setText("F4 - Excluir");
+
+        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
+        jLabel5.setText("F5 - Alterar Status");
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(1, 1));
 
@@ -94,6 +114,33 @@ public class OpcoesTabela extends javax.swing.JDialog {
         });
         jMenu1.add(jmiSair);
 
+        jmiStatus.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        jmiStatus.setText("jMenuItem1");
+        jmiStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiStatusActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmiStatus);
+
+        jmiNome.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        jmiNome.setText("jMenuItem2");
+        jmiNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiNomeActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmiNome);
+
+        jmiExcluir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        jmiExcluir.setText("jMenuItem1");
+        jmiExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiExcluirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmiExcluir);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -102,23 +149,29 @@ public class OpcoesTabela extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jbAlterarNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbExcluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbAlterarStatus))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel2)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel4))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,19 +184,21 @@ public class OpcoesTabela extends javax.swing.JDialog {
                     .addComponent(jbExcluir)
                     .addComponent(jbAlterarStatus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbAlterarStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarStatusActionPerformed
-        this.dispose();
-        menuOpcoesView.setVisible(true);
-        if (menuOpcoesView.flag == true) {
-            this.flag = true;
-        }
+        alterarStatus();
     }//GEN-LAST:event_jbAlterarStatusActionPerformed
 
     private void jmiSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSairActionPerformed
@@ -151,36 +206,88 @@ public class OpcoesTabela extends javax.swing.JDialog {
     }//GEN-LAST:event_jmiSairActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
-        exclusaoDados();
+        excluir();
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbAlterarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarNomeActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "FUNÇÃO EM DESENVOLVIMENTO!");
     }//GEN-LAST:event_jbAlterarNomeActionPerformed
 
+    private void jmiStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiStatusActionPerformed
+        alterarStatus();
+    }//GEN-LAST:event_jmiStatusActionPerformed
+
+    private void jmiNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNomeActionPerformed
+        JOptionPane.showMessageDialog(null, "FUNÇÃO EM DESENVOLVIMENTO!");
+    }//GEN-LAST:event_jmiNomeActionPerformed
+
+    private void jmiExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiExcluirActionPerformed
+        excluir();
+    }//GEN-LAST:event_jmiExcluirActionPerformed
+
     private void exclusaoDados() {
-        if (this.janela.equals("Usuario")) {
-            if (usuarioController.excluirUsuarioController(codigoMagnetizador)) {
-                JOptionPane.showMessageDialog(this, "Usuário excluido com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(this, "Erro ao excluir usuário!", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
+        switch (this.janela) {
+            case "USUÁRIO":
+                try {
+                    usuarioController.excluirUsuarioController(codigoRecebido);
+                    JOptionPane.showMessageDialog(this, this.janela + " excluido com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+                } catch (HeadlessException e) {
+                    new LogCatch().writeLog("Erro ao excluir " + this.janela + ": " + e, this.getClass().toString());
+                }
+                break;
+            case "MAGNETIZADOR":
+                try {
+                    magnetizadorController.excluirMagnetizadorController(codigoRecebido);
+                    JOptionPane.showMessageDialog(this, this.janela + " excluido com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+                } catch (HeadlessException e) {
+                    new LogCatch().writeLog("Erro ao excluir " + this.janela + ": " + e, this.getClass().toString());
+                }
+                break;
+            case "AUXILIAR":
+                try {
+                    auxiliarController.excluirAuxiliarController(codigoRecebido);
+                    JOptionPane.showMessageDialog(this, this.janela + " excluido com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
+                } catch (HeadlessException e) {
+                    new LogCatch().writeLog("Erro ao excluir " + this.janela + ": " + e, this.getClass().toString());
+                }
+                break;
+            default:
+                break;
         }
-        else if(this.janela.equals("Magnetizador"))
-        {
-            
+    }
+
+    private void alterarStatus() {
+        this.dispose();
+        menuOpcoesView = new MenuOpcoesView(null, true, "ALTERAR STATUS DO " + this.janela + "?");
+        menuOpcoesView.setVisible(true);
+        if (menuOpcoesView.flag == true) {
+            this.flag = true;
+        }
+    }
+
+    private void excluir() {
+        this.dispose();
+        menuOpcoesView = new MenuOpcoesView(null, true, "DESEJA EXCLUIR O " + this.janela + "?");
+        menuOpcoesView.setVisible(true);
+        if (menuOpcoesView.flagExcluir == true) {
+            exclusaoDados();
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JButton jbAlterarNome;
     private javax.swing.JButton jbAlterarStatus;
     private javax.swing.JButton jbExcluir;
+    private javax.swing.JMenuItem jmiExcluir;
+    private javax.swing.JMenuItem jmiNome;
     private javax.swing.JMenuItem jmiSair;
+    private javax.swing.JMenuItem jmiStatus;
     // End of variables declaration//GEN-END:variables
 
 }

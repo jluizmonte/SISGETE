@@ -325,9 +325,9 @@ public class PesquisaPacienteView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jrfStatusFichaActionPerformed
 
     private void jbResetarFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbResetarFiltrosActionPerformed
+        termoPesquisa = "";
+        pesquisaPaciente(1);
 
-        
-        
     }//GEN-LAST:event_jbResetarFiltrosActionPerformed
 
     private void popularTabela() {

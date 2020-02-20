@@ -2,7 +2,6 @@ package br.com.sisgete.controller;
 
 import br.com.sisgete.model.DAO.PacienteLogDAO;
 import br.com.sisgete.model.PacienteLogModel;
-import br.com.sisgete.model.PacienteModel;
 import java.util.ArrayList;
 
 /**
@@ -25,8 +24,11 @@ public class PacienteLogController {
         return this.pacienteLogDAO.getListaPacienteAtendimentoLogDAO();
     }
 
-    public int getQuantidadePaciente() {
-        return this.pacienteLogDAO.getQuatidadePaciente();
+    public int getQtdePacienteAtendimento() {
+        return this.pacienteLogDAO.getQtdePacienteAtendimento();
     }
 
+    public int getQtdePacienteConsulta() {
+        return this.pacienteLogDAO.getQtdePacienteConsulta();
+    }
 }

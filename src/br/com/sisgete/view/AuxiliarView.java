@@ -17,7 +17,6 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
     AuxiliarController auxiliarController = new AuxiliarController();
     AuxiliarModel auxiliarModel = new AuxiliarModel();
     ArrayList<AuxiliarModel> listaAuxiliarModels = new ArrayList<>();
-    MenuOpcoesView menuOpcoesView = new MenuOpcoesView(null, true, "VOCÊ QUER ALTERAR O STATUS DO AUXILIAR?");
 
     /**
      * Creates new form MagnetizadorView
@@ -226,10 +225,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
 
     private void jtAuxiliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtAuxiliarMouseClicked
 
-        menuOpcoesView.setVisible(true);
-        if (menuOpcoesView.flag == true) {
-            atualizarDados();
-        }
+        obterCodigo();
     }//GEN-LAST:event_jtAuxiliarMouseClicked
 
     private void limparCampos() {
@@ -253,8 +249,22 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
             carregarDados();
         } else {
             JOptionPane.showMessageDialog(this, "Status do auxiliar não alterado", "Erro", JOptionPane.ERROR_MESSAGE);
-            new LogCatch().writeLog("Erro ao alterar o status do auxliar");
+            new LogCatch().writeLog("Erro ao alterar o status do auxliar", getClass().toString());
         }
+    }
+
+    public void obterCodigo() {
+        int linha = jtAuxiliar.getSelectedRow();
+        int codigoAuxiliar = (int) jtAuxiliar.getValueAt(linha, 0);
+        OpcoesTabela opcoesTabela = new OpcoesTabela(null, true, codigoAuxiliar, "AUXILIAR");
+        opcoesTabela.setVisible(true);
+        if (opcoesTabela.flag == true) {
+            atualizarDados();
+        } 
+//        else {
+//            carregarDados();
+//            JOptionPane.showMessageDialog(null, "Operação cancelada pelo usuário!", "Cancelada", JOptionPane.WARNING_MESSAGE);
+//        }
     }
 
     private void salvarDados() {
@@ -267,7 +277,7 @@ public class AuxiliarView extends javax.swing.JInternalFrame {
             carregarDados();
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
-            new LogCatch().writeLog("Erro ao salvar os dados do auxiliar");
+            new LogCatch().writeLog("Erro ao salvar os dados do auxiliar", getClass().toString());
         }
     }
 

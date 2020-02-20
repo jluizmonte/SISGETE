@@ -21,7 +21,7 @@ public class CarregarFrame {
             } catch (InterruptedException ex) {
                 ex.getLocalizedMessage();
                 LogModel.logClass = this.getClass().getName();
-                logCatch.writeLog(String.valueOf(ex));
+                logCatch.writeLog(String.valueOf(ex), getClass().toString());
             }
             firstSplash.loadingnum.setText(Integer.toString(i) + "%");
             firstSplash.loadingbar.setValue(i);

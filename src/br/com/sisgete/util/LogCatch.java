@@ -22,7 +22,7 @@ public class LogCatch {
                 diretorio.mkdirs();
             } catch (Exception e) {
                 LogModel.logClass = this.getClass().getName();
-                new LogCatch().writeLog(String.valueOf(e));
+                new LogCatch().writeLog(String.valueOf(e), getClass().toString());
             }
         }
     }
@@ -37,16 +37,18 @@ public class LogCatch {
             logCat.createNewFile();
         } catch (IOException e) {
             LogModel.logClass = this.getClass().getName();
-            new LogCatch().writeLog(String.valueOf(e));
+            new LogCatch().writeLog(String.valueOf(e), getClass().toString());
         }
     }
 
     /**
-     * criacao do log
+     * inserção do LOG a cada erro
+     *
+     * @param classeGeradora
      *
      * @param log
      */
-    public void writeLog(String log) {
+    public void writeLog(String log, String classeGeradora) {
         logCat = new File(LogModel.userSystemFile);
         try {
             if (("".equals(log)) || (log == null)) {
@@ -64,7 +66,7 @@ public class LogCatch {
                 bufferedWriter.newLine();
                 bufferedWriter.write("usuário: " + SessaoModel.nomeUsuario);
                 bufferedWriter.newLine();
-                bufferedWriter.write("Classe geradora do log: " + getClass().toString());
+                bufferedWriter.write("Classe geradora do log: " + classeGeradora);
                 bufferedWriter.newLine();
                 bufferedWriter.write(new LogModel().logDateNow + ": " + log + "\n");
             }

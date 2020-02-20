@@ -11,10 +11,11 @@ import javax.swing.table.DefaultTableModel;
  * @author luiz
  */
 public class ListaPacientesDomingoView extends javax.swing.JInternalFrame {
-
+    
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
     ArrayList<PacienteModel> listaPacienteModel = new ArrayList<>();
+    DadosPacienteView dadosPacienteView = new DadosPacienteView(null, true);
 
     /**
      * Creates new form ListaPacientesDomingoView
@@ -24,7 +25,7 @@ public class ListaPacientesDomingoView extends javax.swing.JInternalFrame {
         popularTabela();
         corLinhaStatusPaciente();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,13 +71,21 @@ public class ListaPacientesDomingoView extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        jtPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtPacienteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtPaciente);
         if (jtPaciente.getColumnModel().getColumnCount() > 0) {
             jtPaciente.getColumnModel().getColumn(0).setPreferredWidth(25);
             jtPaciente.getColumnModel().getColumn(0).setMaxWidth(25);
             jtPaciente.getColumnModel().getColumn(2).setPreferredWidth(55);
             jtPaciente.getColumnModel().getColumn(2).setMaxWidth(55);
-            jtPaciente.getColumnModel().getColumn(3).setMaxWidth(80);
+            jtPaciente.getColumnModel().getColumn(3).setPreferredWidth(120);
+            jtPaciente.getColumnModel().getColumn(3).setMaxWidth(120);
+            jtPaciente.getColumnModel().getColumn(4).setPreferredWidth(120);
+            jtPaciente.getColumnModel().getColumn(4).setMaxWidth(120);
         }
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -130,17 +139,22 @@ public class ListaPacientesDomingoView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPacienteMouseClicked
+        enviarDados();
+    }//GEN-LAST:event_jtPacienteMouseClicked
+    
     private void corLinhaStatusPaciente() {
         ColorirLinhaTabelas colorirLinhaStatus = new ColorirLinhaTabelas(4);
         jtPaciente.getColumnModel().getColumn(4).setCellRenderer(colorirLinhaStatus);
     }
-
+    
     private void popularTabela() {
         listaPacienteModel = new ArrayList<>();
-        listaPacienteModel = pacienteController.getListaPacienteController();
+        listaPacienteModel = pacienteController.getListaPacienteAtivoController();
         DefaultTableModel modelo = (DefaultTableModel) jtPaciente.getModel();
         modelo.setNumRows(0);
-
+        
         int cont = listaPacienteModel.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
@@ -148,9 +162,26 @@ public class ListaPacientesDomingoView extends javax.swing.JInternalFrame {
                 listaPacienteModel.get(i).getNome(),
                 listaPacienteModel.get(i).getSetor(),
                 listaPacienteModel.get(i).getDataAtendimento(),
-                listaPacienteModel.get(i).getStatusTratamento(),
-            });
+                listaPacienteModel.get(i).getStatusTratamento(),});
         }
+    }
+    
+    private void enviarDados() {
+        pacienteModel = new PacienteModel();
+        int linha = jtPaciente.getSelectedRow();
+        int codigoPaciente = (int) jtPaciente.getValueAt(linha, 0);
+        pacienteModel = pacienteController.getPacienteController(codigoPaciente);
+        
+        dadosPacienteView.jlBairro.setText(pacienteModel.getBairro());
+        dadosPacienteView.jlCidade.setText(pacienteModel.getCidade());
+        dadosPacienteView.jlDataNascimento.setText(pacienteModel.getDataNascimento());
+        dadosPacienteView.jlEmail.setText(pacienteModel.getEmail());
+        dadosPacienteView.jlEndereco.setText(pacienteModel.getRua());
+        dadosPacienteView.jlIdade.setText(String.valueOf(pacienteModel.getIdade()));
+        dadosPacienteView.jlNome.setText(pacienteModel.getNome());
+        dadosPacienteView.jlNumImovel.setText(String.valueOf(pacienteModel.getNumCasa()));
+        dadosPacienteView.jlTelefone.setText(pacienteModel.getTelefone());
+        dadosPacienteView.setVisible(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

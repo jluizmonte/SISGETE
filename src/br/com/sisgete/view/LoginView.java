@@ -6,7 +6,6 @@ import br.com.sisgete.model.UsuarioModel;
 import br.com.sisgete.util.LogCatch;
 import br.com.sisgete.util.alerts.WarningAlertCerrar;
 import java.awt.Color;
-import java.awt.HeadlessException;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import javax.swing.ImageIcon;
@@ -291,7 +290,7 @@ public class LoginView extends javax.swing.JDialog {
             LoginView.lblInfo.setForeground(Color.red);
             clearFields();
             jtfUsuario.requestFocusInWindow();
-            new LogCatch().writeLog(lblInfo.getText());
+            new LogCatch().writeLog("Erro ao realizar o login, revise os dados ou procure o responsavel pelo setor", getClass().toString());
         }
 
     }

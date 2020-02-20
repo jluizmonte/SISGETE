@@ -23,7 +23,7 @@ public class ColorirLinhaTabelas extends DefaultTableCellRenderer {
         switch (table.getValueAt(row, colunaStatus).toString()) {
 
             case "LIBERADO":
-                setForeground(Color.WHITE);
+                setForeground(Color.BLACK);
                 setBackground(Color.GREEN);
                 setFont(font);
                 setHorizontalAlignment(CENTER);

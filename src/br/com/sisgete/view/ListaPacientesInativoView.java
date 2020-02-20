@@ -5,17 +5,14 @@ import br.com.sisgete.controller.PacienteController;
 import br.com.sisgete.model.FrequenciaTratamentoDomingoModel;
 import br.com.sisgete.model.PacienteFrequenciaModel;
 import br.com.sisgete.model.PacienteModel;
-import br.com.sisgete.util.ColorirLinhaTabelas;
 import java.util.ArrayList;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author luiz
  */
-public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
+public class ListaPacientesInativoView extends javax.swing.JInternalFrame {
 
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
@@ -31,7 +28,7 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
     /**
      * Creates new form ListaPacientesDomingoView
      */
-    public ListaPacientesLiberadoView() {
+    public ListaPacientesInativoView() {
         initComponents();
         popularTabela();
     }
@@ -50,7 +47,7 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("ARQUIVO MORTO - LIBERADOS");
+        setTitle("ARQUIVO MORTO");
 
         jPanel1.setBackground(new java.awt.Color(0, 112, 192));
 
@@ -64,17 +61,17 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
 
         jtPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "#", "NOME", "FICHA", "SETOR", "DATA"
+                "#", "NOME", "SETOR", "DATA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -84,10 +81,12 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
         jtPaciente.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jtPaciente);
         if (jtPaciente.getColumnModel().getColumnCount() > 0) {
+            jtPaciente.getColumnModel().getColumn(0).setPreferredWidth(35);
             jtPaciente.getColumnModel().getColumn(0).setMaxWidth(35);
-            jtPaciente.getColumnModel().getColumn(2).setMaxWidth(90);
-            jtPaciente.getColumnModel().getColumn(3).setMaxWidth(55);
-            jtPaciente.getColumnModel().getColumn(4).setMaxWidth(95);
+            jtPaciente.getColumnModel().getColumn(2).setPreferredWidth(70);
+            jtPaciente.getColumnModel().getColumn(2).setMaxWidth(70);
+            jtPaciente.getColumnModel().getColumn(3).setPreferredWidth(95);
+            jtPaciente.getColumnModel().getColumn(3).setMaxWidth(95);
         }
 
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
@@ -145,28 +144,19 @@ public class ListaPacientesLiberadoView extends javax.swing.JInternalFrame {
 
     private void popularTabela() {
         listaPacienteModel = new ArrayList<>();
-        listaTratamentoDomingoModels = new ArrayList<>();
-        listaFrequenciaModels = new ArrayList<>();
-        listaPacienteModel = pacienteController.getListaPacienteController();
-        listaTratamentoDomingoModels = frequenciaTratamentoDomingoController.getListaFrequenciaTratamentoDomingoController();
-        //    listaFrequenciaModels = pacienteController.getListaPacienteLiberadoDAO(1);
+        listaPacienteModel = pacienteController.getListaPacienteInativoDAO();
         DefaultTableModel modelo = (DefaultTableModel) jtPaciente.getModel();
         modelo.setNumRows(0);
+
         int cont = listaPacienteModel.size();
-//        for (int i = 0; i < cont; i++) {
-//            modelo.addRow(new Object[]{
-//                paciente.getIdPaciente(),
-//                paciente.getNome(),
-//                paciente.getSetor(),
-//                paciente.getStatusTratamento()
-//            });
-//        }
-        listaPacienteModel.forEach((paciente) -> {
-            paciente.getIdPaciente();
-            paciente.getNome();
-            paciente.getSetor();
-            paciente.getStatusTratamento();
-        });
+        for (int i = 0; i < cont; i++) {
+            modelo.addRow(new Object[]{
+                listaPacienteModel.get(i).getIdPaciente(),
+                listaPacienteModel.get(i).getNome(),
+                listaPacienteModel.get(i).getSetor(),
+                listaPacienteModel.get(i).getDataAtendimento()
+            });
+        }
     }
 
 

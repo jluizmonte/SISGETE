@@ -29,9 +29,9 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
         corLinhaStatusMagnetizador();
         setIconifiable(true);
         setClosable(true);
-        alignCenterTable(0);
-        alignCenterTable(1);
-        alignCenterTable(2);
+//        alignCenterTable(0);
+//        alignCenterTable(1);
+//        alignCenterTable(2);
     }
 
     @SuppressWarnings("unchecked")
@@ -231,7 +231,6 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
 
     private void jtMagnetizadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtMagnetizadorMouseClicked
         obterCodigo();
-
     }//GEN-LAST:event_jtMagnetizadorMouseClicked
 
     private void limparCampos() {
@@ -290,7 +289,7 @@ public class MagnetizadorView extends javax.swing.JInternalFrame {
     public void obterCodigo() {
         int linha = jtMagnetizador.getSelectedRow();
         int codigoMagnetizador = (int) jtMagnetizador.getValueAt(linha, 0);
-        OpcoesTabela opcoesTabela = new OpcoesTabela(null, true, codigoMagnetizador, "Magnetizador");
+        OpcoesTabela opcoesTabela = new OpcoesTabela(null, true, codigoMagnetizador, "MAGNETIZADOR");
         opcoesTabela.setVisible(true);
         if (opcoesTabela.flag == true) {
             atualizarDados();

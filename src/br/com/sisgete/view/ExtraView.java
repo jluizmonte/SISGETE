@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author luiz
  */
 public class ExtraView extends javax.swing.JInternalFrame {
-    
+
     UsuarioController usuarioController = new UsuarioController();
     UsuarioModel usuarioModel = new UsuarioModel();
     ArrayList<UsuarioModel> listaUsuarioModels = new ArrayList<>();
@@ -41,7 +41,7 @@ public class ExtraView extends javax.swing.JInternalFrame {
         alignCenterTable(2);
         alignCenterTable(3);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -374,39 +374,39 @@ public class ExtraView extends javax.swing.JInternalFrame {
     private void jtusuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtusuarioMouseClicked
         obterCodigo();
     }//GEN-LAST:event_jtusuarioMouseClicked
-    
+
     private void salvarDados() {
         usuarioModel.setNivelAcesso(jcbNivel.getSelectedItem().toString());
         usuarioModel.setNome(jtfNome.getText().toUpperCase());
         usuarioModel.setSenha(jtfSenha.getText());
         usuarioModel.setUsuario(jtfLogin.getText());
-        
+
         if (usuarioController.salvarUsuarioController(usuarioModel) > 0) {
             JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
             limparCampos();
             carregarDados();
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
-            new LogCatch().writeLog("Erro ao salvar o usuário.");
+            new LogCatch().writeLog("Erro ao salvar o usuário.", getClass().toString());
         }
     }
-    
+
     private void limparCampos() {
         jtfLogin.setText("");
         jtfNome.setText("");
         jtfSenha.setText("");
     }
-    
+
     private void dadosIniciais() {
         jtfNome.requestFocusInWindow();
     }
-    
+
     private void carregarDados() {
         listaUsuarioModels = new ArrayList<>();
         listaUsuarioModels = usuarioController.getListaUsuarioController();
         DefaultTableModel modelo = (DefaultTableModel) jtusuario.getModel();
         modelo.setNumRows(0);
-        
+
         int cont = listaUsuarioModels.size();
         for (int i = 0; i < cont; i++) {
             modelo.addRow(new Object[]{
@@ -417,7 +417,7 @@ public class ExtraView extends javax.swing.JInternalFrame {
             });
         }
     }
-    
+
     private void escolhaTema() {
         Object[] opcoes = {"METAL", "NIMBUS"};
         Object resposta;
@@ -437,42 +437,44 @@ public class ExtraView extends javax.swing.JInternalFrame {
             } catch (ParseException ex) {
                 Logger.getLogger(ExtraView.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "Nenhum tema será aplicado!", "Tema inalterado!",
                     JOptionPane.WARNING_MESSAGE);
         }
     }
-    
+
     public void updateLaf() throws ParseException {
         temaModel.setIdTema(1);
         temaModel.setTema(tema);
         if (temaController.atualizarTemaDAO(temaModel)) {
             JOptionPane.showMessageDialog(null, "O tema será carregado na próxima inicialização", "Atenção", JOptionPane.WARNING_MESSAGE);
+        } else {
+            new LogCatch().writeLog("Erro ao alterar o tema", this.getClass().toString());
         }
     }
-    
+
     public void obterCodigo() {
         int linha = jtusuario.getSelectedRow();
         int codigo = (int) jtusuario.getValueAt(linha, 0);
-        String janelaAberta = "Usuario";
+        String janelaAberta = "USUÁRIO";
         OpcoesTabela opcoesTabela = new OpcoesTabela(null, true, codigo, janelaAberta);
         opcoesTabela.setVisible(true);
         carregarDados();
     }
-    
+
     private void alignCenterTable(int column) {
-        
+
         DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
         DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
-        
+
         cellRenderer.setHorizontalAlignment(JLabel.CENTER);
         headerRenderer.setHorizontalAlignment(JLabel.CENTER);
         headerRenderer.setBackground(Color.lightGray);
-        
+
         jtusuario.getColumnModel().getColumn(column).setCellRenderer(cellRenderer);
         jtusuario.getColumnModel().getColumn(column).setHeaderRenderer(headerRenderer);
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

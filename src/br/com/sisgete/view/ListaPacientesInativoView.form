@@ -4,7 +4,7 @@
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="iconifiable" type="boolean" value="true"/>
-    <Property name="title" type="java.lang.String" value="ARQUIVO MORTO - LIBERADOS"/>
+    <Property name="title" type="java.lang.String" value="ARQUIVO MORTO"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -118,17 +118,16 @@
             <Component class="javax.swing.JTable" name="jtPaciente">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="4">
+                  <Table columnCount="4" rowCount="4">
                     <Column editable="false" title="#" type="java.lang.Object"/>
                     <Column editable="false" title="NOME" type="java.lang.Object"/>
-                    <Column editable="false" title="FICHA" type="java.lang.Object"/>
                     <Column editable="false" title="SETOR" type="java.lang.Object"/>
                     <Column editable="false" title="DATA" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="35" minWidth="-1" prefWidth="-1" resizable="true">
+                    <Column maxWidth="35" minWidth="-1" prefWidth="35" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
@@ -138,17 +137,12 @@
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="90" minWidth="-1" prefWidth="-1" resizable="true">
+                    <Column maxWidth="70" minWidth="-1" prefWidth="70" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="55" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="95" minWidth="-1" prefWidth="-1" resizable="true">
+                    <Column maxWidth="95" minWidth="-1" prefWidth="95" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>

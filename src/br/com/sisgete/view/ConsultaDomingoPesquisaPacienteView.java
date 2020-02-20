@@ -284,7 +284,7 @@ public class ConsultaDomingoPesquisaPacienteView extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Paciente inserido a lista de atendimento.", "Sucesso", JOptionPane.WARNING_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar as informações");
-            new LogCatch().writeLog("O paciente não foi inserido na lista, houve um erro");
+            new LogCatch().writeLog("O paciente não foi inserido na lista, houve um erro", getClass().toString());
         }
 
     }

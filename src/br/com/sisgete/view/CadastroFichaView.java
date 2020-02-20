@@ -10,7 +10,6 @@ import br.com.sisgete.model.SessaoModel;
 import br.com.sisgete.util.GetDateUtil;
 import br.com.sisgete.util.LogCatch;
 import br.com.sisgete.util.MedicamentoUtil;
-import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author luiz
  */
 public class CadastroFichaView extends javax.swing.JInternalFrame {
-    
+
     GetDateUtil getDateUtil = new GetDateUtil();
     PacienteController pacienteController = new PacienteController();
     PacienteModel pacienteModel = new PacienteModel();
@@ -34,7 +33,7 @@ public class CadastroFichaView extends javax.swing.JInternalFrame {
         initComponents();
         dadosIniciais();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -3035,7 +3034,7 @@ jPanel4Layout.setVerticalGroup(
     }//GEN-LAST:event_jbInfoPacienteActionPerformed
 
     private void jbFinalizarAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizarAtendimentoActionPerformed
-        
+
         Object[] opcoes = {"A1", "A2", "B1", "B2"};
         Object resposta;
         resposta = JOptionPane.showInputDialog(null,
@@ -3081,7 +3080,7 @@ jPanel4Layout.setVerticalGroup(
         int idade = anoAtual - anoAniversario;
         jlIdade.setText(String.valueOf(idade));
     }
-    
+
     private void limparSelecao() {
         jcbQuadroAngustia.setSelectedItem("SELECIONE");
         jcbQuadroAnsiedade.setSelectedItem("SELECIONE");
@@ -3108,7 +3107,7 @@ jPanel4Layout.setVerticalGroup(
         jcbQuadroVultos.setSelectedItem("SELECIONE");
         jcbQuadroZumbidos.setSelectedItem("SELECIONE");
     }
-    
+
     private void obterDadosTratamentoMedicamento() {
         //dados do paciente
         pacienteModel.setDataNascimento(jtfDataNascimento.getText());
@@ -3216,22 +3215,21 @@ jPanel4Layout.setVerticalGroup(
         quadroPsicofisicoModel.setTontura_intensidade(jcbQuadroTonturas.getSelectedItem().toString());
         quadroPsicofisicoModel.setVultos_intensidade(jcbQuadroVultos.getSelectedItem().toString());
         quadroPsicofisicoModel.setZumbidos_intensidade(jcbQuadroZumbidos.getSelectedItem().toString());
-        
+
         if (pacienteController.salvarPacienteController(pacienteModel) > 0) {
-            
             if (quadroPsicofisicoController.salvarQuadroPsicofisicoController(quadroPsicofisicoModel) > 0) {
                 JOptionPane.showMessageDialog(this, "Infomações salvas com sucesso!", "Sucesso", JOptionPane.WARNING_MESSAGE);
                 this.jpOutrasInfo.setVisible(false);
                 this.jpInfoPaciente.setVisible(true);
                 limparCampos();
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao salvar informações", "Erro", JOptionPane.ERROR_MESSAGE);
-            new LogCatch().writeLog("Erro ao salvar os dados do paciente.");
+            new LogCatch().writeLog("Erro ao salvar os dados do paciente.", getClass().toString());
         }
     }
-    
+
     private void limparCampos() {
         jtfBairro.setText("");
         jtfEmail.setText("");
@@ -3250,9 +3248,9 @@ jPanel4Layout.setVerticalGroup(
         jcbCidade.setSelectedItem("Abreu e Lima");
         jlIdade.setText("0");
         limparSelecao();
-        
+
     }
-    
+
     private void dadosIniciais() {
         jcbStatusAtiva.setSelected(true);
         jlAtendente.setText(SessaoModel.nomeUsuario);
@@ -3260,7 +3258,6 @@ jPanel4Layout.setVerticalGroup(
         jlIdade.setVisible(false);
         jLabel4.setVisible(false);
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

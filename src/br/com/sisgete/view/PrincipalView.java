@@ -24,7 +24,7 @@ public class PrincipalView extends javax.swing.JFrame {
     ConsultaDomingoView consultaDomingoView = new ConsultaDomingoView();
     ListaPacienteConsultaView listaPacienteView = new ListaPacienteConsultaView();
     ListaPacientesDomingoView listaPacientesDomingoView = new ListaPacientesDomingoView();
-    ListaPacientesLiberadoView listaPacientesLiberadoView = new ListaPacientesLiberadoView();
+    ListaPacientesInativoView listaPacientesLiberadoView = new ListaPacientesInativoView();
     ExtraView extraView = new ExtraView();
     GetDateUtil getDateUtil = new GetDateUtil();
 

@@ -2,6 +2,7 @@ package br.com.sisgete.model.DAO;
 
 import br.com.sisgete.connection.PacienteLogDB;
 import br.com.sisgete.model.PacienteLogModel;
+import br.com.sisgete.util.LogCatch;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,8 +30,7 @@ public class PacienteLogDAO extends PacienteLogDB {
             preparedStatement.setString(3, pacienteLogModel.getTipoPacienteLog());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            //  System.out.println(e);
-            e.printStackTrace();
+            new LogCatch().writeLog("Erro ao inserir paciente: " + e, this.getClass().toString());
             return 0;
         } finally {
             this.closeConection();
@@ -104,7 +104,24 @@ public class PacienteLogDAO extends PacienteLogDB {
         return listamodelPacienteLogModel;
     }
 
-    public int getQuatidadePaciente() {
+    public int getQtdePacienteAtendimento() {
+        int quantidadeTotal = 0;
+        try {
+            String sql = "SELECT count (*) AS total FROM tbl_paciente WHERE tipo='ATENDIMENTO'";
+            Connection conn = this.connect();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            quantidadeTotal = rs.getInt("total");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            this.closeConection();
+        }
+        return quantidadeTotal;
+    }
+
+    public int getQtdePacienteConsulta() {
         int quantidadeTotal = 0;
         try {
             String sql = "SELECT count (*) AS total FROM tbl_paciente WHERE tipo='CONSULTA'";

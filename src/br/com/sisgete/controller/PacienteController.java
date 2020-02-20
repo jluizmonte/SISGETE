@@ -1,7 +1,6 @@
 package br.com.sisgete.controller;
 
 import br.com.sisgete.model.DAO.PacienteDAO;
-import br.com.sisgete.model.PacienteFrequenciaModel;
 import br.com.sisgete.model.PacienteModel;
 import java.util.ArrayList;
 
@@ -14,7 +13,7 @@ public class PacienteController {
     PacienteDAO pacienteDAO = new PacienteDAO();
 
     /**
-     * grava Paciente
+     * salva um novo paciente
      *
      * @param pPacienteModel return int
      * @return
@@ -24,7 +23,7 @@ public class PacienteController {
     }
 
     /**
-     * recupera Paciente
+     * recupera um paciente pelo código
      *
      * @param pIdPaciente
      * @return PacienteModel
@@ -34,6 +33,7 @@ public class PacienteController {
     }
 
     /**
+     * recupera um paciente pelo nome
      *
      * @param pPaciente
      * @return
@@ -43,7 +43,7 @@ public class PacienteController {
     }
 
     /**
-     * recupera uma lista de Paciente
+     * recupera um arrayList com todos os pacientes
      *
      * @return ArrayList
      */
@@ -52,7 +52,7 @@ public class PacienteController {
     }
 
     /**
-     * recupera uma lista de Pacientes ativos
+     * recupera um arrayList com os pacientes com fichas ativas
      *
      * @return ArrayList
      */
@@ -61,12 +61,21 @@ public class PacienteController {
     }
 
     /**
+     * recupera um arrayList com os pacientes liberados
      *
-     * @param pCodigoPaciente
      * @return
      */
-    public ArrayList<PacienteFrequenciaModel> getListaPacienteLiberadoDAO(int pCodigoPaciente) {
-        return this.pacienteDAO.getListaPacienteLiberadoDAO(pCodigoPaciente);
+    public ArrayList<PacienteModel> getListaPacienteLiberadoDAO() {
+        return this.pacienteDAO.getListaPacienteLiberadoDAO();
+    }
+
+    /**
+     * recupera um arrayList com os pacientes com fichas ativas
+     *
+     * @return
+     */
+    public ArrayList<PacienteModel> getListaPacienteInativoDAO() {
+        return this.pacienteDAO.getListaPacienteInativoDAO();
     }
 
     /**
