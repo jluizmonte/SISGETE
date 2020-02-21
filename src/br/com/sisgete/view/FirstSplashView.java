@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 public class FirstSplashView extends javax.swing.JFrame {
 
     public FirstSplashView() {
-        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
+        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/logo.png")).getImage());
         setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);

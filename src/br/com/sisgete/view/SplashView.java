@@ -12,7 +12,7 @@ public class SplashView extends javax.swing.JFrame {
      * Creates new form SplashView
      */
     public SplashView() {
-        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
+        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/logo.png")).getImage());
         setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);

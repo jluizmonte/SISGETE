@@ -29,7 +29,7 @@ public class LoginView extends javax.swing.JDialog {
      */
     public LoginView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/LogotipoFECMA.jpg")).getImage());
+        this.setIconImage(new ImageIcon(getClass().getResource("/br/com/sisgete/images/others/logo.png")).getImage());
         this.setLocation(400, 100);
         setUndecorated(true);
         initComponents();
