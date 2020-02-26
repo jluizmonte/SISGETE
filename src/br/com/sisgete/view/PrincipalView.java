@@ -38,7 +38,7 @@ public class PrincipalView extends javax.swing.JFrame {
         setarData();
         dadosIniciais();
         desabilitarItens();
-//  setarNivel();
+        setarNivel();
     }
 
     @SuppressWarnings("unchecked")
@@ -95,7 +95,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbCadastroPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbCadastroPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-24.png"))); // NOI18N
         jbCadastroPaciente.setText("Ficha paciente");
-        jbCadastroPaciente.setEnabled(false);
         jbCadastroPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCadastroPacienteActionPerformed(evt);
@@ -105,7 +104,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbPesquisaPaciente.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbPesquisaPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-24.png"))); // NOI18N
         jbPesquisaPaciente.setText("Pesquisar  paciente");
-        jbPesquisaPaciente.setEnabled(false);
         jbPesquisaPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPesquisaPacienteActionPerformed(evt);
@@ -115,7 +113,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbFrequenciaDomingo.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbFrequenciaDomingo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24.png"))); // NOI18N
         jbFrequenciaDomingo.setText("Frequencia Domingo");
-        jbFrequenciaDomingo.setEnabled(false);
         jbFrequenciaDomingo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbFrequenciaDomingoActionPerformed(evt);
@@ -125,7 +122,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbFrequenciaQuinta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbFrequenciaQuinta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24 (1).png"))); // NOI18N
         jbFrequenciaQuinta.setText("Frequencia Quinta");
-        jbFrequenciaQuinta.setEnabled(false);
         jbFrequenciaQuinta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbFrequenciaQuintaActionPerformed(evt);
@@ -135,7 +131,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbFrequenciaTerca.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbFrequenciaTerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24ter.png"))); // NOI18N
         jbFrequenciaTerca.setText("Frequencia Terça");
-        jbFrequenciaTerca.setEnabled(false);
         jbFrequenciaTerca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbFrequenciaTercaActionPerformed(evt);
@@ -145,7 +140,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbMagnetizador.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbMagnetizador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
         jbMagnetizador.setText("Magenetizador");
-        jbMagnetizador.setEnabled(false);
         jbMagnetizador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbMagnetizadorActionPerformed(evt);
@@ -155,7 +149,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbAuxiliar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbAuxiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
         jbAuxiliar.setText("Auxiliar");
-        jbAuxiliar.setEnabled(false);
         jbAuxiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAuxiliarActionPerformed(evt);
@@ -176,7 +169,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbExtra.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbExtra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
         jbExtra.setText("Extra");
-        jbExtra.setEnabled(false);
         jbExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbExtraActionPerformed(evt);
@@ -186,7 +178,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbAtendimento.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbAtendimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-na-lista-24.png"))); // NOI18N
         jbAtendimento.setText("Atendimento");
-        jbAtendimento.setEnabled(false);
         jbAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAtendimentoActionPerformed(evt);
@@ -244,7 +235,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jbConsulta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jbConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-lista-24.png"))); // NOI18N
         jbConsulta.setText("Lista Consulta");
-        jbConsulta.setEnabled(false);
         jbConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConsultaActionPerformed(evt);
@@ -412,7 +402,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiCadastroPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-24.png"))); // NOI18N
         jmiCadastroPaciente.setText("Novo Paciente");
         jmiCadastroPaciente.setToolTipText("Abrir ficha novo paciente");
-        jmiCadastroPaciente.setEnabled(false);
         jmiCadastroPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiCadastroPacienteActionPerformed(evt);
@@ -425,7 +414,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiPesquisaPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-24.png"))); // NOI18N
         jmiPesquisaPaciente.setText("Pesquisar paciente");
         jmiPesquisaPaciente.setToolTipText("");
-        jmiPesquisaPaciente.setEnabled(false);
         jmiPesquisaPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiPesquisaPacienteActionPerformed(evt);
@@ -438,7 +426,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiAtendimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pesquisar-na-lista-24.png"))); // NOI18N
         jmiAtendimento.setText("Atendimento");
         jmiAtendimento.setToolTipText("Separar fichas para tratamento ou consulta");
-        jmiAtendimento.setEnabled(false);
         jmiAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiAtendimentoActionPerformed(evt);
@@ -451,7 +438,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-lista-24.png"))); // NOI18N
         jmiConsulta.setText("Pacientes Consulta");
         jmiConsulta.setToolTipText("Lista de pacientes para  consulta");
-        jmiConsulta.setEnabled(false);
         jmiConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiConsultaActionPerformed(evt);
@@ -469,7 +455,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiFrequenciaDomingo.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiFrequenciaDomingo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24.png"))); // NOI18N
         jmiFrequenciaDomingo.setText("Frequência Domingo");
-        jmiFrequenciaDomingo.setEnabled(false);
         jmiFrequenciaDomingo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiFrequenciaDomingoActionPerformed(evt);
@@ -481,7 +466,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiFrequenciaQuinta.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiFrequenciaQuinta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24 (1).png"))); // NOI18N
         jmiFrequenciaQuinta.setText("Frequência Quinta");
-        jmiFrequenciaQuinta.setEnabled(false);
         jmiFrequenciaQuinta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiFrequenciaQuintaActionPerformed(evt);
@@ -493,7 +477,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiFrequenciaTerca.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiFrequenciaTerca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-tag-rfid-24ter.png"))); // NOI18N
         jmiFrequenciaTerca.setText("Frequência Terça");
-        jmiFrequenciaTerca.setEnabled(false);
         jmiFrequenciaTerca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiFrequenciaTercaActionPerformed(evt);
@@ -505,7 +488,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiMagnetizador.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiMagnetizador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
         jmiMagnetizador.setText("Novo Magnetizador");
-        jmiMagnetizador.setEnabled(false);
         jmiMagnetizador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiMagnetizadorActionPerformed(evt);
@@ -517,7 +499,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiAuxiliar.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiAuxiliar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-adicionar-usuário-masculino-241.png"))); // NOI18N
         jmiAuxiliar.setText("Novo Auxiliar");
-        jmiAuxiliar.setEnabled(false);
         jmiAuxiliar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiAuxiliarActionPerformed(evt);
@@ -529,7 +510,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiExtras.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiExtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"))); // NOI18N
         jmiExtras.setText("Funções Extras");
-        jmiExtras.setEnabled(false);
         jmiExtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiExtrasActionPerformed(evt);
@@ -541,7 +521,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiPacienteDomingo.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiPacienteDomingo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-pessoas-multiculturais-24.png"))); // NOI18N
         jmiPacienteDomingo.setText("Lista de Pacientes (DOMINGO)");
-        jmiPacienteDomingo.setEnabled(false);
         jmiPacienteDomingo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiPacienteDomingoActionPerformed(evt);
@@ -553,7 +532,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jmiPacienteLiberado.setFont(new java.awt.Font("DejaVu Sans", 0, 14)); // NOI18N
         jmiPacienteLiberado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/sisgete/images/icons/icons8-abrir-documento-24.png"))); // NOI18N
         jmiPacienteLiberado.setText("Lista de Pacientes (LIBERADOS E INATIVOS)");
-        jmiPacienteLiberado.setEnabled(false);
         jmiPacienteLiberado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiPacienteLiberadoActionPerformed(evt);
@@ -764,13 +742,11 @@ public class PrincipalView extends javax.swing.JFrame {
                 jmiAtendimento.setEnabled(true);
                 jbConsulta.setEnabled(true);
                 jmiConsulta.setEnabled(true);
+                jbFrequenciaTerca.setEnabled(true);
+                jmiFrequenciaTerca.setEnabled(true);
                 break;
 
             case "MAGNETIZADOR/AUXILIAR":
-                jbFrequenciaTerca.setEnabled(true);
-                jmiFrequenciaTerca.setEnabled(true);
-                jbFrequenciaQuinta.setEnabled(true);
-                jmiFrequenciaQuinta.setEnabled(true);
                 jbFrequenciaDomingo.setEnabled(true);
                 jmiFrequenciaDomingo.setEnabled(true);
                 break;
@@ -782,30 +758,30 @@ public class PrincipalView extends javax.swing.JFrame {
 
     private void desabilitarItens() {
         //funções básicas
-        jbCadastroPaciente.setEnabled(true);
-        jbConsulta.setEnabled(true);
-        jbPesquisaPaciente.setEnabled(true);
-        jbAtendimento.setEnabled(true);
+        jbCadastroPaciente.setEnabled(false);
+        jbConsulta.setEnabled(false);
+        jbPesquisaPaciente.setEnabled(false);
+        jbAtendimento.setEnabled(false);
         // funções avançadas
-        jbFrequenciaDomingo.setEnabled(true);
-        jbFrequenciaQuinta.setEnabled(true);
-        jbFrequenciaTerca.setEnabled(true);
-        jbMagnetizador.setEnabled(true);
-        jbAuxiliar.setEnabled(true);
-        jbExtra.setEnabled(true);
+        jbFrequenciaDomingo.setEnabled(false);
+        jbFrequenciaQuinta.setEnabled(false);
+        jbFrequenciaTerca.setEnabled(false);
+        jbMagnetizador.setEnabled(false);
+        jbAuxiliar.setEnabled(false);
+        jbExtra.setEnabled(false);
         // funções extras
-        jmiPacienteLiberado.setEnabled(true);
-        jmiPacienteDomingo.setEnabled(true);
-        jmiCadastroPaciente.setEnabled(true);
-        jmiConsulta.setEnabled(true);
-        jmiFrequenciaTerca.setEnabled(true);
-        jmiFrequenciaQuinta.setEnabled(true);
-        jmiFrequenciaDomingo.setEnabled(true);
-        jmiAtendimento.setEnabled(true);
-        jmiAuxiliar.setEnabled(true);
-        jmiExtras.setEnabled(true);
-        jmiMagnetizador.setEnabled(true);
-        jmiPesquisaPaciente.setEnabled(true);
+        jmiPacienteLiberado.setEnabled(false);
+        jmiPacienteDomingo.setEnabled(false);
+        jmiCadastroPaciente.setEnabled(false);
+        jmiConsulta.setEnabled(false);
+        jmiFrequenciaTerca.setEnabled(false);
+        jmiFrequenciaQuinta.setEnabled(false);
+        jmiFrequenciaDomingo.setEnabled(false);
+        jmiAtendimento.setEnabled(false);
+        jmiAuxiliar.setEnabled(false);
+        jmiExtras.setEnabled(false);
+        jmiMagnetizador.setEnabled(false);
+        jmiPesquisaPaciente.setEnabled(false);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;

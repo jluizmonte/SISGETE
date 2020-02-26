@@ -66,7 +66,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Novo Paciente"/>
                     <Property name="toolTipText" type="java.lang.String" value="Abrir ficha novo paciente"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiCadastroPacienteActionPerformed"/>
@@ -85,7 +84,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pesquisar paciente"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiPesquisaPacienteActionPerformed"/>
@@ -104,7 +102,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Atendimento"/>
                     <Property name="toolTipText" type="java.lang.String" value="Separar fichas para tratamento ou consulta"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiAtendimentoActionPerformed"/>
@@ -123,7 +120,6 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pacientes Consulta"/>
                     <Property name="toolTipText" type="java.lang.String" value="Lista de pacientes para  consulta"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiConsultaActionPerformed"/>
@@ -154,7 +150,6 @@
                       <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-tag-rfid-24.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Frequ&#xea;ncia Domingo"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiFrequenciaDomingoActionPerformed"/>
@@ -172,7 +167,6 @@
                       <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-tag-rfid-24 (1).png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Frequ&#xea;ncia Quinta"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiFrequenciaQuintaActionPerformed"/>
@@ -190,7 +184,6 @@
                       <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-tag-rfid-24ter.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Frequ&#xea;ncia Ter&#xe7;a"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiFrequenciaTercaActionPerformed"/>
@@ -208,7 +201,6 @@
                       <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-adicionar-usu&#xe1;rio-masculino-241.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Novo Magnetizador"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiMagnetizadorActionPerformed"/>
@@ -226,7 +218,6 @@
                       <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-adicionar-usu&#xe1;rio-masculino-241.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Novo Auxiliar"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiAuxiliarActionPerformed"/>
@@ -244,7 +235,6 @@
                       <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Fun&#xe7;&#xf5;es Extras"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiExtrasActionPerformed"/>
@@ -262,7 +252,6 @@
                       <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-pessoas-multiculturais-24.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Lista de Pacientes (DOMINGO)"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiPacienteDomingoActionPerformed"/>
@@ -280,7 +269,6 @@
                       <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-abrir-documento-24.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Lista de Pacientes (LIBERADOS E INATIVOS)"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiPacienteLiberadoActionPerformed"/>
@@ -484,7 +472,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-adicionar-usu&#xe1;rio-masculino-24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ficha paciente"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbCadastroPacienteActionPerformed"/>
@@ -499,7 +486,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-pesquisar-24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pesquisar  paciente"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbPesquisaPacienteActionPerformed"/>
@@ -514,7 +500,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-tag-rfid-24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Frequencia Domingo"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbFrequenciaDomingoActionPerformed"/>
@@ -529,7 +514,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-tag-rfid-24 (1).png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Frequencia Quinta"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbFrequenciaQuintaActionPerformed"/>
@@ -544,7 +528,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-tag-rfid-24ter.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Frequencia Ter&#xe7;a"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbFrequenciaTercaActionPerformed"/>
@@ -559,7 +542,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-adicionar-usu&#xe1;rio-masculino-241.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Magenetizador"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbMagnetizadorActionPerformed"/>
@@ -574,7 +556,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-adicionar-usu&#xe1;rio-masculino-241.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Auxiliar"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAuxiliarActionPerformed"/>
@@ -610,7 +591,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-funcionalidades-extra-24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Extra"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbExtraActionPerformed"/>
@@ -627,7 +607,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-pesquisar-na-lista-24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Atendimento"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAtendimentoActionPerformed"/>
@@ -741,7 +720,6 @@
                   <Image iconType="3" name="/br/com/sisgete/images/icons/icons8-lista-24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Lista Consulta"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbConsultaActionPerformed"/>
