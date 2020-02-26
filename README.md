@@ -24,7 +24,7 @@ Desenvolvedor:  `José Luiz` <br/>
 - [x] Criação do Diagrama Entidade Relacionamento (DER);</br>
 - [x] Criação do projeto lógico do banco de dados;</br>
 
-### FASE 3 `EM ANDAMENTO`:
+### FASE 3 `CONCLUÍDA`:
 - [x] Escolha da IDE e linguagem de programação `NETBEANS` e `JAVA`</br>
 - [x] Criação das janelas referente ao primeiro acesso ao sistema `Splash` e `Login`;</br>
 - [x] Criação da janela referente ao cadastro e consulta de pacientes;</br>
